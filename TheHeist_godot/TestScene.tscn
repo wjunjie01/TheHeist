@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpnj1a4engvuc"]
+
+[ext_resource type="Texture2D" uid="uid://b8jlvvgalm0of" path="res://Art/rect.png" id="1_ha630"]
+[ext_resource type="PackedScene" uid="uid://iaa5mmjrbon8" path="res://player.tscn" id="2_vg448"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u53jw"]
+size = Vector2(186, 51)
+
+[node name="TestScene" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(48, 185)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(360.5, 435.5)
+shape = SubResource("RectangleShape2D_u53jw")
+
+[node name="Rect" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(360.5, 435)
+texture = ExtResource("1_ha630")
+
+[node name="Player" parent="." instance=ExtResource("2_vg448")]
