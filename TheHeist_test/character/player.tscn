@@ -191,7 +191,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wtk20")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump_air",
 "speed": 10.0
 }, {
@@ -289,9 +289,8 @@ script = ExtResource("1_yl3vy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_302lj")
-animation = &"idle"
+animation = &"jump_air"
 autoplay = "idle"
-frame_progress = 0.179158
 centered = false
 offset = Vector2(-32, -32)
 
