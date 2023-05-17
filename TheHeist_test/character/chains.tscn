@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://daigjxd2v15dq"]
+
+[ext_resource type="Script" path="res://Chains.gd" id="1_j6klp"]
+[ext_resource type="Texture2D" uid="uid://5trffmovthu2" path="res://art/grappling_hook/link.png" id="2_3xkdp"]
+[ext_resource type="Texture2D" uid="uid://ddvxkc51q0ihj" path="res://art/grappling_hook/hook.png" id="3_00s7y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k80n6"]
+radius = 6.0
+
+[node name="Chains" type="Node2D"]
+script = ExtResource("1_j6klp")
+
+[node name="Links" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_3xkdp")
+centered = false
+offset = Vector2(-8, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 1000)
+
+[node name="Tip" type="CharacterBody2D" parent="."]
+collision_layer = 4
+
+[node name="Hook" type="Sprite2D" parent="Tip"]
+texture = ExtResource("3_00s7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_k80n6")

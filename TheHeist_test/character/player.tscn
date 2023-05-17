@@ -297,3 +297,5 @@ offset = Vector2(-32, -32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_w0oco")
+
+[node name="Camera2D" type="Camera2D" parent="."]
