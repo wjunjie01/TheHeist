@@ -9,9 +9,21 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction
 var screen_size = Vector2.ZERO
 var animation_locked : bool = false #if == true an animation is playing 
+var isGrappling : bool = false
+var grapplePoint
 
 func _ready():
 	screen_size = get_viewport_rect().size 
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == 1:
+			if event.is_pressed():
+				isGrappling = true
+				grapplePoint = get_global_mouse_position()
+			else:
+				isGrappling = false
+
 
 func _physics_process(delta):
 	# Get the input direction and returns a float +ve if right -ve if left
@@ -38,6 +50,10 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = 0
+	
+	if isGrappling:
+		var direction = (grapplePoint - position).normalized()
+		velocity += direction * 2000 * delta
 	
 	update_animation()
 	move_and_slide()
