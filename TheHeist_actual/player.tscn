@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://bapt865ix6sf0"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_c02i6"]
+[ext_resource type="Texture2D" uid="uid://c61d6ppy0q50h" path="res://art/Main_character/spritesheet.png" id="1_j7fdn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwrt6"]
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_841lt"]
+atlas = ExtResource("1_j7fdn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4arh"]
+atlas = ExtResource("1_j7fdn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3d84"]
+atlas = ExtResource("1_j7fdn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6blqs"]
+atlas = ExtResource("1_j7fdn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8je6"]
+atlas = ExtResource("1_j7fdn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbdbo"]
+atlas = ExtResource("1_j7fdn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te1wy"]
+atlas = ExtResource("1_j7fdn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcprk"]
+atlas = ExtResource("1_j7fdn")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4k2eq"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_841lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4arh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3d84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6blqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8je6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbdbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te1wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcprk")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_c02i6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pwrt6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4k2eq")
+animation = &"run"
+frame_progress = 0.307599
