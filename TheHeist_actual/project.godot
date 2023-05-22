@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="The Heist Actual"
+run/main_scene="res://player.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
