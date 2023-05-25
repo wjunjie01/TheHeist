@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Heist Actual"
-run/main_scene="res://player.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -42,3 +42,7 @@ jump={
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Hook"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

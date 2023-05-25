@@ -44,11 +44,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwrt6"]
-height = 36.0
+height = 58.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c02i6")
@@ -57,12 +57,13 @@ script = ExtResource("1_c02i6")
 position = Vector2(-3.8147e-06, 2.86102e-06)
 scale = Vector2(3.42188, 3.125)
 sprite_frames = SubResource("SpriteFrames_4k2eq")
-animation = &"idle"
+animation = &"run"
+frame_progress = 0.571885
 
 [node name="Chain" parent="." instance=ExtResource("2_xjydq")]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(2, 3)
+position = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_pwrt6")

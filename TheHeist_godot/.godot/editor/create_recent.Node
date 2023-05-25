@@ -1,0 +1,10 @@
+RayCast2D
+TileMap
+TextureRect
+Sprite2D
+StaticBody2D
+CollisionShape2D
+Node2D
+AnimatedSprite2D
+CharacterBody2D
+Area2D

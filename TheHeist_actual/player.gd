@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const CHAIN_PULL = 30
+signal grapple_hook
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -70,3 +71,6 @@ func update_animation():
 			$AnimatedSprite2D.play("run")
 		if direction == 0 and is_on_floor():
 			$AnimatedSprite2D.play("idle")
+
+
+
