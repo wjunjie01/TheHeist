@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://514xmr6q7sju"
-path="res://.godot/imported/walls.png-b2f24b30982a0ef9a50afb9aad61b57e.ctex"
+uid="uid://bt8hpwy8surn5"
+path="res://.godot/imported/hook.png-2c14a535698c73cc177d101c2798806f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/new_art/walls.png"
-dest_files=["res://.godot/imported/walls.png-b2f24b30982a0ef9a50afb9aad61b57e.ctex"]
+source_file="res://art/hook.png"
+dest_files=["res://.godot/imported/hook.png-2c14a535698c73cc177d101c2798806f.ctex"]
 
 [params]
 

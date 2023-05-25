@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bapt865ix6sf0"]
+[gd_scene load_steps=27 format=3 uid="uid://bapt865ix6sf0"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_c02i6"]
 [ext_resource type="Texture2D" uid="uid://cvf0uhk14jers" path="res://art/new_art/main_char/Idle and running.png" id="2_qplky"]
+[ext_resource type="PackedScene" uid="uid://bvi4xetnkjgb2" path="res://chain.tscn" id="2_xjydq"]
 [ext_resource type="Texture2D" uid="uid://smgsccs5m0j6" path="res://art/new_art/main_char/Jumping.png" id="3_2s7pk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wvyd"]
@@ -132,6 +133,11 @@ animations = [{
 "name": &"jump",
 "speed": 10.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"low_attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vgxu4")
@@ -168,10 +174,11 @@ height = 36.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c02i6")
 
+[node name="Chain" parent="." instance=ExtResource("2_xjydq")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4k2eq")
-animation = &"idle"
-frame_progress = 0.207483
+animation = &"low_attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 3)
