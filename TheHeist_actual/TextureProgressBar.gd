@@ -11,7 +11,7 @@ func _input( event ):
 		elif event.button_index == 1 and not event.is_pressed():
 				mouse_left_down = false
 
-func _process(delta):
+func _process(_delta):
 	if mouse_left_down:
 		value -= 0.5
 	else:

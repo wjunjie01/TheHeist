@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_3owmc"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="2_4itd2"]
-[ext_resource type="Texture2D" uid="uid://514xmr6q7sju" path="res://art/new_art/walls.png" id="2_55chg"]
-[ext_resource type="Texture2D" uid="uid://vvvhwayhunq6" path="res://art/new_art/terrain.png" id="2_nkif5"]
+[ext_resource type="Texture2D" uid="uid://dbowxu1omj2g0" path="res://art/new_art/walls.png" id="2_55chg"]
+[ext_resource type="Texture2D" uid="uid://bwdiutf1pkjws" path="res://art/new_art/terrain.png" id="2_nkif5"]
 [ext_resource type="PackedScene" uid="uid://c7mijiklbmm51" path="res://stamina_bar.tscn" id="5_c4tst"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xp1n7"]

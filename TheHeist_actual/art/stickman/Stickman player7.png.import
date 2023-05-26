@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm0b1p5do7gxq"
-path="res://.godot/imported/Low attack.png-066262df357afb64198d9cac262f7d9a.ctex"
+uid="uid://bakciwwoojspf"
+path="res://.godot/imported/Stickman player7.png-e52956980bb28d312611b8736e8b9918.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/new_art/main_char/Low attack.png"
-dest_files=["res://.godot/imported/Low attack.png-066262df357afb64198d9cac262f7d9a.ctex"]
+source_file="res://art/stickman/Stickman player7.png"
+dest_files=["res://.godot/imported/Stickman player7.png-e52956980bb28d312611b8736e8b9918.ctex"]
 
 [params]
 

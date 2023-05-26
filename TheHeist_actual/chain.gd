@@ -19,7 +19,7 @@ func release() -> void:
 	hooked = false
 
 #runs every frame to update the appearance of the chain
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.visible = flying or hooked #Make this entire node visible if it's flying or hooked
 	if not self.visible:
 		return
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	links.region_rect.size.y = 2 * tip_loc.length() #extend the chain,frame by frame to match the length of tiploc
 	
 #runs every frame
-func _physics_process(delta:float) -> void:
+func _physics_process(_delta:float) -> void:
 	$Tip.global_position = tip #tip is already shifted, change the image position
 	if flying:
 		if $Tip.move_and_collide(direction * SPEED): #hit an obstacle

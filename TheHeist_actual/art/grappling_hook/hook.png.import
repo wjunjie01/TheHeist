@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c52nna7qevkyc"
-path="res://.godot/imported/Normal Attack.png-7f0fde29b919a12a2ba88d4b6b4e6a82.ctex"
+uid="uid://bt8hpwy8surn5"
+path="res://.godot/imported/hook.png-b221d30da5e12e0d9fd0dca2ba2de570.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/new_art/main_char/Normal Attack.png"
-dest_files=["res://.godot/imported/Normal Attack.png-7f0fde29b919a12a2ba88d4b6b4e6a82.ctex"]
+source_file="res://art/grappling_hook/hook.png"
+dest_files=["res://.godot/imported/hook.png-b221d30da5e12e0d9fd0dca2ba2de570.ctex"]
 
 [params]
 

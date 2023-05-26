@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvf0uhk14jers"
-path="res://.godot/imported/Idle and running.png-09dc865c40107e66f4e930a486bbfdb9.ctex"
+uid="uid://cce6lmqqcd0c6"
+path="res://.godot/imported/link.png-0602c6203b4f44801e860d66b7a5315f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/new_art/main_char/Idle and running.png"
-dest_files=["res://.godot/imported/Idle and running.png-09dc865c40107e66f4e930a486bbfdb9.ctex"]
+source_file="res://art/grappling_hook/link.png"
+dest_files=["res://.godot/imported/link.png-0602c6203b4f44801e860d66b7a5315f.ctex"]
 
 [params]
 
