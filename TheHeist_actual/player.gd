@@ -72,5 +72,5 @@ func update_animation():
 		if direction == 0 and is_on_floor():
 			$AnimatedSprite2D.play("idle")
 
-
-
+func _on_stamina_bar_no_stamina():
+	$Chain.release()
