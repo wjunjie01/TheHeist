@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvi4xetnkjgb2"]
 
-[ext_resource type="Texture2D" uid="uid://cce6lmqqcd0c6" path="res://art/link.png" id="1_gucop"]
+[ext_resource type="Texture2D" uid="uid://cce6lmqqcd0c6" path="res://art/grappling_hook/link.png" id="1_gucop"]
 [ext_resource type="Script" path="res://chain.gd" id="1_mlmle"]
-[ext_resource type="Texture2D" uid="uid://bt8hpwy8surn5" path="res://art/hook.png" id="2_4nr1v"]
+[ext_resource type="Texture2D" uid="uid://bt8hpwy8surn5" path="res://art/grappling_hook/hook.png" id="2_4nr1v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7jh1"]
 radius = 3.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hot4erafavk1"
-path="res://.godot/imported/Death.png-f2aef8356a71cc167e0823d562d66b4d.ctex"
+uid="uid://uwdjo34vj7yv"
+path="res://.godot/imported/14.png-d9fa4014def253b08affcaa50e486f65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/enemy/Free City Enemies Pixel Art/2/Death.png"
-dest_files=["res://.godot/imported/Death.png-f2aef8356a71cc167e0823d562d66b4d.ctex"]
+source_file="res://art/bullet/14.png"
+dest_files=["res://.godot/imported/14.png-d9fa4014def253b08affcaa50e486f65.ctex"]
 
 [params]
 
