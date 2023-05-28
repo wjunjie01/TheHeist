@@ -7,10 +7,7 @@ We are inspired by the gameplay demo of a work-in-progress 2D platformer stealth
 
 [![Mini-stealth](https://img.itch.zone/aW1hZ2UvMTY0NjcwNC85Njg3NzkzLmdpZg==/original/gK%2FWMZ.gif)](https://www.youtube.com/watch?v=JVWB5J3F048)
 
-https://www.youtube.com/watch?v=JVWB5J3F048
-
-
-We were also inspired by various award-winning 2D Platformer games such as the dynamic map and movement from Celeste and the animation and fast-paced action from Katana Zero.
+We were also inspired by various award-winning 2D Platformer games such as the dynamic map and movement from [Celeste](https://www.celestegame.com/) and the animation and fast-paced action from [Katana Zero](https://store.steampowered.com/app/460950/Katana_ZERO/).
 
 <div style="display:flex, padding: 10px;">
     <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg" alt="Image 1" style="width:40%">
