@@ -22,24 +22,22 @@ We decided to create our own version, The Heist. It will be a single player, 2D 
 Player controls 1 character and utilises the environment to take down enemies. Our idea of The Heist is to progress through different stages without being spotted by enemies, while getting closer to the main goal of freeing slaves and stealing gold. There will be a total of 10 stages for players to try out. Game will be a move-and-click game, which relies on players to move with the WASD keys and aiming grappling hook with the mouse.
 
 
-###Character Designs and Art style:
+## Character-design / art-styles: 
 
 Character Design: 
-- [Hooded Protagonist by Penzilla:] (https://penzilla.itch.io/hooded-protagonist)
-- [Hook design:] (https://gitlab.com/godotdemos/hook-demo)
+- [Hooded Protagonist by Penzilla:](https://penzilla.itch.io/hooded-protagonist)
+- [Hook design:](https://gitlab.com/godotdemos/hook-demo)
 
 Enemy design: 
 
-[This is an external link to genome.gov](https://www.genome.gov/
 
 Village design
-- [Spring design by JeanMakesGames:] (https://opengameart.org/content/ground-tileset-player-animation-youtube-2d-metroidvania-tutorial)
-- [Spike design by Kenney:] (https://kenney.nl/assets/pixel-platformer)
-- [Gothicvania Town by ansimuz:] (https://ansimuz.itch.io/gothicvania-town)
-- [Pixel art platformer by Cainos:] (https://cainos.itch.io/pixel-art-platformer-village-props?download) 
+- [Spring design by JeanMakesGames](https://opengameart.org/content/ground-tileset-player-animation-youtube-2d-metroidvania-tutorial)
+- [Spike design by Kenney](https://kenney.nl/assets/pixel-platformer)
+- [Gothicvania Town by ansimuz](https://ansimuz.itch.io/gothicvania-town)
+- [Pixel art platformer by Cainos](https://cainos.itch.io/pixel-art-platformer-village-props?download) 
 
-###Tech Stack:
-
+## Tech stack:
 
 - Godot
 The main game engine we will use.
@@ -47,5 +45,7 @@ The main game engine we will use.
 - GDScript
 We will be using Godot’s built in language to code.
 
-###Milestone 1:
+## Milestone-1:
+
+
 
