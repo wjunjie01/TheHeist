@@ -1,8 +1,6 @@
-# My personal website
+# The Heist - Orbital 2023 Team Cynthia Janet
 
-[The Heist]
-
-##Proposed level of Achievement: Apollo-11
+# Apollo-11
 
 ###Motivation:
 Despite spending a significant portion of our childhood immersed in games, we have yet to understand the intricacies of game ideation and creation. Thus, when given the opportunity, we wanted to delve in the world of game development and gain firsthand experience in what it truly entails. 
