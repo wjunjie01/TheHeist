@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3]
+[gd_scene load_steps=25 format=3 uid="uid://cko5lhefjavud"]
 
 [ext_resource type="Texture2D" uid="uid://cudwg6th15hlm" path="res://art/enemy/Free City Enemies Pixel Art/2/Walk.png" id="1_3db3a"]
 [ext_resource type="Script" path="res://ranged enemy.gd" id="1_w6l07"]
@@ -147,8 +147,8 @@ animations = [{
 radius = 15.0
 height = 84.0
 
-[node name="Enemy" type="CharacterBody2D"]
-position = Vector2(-9, 0)
+[node name="Ranged Enemy" type="CharacterBody2D"]
+position = Vector2(-9, 21)
 collision_layer = 8
 script = ExtResource("1_w6l07")
 
@@ -158,22 +158,21 @@ scale = Vector2(2.1875, 2.25)
 sprite_frames = SubResource("SpriteFrames_3hx6m")
 animation = &"Shoot"
 frame_progress = 0.967002
-offset = Vector2(-0.228574, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, -17)
+position = Vector2(9, -10)
 shape = SubResource("CapsuleShape2D_8ltct")
 
 [node name="LedgeCheckRight" type="RayCast2D" parent="."]
-position = Vector2(26, 23)
+position = Vector2(27, 32)
 target_position = Vector2(0, 3)
 
 [node name="LedgeCheckLeft" type="RayCast2D" parent="."]
-position = Vector2(-7, 23)
+position = Vector2(-7, 32)
 target_position = Vector2(0, 3)
 
 [node name="PlayerDetector" type="RayCast2D" parent="."]
-position = Vector2(9, -22)
+position = Vector2(9, -13)
 target_position = Vector2(300, 0)
 collision_mask = 2
 
@@ -182,10 +181,10 @@ wait_time = 2.0
 autostart = true
 
 [node name="Muzzle Right" type="Marker2D" parent="."]
-position = Vector2(48, -22)
+position = Vector2(48, -13)
 
 [node name="Muzzle Left" type="Marker2D" parent="."]
-position = Vector2(-30, -22)
+position = Vector2(-30, -14)
 scale = Vector2(2.1875, 2.25)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

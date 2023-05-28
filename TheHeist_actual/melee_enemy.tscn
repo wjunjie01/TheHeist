@@ -1,0 +1,128 @@
+[gd_scene load_steps=18 format=3 uid="uid://cc3kenl5bjuc"]
+
+[ext_resource type="Script" path="res://Melee Enemy.gd" id="1_803oj"]
+[ext_resource type="Texture2D" uid="uid://mlwykv8dym33" path="res://art/enemy/Free City Enemies Pixel Art/1/Attack.png" id="2_kfa8f"]
+[ext_resource type="Texture2D" uid="uid://q3ibig1iiu60" path="res://art/enemy/Free City Enemies Pixel Art/1/Walk.png" id="2_vhgw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48oin"]
+atlas = ExtResource("2_kfa8f")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bewr"]
+atlas = ExtResource("2_kfa8f")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34xoe"]
+atlas = ExtResource("2_kfa8f")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1hnj"]
+atlas = ExtResource("2_kfa8f")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svgnj"]
+atlas = ExtResource("2_kfa8f")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbwyc"]
+atlas = ExtResource("2_kfa8f")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6471p"]
+atlas = ExtResource("2_vhgw4")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji22j"]
+atlas = ExtResource("2_vhgw4")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj3hf"]
+atlas = ExtResource("2_vhgw4")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkyyl"]
+atlas = ExtResource("2_vhgw4")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxifi"]
+atlas = ExtResource("2_vhgw4")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1abfu"]
+atlas = ExtResource("2_vhgw4")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmk3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48oin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bewr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34xoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1hnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svgnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbwyc")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6471p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji22j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj3hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkyyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxifi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1abfu")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mcsd8"]
+radius = 24.0
+height = 92.0
+
+[node name="Melee Enemy" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_803oj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -18)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qmk3c")
+animation = &"Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_mcsd8")
+
+[node name="LedgeCheckRight" type="RayCast2D" parent="."]
+position = Vector2(24, 48)
+target_position = Vector2(0, 3)
+
+[node name="LedgeCheckLeft" type="RayCast2D" parent="."]
+position = Vector2(-25, 48)
+target_position = Vector2(0, 3)

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var MuzzleRight = $"Muzzle Right"
 @onready var MuzzleLeft = $"Muzzle Left"
 
+const SPEED = 100.0
 var bullet_scene = preload("res://bullet.tscn")
 var direction = Vector2.RIGHT
 var can_shoot = true
@@ -53,7 +54,7 @@ func _physics_process(_delta):
 			curr_muzzle = MuzzleRight
 
 				
-	velocity.x = direction.x * 100
+	velocity.x = direction.x * SPEED
 	if PlayerDetector.is_colliding() and can_shoot:
 		shoot(curr_muzzle, direction)
 		can_shoot = false
