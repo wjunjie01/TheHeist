@@ -3,8 +3,9 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-const CHAIN_PULL = 30
+const CHAIN_PULL = 25
 signal grapple_hook
+var spring = -650
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -74,3 +75,7 @@ func update_animation():
 
 func _on_stamina_bar_no_stamina():
 	$Chain.release()
+
+
+func _on_spring_body_entered(_body):
+	velocity.y = spring
