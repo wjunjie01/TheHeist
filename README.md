@@ -29,7 +29,8 @@ Character Design:
 - [Hook design:](https://gitlab.com/godotdemos/hook-demo)
 
 Enemy design: 
-
+[Bullet Design by Wenrexa](https://wenrexa.itch.io/laser2020)
+[Free City Enemies Pixel Art by Craftpix.net](https://itch.io/queue/c/2053292/cyberpunk-pixel-art?game_id=1444512)
 
 Village design
 - [Spring design by JeanMakesGames](https://opengameart.org/content/ground-tileset-player-animation-youtube-2d-metroidvania-tutorial)
