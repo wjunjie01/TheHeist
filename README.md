@@ -1,18 +1,21 @@
 # The Heist - Orbital 2023 Team Cynthia Janet
+A 2D platformer stealth game by Luan Chee Seong and Wong Jun Jie. 
 
 ## Apollo-11
 
+
 Game ideation:
-We are inspired by the gameplay demo of a work-in-progress 2D platformer stealth game called “MiniStealth”. It’s fresh take on the use of its grappling hook in stealth games is something new to the eye and we thought we could take it further with our creation. 
+We are inspired by the gameplay demo of a work-in-progress 2D platformer stealth game called “[MiniStealth](https://fergonzalez.itch.io/ministealth-demo)”. It’s fresh take on the use of its grappling hook in stealth games is something new to the eye and we thought we could take it further with our creation. 
 
 [![Mini-stealth](https://img.itch.zone/aW1hZ2UvMTY0NjcwNC85Njg3NzkzLmdpZg==/original/gK%2FWMZ.gif)](https://www.youtube.com/watch?v=JVWB5J3F048)
 
 We were also inspired by various award-winning 2D Platformer games such as the dynamic map and movement from [Celeste](https://www.celestegame.com/) and the animation and fast-paced action from [Katana Zero](https://store.steampowered.com/app/460950/Katana_ZERO/).
 
-<div style="display:flex, padding: 10px;">
+<div style="display:flex padding: 100px;">
     <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg" alt="Image 1" style="width:40%">
     <img src = "https://gaming-cdn.com/images/products/8003/screenshot/celeste-pc-mac-game-steam-wallpaper-3.jpg?v=1652434948)" alt="Image 2" style="width:40%">
 </div>
+
 
 We decided to create our own version, The Heist. It will be a single player, 2D platformer stealth game with improved features.
 
@@ -42,7 +45,14 @@ The main game engine we will use.
 - GDScript
 We will be using Godot’s built in language to code.
 
-## Milestone-1:
+## Milestone 1:
+- [x] Character movements incl. grappling hook
+- [x] Game assets and map (from various sources)
+- [x] Enemy movements and interactions
+- [ ] Sound effects
 
-
+ ## Milestone 2:
+ - [ ] Combat
+ - [ ] Design more levels
+ - [ ]  
 
