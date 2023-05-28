@@ -313,8 +313,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwrt6"]
-radius = 22.0
-height = 84.0
+radius = 38.5714
+height = 122.857
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.7, 0.7)
@@ -322,8 +322,8 @@ collision_layer = 2
 script = ExtResource("1_c02i6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3.8147e-06, 2.86102e-06)
-scale = Vector2(3.42188, 3.125)
+position = Vector2(-1.42857, 1.42857)
+scale = Vector2(4.52344, 4.19643)
 sprite_frames = SubResource("SpriteFrames_4k2eq")
 animation = &"idle"
 
@@ -331,5 +331,5 @@ animation = &"idle"
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 8)
+position = Vector2(-5.71429, 10)
 shape = SubResource("CapsuleShape2D_pwrt6")

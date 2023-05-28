@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dpfc038jidlnh"]
+[gd_scene load_steps=25 format=3 uid="uid://dpfc038jidlnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_nrw21"]
 [ext_resource type="Texture2D" uid="uid://cjklivwosn4tg" path="res://art/village_art/GothicVania's town/environment/environment-preview.png" id="2_1cmqv"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="12_75umy"]
 [ext_resource type="Script" path="res://spring.gd" id="13_g5rbw"]
 [ext_resource type="PackedScene" uid="uid://hdulm07rjik3" path="res://spike.tscn" id="14_oo6f3"]
+[ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="15_acgjn"]
+[ext_resource type="PackedScene" uid="uid://cc3kenl5bjuc" path="res://melee_enemy.tscn" id="16_17t3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g3ta7"]
 texture = ExtResource("4_u1g42")
@@ -8150,6 +8152,7 @@ texture = ExtResource("10_yivs6")
 
 [sub_resource type="TileSet" id="TileSet_kcqdl"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_g3ta7")
 sources/1 = SubResource("TileSetAtlasSource_tnaie")
 sources/2 = SubResource("TileSetAtlasSource_il8dw")
@@ -8226,7 +8229,7 @@ layer_3/tile_data = PackedInt32Array(4325494, 1376256, 9, 4391030, 1376256, 10, 
 position = Vector2(736, 496)
 
 [node name="Spike5" parent="." instance=ExtResource("14_oo6f3")]
-position = Vector2(560, 496)
+position = Vector2(545, 496)
 
 [node name="Player" parent="." instance=ExtResource("5_s2ac6")]
 z_index = 10
@@ -8251,13 +8254,19 @@ collision_mask = 2
 script = ExtResource("13_g5rbw")
 
 [node name="Spike" parent="." instance=ExtResource("14_oo6f3")]
-position = Vector2(496, 496)
+position = Vector2(460, 496)
 
 [node name="Spike2" parent="." instance=ExtResource("14_oo6f3")]
 position = Vector2(624, 496)
 
 [node name="Spike3" parent="." instance=ExtResource("14_oo6f3")]
 position = Vector2(832, 496)
+
+[node name="Ranged Enemy" parent="." instance=ExtResource("15_acgjn")]
+position = Vector2(752, 1027)
+
+[node name="Melee Enemy" parent="." instance=ExtResource("16_17t3m")]
+position = Vector2(953, 497)
 
 [connection signal="body_entered" from="Spring" to="Player" method="_on_spring_body_entered"]
 [connection signal="body_entered" from="Spring4" to="Player" method="_on_spring_body_entered"]
