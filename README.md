@@ -1,23 +1,14 @@
 # The Heist - Orbital 2023 Team Cynthia Janet
 
-# Apollo-11
+## Apollo-11
 
-###Motivation:
-Despite spending a significant portion of our childhood immersed in games, we have yet to understand the intricacies of game ideation and creation. Thus, when given the opportunity, we wanted to delve in the world of game development and gain firsthand experience in what it truly entails. 
-
-Our goal is to develop our skills and pursue our interests in game development and design. We aim to create a fun game that incorporates various game theories, enticing players to carry on playing. Seeing users genuinely enjoy and engage with the game we create will provide us with a tangible sense of accomplishment and fulfillment. It fuels our determination to put forth our best efforts in game development and design, knowing that our work has the potential to bring joy and entertainment to others.
-
-###User stories:
-As gamers, we would want the gameplay to be smooth and easy to grasp. Moreover, animation and graphics are key to our enjoyment.
-As gamers, we would want a fast-paced game, one with action and story, to give the game some depth and meaning.
-As game developers, we hope to create a game that we can be proud of, to be deployable, which in turn can increase our employability.
-As game developers, we also hope to develop our skills in game development and learn. 
-
-
-
-###Game ideation:
+Game ideation:
 We are inspired by the gameplay demo of a work-in-progress 2D platformer stealth game called “MiniStealth”. It’s fresh take on the use of its grappling hook in stealth games is something new to the eye and we thought we could take it further with our creation. 
 
+[![Mini-stealth](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)]([https://www.youtube.com/watch?v=VIDEO_ID](https://www.youtube.com/watch?v=JVWB5J3F048
+))
+
+https://www.youtube.com/watch?v=JVWB5J3F048
 
 
 We were also inspired by various award-winning 2D Platformer games such as the dynamic map and movement from Celeste and the animation and fast-paced action from Katana Zero.
@@ -26,16 +17,6 @@ We were also inspired by various award-winning 2D Platformer games such as the d
     <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg" alt="Image 1" style="width:40%">
     <img src = "https://gaming-cdn.com/images/products/8003/screenshot/celeste-pc-mac-game-steam-wallpaper-3.jpg?v=1652434948)" alt="Image 2" style="width:40%">
 </div>
-
-<div style="display: flex">
-    <div style="padding: 10px">
-        <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg" alt="Image 1" style="width: 30%">
-    </div>
-    <div style="padding: 10px">
-        <img src = "https://gaming-cdn.com/images/products/8003/screenshot/celeste-pc-mac-game-steam-wallpaper-3.jpg?v=1652434948" alt="Image 2" style="width: 30%">
-    </div>
-</div>
-
 
 We decided to create our own version, The Heist. It will be a single player, 2D platformer stealth game with improved features.
 
