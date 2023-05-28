@@ -21,6 +21,10 @@ We are inspired by the gameplay demo of a work-in-progress 2D platformer stealth
 
 
 We were also inspired by various award-winning 2D Platformer games such as the dynamic map and movement from Celeste and the animation and fast-paced action from Katana Zero.
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![]([https://...Dark.png](https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg))  |  ![]([https://...Ocean.png](https://gaming-cdn.com/images/products/8003/screenshot/celeste-pc-mac-game-steam-wallpaper-3.jpg?v=1652434948))
+
  <img src = "https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg" width="350" display = "block">
  <img src = "https://gaming-cdn.com/images/products/8003/screenshot/celeste-pc-mac-game-steam-wallpaper-3.jpg?v=1652434948" width = "350" display = "inline-block"> 
 We decided to create our own version, The Heist. It will be a single player, 2D platformer stealth game with improved features.
