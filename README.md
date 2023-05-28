@@ -49,10 +49,10 @@ We will be using Godot’s built in language to code.
 - [x] Character movements incl. grappling hook
 - [x] Game assets and map (from various sources)
 - [x] Enemy movements and interactions
-- [ ] Sound effects
 
  ## Milestone 2:
  - [ ] Combat
  - [ ] Design more levels
- - [ ]  
+ - [ ] Improve on the animation and physics 
+ - [ ] Sound effects
 
