@@ -25,8 +25,6 @@ Solarized dark             |  Solarized Ocean
 :-------------------------:|:-------------------------:
 ![]([https://...Dark.png](https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg))  |  ![]([https://...Ocean.png](https://gaming-cdn.com/images/products/8003/screenshot/celeste-pc-mac-game-steam-wallpaper-3.jpg?v=1652434948))
 
- <img src = "https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg" width="350" display = "block">
- <img src = "https://gaming-cdn.com/images/products/8003/screenshot/celeste-pc-mac-game-steam-wallpaper-3.jpg?v=1652434948" width = "350" display = "inline-block"> 
 We decided to create our own version, The Heist. It will be a single player, 2D platformer stealth game with improved features.
 
 Player controls 1 character and utilises the environment to take down enemies. Our idea of The Heist is to progress through different stages without being spotted by enemies, while getting closer to the main goal of freeing slaves and stealing gold. There will be a total of 10 stages for players to try out. Game will be a move-and-click game, which relies on players to move with the WASD keys and aiming grappling hook with the mouse.
