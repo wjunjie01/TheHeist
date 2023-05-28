@@ -46,6 +46,10 @@ jump={
 2d_physics/layer_3="Hook"
 2d_physics/layer_4="Enemy"
 
+[physics]
+
+2d/default_gravity=1050.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
