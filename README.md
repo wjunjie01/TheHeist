@@ -5,8 +5,7 @@
 Game ideation:
 We are inspired by the gameplay demo of a work-in-progress 2D platformer stealth game called “MiniStealth”. It’s fresh take on the use of its grappling hook in stealth games is something new to the eye and we thought we could take it further with our creation. 
 
-[![Mini-stealth](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)]([https://www.youtube.com/watch?v=VIDEO_ID](https://www.youtube.com/watch?v=JVWB5J3F048
-))
+[![Mini-stealth](https://img.itch.zone/aW1hZ2UvMTY0NjcwNC85Njg3NzkzLmdpZg==/original/gK%2FWMZ.gif)](https://www.youtube.com/watch?v=JVWB5J3F048)
 
 https://www.youtube.com/watch?v=JVWB5J3F048
 
