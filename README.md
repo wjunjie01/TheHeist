@@ -25,16 +25,16 @@ Player controls 1 character and utilises the environment to take down enemies. O
 ###Character Designs and Art style:
 
 Character Design: 
-- Hooded Protagonist by Penzilla: https://penzilla.itch.io/hooded-protagonist
-- Hook design: https://gitlab.com/godotdemos/hook-demo 
+- [Hooded Protagonist by Penzilla:] (https://penzilla.itch.io/hooded-protagonist)
+- [Hook design:] (https://gitlab.com/godotdemos/hook-demo)
 
 Enemy design: 
 
 Village design
-- Spring design by JeanMakesGames: https://opengameart.org/content/ground-tileset-player-animation-youtube-2d-metroidvania-tutorial 
-- Spike design by Kenney: https://kenney.nl/assets/pixel-platformer 
-- Gothicvania Town by ansimuz: https://ansimuz.itch.io/gothicvania-town
-- Pixel art platformer by Cainos: https://cainos.itch.io/pixel-art-platformer-village-props?download 
+- [Spring design by JeanMakesGames:] (https://opengameart.org/content/ground-tileset-player-animation-youtube-2d-metroidvania-tutorial)
+- [Spike design by Kenney:] (https://kenney.nl/assets/pixel-platformer)
+- [Gothicvania Town by ansimuz:] (https://ansimuz.itch.io/gothicvania-town)
+- [Pixel art platformer by Cainos:] (https://cainos.itch.io/pixel-art-platformer-village-props?download) 
 
 ###Tech Stack:
 
