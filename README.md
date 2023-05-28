@@ -12,8 +12,8 @@ We are inspired by the gameplay demo of a work-in-progress 2D platformer stealth
 We were also inspired by various award-winning 2D Platformer games such as the dynamic map and movement from [Celeste](https://www.celestegame.com/) and the animation and fast-paced action from [Katana Zero](https://store.steampowered.com/app/460950/Katana_ZERO/).
 
 <div style="display:flex padding: 100px;">
-    <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg" alt="Image 1" style="width:40%">
-    <img src = "https://gaming-cdn.com/images/products/8003/screenshot/celeste-pc-mac-game-steam-wallpaper-3.jpg?v=1652434948)" alt="Image 2" style="width:40%">
+    <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg" alt="Image 1" style="width:49%">
+    <img src = "https://gaming-cdn.com/images/products/8003/screenshot/celeste-pc-mac-game-steam-wallpaper-3.jpg?v=1652434948)" alt="Image 2" style="width:49%">
 </div>
 
 
