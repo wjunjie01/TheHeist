@@ -21,7 +21,7 @@ We are inspired by the gameplay demo of a work-in-progress 2D platformer stealth
 
 
 We were also inspired by various award-winning 2D Platformer games such as the dynamic map and movement from Celeste and the animation and fast-paced action from Katana Zero.
-
+![alt text](https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_download_software_2/nswitchds_katanazero/NSwitchDS_KatanaZero_04.jpg/to/img.png)
 We decided to create our own version, The Heist. It will be a single player, 2D platformer stealth game with improved features.
 
 Player controls 1 character and utilises the environment to take down enemies. Our idea of The Heist is to progress through different stages without being spotted by enemies, while getting closer to the main goal of freeing slaves and stealing gold. There will be a total of 10 stages for players to try out. Game will be a move-and-click game, which relies on players to move with the WASD keys and aiming grappling hook with the mouse.
