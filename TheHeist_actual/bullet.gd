@@ -1,12 +1,10 @@
 extends Area2D
 
-var speed = 1000
+var speed = 300
+var direction
 func _physics_process(delta):
-	position += transform.x * speed * delta
+	position += transform.x * speed * delta * direction
 
 func _on_Bullet_body_entered(body):
-	if body is CharacterBody2D:
-		body.queue_free()
+	body.queue_free()
 	queue_free()
-	
-

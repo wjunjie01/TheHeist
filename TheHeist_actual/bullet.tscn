@@ -5,18 +5,19 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7tw3q"]
 radius = 11.0
-height = 138.0
+height = 52.0
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_6t04k")
 
-[node name="Bullet_Shoot" type="Sprite2D" parent="."]
+[node name="BulletArt" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_kw66c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, 0)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_7tw3q")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://bpfotceatois8"]
+[gd_scene load_steps=25 format=3]
 
 [ext_resource type="Texture2D" uid="uid://cudwg6th15hlm" path="res://art/enemy/Free City Enemies Pixel Art/2/Walk.png" id="1_3db3a"]
-[ext_resource type="Script" path="res://enemy.gd" id="1_w6l07"]
+[ext_resource type="Script" path="res://ranged enemy.gd" id="1_w6l07"]
 [ext_resource type="Texture2D" uid="uid://dg8i5urhfswxb" path="res://art/enemy/Free City Enemies Pixel Art/2/Attack.png" id="2_3f63c"]
 [ext_resource type="Texture2D" uid="uid://vlip6uwbfcwi" path="res://art/enemy/Free City Enemies Pixel Art/2/Hurt.png" id="3_gluy6"]
 [ext_resource type="Texture2D" uid="uid://hot4erafavk1" path="res://art/enemy/Free City Enemies Pixel Art/2/Death.png" id="4_cm3c8"]
@@ -148,27 +148,28 @@ radius = 15.0
 height = 84.0
 
 [node name="Enemy" type="CharacterBody2D"]
+position = Vector2(-9, 0)
 collision_layer = 8
 script = ExtResource("1_w6l07")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(18, -20)
+position = Vector2(9, -22)
 scale = Vector2(2.1875, 2.25)
 sprite_frames = SubResource("SpriteFrames_3hx6m")
 animation = &"Shoot"
 frame_progress = 0.967002
-offset = Vector2(-4.34286, -4.88889)
+offset = Vector2(-0.228574, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, -17)
 shape = SubResource("CapsuleShape2D_8ltct")
 
 [node name="LedgeCheckRight" type="RayCast2D" parent="."]
-position = Vector2(32, 23)
+position = Vector2(26, 23)
 target_position = Vector2(0, 3)
 
 [node name="LedgeCheckLeft" type="RayCast2D" parent="."]
-position = Vector2(-6, 23)
+position = Vector2(-7, 23)
 target_position = Vector2(0, 3)
 
 [node name="PlayerDetector" type="RayCast2D" parent="."]
@@ -177,9 +178,14 @@ target_position = Vector2(300, 0)
 collision_mask = 2
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
-[node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(47, -22)
+[node name="Muzzle Right" type="Marker2D" parent="."]
+position = Vector2(48, -22)
+
+[node name="Muzzle Left" type="Marker2D" parent="."]
+position = Vector2(-30, -22)
+scale = Vector2(2.1875, 2.25)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
