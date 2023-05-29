@@ -2,16 +2,27 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-const CHAIN_PULL = 25
+#const JUMP_VELOCITY = -400.0
+const CHAIN_PULL = 80
 signal grapple_hook
-var spring = -650
+var spring = -1050
+
+#Jump velocity = Gravity * time to jumppeak
+@export var TimeToJumpPeak = .25
+@export var JumpHeight: int = 128 #in pixels
+var gravity: float
+var JUMPSPEED: float
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animation_locked: bool = false
 var direction = Input.get_axis("move_left", "move_right")
 var chain_velocity := Vector2.ZERO
+
+func _ready():
+	gravity = (2 * JumpHeight) / pow(TimeToJumpPeak, 2)
+	JUMPSPEED = gravity * TimeToJumpPeak
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -39,7 +50,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		$AnimatedSprite2D.play("jump")
 		animation_locked = true
-		velocity.y = JUMP_VELOCITY
+		velocity.y = -JUMPSPEED #JUMP_VELOCITY 
 
 	if direction: velocity.x = direction * SPEED
 	else: velocity.x = 0
@@ -48,9 +59,9 @@ func _physics_process(delta):
 	if $Chain.hooked:
 		chain_velocity = to_local($Chain.tip).normalized() * CHAIN_PULL
 		if chain_velocity.y > 0:
-			chain_velocity.y *= 0.55
+			chain_velocity.y *= .7
 		else:
-			chain_velocity.y *= 1.2
+			chain_velocity.y *= 1
 		
 		if sign(chain_velocity.x) != sign(direction):
 			chain_velocity.x *= .7
