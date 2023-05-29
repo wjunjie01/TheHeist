@@ -8263,10 +8263,10 @@ position = Vector2(624, 496)
 position = Vector2(832, 496)
 
 [node name="Ranged Enemy" parent="." instance=ExtResource("15_acgjn")]
-position = Vector2(752, 1027)
+position = Vector2(752, 1040)
 
 [node name="Melee Enemy" parent="." instance=ExtResource("16_17t3m")]
-position = Vector2(953, 497)
+position = Vector2(960, 512)
 
 [connection signal="body_entered" from="Spring" to="Player" method="_on_spring_body_entered"]
 [connection signal="body_entered" from="Spring4" to="Player" method="_on_spring_body_entered"]

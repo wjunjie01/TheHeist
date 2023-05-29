@@ -322,8 +322,8 @@ collision_layer = 2
 script = ExtResource("1_c02i6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.42857, 1.42857)
-scale = Vector2(4.52344, 4.19643)
+position = Vector2(-1.42857, 4.28571)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4k2eq")
 animation = &"idle"
 
@@ -332,4 +332,5 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.71429, 10)
+scale = Vector2(0.7, 0.7)
 shape = SubResource("CapsuleShape2D_pwrt6")

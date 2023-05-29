@@ -106,6 +106,7 @@ radius = 24.0
 height = 92.0
 
 [node name="Melee Enemy" type="CharacterBody2D"]
+scale = Vector2(0.7, 0.7)
 collision_layer = 8
 script = ExtResource("1_803oj")
 
