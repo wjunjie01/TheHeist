@@ -1,6 +1,11 @@
 # The Heist - Orbital 2023 Team Cynthia Janet
 A 2D platformer stealth game by Luan Chee Seong and Wong Jun Jie. 
 
+How to download our game?
+1. Click the link: https://drive.google.com/drive/folders/1CrIGbIKFCc26RuJxZwc4wNoU3AxTciUD?usp=share_link
+2. Download the files inside it, and run TheHeistActual_deployed.exe
+3. Have fun!
+
 ## Apollo-11
 
 
