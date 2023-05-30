@@ -35,6 +35,8 @@ func _input(event: InputEvent) -> void:
 			$Chain.release()
 
 
+func _process(delta):
+	rotate_pointer()
 
 func _physics_process(delta):
 	direction = Input.get_axis("move_left", "move_right")
@@ -55,6 +57,13 @@ func _physics_process(delta):
 	if direction: velocity.x = direction * SPEED
 	else: velocity.x = 0
 
+	if ray_free_obstacles():
+		print("Free to hook")
+		
+	else:
+		print("Obstacles in the way")
+		
+		
 #Hook 
 	if $Chain.hooked:
 		chain_velocity = to_local($Chain.tip).normalized() * CHAIN_PULL
@@ -90,3 +99,14 @@ func _on_stamina_bar_no_stamina():
 
 func _on_spring_body_entered(_body):
 	velocity.y = spring
+	
+func rotate_pointer():
+		var local_mouse = get_local_mouse_position() 
+		var temp = rad_to_deg(atan2(local_mouse.x, local_mouse.y))
+		$Pointer.rotation_degrees = -temp + 90
+
+func ray_free_obstacles() -> bool:
+	var result = !$Pointer/RayCast2D.is_colliding()
+#	if result and $Pointer/RayCast2D.get_collider().name == "hook_point":
+#		return true
+	return result
