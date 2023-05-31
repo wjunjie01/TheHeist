@@ -13,6 +13,16 @@ var spring = -1050
 var gravity: float
 var JUMPSPEED: float
 
+enum{
+	IDLE,
+	HOOKING, 
+	HOOKED
+}
+var current_state = IDLE
+var hook_speed = 5
+var isMouseButtonPressed = false
+
+@onready var ray:= $Pointer/RayCast2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,19 +34,42 @@ func _ready():
 	gravity = (2 * JumpHeight) / pow(TimeToJumpPeak, 2)
 	JUMPSPEED = gravity * TimeToJumpPeak
 
+#func _input(event: InputEvent) -> void:
+#	if event is InputEventMouseButton:
+#		if event.pressed: #Left mouse button is clicked
+#			var globalMousePos = get_aviewport().get_mouse_position()
+#			var localMousePos = self.to_local(globalMousePos)
+#			$Chain.shoot(localMousePos)
+#			#mouse position relative to the centre of the screen
+#		else:
+#			$Chain.release()
+#
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.pressed: #Left mouse button is clicked
-			var globalMousePos = get_viewport().get_mouse_position()
-			var localMousePos = self.to_local(globalMousePos)
-			$Chain.shoot(localMousePos)
-			#mouse position relative to the centre of the screen
-		else:
-			$Chain.release()
+		if event.pressed and ray_free_obstacles(): #Left mouse button is clicked
+			current_state = HOOKING
+
 
 
 func _process(delta):
 	rotate_pointer()
+	match current_state:
+		IDLE:
+			pass
+		HOOKING:
+			hook(delta)
+		HOOKED:
+			pass
+#			position = hook_point
+
+
+func hook(delta):
+	var hook_direction = get_local_mouse_position()
+	position.x += hook_direction.x * hook_speed * delta
+	position.y += hook_direction.y * hook_speed * delta
+
+
+
 
 func _physics_process(delta):
 	direction = Input.get_axis("move_left", "move_right")
@@ -56,27 +89,22 @@ func _physics_process(delta):
 
 	if direction: velocity.x = direction * SPEED
 	else: velocity.x = 0
+	
 
-	if ray_free_obstacles():
-		print("Free to hook")
 		
-	else:
-		print("Obstacles in the way")
-		
-		
-#Hook 
-	if $Chain.hooked:
-		chain_velocity = to_local($Chain.tip).normalized() * CHAIN_PULL
-		if chain_velocity.y > 0:
-			chain_velocity.y *= .7
-		else:
-			chain_velocity.y *= 1
-		
-		if sign(chain_velocity.x) != sign(direction):
-			chain_velocity.x *= .7
-	else:
-		chain_velocity = Vector2.ZERO
-	velocity += chain_velocity
+#old hook
+#	if $Chain.hooked:
+#		chain_velocity = to_local($Chain.tip).normalized() * CHAIN_PULL
+#		if chain_velocity.y > 0:
+#			chain_velocity.y *= .7
+#		else:
+#			chain_velocity.y *= 1
+#
+#		if sign(chain_velocity.x) != sign(direction):
+#			chain_velocity.x *= .7
+#	else:
+#		chain_velocity = Vector2.ZERO
+#	velocity += chain_velocity
 		
 	update_animation()
 	move_and_slide()
@@ -106,7 +134,34 @@ func rotate_pointer():
 		$Pointer.rotation_degrees = -temp + 90
 
 func ray_free_obstacles() -> bool:
-	var result = !$Pointer/RayCast2D.is_colliding()
-#	if result and $Pointer/RayCast2D.get_collider().name == "hook_point":
-#		return true
-	return result
+	var colliding_with_hook = ray.is_colliding() and ray.get_collider() is Area2D
+	if colliding_with_hook and ray.get_collider().is_in_group("hook_point"):
+		return true
+	return false
+	
+	
+#	var result = !ray.is_colliding() #returns true no obstacles OR if there are no obstacles blocking hook point
+#	if result:
+#		if ray.get_collider() is Area2D:
+#			if ray.get_collider().is_in_group("hook_point"):
+#				return true
+#	return false
+
+#func _input(event):
+#	if event is InputEventMouseButton:
+#		if event.is_pressed() && event.button_index == MOUSE_BUTTON_LEFT:
+#			isMouseButtonPressed = true
+#			print("pressed")
+#		else:
+#			isMouseButtonPressed = false
+
+func _on_hook_point_body_entered(body):
+	current_state = HOOKED
+
+
+
+#func _on_hook_point_mouse_entered():
+#	if isMouseButtonPressed:
+#		print("PRESSED AND ENTERED")
+#		current_state = HOOKING
+	

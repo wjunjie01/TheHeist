@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://hook_point.gd" id="1_dgcwk"]
 [ext_resource type="Texture2D" uid="uid://bq5dfgd0hkuvm" path="res://icon.svg" id="1_i4h74"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p88ey"]
-radius = 64.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3efv"]
+size = Vector2(128, 128)
 
 [node name="hook_point" type="Area2D"]
 position = Vector2(416, 256)
@@ -15,7 +15,7 @@ script = ExtResource("1_dgcwk")
 texture = ExtResource("1_i4h74")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_p88ey")
+shape = SubResource("RectangleShape2D_r3efv")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
