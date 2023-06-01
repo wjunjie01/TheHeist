@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv7pfboi1jp2q"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_bi3bc"]
+[ext_resource type="Texture2D" uid="uid://d121kidu2hfl" path="res://art/new_background/sky_fc.png" id="2_141bp"]
+[ext_resource type="Texture2D" uid="uid://c34iwtglyr8lm" path="res://art/new_background/far_mountains_fc.png" id="2_htf66"]
+[ext_resource type="Texture2D" uid="uid://bvkboua2rabf0" path="res://art/new_background/hill.png" id="3_hx341"]
+[ext_resource type="Texture2D" uid="uid://cgnha0kyf86fb" path="res://art/new_background/grassy_mountains_fc.png" id="3_qn1ol"]
+[ext_resource type="Texture2D" uid="uid://q3eu8nw1n1d3" path="res://art/new_background/clouds_mid_t_fc.png" id="6_eiong"]
+[ext_resource type="Texture2D" uid="uid://c3m5pycitdodb" path="res://art/new_background/clouds_front_fc.png" id="7_huw5h"]
+
+[node name="Main menu" type="Node2D"]
+script = ExtResource("1_bi3bc")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="SkyFc" type="Sprite2D" parent="ParallaxBackground"]
+show_behind_parent = true
+scale = Vector2(5, 5)
+texture = ExtResource("2_141bp")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(5, 5)
+texture = ExtResource("2_htf66")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(5, 5)
+texture = ExtResource("3_qn1ol")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(5, 5)
+texture = ExtResource("6_eiong")
+centered = false
+
+[node name="Hill" type="Sprite2D" parent="ParallaxBackground"]
+scale = Vector2(5, 5)
+texture = ExtResource("3_hx341")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+scale = Vector2(5, 5)
+texture = ExtResource("7_huw5h")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 125
+text = "The Heist
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "New Game"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Options
+"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Credits
+"

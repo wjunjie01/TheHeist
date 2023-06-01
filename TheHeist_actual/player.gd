@@ -7,6 +7,10 @@ const CHAIN_PULL = 80
 signal grapple_hook
 var spring = -1050
 
+#Coyote_time
+var coyote_time = 0.3
+var can_jump = false
+
 #Jump velocity = Gravity * time to jumppeak
 @export var TimeToJumpPeak = .25
 @export var JumpHeight: int = 128 #in pixels
@@ -46,8 +50,9 @@ func _ready():
 #
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.pressed and ray_free_obstacles(): #Left mouse button is clicked
-			current_state = HOOKING
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			if event.pressed and ray_free_obstacles(): #Left mouse button is clicked
+				current_state = HOOKING
 
 
 
@@ -69,8 +74,6 @@ func hook(delta):
 	position.y += hook_direction.y * hook_speed * delta
 
 
-
-
 func _physics_process(delta):
 	direction = Input.get_axis("move_left", "move_right")
 	animation_locked = false
@@ -81,16 +84,20 @@ func _physics_process(delta):
 		else: $AnimatedSprite2D.flip_h = false
 		animation_locked = true
 
+	if is_on_floor() and can_jump == false:
+		can_jump = true
+	elif can_jump == true and $CoyoteTimer.is_stopped():
+		$CoyoteTimer.start(coyote_time)
+
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if can_jump and Input.is_action_just_pressed("jump"):
 		$AnimatedSprite2D.play("jump")
 		animation_locked = true
 		velocity.y = -JUMPSPEED #JUMP_VELOCITY 
 
 	if direction: velocity.x = direction * SPEED
 	else: velocity.x = 0
-	
-
+#
 		
 #old hook
 #	if $Chain.hooked:
@@ -107,6 +114,7 @@ func _physics_process(delta):
 #	velocity += chain_velocity
 		
 	update_animation()
+
 	move_and_slide()
 
 
@@ -120,6 +128,9 @@ func update_animation():
 			$AnimatedSprite2D.play("run")
 		if direction == 0 and is_on_floor():
 			$AnimatedSprite2D.play("idle")
+		if Input.is_action_just_pressed("attack"):
+			$AnimatedSprite2D.play("attack")
+			
 
 func _on_stamina_bar_no_stamina():
 	$Chain.release()
@@ -165,3 +176,8 @@ func _on_hook_point_body_entered(body):
 #		print("PRESSED AND ENTERED")
 #		current_state = HOOKING
 	
+
+
+func _on_coyote_timer_timeout():
+	can_jump = false
+	pass # Replace with function body.

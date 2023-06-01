@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://boihc8o2rgqku"]
 
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="1_nfnio"]
-[ext_resource type="Texture2D" uid="uid://dy1nf5322uy1p" path="res://art/stamina_bar/bar_fill.png" id="2_23620"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="2_w43c6"]
+[ext_resource type="PackedScene" uid="uid://b7qmwl3ds1gb7" path="res://pointer.tscn" id="3_ma8wt"]
 [ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="3_uspux"]
 
 [node name="level_2" type="Node2D"]
@@ -14,18 +14,7 @@ collision_layer = 2048
 [node name="Player" parent="." instance=ExtResource("1_nfnio")]
 collision_mask = 2049
 
-[node name="Pointer" type="Node2D" parent="Player"]
-
-[node name="RayCast2D" type="RayCast2D" parent="Player/Pointer"]
-position = Vector2(2.72478e-06, 0)
-target_position = Vector2(800, 0)
-collision_mask = 2057
-collide_with_areas = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Pointer"]
-position = Vector2(123.714, 0)
-scale = Vector2(26.2143, 1)
-texture = ExtResource("2_23620")
+[node name="Pointer" parent="Player" instance=ExtResource("3_ma8wt")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_w43c6")

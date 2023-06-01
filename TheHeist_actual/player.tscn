@@ -193,7 +193,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -325,7 +325,8 @@ script = ExtResource("1_c02i6")
 position = Vector2(-1.42857, 4.28571)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4k2eq")
-animation = &"idle"
+animation = &"attack"
+frame_progress = 0.705608
 
 [node name="Chain" parent="." instance=ExtResource("2_xjydq")]
 visible = false
@@ -334,3 +335,8 @@ visible = false
 position = Vector2(-5.71429, 10)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("CapsuleShape2D_pwrt6")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
