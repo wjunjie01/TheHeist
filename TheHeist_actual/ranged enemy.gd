@@ -3,41 +3,53 @@ extends CharacterBody2D
 @onready var LedgeCheckRight = $LedgeCheckRight
 @onready var LedgeCheckLeft = $LedgeCheckLeft
 @onready var PlayerDetector = $PlayerDetector
-@onready var MuzzleRight = $"Muzzle Right"
-@onready var MuzzleLeft = $"Muzzle Left"
+@onready var MuzzleRight = $MuzzleRight
+@onready var MuzzleLeft = $MuzzleLeft
+@onready var Animation_tree = $AnimationTree
 
 const SPEED = 100.0
-var bullet_scene = preload("res://bullet.tscn")
 var direction = Vector2.RIGHT
+var curr_muzzle
 var can_shoot = true
-var curr_muzzle = MuzzleRight
+var bullet_scene = preload("res://bullet.tscn")
+var is_dead = false
 
 
-#func dead():
-#	$AnimatedSprite2D.play("Hurt + Death")
-#	$CollisionShape2D.set_deferred("disabled", true)
+
+func _ready():
+	Animation_tree.active = true
+	curr_muzzle = MuzzleRight
 	
-func shoot(muzzle, dir):
-
-	var bullet = bullet_scene.instantiate()
-	add_child(bullet)
-	bullet.direction = dir
-	if dir.x == -1:
-		bullet.get_node("BulletArt").flip_h = true
-	else:
-		bullet.get_node("BulletArt").flip_h = false
-	bullet.position = muzzle.position
-	
-	
-
-	
-#	var player_pos = PlayerDetector.get_collider().get_global_position()
-#	var distance = player_pos - self.get_global_position()
-
-		
-
 func _physics_process(_delta):
-	$AnimatedSprite2D.play("Walk")
+	if is_dead:
+		dead()
+	
+	elif PlayerDetector.is_colliding() and can_shoot:
+		Animation_tree["parameters/conditions/walk"] = false
+		Animation_tree["parameters/conditions/shoot"] = true
+		
+	elif Animation_tree["parameters/conditions/walk"] == true:
+		move()
+		
+	move_and_slide()
+	
+func start_of_shoot():
+	velocity = Vector2.ZERO
+	
+	
+func end_of_shoot():
+	shoot()
+	velocity.x = direction.x * SPEED
+	Animation_tree["parameters/conditions/walk"] = true
+	Animation_tree["parameters/conditions/shoot"] = false
+	
+func dead():
+	velocity = Vector2.ZERO
+	Animation_tree["parameters/conditions/walk"] = false
+	Animation_tree["parameters/conditions/death"] = true
+
+func move():
+#	Animation_tree["parameters/conditions/walk"] = true
 	var found_wall = is_on_wall()
 	# If not colliding with ground in front, ledge is found.
 	# If colliding, ledge not found
@@ -52,16 +64,23 @@ func _physics_process(_delta):
 			curr_muzzle = MuzzleLeft
 		else:
 			curr_muzzle = MuzzleRight
-
-				
-	velocity.x = direction.x * SPEED
-	if PlayerDetector.is_colliding() and can_shoot:
-		shoot(curr_muzzle, direction)
-		can_shoot = false
-		
-	$AnimatedSprite2D.flip_h = direction.x < 0
-	move_and_slide()
 	
+	velocity.x = direction.x * SPEED
+	$SpriteSheet.flip_h = direction.x < 0
+	
+
+func shoot():
+	var bullet = bullet_scene.instantiate()
+	add_child(bullet)
+	bullet.direction = direction
+	if direction.x == -1:
+		bullet.get_node("BulletArt").flip_h = true
+	else:
+		bullet.get_node("BulletArt").flip_h = false
+	bullet.position = curr_muzzle.position
+	can_shoot = false
+	
+
 func _on_timer_timeout():
 	can_shoot = true
 
