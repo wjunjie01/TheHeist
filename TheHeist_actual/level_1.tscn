@@ -83,15 +83,6 @@ position = Vector2(736, 496)
 [node name="Spike5" parent="." instance=ExtResource("14_oo6f3")]
 position = Vector2(545, 496)
 
-[node name="hook_point" parent="." instance=ExtResource("6_0lt7a")]
-
-[node name="Player" parent="." instance=ExtResource("5_s2ac6")]
-z_index = 10
-position = Vector2(32, 1008)
-
-[node name="Pointer" parent="Player" instance=ExtResource("7_0os20")]
-scale = Vector2(1.42857, 1.42857)
-
 [node name="Spring" parent="." instance=ExtResource("12_75umy")]
 position = Vector2(176, 480)
 collision_layer = 2
@@ -125,6 +116,10 @@ position = Vector2(752, 1040)
 [node name="Melee Enemy" parent="." instance=ExtResource("16_17t3m")]
 position = Vector2(960, 512)
 
-[connection signal="body_entered" from="Spring" to="Player" method="_on_spring_body_entered"]
-[connection signal="body_entered" from="Spring4" to="Player" method="_on_spring_body_entered"]
-[connection signal="body_entered" from="Spring2" to="Player" method="_on_spring_body_entered"]
+[node name="Player" parent="." instance=ExtResource("5_s2ac6")]
+position = Vector2(78, 996)
+
+[node name="Pointer" parent="Player" instance=ExtResource("7_0os20")]
+
+[node name="hook_point" parent="." instance=ExtResource("6_0lt7a")]
+position = Vector2(555, 244)

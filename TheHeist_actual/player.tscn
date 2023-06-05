@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_c02i6"]
 [ext_resource type="Texture2D" uid="uid://b2ekqhfs77wvi" path="res://art/main_char/AnimationSheet_Character.png" id="2_dt3rb"]
-[ext_resource type="PackedScene" uid="uid://bvi4xetnkjgb2" path="res://chain.tscn" id="2_xjydq"]
+[ext_resource type="PackedScene" uid="uid://cc6skydycxx64" path="res://Grappling_Hook.tscn" id="4_84rtv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4exu"]
 atlas = ExtResource("2_dt3rb")
@@ -316,10 +316,11 @@ animations = [{
 radius = 38.5714
 height = 122.857
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("grapplingHook") groups=["player"]]
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
 script = ExtResource("1_c02i6")
+grapplingHook = NodePath("Grappling_Hook")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.42857, 4.28571)
@@ -328,9 +329,6 @@ sprite_frames = SubResource("SpriteFrames_4k2eq")
 animation = &"attack"
 frame_progress = 0.705608
 
-[node name="Chain" parent="." instance=ExtResource("2_xjydq")]
-visible = false
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.71429, 10)
 scale = Vector2(0.7, 0.7)
@@ -338,5 +336,7 @@ shape = SubResource("CapsuleShape2D_pwrt6")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Grappling_Hook" parent="." instance=ExtResource("4_84rtv")]
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

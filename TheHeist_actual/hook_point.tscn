@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmoxf2bfckmib"]
+[gd_scene load_steps=5 format=3 uid="uid://dmoxf2bfckmib"]
 
 [ext_resource type="Script" path="res://hook_point.gd" id="1_dgcwk"]
 [ext_resource type="Texture2D" uid="uid://bq5dfgd0hkuvm" path="res://icon.svg" id="1_i4h74"]
+[ext_resource type="Texture2D" uid="uid://vb3n2m63jt7a" path="res://art/crosshair007.png" id="2_swfle"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3efv"]
 size = Vector2(128, 128)
@@ -10,6 +11,7 @@ size = Vector2(128, 128)
 position = Vector2(416, 256)
 collision_mask = 2
 script = ExtResource("1_dgcwk")
+cursor = ExtResource("2_swfle")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_i4h74")
