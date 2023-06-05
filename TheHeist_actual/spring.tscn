@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b22lrxtkd2ah0"]
+[gd_scene load_steps=8 format=3 uid="uid://b22lrxtkd2ah0"]
 
+[ext_resource type="Script" path="res://spring.gd" id="1_t76ny"]
 [ext_resource type="Texture2D" uid="uid://b2of76k1ty0kc" path="res://art/spring.png" id="1_uvftc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go6p6"]
@@ -60,6 +61,7 @@ _data = {
 }
 
 [node name="Spring" type="Area2D"]
+script = ExtResource("1_t76ny")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 27)

@@ -5,15 +5,15 @@ extends CharacterBody2D
 const SPEED = 300.0
 #const CHAIN_PULL = 80
 #signal grapple_hook
-var spring = -1050
+#var spring = -1050
 
 #Coyote_time
 var coyote_time = 0.3
 var can_jump = false
 
 #Jump velocity = Gravity * time to jumppeak
-@export var TimeToJumpPeak = .25
-@export var JumpHeight: int = 128 #in pixels
+@export var TimeToJumpPeak = .2
+@export var JumpHeight: int = 120 #in pixels
 var gravity: float
 var JUMPSPEED: float
 
@@ -116,10 +116,12 @@ func _physics_process(delta):
 			if direction: velocity.x = direction * SPEED
 			else: velocity.x = 0
 			
+			
 			update_animation()
 			move_and_slide()
 		STUCK_ON_HOOK:
 			direction = Input.get_axis("move_left", "move_right")
+			$AnimatedSprite2D.stop() #STOPS The animation temporary, add the hanging from hook_point animation next time
 			#If A or D is pressed, disengage
 			if direction != 0:
 				current_state = IDLE
@@ -142,9 +144,12 @@ func update_animation():
 #func _on_stamina_bar_no_stamina():
 #	$Chain.release()
 
-
-func _on_spring_body_entered(_body):
-	velocity.y = spring
+#func collide_with_spring() -> bool:
+#	var bodies = get_overlapping_bodies()
+#	for body in bodies:
+#		if body.group == "SPRING":
+#			return true
+#		return false
 	
 func rotate_pointer():
 		var local_mouse = get_local_mouse_position() 

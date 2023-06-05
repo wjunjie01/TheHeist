@@ -2,11 +2,11 @@ class_name HookPoint_Class
 extends Area2D
 
 enum HOOKTYPE {
-	STICKY,
-	UNSTICKY
+	STICKY, #Player stays there
+	UNSTICKY #Player drops down after reaching his destination
 }
 
-@export var hookType : HOOKTYPE = HOOKTYPE.UNSTICKY
+@export var hookType : HOOKTYPE = HOOKTYPE.STICKY
 @export var heightOffset : float = 0
 
 @export var cursor : Resource = load("res://art/crosshair007.png")

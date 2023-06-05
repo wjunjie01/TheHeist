@@ -7,10 +7,9 @@
 
 [node name="level_2" type="Node2D"]
 
-[node name="hook_point" parent="." groups=["hook_point"] instance=ExtResource("3_uspux")]
+[node name="hook_point" parent="." instance=ExtResource("3_uspux")]
 position = Vector2(128, 320)
 collision_layer = 2048
-hookType = 0
 heightOffset = 100.0
 
 [node name="Player" parent="." instance=ExtResource("1_nfnio")]

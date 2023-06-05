@@ -8,7 +8,7 @@ signal S_On_Hook_Reached
 @onready var m_LinkNode : Sprite2D = $Link
 @onready var m_HookNode : Sprite2D = $Hook
 
-@export var m_HookSpeed : float = 1200.0
+@export var m_HookSpeed : float = 900.0
 @export var m_HookReachedOffset : float = 10
 
 var m_TargetPos : Vector2 = Vector2.ZERO

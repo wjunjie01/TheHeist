@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpfc038jidlnh"]
+[gd_scene load_steps=12 format=3 uid="uid://dpfc038jidlnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_nrw21"]
 [ext_resource type="Texture2D" uid="uid://cjklivwosn4tg" path="res://art/village_art/GothicVania's town/environment/environment-preview.png" id="2_1cmqv"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="6_0lt7a"]
 [ext_resource type="PackedScene" uid="uid://b7qmwl3ds1gb7" path="res://pointer.tscn" id="7_0os20"]
 [ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="12_75umy"]
-[ext_resource type="Script" path="res://spring.gd" id="13_g5rbw"]
 [ext_resource type="PackedScene" uid="uid://hdulm07rjik3" path="res://spike.tscn" id="14_oo6f3"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="15_acgjn"]
 [ext_resource type="PackedScene" uid="uid://cc3kenl5bjuc" path="res://melee_enemy.tscn" id="16_17t3m"]
@@ -87,19 +86,16 @@ position = Vector2(545, 496)
 position = Vector2(176, 480)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("13_g5rbw")
 
 [node name="Spring4" parent="." instance=ExtResource("12_75umy")]
 position = Vector2(256, 128)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("13_g5rbw")
 
 [node name="Spring2" parent="." instance=ExtResource("12_75umy")]
 position = Vector2(112, 288)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("13_g5rbw")
 
 [node name="Spike" parent="." instance=ExtResource("14_oo6f3")]
 position = Vector2(460, 496)
@@ -116,10 +112,10 @@ position = Vector2(752, 1040)
 [node name="Melee Enemy" parent="." instance=ExtResource("16_17t3m")]
 position = Vector2(960, 512)
 
+[node name="hook_point" parent="." instance=ExtResource("6_0lt7a")]
+position = Vector2(1734, 332)
+
 [node name="Player" parent="." instance=ExtResource("5_s2ac6")]
 position = Vector2(78, 996)
 
 [node name="Pointer" parent="Player" instance=ExtResource("7_0os20")]
-
-[node name="hook_point" parent="." instance=ExtResource("6_0lt7a")]
-position = Vector2(555, 244)
