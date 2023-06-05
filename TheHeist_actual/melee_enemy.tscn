@@ -177,7 +177,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_b85x7")
 parameters/conditions/attack = false
 parameters/conditions/death = false
-parameters/conditions/walk = false
+parameters/conditions/walk = true
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 8

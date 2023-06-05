@@ -116,6 +116,6 @@ position = Vector2(960, 512)
 position = Vector2(1734, 332)
 
 [node name="Player" parent="." instance=ExtResource("5_s2ac6")]
-position = Vector2(1154, 1011)
+position = Vector2(1374, 440)
 
 [node name="Pointer" parent="Player" instance=ExtResource("7_0os20")]

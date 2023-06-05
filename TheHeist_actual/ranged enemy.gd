@@ -58,8 +58,7 @@ func move():
 	# Change direction if reach a ledge or wall
 	if found_wall or found_ledge:
 		direction *= -1
-		var curr_detector_pos = PlayerDetector.get_target_position()
-		PlayerDetector.set_target_position(curr_detector_pos * -1)
+		PlayerDetector.scale.x *= -1
 		if curr_muzzle == MuzzleRight:
 			curr_muzzle = MuzzleLeft
 		else:
