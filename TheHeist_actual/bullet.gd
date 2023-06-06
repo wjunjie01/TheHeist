@@ -6,5 +6,5 @@ func _physics_process(delta):
 	position += transform.x * speed * delta * direction
 
 func _on_Bullet_body_entered(body):
-	get_tree().reload_current_scene()
+	get_tree().get_first_node_in_group("player").gameover()
 	

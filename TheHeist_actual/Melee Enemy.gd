@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var PlayerDetector = $PlayerDetector
 @onready var AttackDetector = $AttackDetector
 
+signal player_hit
+
 const SPEED = 100.0
 var direction = Vector2.RIGHT
 var is_dead = false
@@ -55,4 +57,4 @@ func _on_PlayerDetector_body_entered(body):
 	Animation_tree["parameters/conditions/attack"] = true
 
 func _on_AttackDetector_body_entered(body):
-	get_tree().reload_current_scene()
+	emit_signal('player_hit')

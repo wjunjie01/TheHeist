@@ -33,6 +33,10 @@ var current_state = IDLE
 @export var hook_speed : float = 1200
 var isMouseButtonPressed = false
 
+
+var screen_size = Vector2.ZERO
+var map_bounds = Rect2(0.0,0.0,1920.0, 1080.0)
+
 @onready var ray:= $Pointer/RayCast2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -44,7 +48,7 @@ var chain_velocity := Vector2.ZERO
 func _ready():
 	gravity = (2 * JumpHeight) / pow(TimeToJumpPeak, 2)
 	JUMPSPEED = gravity * TimeToJumpPeak
-	
+	screen_size = get_viewport_rect().size
 	#Connect signal
 	grapplingHook.S_On_Hook_Reached.connect(On_Hooked)
 
@@ -62,6 +66,8 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta):
 	rotate_pointer()
+	position.x = clamp(position.x, 0, screen_size.x)
+	
 	match current_state:
 		IDLE:
 			pass
@@ -91,6 +97,9 @@ func hook(delta):
 
 
 func _physics_process(delta):
+	if !map_bounds.has_point(position): #method provided by Rect2 class
+		gameover()
+	
 	match current_state:
 		IDLE:
 			direction = Input.get_axis("move_left", "move_right")
@@ -166,3 +175,15 @@ func ray_free_obstacles() -> bool:
 func _on_coyote_timer_timeout():
 	can_jump = false
 	pass # Replace with function body.
+
+signal game_over
+
+func _on_melee_enemy_player_hit():
+	emit_signal('game_over')
+	queue_free()
+	
+func gameover():
+	emit_signal('game_over')
+	queue_free()
+
+
