@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cebi3ossha2l"]
+[gd_scene load_steps=11 format=3 uid="uid://cebi3ossha2l"]
 
 [ext_resource type="Script" path="res://mainmenu.gd" id="1_j1y53"]
 [ext_resource type="Texture2D" uid="uid://bqj2d12xcj8j4" path="res://art/updated_background/2.png" id="1_l3p8q"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cph40h6mgnhau" path="res://art/updated_background/4.png" id="5_0d0yw"]
 [ext_resource type="Texture2D" uid="uid://0cwscbd7i8d6" path="res://art/updated_background/7.png" id="6_yuhvr"]
 [ext_resource type="Texture2D" uid="uid://djg8au1vuyr7a" path="res://art/updated_background/8.png" id="7_glbhc"]
+[ext_resource type="FontFile" uid="uid://2ehsltc1veue" path="res://art/font/mago2.ttf" id="8_jfof1"]
 [ext_resource type="PackedScene" uid="uid://d11inh1wsb7fi" path="res://texture_button.tscn" id="8_rnq56"]
+[ext_resource type="AudioStream" uid="uid://ccufm0e1cgaxm" path="res://music/Suzume (Piano Ver.)-[AudioTrimmer.com].mp3" id="10_iqugb"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_j1y53")
@@ -77,7 +79,10 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
 layout_mode = 2
-text = "The Heist "
+theme_override_fonts/font = ExtResource("8_jfof1")
+theme_override_font_sizes/font_size = 350
+text = "  The Heist "
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 540)
@@ -86,5 +91,27 @@ alignment = 1
 
 [node name="TextureButton" parent="VBoxContainer/VBoxContainer" instance=ExtResource("8_rnq56")]
 layout_mode = 2
-text = "Start"
-margin = 189
+focus_neighbor_top = NodePath("../TextureButton3")
+focus_neighbor_bottom = NodePath("../TextureButton2")
+text = "NEW GAME"
+
+[node name="TextureButton2" parent="VBoxContainer/VBoxContainer" instance=ExtResource("8_rnq56")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../TextureButton")
+focus_neighbor_bottom = NodePath("../TextureButton3")
+text = "CONTINUE"
+margin = 160
+
+[node name="TextureButton3" parent="VBoxContainer/VBoxContainer" instance=ExtResource("8_rnq56")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../TextureButton2")
+focus_neighbor_bottom = NodePath("../TextureButton")
+text = "EXIT"
+margin = 80
+
+[node name="Suzume" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_iqugb")
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]

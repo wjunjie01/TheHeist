@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d11inh1wsb7fi"]
+[gd_scene load_steps=4 format=3 uid="uid://d11inh1wsb7fi"]
 
 [ext_resource type="Script" path="res://texture_button.gd" id="1_e3h26"]
 [ext_resource type="Texture2D" uid="uid://d3185t7p16sfq" path="res://art/icons_for_menu/#1 - Transparent Icons.png" id="2_ch1cr"]
+[ext_resource type="FontFile" uid="uid://2ehsltc1veue" path="res://art/font/mago2.ttf" id="2_ve4dp"]
 
 [node name="TextureButton" type="TextureButton"]
-custom_minimum_size = Vector2(1920, 40)
+custom_minimum_size = Vector2(1920, 100)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,23 +14,30 @@ grow_vertical = 2
 script = ExtResource("1_e3h26")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(1920, 40)
+custom_minimum_size = Vector2(1920, 100)
 layout_mode = 0
 offset_top = 1.0
 offset_right = 1920.0
-offset_bottom = 41.0
+offset_bottom = 101.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_ve4dp")
+theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
 text = "[center] Text Button [/center]"
 
 [node name="LeftSword" type="Sprite2D" parent="."]
-position = Vector2(862, 18)
+position = Vector2(758, 56)
 texture = ExtResource("2_ch1cr")
 region_enabled = true
 region_rect = Rect2(64, 160, 32, 32)
 
 [node name="RightSword" type="Sprite2D" parent="."]
-position = Vector2(1060, 20)
+position = Vector2(1145, 52)
 texture = ExtResource("2_ch1cr")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(64, 160, 32, 32)
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccufm0e1cgaxm"
+path="res://.godot/imported/Suzume (Piano Ver.)-[AudioTrimmer.com].mp3-620d0f2bcca56fc6bef71d3a746ca006.mp3str"
+
+[deps]
+
+source_file="res://music/Suzume (Piano Ver.)-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/Suzume (Piano Ver.)-[AudioTrimmer.com].mp3-620d0f2bcca56fc6bef71d3a746ca006.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
