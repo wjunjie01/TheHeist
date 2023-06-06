@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://d11inh1wsb7fi"]
+
+[ext_resource type="Script" path="res://texture_button.gd" id="1_e3h26"]
+[ext_resource type="Texture2D" uid="uid://d3185t7p16sfq" path="res://art/icons_for_menu/#1 - Transparent Icons.png" id="2_ch1cr"]
+
+[node name="TextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(1920, 40)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e3h26")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(1920, 40)
+layout_mode = 0
+offset_top = 1.0
+offset_right = 1920.0
+offset_bottom = 41.0
+bbcode_enabled = true
+text = "[center] Text Button [/center]"
+
+[node name="LeftSword" type="Sprite2D" parent="."]
+position = Vector2(862, 18)
+texture = ExtResource("2_ch1cr")
+region_enabled = true
+region_rect = Rect2(64, 160, 32, 32)
+
+[node name="RightSword" type="Sprite2D" parent="."]
+position = Vector2(1060, 20)
+texture = ExtResource("2_ch1cr")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(64, 160, 32, 32)
