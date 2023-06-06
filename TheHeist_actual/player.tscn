@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bapt865ix6sf0"]
+[gd_scene load_steps=47 format=3 uid="uid://bapt865ix6sf0"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_c02i6"]
 [ext_resource type="Texture2D" uid="uid://b2ekqhfs77wvi" path="res://art/main_char/AnimationSheet_Character.png" id="2_dt3rb"]
@@ -191,7 +191,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tvfu7")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 15.0
 }, {
@@ -316,6 +316,9 @@ animations = [{
 radius = 38.5714
 height = 122.857
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l40kv"]
+size = Vector2(64.2857, 85.7143)
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("grapplingHook") groups=["player"]]
 z_index = 100
 scale = Vector2(0.7, 0.7)
@@ -340,4 +343,16 @@ one_shot = true
 
 [node name="Grappling_Hook" parent="." instance=ExtResource("4_84rtv")]
 
+[node name="EnemyDetector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2(55, 12.8571)
+shape = SubResource("RectangleShape2D_l40kv")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

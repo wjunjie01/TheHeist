@@ -27,7 +27,8 @@ enum{
 	IDLE,
 	HOOKING, 
 	HOOKED,
-	STUCK_ON_HOOK
+	STUCK_ON_HOOK,
+	ATTACK
 }
 var current_state = IDLE
 @export var hook_speed : float = 1200
@@ -38,6 +39,7 @@ var screen_size = Vector2.ZERO
 var map_bounds = Rect2(0.0,0.0,1920.0, 1080.0)
 
 @onready var ray:= $Pointer/RayCast2D
+@onready var enemy_detector = $EnemyDetector
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -77,6 +79,8 @@ func _process(delta):
 			hook(delta)
 #			position = hook_point
 			pass
+		ATTACK:
+			pass
 
 
 func hook(delta):
@@ -103,11 +107,15 @@ func _physics_process(delta):
 	match current_state:
 		IDLE:
 			direction = Input.get_axis("move_left", "move_right")
+			if (direction < 0 and enemy_detector.scale.x > 0) or (direction > 0 and enemy_detector.scale.x < 0):
+				enemy_detector.scale.x *= -1
+				
 			animation_locked = false
 			if not is_on_floor():
 				velocity.y += gravity * delta
 				$AnimatedSprite2D.play("jump")
-				if direction < 0: $AnimatedSprite2D.flip_h = true
+				if direction < 0: 
+					$AnimatedSprite2D.flip_h = true
 				else: $AnimatedSprite2D.flip_h = false
 				animation_locked = true
 			
@@ -116,24 +124,37 @@ func _physics_process(delta):
 			elif can_jump == true and $CoyoteTimer.is_stopped():
 				$CoyoteTimer.start(coyote_time)
 			
+
 			# Handle Jump.
 			if can_jump and Input.is_action_just_pressed("jump"):
 				$AnimatedSprite2D.play("jump")
 				animation_locked = true
 				velocity.y = -JUMPSPEED #JUMP_VELOCITY 
 			
+			# Handle Attack.
+			elif Input.is_action_just_pressed("attack"):
+				current_state = ATTACK
+				$AnimatedSprite2D.play("attack")
+				animation_locked = true
+			
+
 			if direction: velocity.x = direction * SPEED
 			else: velocity.x = 0
 			
-			
 			update_animation()
 			move_and_slide()
+			
+			
 		STUCK_ON_HOOK:
 			direction = Input.get_axis("move_left", "move_right")
 			$AnimatedSprite2D.stop() #STOPS The animation temporary, add the hanging from hook_point animation next time
 			#If A or D is pressed, disengage
 			if direction != 0:
 				current_state = IDLE
+				
+		ATTACK:
+			enemy_detector.monitoring = true
+			
 
 
 func update_animation():
@@ -148,6 +169,7 @@ func update_animation():
 			$AnimatedSprite2D.play("idle")
 		if Input.is_action_just_pressed("attack"):
 			$AnimatedSprite2D.play("attack")
+			
 			
 #
 #func _on_stamina_bar_no_stamina():
@@ -186,4 +208,13 @@ func gameover():
 	emit_signal('game_over')
 	queue_free()
 
+func _on_enemy_detector_body_entered(body):
+	if body.is_in_group("enemy"):
+		if (body.direction.x > 0 and direction > 0) or (body.direction.x < 0 and direction < 0):
+			body.is_dead = true
 
+func _on_animated_sprite_2d_animation_finished():
+	current_state = IDLE
+	enemy_detector.monitoring = false
+	
+	

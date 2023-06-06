@@ -107,10 +107,10 @@ position = Vector2(624, 496)
 [node name="Spike3" parent="." instance=ExtResource("14_oo6f3")]
 position = Vector2(832, 496)
 
-[node name="Ranged Enemy" parent="." instance=ExtResource("15_acgjn")]
+[node name="Ranged Enemy" parent="." groups=["enemy"] instance=ExtResource("15_acgjn")]
 position = Vector2(752, 1040)
 
-[node name="Melee Enemy" parent="." instance=ExtResource("16_17t3m")]
+[node name="Melee Enemy" parent="." groups=["enemy"] instance=ExtResource("16_17t3m")]
 position = Vector2(960, 512)
 
 [node name="hook_point" parent="." instance=ExtResource("6_0lt7a")]
