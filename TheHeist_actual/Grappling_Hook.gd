@@ -12,6 +12,7 @@ signal S_On_Hook_Reached
 @export var m_HookReachedOffset : float = 10
 
 var m_TargetPos : Vector2 = Vector2.ZERO
+var m_HookStay: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +31,11 @@ func _physics_process(delta):
 	UpdateLink()
 
 func UpdateHook(delta : float):
+	#Lock it in place
+	if m_HookStay:
+		m_HookNode.global_position = m_TargetPos
+		return
+	
 	#Move hook only if its not there yet
 	var diffVec : Vector2 = m_TargetPos - m_HookNode.global_position
 	var diffLength : float = diffVec.length()
@@ -40,6 +46,7 @@ func UpdateHook(delta : float):
 		
 		if (m_TargetPos - m_HookNode.global_position).length() <= m_HookReachedOffset:
 			S_On_Hook_Reached.emit()
+			m_HookNode.global_position = m_TargetPos
 	
 	pass
 
@@ -50,7 +57,7 @@ func UpdateLink():
 	
 	#Get height of link
 	var diffVec : Vector2 = m_HookNode.global_position - m_LinkNode.global_position
-	m_LinkNode.region_rect.size.y = (diffVec).length()
+	m_LinkNode.region_rect.size.y = (diffVec).length() if !m_SnapToObject else diffVec.length() / m_SnapToObject.scale.y
 	m_LinkNode.offset.y = -m_LinkNode.region_rect.size.y/2
 	
 	#Get rotation of link
@@ -75,9 +82,11 @@ func Activate(target : Vector2):
 	
 	#Rotation of hook
 	var direction = (m_TargetPos - m_HookNode.global_position).normalized()
-	m_HookNode.rotation = direction.angle() + 90
+	m_HookNode.rotation = direction.angle()
+	m_HookNode.rotation_degrees += 90
 	
 	visible = true
+	m_HookStay = false
 
 func Deactivate():
 	visible = false

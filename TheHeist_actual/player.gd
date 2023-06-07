@@ -78,6 +78,7 @@ func _process(delta):
 		HOOKED:
 			hook(delta)
 #			position = hook_point
+			grapplingHook.m_HookNode.global_position = grapplingHook.m_TargetPos
 			pass
 		ATTACK:
 			pass
@@ -202,11 +203,11 @@ signal game_over
 
 func _on_melee_enemy_player_hit():
 	emit_signal('game_over')
-	queue_free()
+	hide()
 	
 func gameover():
 	emit_signal('game_over')
-	queue_free()
+	hide()
 
 func _on_enemy_detector_body_entered(body):
 	if body.is_in_group("enemy"):

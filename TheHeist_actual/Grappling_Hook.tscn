@@ -6,10 +6,11 @@
 
 [node name="Grappling_Hook" type="Node2D"]
 script = ExtResource("1_556as")
-m_HookReachedOffset = 10.0
 
 [node name="Link" type="Sprite2D" parent="."]
 texture_repeat = 2
+position = Vector2(0, 27)
+scale = Vector2(1, 1.29167)
 texture = ExtResource("2_qn524")
 offset = Vector2(0, -24)
 region_enabled = true
