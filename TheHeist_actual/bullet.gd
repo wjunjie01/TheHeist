@@ -7,4 +7,5 @@ func _physics_process(delta):
 
 func _on_Bullet_body_entered(body):
 	get_tree().get_first_node_in_group("player").gameover()
+	queue_free()
 	
