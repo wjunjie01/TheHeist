@@ -28,7 +28,8 @@ enum{
 	HOOKING, 
 	HOOKED,
 	STUCK_ON_HOOK,
-	ATTACK
+	ATTACK,
+	DEAD
 }
 var current_state = IDLE
 @export var hook_speed : float = 1200
@@ -81,6 +82,8 @@ func _process(delta):
 			grapplingHook.m_HookNode.global_position = grapplingHook.m_TargetPos
 			pass
 		ATTACK:
+			pass
+		DEAD:
 			pass
 
 
@@ -155,6 +158,10 @@ func _physics_process(delta):
 				
 		ATTACK:
 			enemy_detector.monitoring = true
+		
+		DEAD:
+			$CollisionShape2D.disabled = true
+			
 			
 
 
@@ -202,12 +209,11 @@ func _on_coyote_timer_timeout():
 signal game_over
 
 func _on_melee_enemy_player_hit():
-	emit_signal('game_over')
-	hide()
+	gameover()
 	
 func gameover():
-	emit_signal('game_over')
-	hide()
+	current_state = DEAD
+	$AnimatedSprite2D.play("die")
 
 func _on_enemy_detector_body_entered(body):
 	if body.is_in_group("enemy"):
@@ -215,7 +221,10 @@ func _on_enemy_detector_body_entered(body):
 			body.is_dead = true
 
 func _on_animated_sprite_2d_animation_finished():
-	current_state = IDLE
-	enemy_detector.monitoring = false
+	if current_state != DEAD:
+		current_state = IDLE
+		enemy_detector.monitoring = false
+	else:
+		emit_signal('game_over')
 	
 	
