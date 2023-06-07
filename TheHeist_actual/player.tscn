@@ -1,8 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://bapt865ix6sf0"]
+[gd_scene load_steps=48 format=3 uid="uid://bapt865ix6sf0"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_c02i6"]
 [ext_resource type="Texture2D" uid="uid://b2ekqhfs77wvi" path="res://art/main_char/AnimationSheet_Character.png" id="2_dt3rb"]
 [ext_resource type="PackedScene" uid="uid://cc6skydycxx64" path="res://Grappling_Hook.tscn" id="4_84rtv"]
+[ext_resource type="AudioStream" uid="uid://nbefklrsj21a" path="res://music/cartoon-jump-6462.mp3" id="4_lpqn1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4exu"]
 atlas = ExtResource("2_dt3rb")
@@ -353,6 +354,11 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
 position = Vector2(55, 12.8571)
 shape = SubResource("RectangleShape2D_l40kv")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lpqn1")
+volume_db = -8.4
+mix_target = 1
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

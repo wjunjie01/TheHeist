@@ -133,6 +133,7 @@ func _physics_process(delta):
 			if can_jump and Input.is_action_just_pressed("jump"):
 				$AnimatedSprite2D.play("jump")
 				animation_locked = true
+				$Jump.play()
 				velocity.y = -JUMPSPEED #JUMP_VELOCITY 
 			
 			# Handle Attack.

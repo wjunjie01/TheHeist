@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cko5lhefjavud"]
+[gd_scene load_steps=20 format=3 uid="uid://cko5lhefjavud"]
 
 [ext_resource type="Script" path="res://ranged enemy.gd" id="1_w6l07"]
 [ext_resource type="Texture2D" uid="uid://b8s2whmccubll" path="res://art/enemy/Free City Enemies Pixel Art/2/Sprite Sheet.png" id="2_sovj0"]
+[ext_resource type="AudioStream" uid="uid://bxj5ph5sucejr" path="res://music/blaster-2-81267.mp3" id="3_8bwha"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ltct"]
 radius = 15.0
@@ -208,5 +209,10 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_nbw2w")
 parameters/conditions/death = false
 parameters/conditions/shoot = false
 parameters/conditions/walk = true
+
+[node name="Laser" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8bwha")
+volume_db = -2.0
+pitch_scale = 1.47
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

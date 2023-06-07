@@ -71,6 +71,7 @@ func move():
 func shoot():
 	var bullet = bullet_scene.instantiate()
 	add_child(bullet)
+	$Laser.play()
 	bullet.direction = direction
 	if direction.x == -1:
 		bullet.get_node("BulletArt").flip_h = true
