@@ -6,7 +6,7 @@ func _physics_process(_delta):
 	for body in bodies:
 		if body.name == "Player":
 			$AnimationPlayer.play("active")
-			body.velocity.y -= 950
+			body.velocity.y -= 850
 			get_tree()
 			await $AnimationPlayer.current_animation_length
 		else:

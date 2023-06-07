@@ -36,7 +36,7 @@ var isMouseButtonPressed = false
 
 
 var screen_size = Vector2.ZERO
-var map_bounds = Rect2(0.0,0.0,1920.0, 1080.0)
+var map_bounds = Rect2(Vector2(-200,-200), Vector2(2120.0, 1280.0))
 
 @onready var ray:= $Pointer/RayCast2D
 @onready var enemy_detector = $EnemyDetector
