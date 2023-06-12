@@ -7,7 +7,10 @@ const SPEED = 300.0
 #signal grapple_hook
 #var spring = -1050
 
+@onready var animation_tree : AnimationTree = $AnimationTree
+
 var can_hide = false
+
 
 #Coyote_time
 var coyote_time = 0.3
@@ -38,7 +41,7 @@ var current_state = IDLE
 @export var hook_speed : float = 1200
 var isMouseButtonPressed = false
 
-
+var left = false
 var screen_size = Vector2.ZERO
 var map_bounds = Rect2(Vector2(-200,-200), Vector2(2120.0, 1280.0))
 
@@ -52,6 +55,8 @@ var direction = Input.get_axis("move_left", "move_right")
 var chain_velocity := Vector2.ZERO
 
 func _ready():
+	$invinsible_icon.hide()
+	animation_tree.active = true
 	gravity = (2 * JumpHeight) / pow(TimeToJumpPeak, 2)
 	JUMPSPEED = gravity * TimeToJumpPeak
 	screen_size = get_viewport_rect().size
@@ -71,6 +76,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta):
+	
+	if current_state != HIDE:
+		update_animation_parameters()
 	rotate_pointer()
 	position.x = clamp(position.x, 0, screen_size.x)
 	
@@ -78,7 +86,9 @@ func _process(delta):
 		IDLE:
 			if Input.is_action_just_pressed("utilise") and can_hide:
 				current_state = HIDE
-				$AnimationPlayer.play("idle_to_hide")
+				animation_tree['parameters/conditions/IDLE'] = false
+				animation_tree['parameters/conditions/unhide'] = false
+				animation_tree['parameters/conditions/can_hide'] = true
 			pass
 		HOOKING:
 			pass
@@ -94,7 +104,8 @@ func _process(delta):
 		HIDE:
 			if Input.is_action_just_pressed('utilise'):
 				current_state = IDLE
-				$AnimationPlayer.play('hide_to_idle')
+				animation_tree['parameters/conditions/can_hide'] = false
+				animation_tree['parameters/conditions/unhide'] = true
 			pass
 				
 
@@ -138,11 +149,6 @@ func _physics_process(delta):
 			animation_locked = false
 			if not is_on_floor():
 				velocity.y += gravity * delta
-				$AnimatedSprite2D.play("jump")
-				if direction < 0: 
-					$AnimatedSprite2D.flip_h = true
-				else: $AnimatedSprite2D.flip_h = false
-				animation_locked = true
 			
 			if is_on_floor() and can_jump == false:
 				can_jump = true
@@ -160,14 +166,11 @@ func _physics_process(delta):
 			# Handle Attack.
 			elif Input.is_action_just_pressed("attack"):
 				current_state = ATTACK
-				$AnimatedSprite2D.play("attack")
-				animation_locked = true
 			
 
 			if direction: velocity.x = direction * SPEED
 			else: velocity.x = 0
-			
-			update_animation()
+		
 			move_and_slide()
 			
 			
@@ -188,28 +191,23 @@ func _physics_process(delta):
 		HIDE:
 			if Input.is_action_just_pressed("jump"): return
 			direction = Input.get_axis("move_left", "move_right")
+			if velocity.x < 0:
+				$Spritesheet.flip_h = true
+				left = true
+			elif velocity.x > 0:
+				$Spritesheet.flip_h = false
+				left = false
+			else:
+				$Spritesheet.flip_h = left
 			if direction: velocity.x = direction * 0.5 * SPEED
 			else: velocity.x = 0
 			velocity.y += gravity * delta
 			animation_locked = false
-			$AnimatedSprite2D.stop()
-			move_and_slide()
-			update_animation()
-
-
-func update_animation():
-	if animation_locked == false:
-		if direction > 0:
-			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("run")
-		elif direction < 0:
-			$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play("run")
-		if direction == 0 and is_on_floor():
-			$AnimatedSprite2D.play("idle")
-		if Input.is_action_just_pressed("attack"):
-			$AnimatedSprite2D.play("attack")
 			
+			move_and_slide()
+			
+
+
 			
 func rotate_pointer():
 		var local_mouse = get_local_mouse_position() 
@@ -234,6 +232,10 @@ func _on_melee_enemy_player_hit():
 	
 func gameover():
 	current_state = DEAD
+	animation_tree['parameters/conditions/DIE'] = true
+	animation_tree['parameters/conditions/IDLE'] = false
+	animation_tree['parameters/conditions/ATTACK'] = false
+	animation_tree['parameters/conditions/is_moving'] = false
 	$AnimatedSprite2D.play("die")
 
 func _on_enemy_detector_body_entered(body):
@@ -254,5 +256,34 @@ func _on_hidden_area_can_hide():
 func _on_hidden_area_player_exit():
 	can_hide = false
 	if current_state == HIDE:
-		$AnimationPlayer.play('hide_to_idle')
+		animation_tree['parameters/conditions/can_hide'] = false
+		animation_tree['parameters/conditions/unhide'] = true
+#		animation_tree['parameters/conditions/IDLE'] = true
 	current_state = IDLE
+
+func update_animation_parameters():
+	if velocity.x < 0:
+		$Spritesheet.flip_h = true
+		left = true
+	elif velocity.x > 0:
+		$Spritesheet.flip_h = false
+		left = false
+	else:
+		$Spritesheet.flip_h = left
+	if (velocity == Vector2.ZERO):
+		animation_tree["parameters/conditions/IDLE"] = true
+		animation_tree['parameters/conditions/is_jump'] = false
+		animation_tree["parameters/conditions/is_moving"] = false
+	elif (velocity.y == 0):
+		animation_tree["parameters/conditions/IDLE"] = false
+		animation_tree['parameters/conditions/is_jump'] = false
+		animation_tree['parameters/conditions/is_moving'] = true
+	else:
+		animation_tree["parameters/conditions/IDLE"] = false
+		animation_tree['parameters/conditions/is_jump'] = true
+		animation_tree['parameters/conditions/is_moving'] = false
+
+	if(Input.is_action_just_pressed('attack')):
+		animation_tree['parameters/conditions/ATTACK'] = true
+	else:
+		animation_tree['parameters/conditions/ATTACK'] = false
