@@ -7,6 +7,8 @@ const SPEED = 300.0
 #signal grapple_hook
 #var spring = -1050
 
+var can_hide = false
+
 #Coyote_time
 var coyote_time = 0.3
 var can_jump = false
@@ -29,7 +31,8 @@ enum{
 	HOOKED,
 	STUCK_ON_HOOK,
 	ATTACK,
-	DEAD
+	DEAD,
+	HIDE
 }
 var current_state = IDLE
 @export var hook_speed : float = 1200
@@ -73,6 +76,9 @@ func _process(delta):
 	
 	match current_state:
 		IDLE:
+			if Input.is_action_just_pressed("utilise") and can_hide:
+				current_state = HIDE
+				$AnimationPlayer.play("idle_to_hide")
 			pass
 		HOOKING:
 			pass
@@ -85,6 +91,12 @@ func _process(delta):
 			pass
 		DEAD:
 			pass
+		HIDE:
+			if Input.is_action_just_pressed('utilise'):
+				current_state = IDLE
+				$AnimationPlayer.play('hide_to_idle')
+			pass
+				
 
 
 func hook(delta):
@@ -103,6 +115,15 @@ func hook(delta):
 		grapplingHook.Deactivate()
 		pass
 
+
+func movement(delta):
+	direction = Input.get_axis("move_left", "move_right")
+	if direction: velocity.x = direction * SPEED
+	else: velocity.x = 0
+	if Input.is_action_just_pressed("jump"):
+		velocity.y = -JUMPSPEED
+	velocity.y += gravity * delta
+	move_and_slide()
 
 func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class
@@ -158,12 +179,22 @@ func _physics_process(delta):
 				current_state = IDLE
 				
 		ATTACK:
+			movement(delta)
 			enemy_detector.monitoring = true
 		
 		DEAD:
 			$CollisionShape2D.disabled = true
 			
-			
+		HIDE:
+			if Input.is_action_just_pressed("jump"): return
+			direction = Input.get_axis("move_left", "move_right")
+			if direction: velocity.x = direction * 0.5 * SPEED
+			else: velocity.x = 0
+			velocity.y += gravity * delta
+			animation_locked = false
+			$AnimatedSprite2D.stop()
+			move_and_slide()
+			update_animation()
 
 
 func update_animation():
@@ -180,17 +211,6 @@ func update_animation():
 			$AnimatedSprite2D.play("attack")
 			
 			
-#
-#func _on_stamina_bar_no_stamina():
-#	$Chain.release()
-
-#func collide_with_spring() -> bool:
-#	var bodies = get_overlapping_bodies()
-#	for body in bodies:
-#		if body.group == "SPRING":
-#			return true
-#		return false
-	
 func rotate_pointer():
 		var local_mouse = get_local_mouse_position() 
 		var temp = rad_to_deg(atan2(local_mouse.x, local_mouse.y))
@@ -228,4 +248,11 @@ func _on_animated_sprite_2d_animation_finished():
 	else:
 		emit_signal('game_over')
 	
+func _on_hidden_area_can_hide():
+	can_hide = true
 	
+func _on_hidden_area_player_exit():
+	can_hide = false
+	if current_state == HIDE:
+		$AnimationPlayer.play('hide_to_idle')
+	current_state = IDLE
