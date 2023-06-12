@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 signal player_hit
 
-const SPEED = 100.0
+const SPEED = 80.0
 var direction = Vector2.RIGHT
 var is_dead = false
 

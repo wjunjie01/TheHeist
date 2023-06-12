@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var MuzzleLeft = $MuzzleLeft
 @onready var Animation_tree = $AnimationTree
 
-const SPEED = 100.0
+const SPEED = 80.0
 var direction = Vector2.RIGHT
 var curr_muzzle
 var can_shoot = true

@@ -10,8 +10,7 @@ const SPEED = 300.0
 @onready var animation_tree : AnimationTree = $AnimationTree
 
 var can_hide = false
-
-
+var can_attack = true
 #Coyote_time
 var coyote_time = 0.3
 var can_jump = false
@@ -50,7 +49,6 @@ var map_bounds = Rect2(Vector2(-200,-200), Vector2(2120.0, 1280.0))
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var animation_locked: bool = false
 var direction = Input.get_axis("move_left", "move_right")
 var chain_velocity := Vector2.ZERO
 
@@ -75,41 +73,6 @@ func _input(event: InputEvent) -> void:
 				grapplingHook.Activate(targetHookNode.global_position)
 
 
-func _process(delta):
-	
-	if current_state != HIDE:
-		update_animation_parameters()
-	rotate_pointer()
-	position.x = clamp(position.x, 0, screen_size.x)
-	
-	match current_state:
-		IDLE:
-			if Input.is_action_just_pressed("utilise") and can_hide:
-				current_state = HIDE
-				animation_tree['parameters/conditions/IDLE'] = false
-				animation_tree['parameters/conditions/unhide'] = false
-				animation_tree['parameters/conditions/can_hide'] = true
-			pass
-		HOOKING:
-			pass
-		HOOKED:
-			hook(delta)
-#			position = hook_point
-			grapplingHook.m_HookNode.global_position = grapplingHook.m_TargetPos
-			pass
-		ATTACK:
-			pass
-		DEAD:
-			pass
-		HIDE:
-			if Input.is_action_just_pressed('utilise'):
-				current_state = IDLE
-				animation_tree['parameters/conditions/can_hide'] = false
-				animation_tree['parameters/conditions/unhide'] = true
-			pass
-				
-
-
 func hook(delta):
 	var hook_direction = (targetHookNode.GetTargetedPosition() - global_position).normalized()
 	position.x += hook_direction.x * hook_speed * delta
@@ -127,14 +90,37 @@ func hook(delta):
 		pass
 
 
-func movement(delta):
-	direction = Input.get_axis("move_left", "move_right")
-	if direction: velocity.x = direction * SPEED
-	else: velocity.x = 0
-	if Input.is_action_just_pressed("jump"):
-		velocity.y = -JUMPSPEED
-	velocity.y += gravity * delta
-	move_and_slide()
+func _process(delta):
+	rotate_pointer()
+	position.x = clamp(position.x, 0, screen_size.x)
+	
+	match current_state:
+		IDLE:
+			if can_hide and Input.is_action_just_pressed("hide"):
+				current_state = HIDE
+				animation_tree['parameters/conditions/idle'] = false
+				animation_tree['parameters/conditions/hide'] = true
+				
+			elif can_attack and Input.is_action_just_pressed("attack"):
+				current_state = ATTACK
+				animation_tree['parameters/conditions/idle'] = false
+				animation_tree['parameters/conditions/attack'] = true
+				
+		HOOKING:
+			pass
+		HOOKED:
+			hook(delta)
+#			position = hook_point
+			grapplingHook.m_HookNode.global_position = grapplingHook.m_TargetPos
+			pass
+		ATTACK:
+			pass
+		DEAD:
+			$CollisionShape2D.disabled = true
+		HIDE:
+			if Input.is_action_just_pressed('hide'):
+				animation_tree['parameters/conditions/hide'] = false
+				animation_tree['parameters/conditions/unhide'] = true
 
 func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class
@@ -146,31 +132,41 @@ func _physics_process(delta):
 			if (direction < 0 and enemy_detector.scale.x > 0) or (direction > 0 and enemy_detector.scale.x < 0):
 				enemy_detector.scale.x *= -1
 				
-			animation_locked = false
-			if not is_on_floor():
+			if not is_on_floor(): # When floating down
+				can_attack = false
 				velocity.y += gravity * delta
-			
-			if is_on_floor() and can_jump == false:
-				can_jump = true
+				
+			if is_on_floor():
+				if not can_attack:
+					can_attack = true
+				if not can_jump:
+					can_jump = true
 			elif can_jump == true and $CoyoteTimer.is_stopped():
 				$CoyoteTimer.start(coyote_time)
 			
 
 			# Handle Jump.
 			if can_jump and Input.is_action_just_pressed("jump"):
-				$AnimatedSprite2D.play("jump")
-				animation_locked = true
+				animation_tree['parameters/conditions/jump'] = true
 				$Jump.play()
 				velocity.y = -JUMPSPEED #JUMP_VELOCITY 
 			
-			# Handle Attack.
-			elif Input.is_action_just_pressed("attack"):
-				current_state = ATTACK
+#			# Handle Attack.
+#			elif Input.is_action_just_pressed("attack"):
+#				animation_tree['parameters/conditions/attack'] = true
+#				current_state = ATTACK
 			
-
-			if direction: velocity.x = direction * SPEED
-			else: velocity.x = 0
-		
+#			elif Input.is_action_just_pressed("hide"):
+#				animation_tree['parameters/conditions/idle'] = false
+#				animation_tree['parameters/conditions/hide'] = true
+#				current_state = HIDE
+				
+			else:
+				if direction: 
+					velocity.x = direction * SPEED
+					if direction < 0: $Spritesheet.flip_h = true
+					else: $Spritesheet.flip_h = false
+				else: velocity.x = 0
 			move_and_slide()
 			
 			
@@ -182,33 +178,15 @@ func _physics_process(delta):
 				current_state = IDLE
 				
 		ATTACK:
-			movement(delta)
-			enemy_detector.monitoring = true
+			pass
 		
 		DEAD:
-			$CollisionShape2D.disabled = true
+			pass
 			
 		HIDE:
-			if Input.is_action_just_pressed("jump"): return
-			direction = Input.get_axis("move_left", "move_right")
-			if velocity.x < 0:
-				$Spritesheet.flip_h = true
-				left = true
-			elif velocity.x > 0:
-				$Spritesheet.flip_h = false
-				left = false
-			else:
-				$Spritesheet.flip_h = left
-			if direction: velocity.x = direction * 0.5 * SPEED
-			else: velocity.x = 0
-			velocity.y += gravity * delta
-			animation_locked = false
-			
-			move_and_slide()
-			
+			pass
+				
 
-
-			
 func rotate_pointer():
 		var local_mouse = get_local_mouse_position() 
 		var temp = rad_to_deg(atan2(local_mouse.x, local_mouse.y))
@@ -232,58 +210,38 @@ func _on_melee_enemy_player_hit():
 	
 func gameover():
 	current_state = DEAD
-	animation_tree['parameters/conditions/DIE'] = true
-	animation_tree['parameters/conditions/IDLE'] = false
-	animation_tree['parameters/conditions/ATTACK'] = false
-	animation_tree['parameters/conditions/is_moving'] = false
-	$AnimatedSprite2D.play("die")
+	animation_tree['parameters/conditions/dead'] = true
 
 func _on_enemy_detector_body_entered(body):
 	if body.is_in_group("enemy"):
 		if (body.direction.x > 0 and direction > 0) or (body.direction.x < 0 and direction < 0):
 			body.is_dead = true
 
-func _on_animated_sprite_2d_animation_finished():
-	if current_state != DEAD:
-		current_state = IDLE
-		enemy_detector.monitoring = false
-	else:
-		emit_signal('game_over')
-	
 func _on_hidden_area_can_hide():
 	can_hide = true
 	
 func _on_hidden_area_player_exit():
 	can_hide = false
 	if current_state == HIDE:
-		animation_tree['parameters/conditions/can_hide'] = false
+		animation_tree['parameters/conditions/hide'] = false
 		animation_tree['parameters/conditions/unhide'] = true
-#		animation_tree['parameters/conditions/IDLE'] = true
-	current_state = IDLE
 
-func update_animation_parameters():
-	if velocity.x < 0:
-		$Spritesheet.flip_h = true
-		left = true
-	elif velocity.x > 0:
-		$Spritesheet.flip_h = false
-		left = false
-	else:
-		$Spritesheet.flip_h = left
-	if (velocity == Vector2.ZERO):
-		animation_tree["parameters/conditions/IDLE"] = true
-		animation_tree['parameters/conditions/is_jump'] = false
-		animation_tree["parameters/conditions/is_moving"] = false
-	elif (velocity.y == 0):
-		animation_tree["parameters/conditions/IDLE"] = false
-		animation_tree['parameters/conditions/is_jump'] = false
-		animation_tree['parameters/conditions/is_moving'] = true
-	else:
-		animation_tree["parameters/conditions/IDLE"] = false
-		animation_tree['parameters/conditions/is_jump'] = true
-		animation_tree['parameters/conditions/is_moving'] = false
 
-	if(Input.is_action_just_pressed('attack')):
-		animation_tree['parameters/conditions/ATTACK'] = true
-	else:
-		animation_tree['parameters/conditions/ATTACK'] = false
+func _on_animation_finished(anim_name):
+	if anim_name == "ATTACK":
+		current_state = IDLE
+		animation_tree['parameters/conditions/attack'] = false
+		animation_tree['parameters/conditions/idle'] = true
+		
+	elif anim_name == "UNHIDE":
+		current_state = IDLE
+		animation_tree['parameters/conditions/unhide'] = false
+		animation_tree['parameters/conditions/idle'] = true
+		
+	elif anim_name == "JUMP":
+		animation_tree['parameters/conditions/jump'] = false
+		animation_tree['parameters/conditions/idle'] = true
+		
+	elif anim_name == "DIE":
+		emit_signal('game_over')
+	
