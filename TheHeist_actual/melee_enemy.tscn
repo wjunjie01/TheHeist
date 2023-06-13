@@ -156,7 +156,7 @@ size = Vector2(41.7857, 85.7143)
 size = Vector2(44.2857, 47.1429)
 
 [node name="Melee Enemy" type="CharacterBody2D"]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.8, 0.8)
 collision_layer = 8
 script = ExtResource("1_803oj")
 
@@ -198,7 +198,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(45.7143, 5.71429)
+position = Vector2(47.5, 7.5)
 shape = SubResource("RectangleShape2D_pc0xt")
 
 [node name="AttackDetector" type="Area2D" parent="."]

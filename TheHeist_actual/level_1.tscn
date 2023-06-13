@@ -32,9 +32,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 160.0
-offset_top = 1248.0
+offset_top = 1220.0
 offset_right = 1696.0
-offset_bottom = 1536.0
+offset_bottom = 1508.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_1cmqv")
@@ -117,6 +117,9 @@ position = Vector2(960, 512)
 [node name="hook_point" parent="." instance=ExtResource("6_0lt7a")]
 position = Vector2(1734, 332)
 
+[node name="hook_point2" parent="." instance=ExtResource("6_0lt7a")]
+position = Vector2(666, 686)
+
 [node name="HUD" parent="." instance=ExtResource("10_ycp73")]
 
 [node name="level1-2" parent="." instance=ExtResource("11_4cqi0")]
@@ -124,7 +127,7 @@ position = Vector2(184, -12)
 collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("5_s2ac6")]
-position = Vector2(1374, 440)
+position = Vector2(94.0001, 1013)
 
 [node name="Pointer" parent="Player" instance=ExtResource("7_0os20")]
 

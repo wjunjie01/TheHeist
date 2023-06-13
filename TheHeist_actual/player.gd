@@ -96,16 +96,7 @@ func _process(delta):
 	
 	match current_state:
 		IDLE:
-			if can_hide and Input.is_action_just_pressed("hide"):
-				current_state = HIDE
-				animation_tree['parameters/conditions/idle'] = false
-				animation_tree['parameters/conditions/hide'] = true
-				
-			elif can_attack and Input.is_action_just_pressed("attack"):
-				current_state = ATTACK
-				animation_tree['parameters/conditions/idle'] = false
-				animation_tree['parameters/conditions/attack'] = true
-				
+			pass
 		HOOKING:
 			pass
 		HOOKED:
@@ -137,16 +128,25 @@ func _physics_process(delta):
 				velocity.y += gravity * delta
 				
 			if is_on_floor():
-				if not can_attack:
-					can_attack = true
-				if not can_jump:
-					can_jump = true
+				can_attack = true
+				can_jump = true
 			elif can_jump == true and $CoyoteTimer.is_stopped():
 				$CoyoteTimer.start(coyote_time)
 			
-
+			if can_hide and Input.is_action_just_pressed("hide"):
+				current_state = HIDE
+				animation_tree['parameters/conditions/idle'] = false
+				animation_tree['parameters/conditions/hide'] = true
+				
+			elif can_attack and Input.is_action_just_pressed("attack"):
+				current_state = ATTACK
+				animation_tree['parameters/conditions/idle'] = false
+				animation_tree['parameters/conditions/attack'] = true
+				enemy_detector.monitoring = true
 			# Handle Jump.
-			if can_jump and Input.is_action_just_pressed("jump"):
+			elif can_jump and Input.is_action_just_pressed("jump"):
+				animation_tree['parameters/conditions/run'] = false
+				animation_tree['parameters/conditions/idle'] = false
 				animation_tree['parameters/conditions/jump'] = true
 				$Jump.play()
 				velocity.y = -JUMPSPEED #JUMP_VELOCITY 
@@ -166,7 +166,15 @@ func _physics_process(delta):
 					velocity.x = direction * SPEED
 					if direction < 0: $Spritesheet.flip_h = true
 					else: $Spritesheet.flip_h = false
-				else: velocity.x = 0
+					if animation_tree['parameters/conditions/jump'] == true:
+						pass
+					else:
+						animation_tree['parameters/conditions/run'] = true
+						animation_tree['parameters/conditions/idle'] = false
+				else: 
+					velocity.x = 0
+					animation_tree['parameters/conditions/run'] = false
+					animation_tree['parameters/conditions/idle'] = true
 			move_and_slide()
 			
 			
@@ -214,7 +222,7 @@ func gameover():
 
 func _on_enemy_detector_body_entered(body):
 	if body.is_in_group("enemy"):
-		if (body.direction.x > 0 and direction > 0) or (body.direction.x < 0 and direction < 0):
+		if (body.direction.x > 0 and not $Spritesheet.flip_h) or (body.direction.x < 0 and $Spritesheet.flip_h):
 			body.is_dead = true
 
 func _on_hidden_area_can_hide():
@@ -232,6 +240,7 @@ func _on_animation_finished(anim_name):
 		current_state = IDLE
 		animation_tree['parameters/conditions/attack'] = false
 		animation_tree['parameters/conditions/idle'] = true
+		enemy_detector.monitoring = false
 		
 	elif anim_name == "UNHIDE":
 		current_state = IDLE

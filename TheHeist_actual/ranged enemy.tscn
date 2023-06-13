@@ -155,7 +155,7 @@ graph_offset = Vector2(40, 0)
 
 [node name="Ranged Enemy" type="CharacterBody2D"]
 position = Vector2(-9, 21)
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.8, 0.8)
 collision_layer = 8
 script = ExtResource("1_w6l07")
 
@@ -182,7 +182,7 @@ target_position = Vector2(0, 3)
 [node name="PlayerDetector" type="RayCast2D" parent="."]
 position = Vector2(9, -13)
 target_position = Vector2(300, 0)
-collision_mask = 2
+collision_mask = 3
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

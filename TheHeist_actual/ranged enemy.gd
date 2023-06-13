@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var MuzzleLeft = $MuzzleLeft
 @onready var Animation_tree = $AnimationTree
 
-const SPEED = 80.0
+const SPEED = 60.0
 var direction = Vector2.RIGHT
 var curr_muzzle
 var can_shoot = true
@@ -24,9 +24,9 @@ func _physics_process(_delta):
 	if is_dead:
 		dead()
 	
-	elif PlayerDetector.is_colliding() and can_shoot:
-		Animation_tree["parameters/conditions/walk"] = false
-		Animation_tree["parameters/conditions/shoot"] = true
+	elif PlayerDetector.is_colliding() and can_shoot and PlayerDetector.get_collider().is_in_group("player"):
+			Animation_tree["parameters/conditions/walk"] = false
+			Animation_tree["parameters/conditions/shoot"] = true
 		
 	elif Animation_tree["parameters/conditions/walk"] == true:
 		move()
