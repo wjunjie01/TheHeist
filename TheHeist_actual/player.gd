@@ -172,7 +172,7 @@ func _physics_process(delta):
 			
 		STUCK_ON_HOOK:
 			direction = Input.get_axis("move_left", "move_right")
-			$AnimatedSprite2D.stop() #STOPS The animation temporary, add the hanging from hook_point animation next time
+			#$AnimatedSprite2D.stop() #STOPS The animation temporary, add the hanging from hook_point animation next time
 			#If A or D is pressed, disengage
 			if direction != 0:
 				current_state = IDLE

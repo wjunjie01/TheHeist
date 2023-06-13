@@ -350,7 +350,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
 position = Vector2(55, 12.8571)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l40kv")
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
@@ -390,6 +389,9 @@ parameters/conditions/idle = true
 parameters/conditions/jump = false
 parameters/conditions/run = false
 parameters/conditions/unhide = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
