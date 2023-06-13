@@ -52,6 +52,9 @@ var map_bounds = Rect2(Vector2(-200,-200), Vector2(2120.0, 1280.0))
 var direction = Input.get_axis("move_left", "move_right")
 var chain_velocity := Vector2.ZERO
 
+var has_trap = false
+var bear_trap = preload ("res://bear_trap.tscn")
+
 func _ready():
 	$invinsible_icon.hide()
 	animation_tree.active = true
@@ -151,15 +154,12 @@ func _physics_process(delta):
 				$Jump.play()
 				velocity.y = -JUMPSPEED #JUMP_VELOCITY 
 			
-#			# Handle Attack.
-#			elif Input.is_action_just_pressed("attack"):
-#				animation_tree['parameters/conditions/attack'] = true
-#				current_state = ATTACK
-			
-#			elif Input.is_action_just_pressed("hide"):
-#				animation_tree['parameters/conditions/idle'] = false
-#				animation_tree['parameters/conditions/hide'] = true
-#				current_state = HIDE
+			elif has_trap and Input.is_action_just_pressed("utilise"):
+				var trap = bear_trap.instantiate()
+				get_tree().get_root().add_child(trap)
+				trap.position = $Trap_location.global_position
+				has_trap = false
+				trap.laid = true
 				
 			else:
 				if direction: 
