@@ -1,23 +1,49 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmoxf2bfckmib"]
 
 [ext_resource type="Script" path="res://hook_point.gd" id="1_dgcwk"]
-[ext_resource type="Texture2D" uid="uid://bq5dfgd0hkuvm" path="res://icon.svg" id="1_i4h74"]
 [ext_resource type="Texture2D" uid="uid://vb3n2m63jt7a" path="res://art/crosshair007.png" id="2_swfle"]
+[ext_resource type="Texture2D" uid="uid://cj8vfmsmp0fyo" path="res://art/village_art/PixelArtPerformer/TX Village Props.png" id="3_al50l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3efv"]
-size = Vector2(128, 128)
+size = Vector2(44.5, 24.5)
 
 [node name="hook_point" type="Area2D" groups=["hook_point"]]
-position = Vector2(416, 256)
+position = Vector2(377, 247)
 collision_mask = 2
 script = ExtResource("1_dgcwk")
 cursor = ExtResource("2_swfle")
 
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(70, 65)
+texture = ExtResource("3_al50l")
+offset = Vector2(-59, -61)
+region_enabled = true
+region_rect = Rect2(288, 768, 16, 16)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_i4h74")
+position = Vector2(70, 65)
+texture = ExtResource("3_al50l")
+offset = Vector2(-90, -24)
+region_enabled = true
+region_rect = Rect2(928, 32, 32, 96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, -0.25)
 shape = SubResource("RectangleShape2D_r3efv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(70, 65)
+texture = ExtResource("3_al50l")
+offset = Vector2(-68, -59)
+region_enabled = true
+region_rect = Rect2(976, 32, 32, 32)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(70, 65)
+texture = ExtResource("3_al50l")
+offset = Vector2(-57, -43)
+region_enabled = true
+region_rect = Rect2(960, 0, 32, 32)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
