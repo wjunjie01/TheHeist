@@ -65,6 +65,7 @@ func _ready():
 	grapplingHook.S_On_Hook_Reached.connect(On_Hooked)
 
 func On_Hooked():
+	grapplingHook.m_HookStay = true
 	current_state = HOOKED
 	pass
 
@@ -176,7 +177,8 @@ func _physics_process(delta):
 					animation_tree['parameters/conditions/run'] = false
 					animation_tree['parameters/conditions/idle'] = true
 			move_and_slide()
-			
+		
+
 			
 		STUCK_ON_HOOK:
 			direction = Input.get_axis("move_left", "move_right")
@@ -184,6 +186,7 @@ func _physics_process(delta):
 			#If A or D is pressed, disengage
 			if direction != 0:
 				current_state = IDLE
+			velocity.y = 0
 				
 		ATTACK:
 			pass
@@ -202,7 +205,7 @@ func rotate_pointer():
 
 func ray_free_obstacles() -> bool:
 	var colliding_with_hook = ray.is_colliding() and ray.get_collider() is Area2D
-	if colliding_with_hook and ray.get_collider().is_in_group("hook_point"):
+	if colliding_with_hook and ray.get_collider().is_in_group("hook_point") and ray.get_collider().mouseInside:
 		targetHookNode = ray.get_collider()
 		return true
 	return false
