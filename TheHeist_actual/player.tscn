@@ -310,7 +310,7 @@ states/Start/position = Vector2(-25.5, 139.25)
 states/UNHIDE/node = SubResource("AnimationNodeAnimation_nhvnj")
 states/UNHIDE/position = Vector2(304, 439.668)
 transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_lxgjb"), "IDLE", "ATTACK", SubResource("AnimationNodeStateMachineTransition_jj588"), "ATTACK", "IDLE", SubResource("AnimationNodeStateMachineTransition_2pwxi"), "IDLE", "RUN", SubResource("AnimationNodeStateMachineTransition_4w5qc"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_httln"), "RUN", "ATTACK", SubResource("AnimationNodeStateMachineTransition_d7wfi"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_gq5qf"), "JUMP", "IDLE", SubResource("AnimationNodeStateMachineTransition_blage"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_ivu76"), "JUMP", "RUN", SubResource("AnimationNodeStateMachineTransition_2w63k"), "UNHIDE", "IDLE", SubResource("AnimationNodeStateMachineTransition_6tyw8"), "IDLE", "DIE", SubResource("AnimationNodeStateMachineTransition_feo7v"), "JUMP", "DIE", SubResource("AnimationNodeStateMachineTransition_lg018"), "RUN", "DIE", SubResource("AnimationNodeStateMachineTransition_t3y0g"), "ATTACK", "DIE", SubResource("AnimationNodeStateMachineTransition_x6ymw"), "DIE", "End", SubResource("AnimationNodeStateMachineTransition_xmuet"), "IDLE", "HIDE", SubResource("AnimationNodeStateMachineTransition_kdc13"), "HIDE", "UNHIDE", SubResource("AnimationNodeStateMachineTransition_vv6u5"), "RUN", "HIDE", SubResource("AnimationNodeStateMachineTransition_wx0as")]
-graph_offset = Vector2(19.668, 39.831)
+graph_offset = Vector2(-216.239, 132.169)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4b6ao"]
 

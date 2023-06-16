@@ -251,3 +251,7 @@ func _on_animation_finished(anim_name):
 	elif anim_name == "DIE":
 		emit_signal('game_over')
 	
+
+
+func _on_hidden_area_player_exit():
+	can_hide = false
