@@ -113,14 +113,12 @@ func _process(delta):
 		DEAD:
 			$CollisionShape2D.disabled = true
 		HIDE:
-			if Input.is_action_just_pressed('hide'):
-				animation_tree['parameters/conditions/hide'] = false
-				animation_tree['parameters/conditions/unhide'] = true
+			pass
 
 func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
-	
+	print(current_state)
 	match current_state:
 		IDLE:
 			direction = Input.get_axis("move_left", "move_right")
@@ -195,7 +193,9 @@ func _physics_process(delta):
 			pass
 			
 		HIDE:
-			pass
+			if Input.is_action_just_pressed('hide'):
+				animation_tree['parameters/conditions/hide'] = false
+				animation_tree['parameters/conditions/unhide'] = true
 				
 
 func rotate_pointer():
@@ -230,12 +230,6 @@ func _on_enemy_detector_body_entered(body):
 
 func _on_hidden_area_can_hide():
 	can_hide = true
-	
-func _on_hidden_area_player_exit():
-	can_hide = false
-	if current_state == HIDE:
-		animation_tree['parameters/conditions/hide'] = false
-		animation_tree['parameters/conditions/unhide'] = true
 
 
 func _on_animation_finished(anim_name):
