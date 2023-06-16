@@ -10,7 +10,7 @@ const SPEED = 300.0
 @onready var animation_tree : AnimationTree = $AnimationTree
 
 var can_hide = false
-var can_attack = true
+var can_attack = false
 #Coyote_time
 var coyote_time = 0.3
 var can_jump = false
@@ -118,6 +118,7 @@ func _process(delta):
 func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
+	
 	print(current_state)
 	match current_state:
 		IDLE:
@@ -130,8 +131,8 @@ func _physics_process(delta):
 				velocity.y += gravity * delta
 				
 			if is_on_floor():
-				can_attack = true
 				can_jump = true
+				can_attack = true
 			elif can_jump == true and $CoyoteTimer.is_stopped():
 				$CoyoteTimer.start(coyote_time)
 			
@@ -145,6 +146,7 @@ func _physics_process(delta):
 				animation_tree['parameters/conditions/idle'] = false
 				animation_tree['parameters/conditions/attack'] = true
 				enemy_detector.monitoring = true
+				can_attack = false
 			# Handle Jump.
 			elif can_jump and Input.is_action_just_pressed("jump"):
 				animation_tree['parameters/conditions/run'] = false
@@ -176,7 +178,6 @@ func _physics_process(delta):
 					animation_tree['parameters/conditions/idle'] = true
 			move_and_slide()
 		
-
 			
 		STUCK_ON_HOOK:
 			direction = Input.get_axis("move_left", "move_right")
@@ -187,7 +188,8 @@ func _physics_process(delta):
 			velocity.y = 0
 				
 		ATTACK:
-			pass
+			animation_tree['parameters/conditions/attack'] = false
+			animation_tree['parameters/conditions/idle'] = true
 		
 		DEAD:
 			pass
@@ -238,6 +240,7 @@ func _on_animation_finished(anim_name):
 		animation_tree['parameters/conditions/attack'] = false
 		animation_tree['parameters/conditions/idle'] = true
 		enemy_detector.monitoring = false
+		can_attack = true
 		
 	elif anim_name == "UNHIDE":
 		current_state = IDLE
