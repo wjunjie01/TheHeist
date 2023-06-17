@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bapt865ix6sf0"]
+[gd_scene load_steps=46 format=3 uid="uid://bapt865ix6sf0"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_c02i6"]
 [ext_resource type="Texture2D" uid="uid://b2ekqhfs77wvi" path="res://art/main_char/AnimationSheet_Character.png" id="2_dt3rb"]
@@ -293,6 +293,11 @@ advance_condition = &"unhide"
 advance_mode = 2
 advance_condition = &"hide"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_86ept"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"run"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gqe80"]
 states/ATTACK/node = SubResource("AnimationNodeAnimation_nrmwn")
 states/ATTACK/position = Vector2(622.5, 42)
@@ -310,8 +315,8 @@ states/RUN/position = Vector2(213.5, 29.5315)
 states/Start/position = Vector2(-25.5, 139.25)
 states/UNHIDE/node = SubResource("AnimationNodeAnimation_nhvnj")
 states/UNHIDE/position = Vector2(304, 439.668)
-transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_lxgjb"), "IDLE", "ATTACK", SubResource("AnimationNodeStateMachineTransition_jj588"), "ATTACK", "IDLE", SubResource("AnimationNodeStateMachineTransition_2pwxi"), "IDLE", "RUN", SubResource("AnimationNodeStateMachineTransition_4w5qc"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_httln"), "RUN", "ATTACK", SubResource("AnimationNodeStateMachineTransition_d7wfi"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_gq5qf"), "JUMP", "IDLE", SubResource("AnimationNodeStateMachineTransition_blage"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_ivu76"), "JUMP", "RUN", SubResource("AnimationNodeStateMachineTransition_2w63k"), "UNHIDE", "IDLE", SubResource("AnimationNodeStateMachineTransition_6tyw8"), "IDLE", "DIE", SubResource("AnimationNodeStateMachineTransition_feo7v"), "JUMP", "DIE", SubResource("AnimationNodeStateMachineTransition_lg018"), "RUN", "DIE", SubResource("AnimationNodeStateMachineTransition_t3y0g"), "ATTACK", "DIE", SubResource("AnimationNodeStateMachineTransition_x6ymw"), "DIE", "End", SubResource("AnimationNodeStateMachineTransition_xmuet"), "IDLE", "HIDE", SubResource("AnimationNodeStateMachineTransition_kdc13"), "HIDE", "UNHIDE", SubResource("AnimationNodeStateMachineTransition_vv6u5"), "RUN", "HIDE", SubResource("AnimationNodeStateMachineTransition_wx0as")]
-graph_offset = Vector2(-216.239, 132.169)
+transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_lxgjb"), "IDLE", "ATTACK", SubResource("AnimationNodeStateMachineTransition_jj588"), "ATTACK", "IDLE", SubResource("AnimationNodeStateMachineTransition_2pwxi"), "IDLE", "RUN", SubResource("AnimationNodeStateMachineTransition_4w5qc"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_httln"), "RUN", "ATTACK", SubResource("AnimationNodeStateMachineTransition_d7wfi"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_gq5qf"), "JUMP", "IDLE", SubResource("AnimationNodeStateMachineTransition_blage"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_ivu76"), "JUMP", "RUN", SubResource("AnimationNodeStateMachineTransition_2w63k"), "UNHIDE", "IDLE", SubResource("AnimationNodeStateMachineTransition_6tyw8"), "IDLE", "DIE", SubResource("AnimationNodeStateMachineTransition_feo7v"), "JUMP", "DIE", SubResource("AnimationNodeStateMachineTransition_lg018"), "RUN", "DIE", SubResource("AnimationNodeStateMachineTransition_t3y0g"), "ATTACK", "DIE", SubResource("AnimationNodeStateMachineTransition_x6ymw"), "DIE", "End", SubResource("AnimationNodeStateMachineTransition_xmuet"), "IDLE", "HIDE", SubResource("AnimationNodeStateMachineTransition_kdc13"), "HIDE", "UNHIDE", SubResource("AnimationNodeStateMachineTransition_vv6u5"), "RUN", "HIDE", SubResource("AnimationNodeStateMachineTransition_wx0as"), "ATTACK", "RUN", SubResource("AnimationNodeStateMachineTransition_86ept")]
+graph_offset = Vector2(111.41, -10.5351)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4b6ao"]
 
@@ -390,6 +395,10 @@ limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.4
+
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_finished"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

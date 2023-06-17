@@ -9,6 +9,7 @@ const SPEED = 300.0
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 
+var attack_in_progress = false
 var can_hide = false
 #Coyote_time
 var coyote_time = 0.3
@@ -116,22 +117,38 @@ func _process(delta):
 func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
-
-	move_and_slide()
+	
 	
 	match current_state:
 		IDLE:
 			direction = Input.get_axis("move_left", "move_right")
 			if (direction < 0 and enemy_detector.scale.x > 0) or (direction > 0 and enemy_detector.scale.x < 0):
 				enemy_detector.scale.x *= -1
-				
+			
+			if direction: 
+				velocity.x = direction * SPEED
+				if direction < 0: $Spritesheet.flip_h = true
+				else: $Spritesheet.flip_h = false
+				if animation_tree['parameters/conditions/jump'] == true:
+					pass
+				else:
+					animation_tree['parameters/conditions/run'] = true
+					animation_tree['parameters/conditions/idle'] = false	
+			else: 
+				velocity.x = 0
+				animation_tree['parameters/conditions/run'] = false
+				animation_tree['parameters/conditions/idle'] = true
+		
+			move_and_slide()
 				
 			if is_on_floor():
 				if Input.is_action_just_pressed("attack"):
-					current_state = ATTACK
 					animation_tree['parameters/conditions/idle'] = false
 					animation_tree['parameters/conditions/attack'] = true
 					enemy_detector.monitoring = true
+					attack_in_progress = true
+					$AttackTimer.start()
+					current_state = ATTACK
 					
 				elif can_hide and Input.is_action_just_pressed("hide"):
 					current_state = HIDE
@@ -152,25 +169,10 @@ func _physics_process(delta):
 					has_trap = false
 					trap.laid = true
 				
-				elif direction: 
-						velocity.x = direction * SPEED
-						if direction < 0: $Spritesheet.flip_h = true
-						else: $Spritesheet.flip_h = false
-						if animation_tree['parameters/conditions/jump'] == true:
-							pass
-						else:
-							animation_tree['parameters/conditions/run'] = true
-							animation_tree['parameters/conditions/idle'] = false
-				
-				else: 
-					velocity.x = 0
-					animation_tree['parameters/conditions/run'] = false
-					animation_tree['parameters/conditions/idle'] = true
-				
 			else: # When floating down
 				velocity.y += gravity * delta
 				pass
-
+				
 		STUCK_ON_HOOK:
 			direction = Input.get_axis("move_left", "move_right")
 			#$AnimatedSprite2D.stop() #STOPS The animation temporary, add the hanging from hook_point animation next time
@@ -180,12 +182,14 @@ func _physics_process(delta):
 			velocity.y = 0
 				
 		ATTACK:
-			if ($AnimationPlayer.is_playing()):
+			if attack_in_progress:
 				pass
+		
 			else:
 				animation_tree['parameters/conditions/attack'] = false
 				animation_tree['parameters/conditions/idle'] = true
 				current_state = IDLE
+			pass
 		
 		DEAD:
 			pass
@@ -195,6 +199,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed('hide'):
 				animation_tree['parameters/conditions/hide'] = false
 				animation_tree['parameters/conditions/unhide'] = true
+				
 				
 
 func rotate_pointer():
@@ -251,3 +256,7 @@ func _on_animation_finished(anim_name):
 
 func _on_hidden_area_player_exit():
 	can_hide = false
+
+
+func _on_attack_timer_timeout():
+	attack_in_progress = false
