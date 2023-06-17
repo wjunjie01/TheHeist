@@ -16,6 +16,7 @@ func _process(delta):
 
 func _on_texture_button_pressed():
 	print('New game pressed')
+	$OKAY.play()
 	SceneTransition.change_scene("res://level_1.tscn")
 
 func _on_texture_button_2_pressed():

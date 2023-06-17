@@ -39,6 +39,8 @@ var current_state = IDLE
 @export var hook_speed : float = 1200
 var isMouseButtonPressed = false
 
+var can_die = true
+
 var left = false
 var screen_size = Vector2.ZERO
 var map_bounds = Rect2(Vector2(-200,-200), Vector2(2120.0, 1280.0))
@@ -56,6 +58,7 @@ var bear_trap = preload ("res://bear_trap.tscn")
 
 func _ready():
 	$invinsible_icon.hide()
+	$Zelda.play()
 	animation_tree.active = true
 	gravity = (2 * JumpHeight) / pow(TimeToJumpPeak, 2)
 	JUMPSPEED = gravity * TimeToJumpPeak
@@ -115,7 +118,8 @@ func _process(delta):
 			pass
 
 func _physics_process(delta):
-	if !map_bounds.has_point(position): #method provided by Rect2 class
+	if can_die and !map_bounds.has_point(position): #method provided by Rect2 class
+		can_die = false
 		gameover()
 	
 	
@@ -221,6 +225,8 @@ func _on_melee_enemy_player_hit():
 	gameover()
 	
 func gameover():
+	print('game over')
+	$Zelda.stop()
 	$"Mario death".play()
 	current_state = DEAD
 	animation_tree['parameters/conditions/dead'] = true

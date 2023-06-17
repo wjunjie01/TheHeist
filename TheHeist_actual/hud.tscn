@@ -30,11 +30,11 @@ text = "Mission Failed...
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
-offset_left = 829.0
-offset_top = 608.0
-offset_right = 1153.0
-offset_bottom = 716.0
-theme_override_colors/font_color = Color(0.415686, 0.803922, 0.909804, 1)
+offset_left = 835.0
+offset_top = 594.0
+offset_right = 1159.0
+offset_bottom = 702.0
+theme_override_colors/font_color = Color(0, 0.580392, 0.862745, 1)
 theme_override_fonts/font = ExtResource("2_pxod7")
 theme_override_font_sizes/font_size = 125
 text = "Restart"

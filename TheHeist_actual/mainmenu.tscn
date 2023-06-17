@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cebi3ossha2l"]
+[gd_scene load_steps=12 format=3 uid="uid://cebi3ossha2l"]
 
 [ext_resource type="Script" path="res://mainmenu.gd" id="1_j1y53"]
 [ext_resource type="Texture2D" uid="uid://bqj2d12xcj8j4" path="res://art/updated_background/2.png" id="1_l3p8q"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://2ehsltc1veue" path="res://art/font/mago2.ttf" id="8_jfof1"]
 [ext_resource type="PackedScene" uid="uid://d11inh1wsb7fi" path="res://texture_button.tscn" id="8_rnq56"]
 [ext_resource type="AudioStream" uid="uid://ccufm0e1cgaxm" path="res://music/Suzume (Piano Ver.)-[AudioTrimmer.com].mp3" id="10_iqugb"]
+[ext_resource type="AudioStream" uid="uid://bcd21lfqbtipf" path="res://music/sound-effect-okey-metal-slug_CO0n4S3p.mp3" id="11_vlrhh"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_j1y53")
@@ -111,6 +112,9 @@ margin = 80
 
 [node name="Suzume" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_iqugb")
+
+[node name="OKAY" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_vlrhh")
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
