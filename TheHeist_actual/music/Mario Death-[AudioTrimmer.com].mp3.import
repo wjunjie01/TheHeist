@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ce2lx32hjtc5j"
+path="res://.godot/imported/Mario Death-[AudioTrimmer.com].mp3-aedaa5fe477df77d80a081c1fe23e3be.mp3str"
+
+[deps]
+
+source_file="res://music/Mario Death-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/Mario Death-[AudioTrimmer.com].mp3-aedaa5fe477df77d80a081c1fe23e3be.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

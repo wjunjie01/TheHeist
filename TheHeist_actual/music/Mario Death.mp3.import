@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1fmklquy06qx"
+path="res://.godot/imported/Mario Death.mp3-31f6069763b7f2c1c43b3c440e3ee51b.mp3str"
+
+[deps]
+
+source_file="res://music/Mario Death.mp3"
+dest_files=["res://.godot/imported/Mario Death.mp3-31f6069763b7f2c1c43b3c440e3ee51b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=328.38
+beat_count=0
+bar_beats=4

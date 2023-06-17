@@ -221,6 +221,7 @@ func _on_melee_enemy_player_hit():
 	gameover()
 	
 func gameover():
+	$"Mario death".play()
 	current_state = DEAD
 	animation_tree['parameters/conditions/dead'] = true
 
