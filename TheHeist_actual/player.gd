@@ -7,7 +7,8 @@ const SPEED = 300.0
 #signal grapple_hook
 #var spring = -1050
 
-@onready var animation_tree : AnimationTree = $AnimationTree
+@onready var animation_tree : AnimationTree = $CharacterAnimationTree
+@onready var player_collision = $CollisionShape2D
 
 var attack_in_progress = false
 var can_hide = false
@@ -39,8 +40,6 @@ var current_state = IDLE
 @export var hook_speed : float = 1200
 var isMouseButtonPressed = false
 
-var can_die = true
-
 var left = false
 var screen_size = Vector2.ZERO
 var map_bounds = Rect2(Vector2(-200,-200), Vector2(2120.0, 1280.0))
@@ -57,7 +56,7 @@ var has_trap = false
 var bear_trap = preload ("res://bear_trap.tscn")
 
 func _ready():
-	$invinsible_icon.hide()
+	$R.visible = false
 	animation_tree.active = true
 	gravity = (2 * JumpHeight) / pow(TimeToJumpPeak, 2)
 	JUMPSPEED = gravity * TimeToJumpPeak
@@ -77,7 +76,6 @@ func _input(event: InputEvent) -> void:
 				current_state = HOOKING
 				grapplingHook.Activate(targetHookNode.global_position)
 
-
 func hook(delta):
 	var hook_direction = (targetHookNode.GetTargetedPosition() - global_position).normalized()
 	position.x += hook_direction.x * hook_speed * delta
@@ -93,7 +91,6 @@ func hook(delta):
 		
 		grapplingHook.Deactivate()
 		pass
-
 
 func _process(delta):
 	rotate_pointer()
@@ -114,11 +111,11 @@ func _process(delta):
 		DEAD:
 			$CollisionShape2D.disabled = true
 		HIDE:
-			pass
+			$R.visible = true
+			$R/RAnimationPlayer.play("R pressed")
 
 func _physics_process(delta):
-	if can_die and !map_bounds.has_point(position): #method provided by Rect2 class
-		can_die = false
+	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
 	
 	
@@ -141,10 +138,17 @@ func _physics_process(delta):
 				velocity.x = 0
 				animation_tree['parameters/conditions/run'] = false
 				animation_tree['parameters/conditions/idle'] = true
-		
+					
 			move_and_slide()
 				
 			if is_on_floor():
+				if Input.is_action_just_pressed("jump"):
+					animation_tree['parameters/conditions/run'] = false
+					animation_tree['parameters/conditions/idle'] = false
+					animation_tree['parameters/conditions/jump'] = true
+					$Jump.play()
+					velocity.y = -JUMPSPEED #JUMP_VELOCITY 
+					
 				if Input.is_action_just_pressed("attack"):
 					animation_tree['parameters/conditions/idle'] = false
 					animation_tree['parameters/conditions/attack'] = true
@@ -155,15 +159,9 @@ func _physics_process(delta):
 					
 				elif can_hide and Input.is_action_just_pressed("hide"):
 					current_state = HIDE
+					player_collision.disabled = true
 					animation_tree['parameters/conditions/idle'] = false
 					animation_tree['parameters/conditions/hide'] = true
-				
-				elif Input.is_action_just_pressed("jump"):
-					animation_tree['parameters/conditions/run'] = false
-					animation_tree['parameters/conditions/idle'] = false
-					animation_tree['parameters/conditions/jump'] = true
-					$Jump.play()
-					velocity.y = -JUMPSPEED #JUMP_VELOCITY 
 				
 				elif has_trap and Input.is_action_just_pressed("utilise"):
 					var trap = bear_trap.instantiate()
@@ -202,7 +200,9 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed('hide'):
 				animation_tree['parameters/conditions/hide'] = false
 				animation_tree['parameters/conditions/unhide'] = true
+				player_collision.disabled = false
 				
+			
 				
 
 func rotate_pointer():
@@ -234,8 +234,6 @@ func _on_enemy_detector_body_entered(body):
 		if (body.direction.x > 0 and not $Spritesheet.flip_h) or (body.direction.x < 0 and $Spritesheet.flip_h):
 			body.is_dead = true
 
-func _on_hidden_area_can_hide():
-	can_hide = true
 
 
 func _on_animation_finished(anim_name):
@@ -257,11 +255,15 @@ func _on_animation_finished(anim_name):
 	elif anim_name == "DIE":
 		emit_signal('game_over')
 	
-
-
-func _on_hidden_area_player_exit():
-	can_hide = false
-
-
 func _on_attack_timer_timeout():
 	attack_in_progress = false
+
+func _on_hiding_area_entered():
+	can_hide = true
+	$R.visible = true
+	$R/RAnimationPlayer.play("R pressed")
+
+func _on_hidden_area_hiding_area_exited():
+	can_hide = false
+	$R.visible = false
+	$R/RAnimationPlayer.stop()
