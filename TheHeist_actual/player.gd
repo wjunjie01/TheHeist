@@ -58,7 +58,6 @@ var bear_trap = preload ("res://bear_trap.tscn")
 
 func _ready():
 	$invinsible_icon.hide()
-	$Zelda.play()
 	animation_tree.active = true
 	gravity = (2 * JumpHeight) / pow(TimeToJumpPeak, 2)
 	JUMPSPEED = gravity * TimeToJumpPeak
@@ -226,7 +225,6 @@ func _on_melee_enemy_player_hit():
 	
 func gameover():
 	print('game over')
-	$Zelda.stop()
 	$"Mario death".play()
 	current_state = DEAD
 	animation_tree['parameters/conditions/dead'] = true
