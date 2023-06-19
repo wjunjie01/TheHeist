@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3ku6dndhp4hg"]
+
+[ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
+[ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="2_biwv2"]
+[ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="3_30af2"]
+[ext_resource type="PackedScene" uid="uid://b7qmwl3ds1gb7" path="res://pointer.tscn" id="4_3fsg0"]
+[ext_resource type="PackedScene" uid="uid://ccmkps5ngy4hr" path="res://moving_platform.tscn" id="4_tth3d"]
+
+[node name="level_3" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_biwv2")
+format = 2
+layer_0/name = "Layer 0"
+layer_1/name = "in front of layer 0"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 5
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "in front of layer 10"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(4259840, 1310720, 8, 4325376, 1310720, 9, 4390912, 1310720, 10, 4259841, 1376256, 8, 4325377, 1376256, 9, 4390913, 1376256, 10, 4259842, 1310720, 8, 4325378, 1310720, 9, 4390914, 1310720, 10, 4259843, 1310720, 8, 4325379, 1310720, 9, 4390915, 1310720, 10, 4259844, 1310720, 8, 4325380, 1310720, 9, 4390916, 1310720, 10, 4259845, 1376256, 8, 4325381, 1376256, 9, 4390917, 1376256, 10)
+layer_3/name = "Below layer 0 "
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = -1
+layer_3/tile_data = PackedInt32Array(3932195, 4128774, 2)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1088.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fd8ag")
+
+[node name="Player" parent="." instance=ExtResource("3_30af2")]
+position = Vector2(20, 1010)
+
+[node name="Pointer" parent="Player" instance=ExtResource("4_3fsg0")]
+visible = false
+
+[node name="Moving_platform" parent="." instance=ExtResource("4_tth3d")]
+position = Vector2(100, 1018)
+collision_mask = 2
