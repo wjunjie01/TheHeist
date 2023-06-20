@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dpfc038jidlnh"]
+[gd_scene load_steps=18 format=3 uid="uid://dpfc038jidlnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_nrw21"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_ybaiy"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="10_ycp73"]
 [ext_resource type="PackedScene" uid="uid://n3w24n2e8ear" path="res://transition/level_1_2.tscn" id="11_4cqi0"]
 [ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="12_75umy"]
+[ext_resource type="Texture2D" uid="uid://c7oa5f5mrjtmd" path="res://art/lamp.png" id="14_0mr2t"]
 [ext_resource type="PackedScene" uid="uid://hdulm07rjik3" path="res://spike.tscn" id="14_oo6f3"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="15_acgjn"]
 [ext_resource type="PackedScene" uid="uid://cc3kenl5bjuc" path="res://melee_enemy.tscn" id="16_17t3m"]
@@ -159,9 +160,14 @@ Right click to hook on to them!"
 scroll_active = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Tutorial Signs/Hook_sign/Text" index="1"]
-position = Vector2(78, 34)
+position = Vector2(39, 33)
 scale = Vector2(0.266667, 0.217306)
 texture = ExtResource("5_ag86c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tutorial Signs/Hook_sign/Text" index="2"]
+position = Vector2(98, 35)
+scale = Vector2(0.119947, 0.12658)
+texture = ExtResource("14_0mr2t")
 
 [node name="Spike_sign" parent="Tutorial Signs" instance=ExtResource("4_okhs2")]
 position = Vector2(970, 370)
@@ -210,7 +216,7 @@ position = Vector2(545, 496)
 [node name="Springs" type="Node" parent="."]
 
 [node name="Spring" parent="Springs" instance=ExtResource("12_75umy")]
-position = Vector2(176, 480)
+position = Vector2(189, 472)
 collision_layer = 2
 collision_mask = 2
 

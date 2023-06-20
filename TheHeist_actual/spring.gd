@@ -8,7 +8,6 @@ func _physics_process(_delta):
 			$AnimationPlayer.play("active")
 			body.velocity.y -= 590
 			$Boing.play()
-#			get_tree()
 			await $AnimationPlayer.current_animation_length
 		else:
 			$AnimationPlayer.play("idle")
