@@ -10,6 +10,7 @@ const SPEED = 300.0
 @onready var animation_tree : AnimationTree = $CharacterAnimationTree
 @onready var player_collision = $CollisionShape2D
 
+var once = true
 var attack_in_progress = false
 var can_hide = false
 #Coyote_time
@@ -224,10 +225,12 @@ func _on_melee_enemy_player_hit():
 	gameover()
 	
 func gameover():
-	print('game over')
-	$"Mario death".play()
-	current_state = DEAD
-	animation_tree['parameters/conditions/dead'] = true
+	if once == true:
+		print('game over')
+		once = false
+		$"Mario death".play()
+		current_state = DEAD
+		animation_tree['parameters/conditions/dead'] = true
 
 func _on_enemy_detector_body_entered(body):
 	if body.is_in_group("enemy"):

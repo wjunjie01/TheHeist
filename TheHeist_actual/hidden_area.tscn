@@ -4,18 +4,17 @@
 [ext_resource type="Script" path="res://hidden_area.gd" id="1_oiv3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bb0kd"]
-size = Vector2(115.5, 139.5)
+size = Vector2(38.375, 64.6875)
 
 [node name="hidden_area" type="Area2D"]
 script = ExtResource("1_oiv3o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(72.5, 68)
-scale = Vector2(2.96875, 1.90625)
+position = Vector2(52, 44)
 texture = ExtResource("1_cmie8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(75, 65)
+position = Vector2(51, 43.3438)
 shape = SubResource("RectangleShape2D_bb0kd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

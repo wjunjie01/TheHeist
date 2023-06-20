@@ -185,7 +185,7 @@ target_position = Vector2(300, 0)
 collision_mask = 3
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 autostart = true
 
 [node name="MuzzleRight" type="Marker2D" parent="."]
