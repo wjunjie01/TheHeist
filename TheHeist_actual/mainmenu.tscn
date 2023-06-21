@@ -12,7 +12,15 @@
 [ext_resource type="AudioStream" uid="uid://ccufm0e1cgaxm" path="res://music/Suzume (Piano Ver.)-[AudioTrimmer.com].mp3" id="10_iqugb"]
 [ext_resource type="AudioStream" uid="uid://bcd21lfqbtipf" path="res://music/sound-effect-okey-metal-slug_CO0n4S3p.mp3" id="11_vlrhh"]
 
-[node name="MainMenu" type="Node"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_j1y53")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -60,6 +68,7 @@ texture = ExtResource("7_glbhc")
 centered = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -68,6 +77,7 @@ grow_vertical = 2
 color = Color(0.454902, 0.380392, 0.345098, 0.682353)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
