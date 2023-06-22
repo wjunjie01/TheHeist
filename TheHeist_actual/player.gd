@@ -9,6 +9,8 @@ const SPEED = 300.0
 
 @onready var animation_tree : AnimationTree = $CharacterAnimationTree
 @onready var player_collision = $CollisionShape2D
+@onready var ray:= $Rotation/RayCast2D
+@onready var enemy_detector = $EnemyDetector
 
 var once = true
 var attack_in_progress = false
@@ -45,8 +47,6 @@ var left = false
 var screen_size = Vector2.ZERO
 var map_bounds = Rect2(Vector2(-200,-200), Vector2(2120.0, 1280.0))
 
-@onready var ray:= $Pointer/RayCast2D
-@onready var enemy_detector = $EnemyDetector
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -54,10 +54,12 @@ var direction = Input.get_axis("move_left", "move_right")
 var chain_velocity := Vector2.ZERO
 
 var has_trap = false
-var bear_trap = preload ("res://bear_trap.tscn")
+var trap_scene = preload ("res://bear_trap.tscn")
+
+var has_shuriken = false
+var shuriken_scene = preload ("res://Shuriken.tscn")
 
 func _ready():
-	$R.visible = false
 	animation_tree.active = true
 	gravity = (2 * JumpHeight) / pow(TimeToJumpPeak, 2)
 	JUMPSPEED = gravity * TimeToJumpPeak
@@ -94,7 +96,7 @@ func hook(delta):
 		pass
 
 func _process(delta):
-	rotate_pointer()
+	$Rotation.look_at(get_global_mouse_position())
 	position.x = clamp(position.x, 0, screen_size.x)
 	
 	match current_state:
@@ -164,12 +166,20 @@ func _physics_process(delta):
 					animation_tree['parameters/conditions/idle'] = false
 					animation_tree['parameters/conditions/hide'] = true
 				
-				elif has_trap and Input.is_action_just_pressed("utilise"):
-					var trap = bear_trap.instantiate()
-					get_tree().get_root().add_child(trap)
-					trap.position = $Trap_location.global_position
-					has_trap = false
-					trap.laid = true
+				elif Input.is_action_just_pressed("utilise"):
+					if has_trap:
+						var trap = trap_scene.instantiate()
+						get_tree().get_root().add_child(trap)
+						trap.position = $Trap_location.global_position
+						has_trap = false
+						trap.laid = true
+					elif has_shuriken:
+						var shuriken = shuriken_scene.instantiate()
+						shuriken.fired = true
+						get_parent().add_child(shuriken)
+						shuriken.position = $Rotation/Shuriken_origin.global_position
+						shuriken.velocity = get_global_mouse_position() - shuriken.position
+						has_shuriken = false
 				
 			else: # When floating down
 				velocity.y += gravity * delta
@@ -206,10 +216,6 @@ func _physics_process(delta):
 			
 				
 
-func rotate_pointer():
-		var local_mouse = get_local_mouse_position() 
-		var temp = rad_to_deg(atan2(local_mouse.x, local_mouse.y))
-		$Pointer.rotation_degrees = -temp + 90
 
 func ray_free_obstacles() -> bool:
 	var colliding_with_hook = ray.is_colliding() and ray.get_collider() is Area2D
