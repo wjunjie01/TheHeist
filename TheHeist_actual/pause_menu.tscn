@@ -1,6 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://duynpl5qisvjw"]
+[gd_scene load_steps=8 format=3 uid="uid://duynpl5qisvjw"]
 
 [ext_resource type="Script" path="res://PauseMenu.gd" id="1_lkvva"]
+[ext_resource type="FontFile" uid="uid://bgaydilhgyvqq" path="res://art/font/mago3.ttf" id="2_dn4tn"]
+[ext_resource type="FontFile" uid="uid://drnvvspa4o8o3" path="res://art/font/mago1.ttf" id="3_r41cx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgb02"]
+bg_color = Color(0.133333, 0.415686, 0.686275, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b40h"]
+bg_color = Color(0.317647, 0.603922, 0.980392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.764706, 0.811765, 0.807843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sua7d"]
+bg_color = Color(0.00392157, 0.282353, 0.443137, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+
+[sub_resource type="Theme" id="Theme_qnrau"]
+Button/styles/hover = SubResource("StyleBoxFlat_hgb02")
+Button/styles/normal = SubResource("StyleBoxFlat_1b40h")
+Button/styles/pressed = SubResource("StyleBoxFlat_sua7d")
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +55,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_qnrau")
 script = ExtResource("1_lkvva")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -34,7 +81,8 @@ theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
+theme_override_fonts/font = ExtResource("2_dn4tn")
+theme_override_font_sizes/font_size = 200
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -46,18 +94,22 @@ layout_mode = 2
 [node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("3_r41cx")
+theme_override_font_sizes/font_size = 100
 text = "Resume Game"
 
 [node name="Menu" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("3_r41cx")
+theme_override_font_sizes/font_size = 100
 text = "Main Menu"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("3_r41cx")
+theme_override_font_sizes/font_size = 100
 text = "Quit
 "
 
