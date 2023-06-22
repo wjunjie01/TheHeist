@@ -1,8 +1,9 @@
-[gd_scene load_steps=50 format=3 uid="uid://bapt865ix6sf0"]
+[gd_scene load_steps=51 format=3 uid="uid://bapt865ix6sf0"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_c02i6"]
 [ext_resource type="Texture2D" uid="uid://b2ekqhfs77wvi" path="res://art/main_char/AnimationSheet_Character.png" id="2_dt3rb"]
 [ext_resource type="AudioStream" uid="uid://nbefklrsj21a" path="res://music/cartoon-jump-6462.mp3" id="4_0acjv"]
+[ext_resource type="Texture2D" uid="uid://dy1nf5322uy1p" path="res://art/stamina_bar/bar_fill.png" id="4_62vid"]
 [ext_resource type="PackedScene" uid="uid://cc6skydycxx64" path="res://Grappling_Hook.tscn" id="4_84rtv"]
 [ext_resource type="AudioStream" uid="uid://cmcdwmkghirk4" path="res://music/mario-death_0RYR409X.mp3" id="6_51j1h"]
 [ext_resource type="Texture2D" uid="uid://bqugema3vtpoj" path="res://art/R-Key.png" id="6_evtva"]
@@ -354,10 +355,26 @@ monitorable = false
 position = Vector2(64.2857, 12.8571)
 shape = SubResource("RectangleShape2D_l40kv")
 
-[node name="Jump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_0acjv")
-volume_db = -8.4
-mix_target = 1
+[node name="Trap_location" type="Marker2D" parent="."]
+position = Vector2(0, 41.4286)
+
+[node name="Rotation" type="Node2D" parent="."]
+rotation = 6.28319
+
+[node name="Shuriken_origin" type="Marker2D" parent="Rotation"]
+position = Vector2(35.7143, 15.7143)
+
+[node name="RayCast2D" type="RayCast2D" parent="Rotation"]
+position = Vector2(35.7143, 15.7143)
+rotation = -1.5708
+target_position = Vector2(0, 800)
+collide_with_areas = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotation/RayCast2D"]
+position = Vector2(-0.138605, 338.656)
+rotation = 1.5708
+scale = Vector2(100, 1)
+texture = ExtResource("4_62vid")
 
 [node name="CharacterAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -377,16 +394,19 @@ parameters/conditions/jump = false
 parameters/conditions/run = false
 parameters/conditions/unhide = false
 
-[node name="Trap_location" type="Marker2D" parent="."]
-position = Vector2(0, 41.4286)
-
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.4
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0acjv")
+volume_db = -8.4
+mix_target = 1
 
 [node name="Mario death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_51j1h")
 
 [node name="R" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(50, -48.5714)
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("6_evtva")
