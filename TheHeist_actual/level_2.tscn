@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://boihc8o2rgqku"]
+[gd_scene load_steps=17 format=3 uid="uid://boihc8o2rgqku"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_akiho"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="1_nfnio"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="5_gen8u"]
 [ext_resource type="PackedScene" uid="uid://hdulm07rjik3" path="res://spike.tscn" id="6_yti6h"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="7_ou7l2"]
+[ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="14_4irqt"]
 
 [sub_resource type="Animation" id="Animation_kxode"]
 resource_name = "move_up"
@@ -148,6 +149,13 @@ position = Vector2(336, 326)
 wait_time = 0.3
 one_shot = true
 autostart = true
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource("14_4irqt")]
+process_mode = 3
+visible = false
 
 [connection signal="hiding_area_entered" from="hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
 [connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]

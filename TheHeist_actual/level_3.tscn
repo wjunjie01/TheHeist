@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3ku6dndhp4hg"]
+[gd_scene load_steps=15 format=3 uid="uid://d3ku6dndhp4hg"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="2_biwv2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://fwr5mkw84w4d" path="res://transition/level_2_3.tscn" id="6_b14lk"]
 [ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="9_bp5sr"]
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="11_hvui4"]
+[ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="12_p3o72"]
 
 [sub_resource type="Animation" id="Animation_fpbi4"]
 resource_name = "moveloop"
@@ -100,6 +101,9 @@ position = Vector2(193, 318)
 [node name="AnimatableBody2D" parent="MovingPlatform" index="0"]
 position = Vector2(6.788, 0)
 
+[node name="CollisionShape2D" parent="MovingPlatform/AnimatableBody2D" index="0"]
+position = Vector2(13.212, 0)
+
 [node name="AnimationPlayer" parent="MovingPlatform/AnimatableBody2D" index="2"]
 autoplay = "moveloop"
 libraries = {
@@ -118,6 +122,13 @@ position = Vector2(1623, 626)
 collision_mask = 2
 
 [node name="HUD" parent="." instance=ExtResource("11_hvui4")]
+visible = false
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource("12_p3o72")]
+process_mode = 3
 visible = false
 
 [connection signal="body_entered" from="level2-3" to="level2-3" method="_on_body_entered"]

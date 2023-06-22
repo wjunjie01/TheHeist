@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cxl1ckborvv36" path="res://art/village_art/Free/Terrain/Terrain (16x16).png" id="1_lbbaf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nedi"]
-size = Vector2(95, 16)
+size = Vector2(156, 16)
 
 [node name="MovingPlatform" type="Node2D"]
 metadata/_edit_group_ = true
