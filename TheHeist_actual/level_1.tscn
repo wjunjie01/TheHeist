@@ -19,7 +19,6 @@
 [ext_resource type="AudioStream" uid="uid://27jy8d3k23ka" path="res://music/zelda cut.mp3" id="18_at5w3"]
 
 [node name="level_1" type="Node2D"]
-process_mode = 1
 script = ExtResource("1_ybaiy")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
@@ -87,7 +86,7 @@ position = Vector2(184, -12)
 collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("5_s2ac6")]
-position = Vector2(162, 464)
+position = Vector2(94.0001, 1013)
 
 [node name="Pointer" parent="Player" instance=ExtResource("7_0os20")]
 visible = false
@@ -95,7 +94,7 @@ visible = false
 [node name="zelda" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_at5w3")
 
-[node name="Tutorial Signs" type="Node2D" parent="."]
+[node name="Tutorial Signs" type="Node" parent="."]
 
 [node name="Movement_sign" parent="Tutorial Signs" instance=ExtResource("4_okhs2")]
 position = Vector2(120, 1003)
@@ -197,7 +196,7 @@ offset_right = 109.0
 offset_bottom = -4.0
 text = "Be careful not to be noticed by the shooter!"
 
-[node name="Spikes" type="Node2D" parent="."]
+[node name="Spikes" type="Node" parent="."]
 
 [node name="Spike" parent="Spikes" instance=ExtResource("14_oo6f3")]
 position = Vector2(460, 496)
@@ -214,7 +213,7 @@ position = Vector2(736, 496)
 [node name="Spike5" parent="Spikes" instance=ExtResource("14_oo6f3")]
 position = Vector2(545, 496)
 
-[node name="Springs" type="Node2D" parent="."]
+[node name="Springs" type="Node" parent="."]
 
 [node name="Spring" parent="Springs" instance=ExtResource("12_75umy")]
 position = Vector2(189, 472)
@@ -236,7 +235,7 @@ position = Vector2(256, 128)
 collision_layer = 2
 collision_mask = 2
 
-[node name="Node" type="Node2D" parent="."]
+[node name="Node" type="Node" parent="."]
 
 [node name="hook_point" parent="Node" instance=ExtResource("6_0lt7a")]
 z_index = 1000

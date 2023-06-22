@@ -35,7 +35,6 @@ _data = {
 }
 
 [node name="level_3" type="Node2D"]
-process_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 anchors_preset = 15
