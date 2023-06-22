@@ -50,9 +50,10 @@ theme_override_font_sizes/font_size = 50
 text = "Resume Game"
 
 [node name="Menu" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Main Menu"
+text = "Main menu"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)

@@ -226,6 +226,7 @@ func _on_melee_enemy_player_hit():
 	
 func gameover():
 	if once == true:
+		Engine.time_scale = 1
 		print('game over')
 		once = false
 		$"Mario death".play()
