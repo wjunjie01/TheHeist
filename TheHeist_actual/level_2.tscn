@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://boihc8o2rgqku"]
+[gd_scene load_steps=18 format=3 uid="uid://boihc8o2rgqku"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_akiho"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="1_nfnio"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://hdulm07rjik3" path="res://spike.tscn" id="6_yti6h"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="7_ou7l2"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="14_4irqt"]
+[ext_resource type="AudioStream" uid="uid://gaykv00j2jig" path="res://music/sword-art-online-crossing-field-opening-full-version-string-quartet-cover_zdxA9IqO.mp3" id="15_vxtpt"]
 
 [sub_resource type="Animation" id="Animation_kxode"]
 resource_name = "move_up"
@@ -157,10 +158,14 @@ layer = 2
 process_mode = 3
 visible = false
 
+[node name="SAO" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_vxtpt")
+
 [connection signal="hiding_area_entered" from="hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
 [connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hidden_area" to="." method="_on_hidden_area_hiding_area_exited"]
 [connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_exited"]
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="game_over" from="Player" to="HUD" method="_on_player_game_over"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

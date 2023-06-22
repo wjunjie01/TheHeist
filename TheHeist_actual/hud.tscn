@@ -131,4 +131,4 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_rtggw")
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]

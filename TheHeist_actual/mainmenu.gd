@@ -24,3 +24,4 @@ func _on_texture_button_2_pressed():
 
 func _on_texture_button_3_pressed():
 	print('Exit pressed')
+	get_tree().quit()

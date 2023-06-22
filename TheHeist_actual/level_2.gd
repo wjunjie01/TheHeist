@@ -6,6 +6,8 @@ var can_hide = false
 func _on_timer_timeout():
 	Engine.time_scale = .2
 
+func _ready():
+	$SAO.play()
 
 
 func _process(delta):
@@ -19,3 +21,7 @@ func _on_hidden_area_hiding_area_entered():
 
 func _on_hidden_area_hiding_area_exited():
 	can_hide = false
+
+
+func _on_player_game_over():
+	$SAO.stop()
