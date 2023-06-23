@@ -270,3 +270,7 @@ func _on_hidden_area_hiding_area_exited():
 	can_hide = false
 	$R.visible = false
 	$R/RAnimationPlayer.stop()
+
+
+func _on_hidden_area_hiding_area_entered():
+	pass # Replace with function body.
