@@ -3,8 +3,6 @@ extends Node2D
 var once = true
 var can_hide = false
 
-func _ready():
-	$SAO.play()
 
 func _on_timer_timeout():
 	Engine.time_scale = .2
@@ -23,5 +21,3 @@ func _on_hidden_area_hiding_area_exited():
 	can_hide = false
 
 
-func _on_player_game_over():
-	$SAO.stop()
