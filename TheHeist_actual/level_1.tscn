@@ -90,7 +90,7 @@ position = Vector2(184, -12)
 collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("5_s2ac6")]
-position = Vector2(136, 462)
+position = Vector2(94.0001, 1013)
 
 [node name="Pointer" parent="Player" instance=ExtResource("7_0os20")]
 visible = false
@@ -219,23 +219,23 @@ position = Vector2(545, 496)
 
 [node name="Springs" type="Node" parent="."]
 
-[node name="Spring_lower" parent="Springs" instance=ExtResource("12_75umy")]
+[node name="Spring" parent="Springs" instance=ExtResource("12_75umy")]
+position = Vector2(189, 472)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Spring2" parent="Springs" instance=ExtResource("12_75umy")]
+position = Vector2(112, 288)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Spring3" parent="Springs" instance=ExtResource("12_75umy")]
 position = Vector2(465, 914)
 collision_layer = 2
 collision_mask = 2
 
-[node name="Spring_upper1" parent="Springs" instance=ExtResource("12_75umy")]
-position = Vector2(257, 131)
-collision_layer = 2
-collision_mask = 2
-
-[node name="Spring_upper2" parent="Springs" instance=ExtResource("12_75umy")]
-position = Vector2(111, 291)
-collision_layer = 2
-collision_mask = 2
-
-[node name="Spring_upper3" parent="Springs" instance=ExtResource("12_75umy")]
-position = Vector2(184, 481)
+[node name="Spring4" parent="Springs" instance=ExtResource("12_75umy")]
+position = Vector2(256, 128)
 collision_layer = 2
 collision_mask = 2
 
