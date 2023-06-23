@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dpfc038jidlnh"]
+[gd_scene load_steps=18 format=3 uid="uid://dpfc038jidlnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_nrw21"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_ybaiy"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="5_s2ac6"]
 [ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="6_0lt7a"]
 [ext_resource type="PackedScene" uid="uid://b7qmwl3ds1gb7" path="res://pointer.tscn" id="7_0os20"]
-[ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="10_ycp73"]
 [ext_resource type="PackedScene" uid="uid://n3w24n2e8ear" path="res://transition/level_1_2.tscn" id="11_4cqi0"]
 [ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="12_75umy"]
 [ext_resource type="Texture2D" uid="uid://c7oa5f5mrjtmd" path="res://art/lamp.png" id="14_0mr2t"]
@@ -85,9 +84,6 @@ position = Vector2(945, 521)
 
 [node name="Melee Enemy" parent="." groups=["enemy"] instance=ExtResource("16_17t3m")]
 position = Vector2(750, 1015)
-
-[node name="HUD" parent="." instance=ExtResource("10_ycp73")]
-visible = false
 
 [node name="level1-2" parent="." instance=ExtResource("11_4cqi0")]
 position = Vector2(184, -12)
@@ -257,7 +253,6 @@ scale = Vector2(1.2, 1.2)
 
 [connection signal="player_hit" from="Melee Enemy" to="Player" method="_on_melee_enemy_player_hit"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
-[connection signal="game_over" from="Player" to="HUD" method="_on_player_game_over"]
 
 [editable path="Tutorial Signs/Movement_sign"]
 [editable path="Tutorial Signs/Spring_sign"]

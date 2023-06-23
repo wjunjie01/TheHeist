@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=13 format=3 uid="uid://boihc8o2rgqku"]
 =======
 [gd_scene load_steps=14 format=3 uid="uid://d3ku6dndhp4hg"]
 >>>>>>> parent of 42aa937 (Added new projectile shuriken)
+=======
+[gd_scene load_steps=14 format=3 uid="uid://d3ku6dndhp4hg"]
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="2_3wo2l"]
