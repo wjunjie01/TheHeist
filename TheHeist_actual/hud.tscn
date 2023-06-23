@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bebgmhxb0goe3"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_7ktrj"]
+[ext_resource type="FontFile" uid="uid://2ehsltc1veue" path="res://art/font/mago2.ttf" id="2_pxod7"]
+[ext_resource type="Texture2D" uid="uid://bw0frsq15suny" path="res://art/font/defeat-ml.png" id="3_vylci"]
+[ext_resource type="Texture2D" uid="uid://dm0njpfrmrvu2" path="res://art/font/sad face.png" id="4_rtggw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5vu"]
+bg_color = Color(0.745098, 0.52549, 0.619608, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_7ktrj")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 676.0
+offset_top = 388.0
+offset_right = -604.0
+offset_bottom = -332.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_pxod7")
+theme_override_font_sizes/font_size = 125
+theme_override_styles/normal = SubResource("StyleBoxFlat_8k5vu")
+text = "Mission Failed...
+
+"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 835.0
+offset_top = 594.0
+offset_right = 1159.0
+offset_bottom = 702.0
+theme_override_colors/font_color = Color(0, 0.580392, 0.862745, 1)
+theme_override_fonts/font = ExtResource("2_pxod7")
+theme_override_font_sizes/font_size = 125
+text = "Restart"
+icon_alignment = 1
+
+[node name="Defeat-ml" type="Sprite2D" parent="."]
+position = Vector2(986, 539)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_vylci")
+
+[node name="SadFace" type="Sprite2D" parent="."]
+position = Vector2(986, 512)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_rtggw")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
