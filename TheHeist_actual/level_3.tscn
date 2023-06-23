@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3ku6dndhp4hg"]
+[gd_scene load_steps=16 format=3 uid="uid://d3ku6dndhp4hg"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
 [ext_resource type="Script" path="res://level_3.gd" id="1_pxyvu"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dx32hh8f4otr3" path="res://hidden_area.tscn" id="9_uplvu"]
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="11_hvui4"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="12_l3ei1"]
+[ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="13_74bc2"]
 
 [sub_resource type="Animation" id="Animation_kxode"]
 resource_name = "move_up"
@@ -36,6 +37,7 @@ _data = {
 }
 
 [node name="level_3" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_pxyvu")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
@@ -53,8 +55,6 @@ texture = ExtResource("1_fd8ag")
 [node name="hidden_area" parent="." instance=ExtResource("9_uplvu")]
 z_index = 4
 position = Vector2(157, 255)
-
-[node name="HUD" parent="." instance=ExtResource("11_hvui4")]
 
 [node name="MovingPlatform" parent="." instance=ExtResource("5_no8co")]
 position = Vector2(1467, 295)
@@ -143,6 +143,14 @@ position = Vector2(336, 326)
 wait_time = 0.3
 one_shot = true
 autostart = true
+
+[node name="HUD" parent="." instance=ExtResource("11_hvui4")]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource("13_74bc2")]
+visible = false
 
 [connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_exited"]

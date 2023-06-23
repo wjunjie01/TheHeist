@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 func _ready():
+	var player = get_parent().get_node("Player")
+	player.game_over.connect(_on_player_game_over)
 	hide()
 
 

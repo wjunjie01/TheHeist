@@ -58,6 +58,7 @@ var trap_scene = preload ("res://bear_trap.tscn")
 var has_shuriken = true
 var shuriken_scene = preload ("res://Shuriken.tscn")
 
+
 func _ready():
 	$R.visible = false
 	animation_tree.active = true
@@ -66,7 +67,11 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	#Connect signal
 	grapplingHook.S_On_Hook_Reached.connect(On_Hooked)
-
+	
+	var melee_enemies = get_parent().get_node("Melee_enemies")
+	for enemy in melee_enemies.get_children():
+		enemy.player_hit.connect(_on_melee_enemy_player_hit)
+	
 func On_Hooked():
 	grapplingHook.m_HookStay = true
 	current_state = HOOKED
@@ -256,7 +261,7 @@ func _on_animation_finished(anim_name):
 		animation_tree['parameters/conditions/idle'] = true
 		
 	elif anim_name == "DIE":
-		emit_signal('game_over')
+		emit_signal("game_over")
 	
 func _on_attack_timer_timeout():
 	attack_in_progress = false

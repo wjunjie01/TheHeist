@@ -153,7 +153,7 @@ graph_offset = Vector2(40, 0)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_nbw2w"]
 
-[node name="Ranged Enemy" type="CharacterBody2D"]
+[node name="Ranged Enemy" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(-9, 21)
 scale = Vector2(0.8, 0.8)
 collision_layer = 8
