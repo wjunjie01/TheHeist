@@ -3,11 +3,11 @@ extends Node2D
 var once = true
 var can_hide = false
 
-func _on_timer_timeout():
-	Engine.time_scale = .2
-
 func _ready():
 	$SAO.play()
+
+func _on_timer_timeout():
+	Engine.time_scale = .2
 
 
 func _process(delta):

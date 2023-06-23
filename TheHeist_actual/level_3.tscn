@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://boihc8o2rgqku"]
+[gd_scene load_steps=13 format=3 uid="uid://boihc8o2rgqku"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_cpep0"]
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
+[ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="2_3wo2l"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="2_biwv2"]
 [ext_resource type="PackedScene" uid="uid://dusld0glrsveu" path="res://lamp.tscn" id="2_q3hda"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="3_30af2"]
@@ -9,10 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="3_obrex"]
 [ext_resource type="PackedScene" uid="uid://dx32hh8f4otr3" path="res://hidden_area.tscn" id="6_r84kd"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="9_okktt"]
+[ext_resource type="AudioStream" uid="uid://gaykv00j2jig" path="res://music/sword-art-online-crossing-field-opening-full-version-string-quartet-cover_zdxA9IqO.mp3" id="11_we3j8"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="12_djvxu"]
 
 [node name="level_3" type="Node2D"]
 script = ExtResource("1_cpep0")
+
+[node name="HUD" parent="." instance=ExtResource("2_3wo2l")]
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -102,8 +106,12 @@ layer = 2
 process_mode = 3
 visible = false
 
+[node name="SAO" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_we3j8")
+
 [connection signal="hiding_area_entered" from="hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
 [connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hidden_area" to="." method="_on_hidden_area_hiding_area_exited"]
 [connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_exited"]
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
