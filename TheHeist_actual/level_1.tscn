@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpfc038jidlnh"]
+[gd_scene load_steps=18 format=3 uid="uid://dpfc038jidlnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_nrw21"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_ybaiy"]
+[ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="2_h65ve"]
 [ext_resource type="Texture2D" uid="uid://c0i5k5a1veb0m" path="res://art/village_art/GothicVania's town/environment/layers/middleground.png" id="3_i7l2p"]
+[ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="4_0qkdo"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="4_hl7op"]
 [ext_resource type="PackedScene" uid="uid://ed4gitc7qhig" path="res://tutorial_signs.tscn" id="4_okhs2"]
 [ext_resource type="Texture2D" uid="uid://cge1yfbjnmmfj" path="res://art/sign .png" id="5_ag86c"]
@@ -22,6 +24,9 @@ script = ExtResource("1_ybaiy")
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 2
 
+[node name="PauseMenu" parent="GUI" instance=ExtResource("2_h65ve")]
+visible = false
+
 [node name="TextureRect2" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +38,8 @@ offset_bottom = 1615.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_nrw21")
+
+[node name="HUD" parent="." instance=ExtResource("4_0qkdo")]
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -244,6 +251,7 @@ scale = Vector2(1.2, 1.2)
 
 [connection signal="player_hit" from="Melee Enemy" to="Player" method="_on_melee_enemy_player_hit"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="game_over" from="Player" to="HUD" method="_on_player_game_over"]
 
 [editable path="Tutorial Signs/Movement_sign"]
 [editable path="Tutorial Signs/Spring_sign"]
