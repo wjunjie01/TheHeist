@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://csi0rdmglrwx7"]
+
+[ext_resource type="Texture2D" uid="uid://csqr4vd618yrm" path="res://art/04.png" id="1_3a2em"]
+[ext_resource type="Script" path="res://shuriken.gd" id="1_dyk06"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_emj03"]
+
+[node name="Shuriken" type="Area2D"]
+collision_mask = 11
+script = ExtResource("1_dyk06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_emj03")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3a2em")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

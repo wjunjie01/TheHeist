@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dpfc038jidlnh"]
+[gd_scene load_steps=16 format=3 uid="uid://dpfc038jidlnh"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_nrw21"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_ybaiy"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cge1yfbjnmmfj" path="res://art/sign .png" id="5_ag86c"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="5_s2ac6"]
 [ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="6_0lt7a"]
-[ext_resource type="PackedScene" uid="uid://b7qmwl3ds1gb7" path="res://pointer.tscn" id="7_0os20"]
 [ext_resource type="PackedScene" uid="uid://n3w24n2e8ear" path="res://transition/level_1_2.tscn" id="11_4cqi0"]
 [ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="12_75umy"]
 [ext_resource type="Texture2D" uid="uid://c7oa5f5mrjtmd" path="res://art/lamp.png" id="14_0mr2t"]
@@ -86,9 +85,6 @@ collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("5_s2ac6")]
 position = Vector2(94.0001, 1013)
-
-[node name="Pointer" parent="Player" instance=ExtResource("7_0os20")]
-visible = false
 
 [node name="zelda" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_at5w3")
@@ -234,14 +230,14 @@ position = Vector2(256, 128)
 collision_layer = 2
 collision_mask = 2
 
-[node name="Node" type="Node" parent="."]
+[node name="Hook_points" type="Node" parent="."]
 
-[node name="hook_point" parent="Node" instance=ExtResource("6_0lt7a")]
+[node name="hook_point" parent="Hook_points" instance=ExtResource("6_0lt7a")]
 z_index = 1000
 position = Vector2(1675, 322)
 scale = Vector2(1.3, 1.3)
 
-[node name="hook_point2" parent="Node" instance=ExtResource("6_0lt7a")]
+[node name="hook_point2" parent="Hook_points" instance=ExtResource("6_0lt7a")]
 z_index = 1000
 position = Vector2(1842, 694)
 scale = Vector2(1.2, 1.2)
