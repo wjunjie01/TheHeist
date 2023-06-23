@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=18 format=3 uid="uid://boihc8o2rgqku"]
 [gd_scene load_steps=15 format=3 uid="uid://d3ku6dndhp4hg"]
 =======
@@ -37,6 +38,21 @@
 =======
 >>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 =======
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
+=======
+[gd_scene load_steps=14 format=3 uid="uid://d3ku6dndhp4hg"]
+
+[ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
+[ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="2_biwv2"]
+[ext_resource type="PackedScene" uid="uid://dusld0glrsveu" path="res://lamp.tscn" id="2_q3hda"]
+[ext_resource type="PackedScene" uid="uid://hdulm07rjik3" path="res://spike.tscn" id="2_qklws"]
+[ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="3_30af2"]
+[ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="3_obrex"]
+[ext_resource type="PackedScene" uid="uid://b7qmwl3ds1gb7" path="res://pointer.tscn" id="4_3fsg0"]
+[ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="5_no8co"]
+[ext_resource type="PackedScene" uid="uid://fwr5mkw84w4d" path="res://transition/level_2_3.tscn" id="6_b14lk"]
+[ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="9_bp5sr"]
+[ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="11_hvui4"]
 >>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 
 [sub_resource type="Animation" id="Animation_fpbi4"]
@@ -190,7 +206,11 @@ position = Vector2(1505, 640)
 position = Vector2(1623, 626)
 collision_mask = 2
 
+<<<<<<< HEAD
 [node name="HUD" parent="." instance=ExtResource("12_ug7i0")]
+=======
+[node name="HUD" parent="." instance=ExtResource("11_hvui4")]
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 visible = false
 
 [connection signal="body_entered" from="level2-3" to="level2-3" method="_on_body_entered"]

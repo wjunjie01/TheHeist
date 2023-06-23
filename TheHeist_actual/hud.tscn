@@ -7,9 +7,12 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 bg_color = Color(0.443137, 0.172549, 0.2, 1)
 =======
 >>>>>>> parent of 40ee6d0 (Merge branch 'main' of https://github.com/wjunjie01/TheHeist)
+=======
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 =======
 >>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5vu"]
@@ -36,6 +39,7 @@ text = "Mission Failed...
 "
 horizontal_alignment = 1
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 [node name="Button" type="Button" parent="Control"]
@@ -114,6 +118,19 @@ text = "Restart"
 icon_alignment = 1
 
 >>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
+=======
+[node name="Button" type="Button" parent="."]
+offset_left = 835.0
+offset_top = 594.0
+offset_right = 1159.0
+offset_bottom = 702.0
+theme_override_colors/font_color = Color(0, 0.580392, 0.862745, 1)
+theme_override_fonts/font = ExtResource("2_pxod7")
+theme_override_font_sizes/font_size = 125
+text = "Restart"
+icon_alignment = 1
+
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 [node name="Defeat-ml" type="Sprite2D" parent="."]
 position = Vector2(986, 539)
 scale = Vector2(0.8, 0.8)
@@ -126,10 +143,13 @@ texture = ExtResource("4_rtggw")
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
 =======
 >>>>>>> parent of 40ee6d0 (Merge branch 'main' of https://github.com/wjunjie01/TheHeist)
+=======
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 =======
 >>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -5,10 +5,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nedi"]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 size = Vector2(95, 16)
 =======
 size = Vector2(158, 16)
 >>>>>>> parent of 40ee6d0 (Merge branch 'main' of https://github.com/wjunjie01/TheHeist)
+=======
+size = Vector2(95, 16)
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 =======
 size = Vector2(95, 16)
 >>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)

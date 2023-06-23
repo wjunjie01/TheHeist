@@ -54,10 +54,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 text = "Main menu"
 =======
 text = "Main Menu"
 >>>>>>> parent of 40ee6d0 (Merge branch 'main' of https://github.com/wjunjie01/TheHeist)
+=======
+text = "Main menu"
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 =======
 text = "Main menu"
 >>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)

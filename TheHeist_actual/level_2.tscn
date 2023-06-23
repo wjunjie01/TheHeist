@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=13 format=3 uid="uid://boihc8o2rgqku"]
 =======
 [gd_scene load_steps=14 format=3 uid="uid://d3ku6dndhp4hg"]
@@ -30,6 +31,23 @@
 [ext_resource type="PackedScene" uid="uid://fwr5mkw84w4d" path="res://transition/level_2_3.tscn" id="6_b14lk"]
 [ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="9_bp5sr"]
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="11_hvui4"]
+=======
+[gd_scene load_steps=16 format=3 uid="uid://boihc8o2rgqku"]
+
+[ext_resource type="Script" path="res://level_2.gd" id="1_akiho"]
+[ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="1_nfnio"]
+[ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="2_6cknp"]
+[ext_resource type="PackedScene" uid="uid://dx32hh8f4otr3" path="res://hidden_area.tscn" id="2_ms6gt"]
+[ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="2_w43c6"]
+[ext_resource type="FontFile" uid="uid://drnvvspa4o8o3" path="res://art/font/mago1.ttf" id="3_egtr5"]
+[ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="3_k6efj"]
+[ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="3_k66rt"]
+[ext_resource type="PackedScene" uid="uid://b7qmwl3ds1gb7" path="res://pointer.tscn" id="3_ma8wt"]
+[ext_resource type="PackedScene" uid="uid://dusld0glrsveu" path="res://lamp.tscn" id="4_2jjte"]
+[ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="5_gen8u"]
+[ext_resource type="PackedScene" uid="uid://hdulm07rjik3" path="res://spike.tscn" id="6_yti6h"]
+[ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="7_ou7l2"]
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 
 [sub_resource type="Animation" id="Animation_fpbi4"]
 resource_name = "moveloop"
@@ -113,12 +131,19 @@ collision_mask = 2
 [node name="Player" parent="." instance=ExtResource("3_30af2")]
 position = Vector2(39, 43)
 
+<<<<<<< HEAD
 [node name="Pointer" parent="Player" instance=ExtResource("4_3fsg0")]
 visible = false
 
 <<<<<<< HEAD
 [node name="SAO" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_we3j8")
+=======
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+>>>>>>> parent of 805cea3 (Some aesthetic changes to the menu)
 
 [connection signal="hiding_area_entered" from="hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
 [connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]
