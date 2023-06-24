@@ -170,7 +170,9 @@ position = Vector2(432, 449)
 [node name="Spike5" parent="." instance=ExtResource("2_qklws")]
 position = Vector2(464, 449)
 
-[node name="Melee Enemy" parent="." instance=ExtResource("3_khpet")]
+[node name="Melee_enemies" type="Node" parent="."]
+
+[node name="Melee Enemy" parent="Melee_enemies" instance=ExtResource("3_khpet")]
 position = Vector2(1853, 372)
 
 [node name="hidden_area" parent="." instance=ExtResource("9_uplvu")]

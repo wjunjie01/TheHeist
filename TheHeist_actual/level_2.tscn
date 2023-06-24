@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://boihc8o2rgqku"]
+[gd_scene load_steps=17 format=3 uid="uid://boihc8o2rgqku"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_0yehs"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="1_nfnio"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="10_tfngq"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="11_mnlec"]
 [ext_resource type="AudioStream" uid="uid://bnaikn8setx5f" path="res://music/Joe Hisaishi - Merry-Go-Round of Life (from Howls Moving Castle) (mp3cut.net).mp3" id="13_lw1s4"]
+[ext_resource type="PackedScene" uid="uid://cc3kenl5bjuc" path="res://melee_enemy.tscn" id="14_1pune"]
 
 [sub_resource type="Animation" id="Animation_fpbi4"]
 resource_name = "moveloop"
@@ -129,6 +130,11 @@ visible = false
 
 [node name="Ghibli" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_lw1s4")
+
+[node name="Melee_enemies" type="Node" parent="."]
+
+[node name="Melee Enemy" parent="Melee_enemies" instance=ExtResource("14_1pune")]
+position = Vector2(994, 296)
 
 [connection signal="body_entered" from="level2-3" to="level2-3" method="_on_body_entered"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]

@@ -75,9 +75,6 @@ layer_3/tile_data = PackedInt32Array(4325494, 1376256, 9, 4391030, 1376256, 10, 
 [node name="Ranged Enemy" parent="." instance=ExtResource("15_acgjn")]
 position = Vector2(945, 521)
 
-[node name="Melee Enemy" parent="." instance=ExtResource("16_17t3m")]
-position = Vector2(750, 1015)
-
 [node name="level1-2" parent="." instance=ExtResource("11_4cqi0")]
 position = Vector2(184, -12)
 collision_mask = 2
@@ -258,8 +255,13 @@ layer = 2
 [node name="PauseMenu" parent="GUI" instance=ExtResource("2_h65ve")]
 visible = false
 
-[connection signal="player_hit" from="Melee Enemy" to="Player" method="_on_melee_enemy_player_hit"]
+[node name="Melee_enemies" type="Node" parent="."]
+
+[node name="Melee Enemy" parent="Melee_enemies" instance=ExtResource("16_17t3m")]
+position = Vector2(750, 1015)
+
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="player_hit" from="Melee_enemies/Melee Enemy" to="Player" method="_on_melee_enemy_player_hit"]
 
 [editable path="Tutorial Signs/Movement_sign"]
 [editable path="Tutorial Signs/Spring_sign"]
