@@ -127,6 +127,7 @@ z_index = 5
 position = Vector2(982, 747)
 
 [node name="HUD" parent="." instance=ExtResource("10_wvgq5")]
+visible = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 2
