@@ -234,6 +234,7 @@ func gameover():
 	if once == true:
 		print('game over')
 		once = false
+		Engine.time_scale = 1
 		$"Mario death".play()
 		current_state = DEAD
 		animation_tree['parameters/conditions/dead'] = true

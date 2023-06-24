@@ -21,6 +21,7 @@ func _on_restart_pressed():
 
 func _on_menu_pressed():
 	self.is_paused = false
+	Engine.time_scale = 1
 	SceneTransition.change_scene("res://mainmenu.tscn")
 
 func _on_quit_pressed():

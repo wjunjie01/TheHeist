@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cebi3ossha2l"]
+[gd_scene load_steps=13 format=3 uid="uid://cebi3ossha2l"]
 
 [ext_resource type="Script" path="res://mainmenu.gd" id="1_j1y53"]
 [ext_resource type="Texture2D" uid="uid://bqj2d12xcj8j4" path="res://art/updated_background/2.png" id="1_l3p8q"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d11inh1wsb7fi" path="res://texture_button.tscn" id="8_rnq56"]
 [ext_resource type="AudioStream" uid="uid://ccufm0e1cgaxm" path="res://music/Suzume (Piano Ver.)-[AudioTrimmer.com].mp3" id="10_iqugb"]
 [ext_resource type="AudioStream" uid="uid://bcd21lfqbtipf" path="res://music/sound-effect-okey-metal-slug_CO0n4S3p.mp3" id="11_vlrhh"]
+[ext_resource type="FontFile" uid="uid://drnvvspa4o8o3" path="res://art/font/mago1.ttf" id="12_cylhe"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_j1y53")
@@ -103,6 +104,10 @@ focus_neighbor_bottom = NodePath("../TextureButton3")
 text = "CONTINUE"
 margin = 160
 
+[node name="Control" type="Control" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
 [node name="TextureButton3" parent="VBoxContainer/VBoxContainer" instance=ExtResource("8_rnq56")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../TextureButton2")
@@ -115,6 +120,27 @@ stream = ExtResource("10_iqugb")
 
 [node name="OKAY" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_vlrhh")
+
+[node name="no_data" type="Label" parent="."]
+visible = false
+offset_left = 1220.0
+offset_top = 779.0
+offset_right = 1795.0
+offset_bottom = 846.0
+theme_override_fonts/font = ExtResource("12_cylhe")
+theme_override_font_sizes/font_size = 80
+text = "No game data found :("
+
+[node name="current_level" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.011
+offset_left = 837.0
+offset_top = 837.0
+offset_right = 836.68
+offset_bottom = 889.12
+theme_override_fonts/font = ExtResource("12_cylhe")
+theme_override_font_sizes/font_size = 50
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
