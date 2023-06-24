@@ -16,4 +16,5 @@ func _on_button_pressed():
 
 
 func _on_button_2_pressed():
+	hide()
 	SceneTransition.change_scene('res://mainmenu.tscn')

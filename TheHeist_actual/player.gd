@@ -68,9 +68,10 @@ func _ready():
 	#Connect signal
 	grapplingHook.S_On_Hook_Reached.connect(On_Hooked)
 	
-	var melee_enemies = get_parent().get_node("Melee_enemies")
-	for enemy in melee_enemies.get_children():
-		enemy.player_hit.connect(_on_melee_enemy_player_hit)
+	#< This part was commented out because the scene failed to load with it>
+#	var melee_enemies = get_parent().get_node("Melee_enemies")
+#	for enemy in melee_enemies.get_children():
+	#	enemy.player_hit.connect(_on_melee_enemy_player_hit)
 	
 func On_Hooked():
 	grapplingHook.m_HookStay = true
@@ -278,4 +279,6 @@ func _on_hidden_area_hiding_area_exited():
 
 
 func _on_hidden_area_hiding_area_entered():
-	pass # Replace with function body.
+	can_hide = true
+	$R.visible = true
+	$R/RAnimationPlayer.play("R pressed")

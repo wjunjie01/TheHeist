@@ -152,7 +152,9 @@ layer = 2
 [node name="PauseMenu" parent="GUI" instance=ExtResource("13_74bc2")]
 visible = false
 
+[connection signal="hiding_area_entered" from="hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
 [connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_entered"]
+[connection signal="hiding_area_exited" from="hidden_area" to="." method="_on_hidden_area_hiding_area_exited"]
 [connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
