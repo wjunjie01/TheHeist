@@ -3,11 +3,12 @@ extends Node2D
 var once = true
 var can_hide = false
 
+func _ready():
+	$"CityHunter!".play()
 
 func _on_timer_timeout():
 	Engine.time_scale = .2
-
-
+	
 func _process(delta):
 	if once and Input.is_action_just_pressed("hide") and can_hide:
 		once = false
@@ -21,4 +22,5 @@ func _on_hidden_area_hiding_area_exited():
 	can_hide = false
 
 func _on_player_game_over():
+	$"CityHunter!".stop()
 	Engine.time_scale = 1
