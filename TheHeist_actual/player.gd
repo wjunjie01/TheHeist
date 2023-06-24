@@ -11,12 +11,11 @@ const SPEED = 300.0
 @onready var player_collision = $CollisionShape2D
 @onready var ray = $Rotation/Projectile_indicator
 @onready var enemy_detector = $EnemyDetector
+@onready var coyote_timer = $CoyoteTimer
 
 var once = true
 var attack_in_progress = false
 var can_hide = false
-#Coyote_time
-var coyote_time = 0.3
 
 #Jump velocity = Gravity * time to jumppeak
 @export var TimeToJumpPeak = .2
@@ -148,9 +147,9 @@ func _physics_process(delta):
 				animation_tree['parameters/conditions/run'] = false
 				animation_tree['parameters/conditions/idle'] = true
 					
-			move_and_slide()
+			#move_and_slide()
 				
-			if is_on_floor():
+			if is_on_floor() or coyote_timer.time_left > 0.0:
 				if Input.is_action_just_pressed("jump"):
 					animation_tree['parameters/conditions/run'] = false
 					animation_tree['parameters/conditions/idle'] = false
@@ -186,9 +185,17 @@ func _physics_process(delta):
 						shuriken.position = $Rotation/Shuriken_spawn.global_position
 						shuriken.velocity = get_global_mouse_position() - shuriken.position
 						has_shuriken = false
-			else: # When floating down
+			if not is_on_floor(): # When floating down
 				velocity.y += gravity * delta
 				pass
+			#check if the character is on floor before moving
+			var was_on_floor = is_on_floor()
+			move_and_slide()
+			#were on the floor before and now it is not on the floor, either going down
+			#so that it doesnt double jump
+			var just_left_floor = was_on_floor and not is_on_floor() and velocity.y >= 0
+			if just_left_floor:
+				coyote_timer.start()
 				
 		STUCK_ON_HOOK:
 			direction = Input.get_axis("move_left", "move_right")
