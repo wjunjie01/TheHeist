@@ -36,3 +36,15 @@ func _on_texture_button_2_pressed():
 func _on_texture_button_3_pressed():
 	print('Exit pressed')
 	get_tree().quit()
+
+
+func _on_button_pressed():
+	SceneTransition.change_scene("res://playground.tscn")
+
+
+func _on_button_2_pressed():
+	pass # Replace with function body.
+
+
+func _on_button_3_pressed():
+	pass # Replace with function body.
