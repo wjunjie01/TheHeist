@@ -41,7 +41,10 @@ Village design
 - [Spring design by JeanMakesGames](https://opengameart.org/content/ground-tileset-player-animation-youtube-2d-metroidvania-tutorial)
 - [Spike design by Kenney](https://kenney.nl/assets/pixel-platformer)
 - [Gothicvania Town by ansimuz](https://ansimuz.itch.io/gothicvania-town)
-- [Pixel art platformer by Cainos](https://cainos.itch.io/pixel-art-platformer-village-props?download) 
+- [Pixel art platformer by Cainos](https://cainos.itch.io/pixel-art-platformer-village-props?download)
+
+Moving platform
+- [Pixel adventure by pixel frog](https://pixelfrog-assets.itch.io/pixel-adventure-1)
 
 Music
 - [Main menu scene: Suzume OST cover by Cateen](https://youtu.be/vlELy-EVLNw)
