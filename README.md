@@ -2,6 +2,9 @@
 A 2D platformer stealth game by Luan Chee Seong and Wong Jun Jie. 
 
 How to play our game?
+1. Click the link: https://drive.google.com/drive/folders/1pbp28Q5NGFF3sMKBzGDtaxD0RmY9JbQv?usp=drive_link 
+2. Download the 3 files inside it, and run TheHeistActual_milestone_2.exe
+3. Have fun!
 
 
 ## Apollo-11
