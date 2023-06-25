@@ -116,9 +116,6 @@ libraries = {
 [node name="MovingPlatform2" parent="." instance=ExtResource("5_no8co")]
 position = Vector2(656, 856)
 
-[node name="AnimatableBody2D" parent="MovingPlatform2" index="0"]
-position = Vector2(-14, -58.3115)
-
 [node name="AnimationPlayer" parent="MovingPlatform2/AnimatableBody2D" index="2"]
 autoplay = "move_loop"
 libraries = {
