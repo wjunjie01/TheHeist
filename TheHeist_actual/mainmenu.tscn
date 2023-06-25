@@ -142,7 +142,7 @@ offset_bottom = 889.12
 theme_override_fonts/font = ExtResource("12_cylhe")
 theme_override_font_sizes/font_size = 50
 
-[node name="Button" type="Button" parent="."]
+[node name="EnvironmentTest" type="Button" parent="."]
 offset_left = 71.0
 offset_top = 60.0
 offset_right = 383.0
@@ -150,7 +150,7 @@ offset_bottom = 246.0
 theme_override_font_sizes/font_size = 20
 text = "Environmental features testing"
 
-[node name="Button2" type="Button" parent="."]
+[node name="AttackTest" type="Button" parent="."]
 offset_left = 67.0
 offset_top = 311.0
 offset_right = 379.0
@@ -158,7 +158,7 @@ offset_bottom = 497.0
 theme_override_font_sizes/font_size = 20
 text = "Attack testing"
 
-[node name="Button3" type="Button" parent="."]
+[node name="ItemsTest" type="Button" parent="."]
 offset_left = 75.0
 offset_top = 558.0
 offset_right = 387.0
@@ -166,9 +166,18 @@ offset_bottom = 744.0
 theme_override_font_sizes/font_size = 20
 text = "Items testing"
 
+[node name="EnemyAttackTest" type="Button" parent="."]
+offset_left = 76.0
+offset_top = 822.0
+offset_right = 388.0
+offset_bottom = 1008.0
+theme_override_font_sizes/font_size = 20
+text = "Enemies' attacks testing"
+
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="EnvironmentTest" to="." method="_on_environment_test_button_pressed"]
+[connection signal="pressed" from="AttackTest" to="." method="_on_attack_test_button_pressed"]
+[connection signal="pressed" from="ItemsTest" to="." method="_on_items_test_button_pressed"]
+[connection signal="pressed" from="EnemyAttackTest" to="." method="_on_enemy_attack_test_button_pressed"]

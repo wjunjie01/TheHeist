@@ -37,14 +37,17 @@ func _on_texture_button_3_pressed():
 	print('Exit pressed')
 	get_tree().quit()
 
-
-func _on_button_pressed():
-	SceneTransition.change_scene("res://playground.tscn")
-
-
-func _on_button_2_pressed():
-	pass # Replace with function body.
+func _on_environment_test_button_pressed():
+	get_tree().change_scene_to_file("res://playground.tscn")
 
 
-func _on_button_3_pressed():
-	SceneTransition.change_scene("res://item_testing.tscn")
+func _on_attack_test_button_pressed():
+	get_tree().change_scene_to_file("res://test_backstabbing.tscn")
+
+
+func _on_items_test_button_pressed():
+	get_tree().change_scene_to_file("res://item_testing.tscn")
+
+
+func _on_enemy_attack_test_button_pressed():
+	get_tree().change_scene_to_file("res://enemy_testing.tscn")

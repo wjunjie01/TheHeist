@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://57n0286t6btk"]
+[gd_scene load_steps=7 format=3 uid="uid://c7funkobx658b"]
 
 [ext_resource type="Script" path="res://Test_Backstabbing.gd" id="1_7bney"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="2_8opea"]
@@ -50,3 +50,12 @@ layer = 2
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource("6_dhd22")]
 visible = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 224.0
+offset_top = 765.0
+offset_right = 1059.0
+offset_bottom = 881.0
+theme_override_font_sizes/font_size = 40
+text = "Press ESC to exit. Left Click to backstab.
+You can only attack enemies from the back."

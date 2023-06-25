@@ -105,6 +105,7 @@ func _process(delta):
 	$Rotation.look_at(get_global_mouse_position())
 	position.x = clamp(position.x, 0, screen_size.x)
 	
+	print(current_state)
 	match current_state:
 		IDLE:
 			pass

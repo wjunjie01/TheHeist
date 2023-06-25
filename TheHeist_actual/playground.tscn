@@ -2090,12 +2090,14 @@ layer = 2
 visible = false
 
 [node name="Label" type="Label" parent="."]
-offset_left = 450.0
-offset_top = 299.0
-offset_right = 782.0
-offset_bottom = 369.0
+offset_left = 466.0
+offset_top = 197.0
+offset_right = 1392.0
+offset_bottom = 371.0
 theme_override_font_sizes/font_size = 40
-text = "Press ESC to exit"
+text = "Press ESC to exit. 
+A and D to walk. Space to jump.
+Walk into the features to test their functionality."
 
 [connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_exited"]
