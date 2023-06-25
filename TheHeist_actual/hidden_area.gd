@@ -4,8 +4,10 @@ signal hiding_area_entered
 signal hiding_area_exited
 
 func _on_body_entered(body):
-	emit_signal('hiding_area_entered')
+	if body.is_in_group("player"):
+		emit_signal('hiding_area_entered')
 
 func _on_body_exited(body):
-	emit_signal('hiding_area_exited')
+	if body.is_in_group("player"):
+		emit_signal('hiding_area_exited')
 

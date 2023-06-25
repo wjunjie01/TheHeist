@@ -247,6 +247,7 @@ position = Vector2(1842, 694)
 scale = Vector2(1.2, 1.2)
 
 [node name="HUD" parent="." instance=ExtResource("4_0qkdo")]
+visible = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 2

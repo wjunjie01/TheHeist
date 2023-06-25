@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4kth4ewv16h"]
+[gd_scene load_steps=12 format=3 uid="uid://b4kth4ewv16h"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_sasai"]
 [ext_resource type="Texture2D" uid="uid://c0i5k5a1veb0m" path="res://art/village_art/GothicVania's town/environment/layers/middleground.png" id="2_tvusr"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cc3kenl5bjuc" path="res://melee_enemy.tscn" id="9_7su2y"]
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="10_wvgq5"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="11_75k2d"]
-[ext_resource type="PackedScene" uid="uid://bsktqpvmrsuet" path="res://bear_trap.tscn" id="12_vhmdg"]
 
 [node name="level_2" type="Node2D"]
 
@@ -135,8 +134,5 @@ layer = 2
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource("11_75k2d")]
 visible = false
-
-[node name="Bear_trap" parent="." instance=ExtResource("12_vhmdg")]
-position = Vector2(138, 1039)
 
 [editable path="Shuriken_sign"]
