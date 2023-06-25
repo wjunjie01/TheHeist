@@ -43,6 +43,16 @@ Village design
 - [Gothicvania Town by ansimuz](https://ansimuz.itch.io/gothicvania-town)
 - [Pixel art platformer by Cainos](https://cainos.itch.io/pixel-art-platformer-village-props?download) 
 
+Music
+- [Main menu scene: Suzume OST cover by Cateen](https://youtu.be/vlELy-EVLNw)
+- [Level 1 music: Zelda theme song](https://youtu.be/cGufy1PAeTU)
+- [Level 2 music: Merry Go Round of Life - Joe Hisaishi](https://youtu.be/2pQKqQ9sG50 )
+- [Level 3 music: City Hunter OST - Sad run](https://youtu.be/evDbAajnosg )
+
+Sound effect
+- [Game over - Mario death sound](https://youtu.be/m9zhgDsd4P4)
+- [Okay - Metal slug](https://youtu.be/Fxj7GzMPcAg)
+
 ## Tech stack:
 
 - Godot
@@ -57,8 +67,15 @@ We will be using Godot’s built in language to code.
 - [x] Enemy movements and interactions
 
  ## Milestone 2:
- - [ ] Combat
- - [ ] Design more levels
- - [ ] Improve on the animation and physics 
- - [ ] Sound effects
+ - [x] Combat
+ - [x] Design more levels
+ - [x] Improve on the animation and physics 
+ - [x] Sound effects
+ - [x] Music
+ - [x] Environmental features
+
+## Milestone 3:
+- [ ] Boss enemy
+- [ ] More stages and environmental features
+- [ ] Storyline
 
