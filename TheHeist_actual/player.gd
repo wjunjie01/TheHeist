@@ -55,7 +55,7 @@ var has_trap = false
 var trap_scene = preload ("res://bear_trap.tscn")
 
 var has_shuriken = false
-var shuriken_scene = preload ("res://Shuriken.tscn")
+var shuriken_scene = preload ("res://shuriken.tscn")
 
 
 func _ready():

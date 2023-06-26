@@ -262,7 +262,6 @@ visible = false
 position = Vector2(750, 1015)
 
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
-[connection signal="player_hit" from="Melee_enemies/Melee Enemy" to="Player" method="_on_melee_enemy_player_hit"]
 
 [editable path="Tutorial Signs/Movement_sign"]
 [editable path="Tutorial Signs/Spring_sign"]

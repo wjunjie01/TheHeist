@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d3ku6dndhp4hg"]
+[gd_scene load_steps=27 format=3 uid="uid://d3ku6dndhp4hg"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
 [ext_resource type="Script" path="res://level_3.gd" id="1_pxyvu"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ed4gitc7qhig" path="res://tutorial_signs.tscn" id="4_eeef4"]
 [ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="5_no8co"]
 [ext_resource type="FontFile" uid="uid://drnvvspa4o8o3" path="res://art/font/mago1.ttf" id="6_ejo4k"]
+[ext_resource type="Script" path="res://transition/level3-4.gd" id="6_rfmc1"]
 [ext_resource type="PackedScene" uid="uid://dx32hh8f4otr3" path="res://hidden_area.tscn" id="9_uplvu"]
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="11_hvui4"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="12_l3ei1"]
@@ -146,6 +147,7 @@ position = Vector2(7, 30)
 [node name="level3-4" parent="." instance=ExtResource("3_uvhyw")]
 position = Vector2(37, 966)
 collision_mask = 2
+script = ExtResource("6_rfmc1")
 
 [node name="MovingPlatform3" parent="." instance=ExtResource("5_no8co")]
 position = Vector2(474, 859)
