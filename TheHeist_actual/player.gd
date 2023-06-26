@@ -54,7 +54,7 @@ var chain_velocity := Vector2.ZERO
 var has_trap = false
 var trap_scene = preload ("res://bear_trap.tscn")
 
-var has_shuriken = true
+var has_shuriken = false
 var shuriken_scene = preload ("res://Shuriken.tscn")
 
 
@@ -127,6 +127,8 @@ func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
 	
+	if has_shuriken: print('has shuriken') 
+	if has_trap: print('has trap') 
 	
 	match current_state:
 		IDLE:
@@ -182,6 +184,7 @@ func _physics_process(delta):
 					elif has_shuriken:
 						var shuriken = shuriken_scene.instantiate()
 						shuriken.fired = true
+						shuriken.set_collision_mask_value(2, false)
 						get_parent().add_child(shuriken)
 						shuriken.position = $Rotation/Shuriken_spawn.global_position
 						shuriken.velocity = get_global_mouse_position() - shuriken.position
