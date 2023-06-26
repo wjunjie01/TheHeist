@@ -1,6 +1,6 @@
 extends Node
 
-const SAVE_FILE = "user://save_file.tscn"
+const SAVE_FILE = "res://save_file.tscn"
 var user_data = {} #dictionary that stores the progress
 
 func _ready():
