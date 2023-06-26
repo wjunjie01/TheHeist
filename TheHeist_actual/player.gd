@@ -127,8 +127,6 @@ func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
 	
-	if has_shuriken: print('has shuriken') 
-	if has_trap: print('has trap') 
 	
 	match current_state:
 		IDLE:
