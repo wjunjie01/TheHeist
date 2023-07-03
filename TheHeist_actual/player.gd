@@ -40,7 +40,6 @@ enum{
 }
 var current_state = IDLE
 @export var hook_speed : float = 1200
-var isMouseButtonPressed = false
 
 var left = false
 var screen_size = Vector2.ZERO
@@ -76,14 +75,7 @@ func _ready():
 func On_Hooked():
 	grapplingHook.m_HookStay = true
 	current_state = HOOKED
-	pass
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_RIGHT:
-			if event.pressed and ray_free_obstacles(): #Left mouse button is clicked
-				current_state = HOOKING
-				grapplingHook.Activate(targetHookNode.global_position)
 
 func hook(delta):
 	var hook_direction = (targetHookNode.GetTargetedPosition() - global_position).normalized()
@@ -114,7 +106,6 @@ func _process(delta):
 			hook(delta)
 #			position = hook_point
 			grapplingHook.m_HookNode.global_position = grapplingHook.m_TargetPos
-			pass
 		ATTACK:
 			pass
 		DEAD:
@@ -127,7 +118,10 @@ func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
 	
-	
+	if Input.is_action_just_pressed("Hook") and current_state != HIDE and ray_free_obstacles():
+		current_state = HOOKING
+		grapplingHook.Activate(targetHookNode.global_position)
+		
 	match current_state:
 		IDLE:
 			direction = Input.get_axis("move_left", "move_right")
@@ -147,8 +141,6 @@ func _physics_process(delta):
 				velocity.x = 0
 				animation_tree['parameters/conditions/run'] = false
 				animation_tree['parameters/conditions/idle'] = true
-					
-			#move_and_slide()
 				
 			if is_on_floor() or coyote_timer.time_left > 0.0:
 				if Input.is_action_just_pressed("jump"):
@@ -175,7 +167,7 @@ func _physics_process(delta):
 				elif Input.is_action_just_pressed("utilise"):
 					if has_trap:
 						var trap = trap_scene.instantiate()
-						get_tree().get_root().add_child(trap)
+						get_parent().add_child(trap)
 						trap.position = $Trap_location.global_position
 						has_trap = false
 						trap.laid = true
@@ -215,17 +207,16 @@ func _physics_process(delta):
 				animation_tree['parameters/conditions/attack'] = false
 				animation_tree['parameters/conditions/idle'] = true
 				current_state = IDLE
-			pass
 		
 		DEAD:
-			pass
+			animation_tree['parameters/conditions/dead'] = true
+			$CharacterAnimationPlayer.play("DIE")
 			
 		HIDE:
 			velocity.x = 0
 			if Input.is_action_just_pressed('hide'):
 				animation_tree['parameters/conditions/hide'] = false
 				animation_tree['parameters/conditions/unhide'] = true
-				player_collision.disabled = false
 
 func ray_free_obstacles() -> bool:
 	var colliding_with_hook = ray.is_colliding() and ray.get_collider() is Area2D
@@ -233,11 +224,6 @@ func ray_free_obstacles() -> bool:
 		targetHookNode = ray.get_collider()
 		return true
 	return false
-
-signal game_over
-
-func _on_melee_enemy_player_hit():
-	gameover()
 	
 func gameover():
 	if once == true:
@@ -246,7 +232,11 @@ func gameover():
 		Engine.time_scale = 1
 		$"Mario death".play()
 		current_state = DEAD
-		animation_tree['parameters/conditions/dead'] = true
+
+signal game_over
+
+func _on_melee_enemy_player_hit():
+	gameover()
 
 func _on_enemy_detector_body_entered(body):
 	if body.is_in_group("enemy"):
@@ -256,23 +246,30 @@ func _on_enemy_detector_body_entered(body):
 
 
 func _on_animation_finished(anim_name):
-	if anim_name == "ATTACK":
-		current_state = IDLE
-		animation_tree['parameters/conditions/attack'] = false
-		animation_tree['parameters/conditions/idle'] = true
-		enemy_detector.monitoring = false
-		
-	elif anim_name == "UNHIDE":
-		current_state = IDLE
-		animation_tree['parameters/conditions/unhide'] = false
-		animation_tree['parameters/conditions/idle'] = true
-		
-	elif anim_name == "JUMP":
-		animation_tree['parameters/conditions/jump'] = false
-		animation_tree['parameters/conditions/idle'] = true
-		
-	elif anim_name == "DIE":
+	print ('a')
+	if current_state != DEAD:
+		if anim_name == "ATTACK":
+			current_state = IDLE
+			animation_tree['parameters/conditions/attack'] = false
+			animation_tree['parameters/conditions/idle'] = true
+			enemy_detector.monitoring = false
+			
+		elif anim_name == "UNHIDE":
+			current_state = IDLE
+			animation_tree['parameters/conditions/unhide'] = false
+			animation_tree['parameters/conditions/idle'] = true
+			player_collision.disabled = false
+			
+		elif anim_name == "JUMP":
+			animation_tree['parameters/conditions/jump'] = false
+			animation_tree['parameters/conditions/idle'] = true
+			
+	if anim_name == "DIE":
 		emit_signal("game_over")
+		
+		
+
+
 	
 func _on_attack_timer_timeout():
 	attack_in_progress = false

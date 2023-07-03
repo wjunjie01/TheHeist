@@ -5,9 +5,10 @@ var can_hide = false
 
 func _ready():
 	$"CityHunter!".play()
-
-func _on_timer_timeout():
 	Engine.time_scale = .2
+
+#func _on_timer_timeout():
+#
 	
 func _process(delta):
 	if once and Input.is_action_just_pressed("hide") and can_hide:

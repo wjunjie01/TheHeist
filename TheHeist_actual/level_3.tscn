@@ -213,7 +213,7 @@ position = Vector2(368, 450)
 position = Vector2(432, 449)
 
 [node name="Spike5" parent="." instance=ExtResource("2_qklws")]
-position = Vector2(464, 449)
+position = Vector2(488, 450)
 
 [node name="Melee_enemies" type="Node" parent="."]
 
@@ -222,7 +222,10 @@ position = Vector2(1853, 372)
 
 [node name="hidden_area" parent="." instance=ExtResource("9_uplvu")]
 z_index = 4
-position = Vector2(157, 255)
+position = Vector2(153, 255)
+
+[node name="Sprite2D" parent="hidden_area" index="0"]
+position = Vector2(52, 48)
 
 [node name="hidden_area3" parent="." instance=ExtResource("9_uplvu")]
 z_index = 6
@@ -231,6 +234,9 @@ metadata/_edit_group_ = true
 
 [node name="MovingPlatform" parent="." instance=ExtResource("5_no8co")]
 position = Vector2(1467, 295)
+
+[node name="AnimatableBody2D" parent="MovingPlatform" index="0"]
+position = Vector2(-14, -16.6667)
 
 [node name="CollisionShape2D" parent="MovingPlatform/AnimatableBody2D" index="0"]
 position = Vector2(22.5, 0)
@@ -279,8 +285,7 @@ metadata/_edit_group_ = true
 position = Vector2(3, 6)
 
 [node name="Player" parent="." instance=ExtResource("3_30af2")]
-position = Vector2(205, 15)
-collision_mask = 2049
+position = Vector2(211, 219)
 metadata/_edit_group_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -312,14 +317,6 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array(1572944, 3276806, 10, 1572945, 3342342, 10, 1638480, 3276806, 11, 1638481, 3342342, 11, 3407972, 1, 0, 3407973, 65537, 0, 3407974, 131073, 0, 3407975, 196609, 0, 3407976, 262145, 0, 3407977, 327681, 0, 3407966, 1, 0, 3407967, 65537, 0, 3407968, 131073, 0, 3407969, 196609, 0, 3407970, 262145, 0, 3407971, 327681, 0, 3407960, 1, 0, 3407961, 65537, 0, 3407962, 131073, 0, 3407963, 196609, 0, 3407964, 262145, 0, 3407965, 327681, 0, 3407954, 1, 0, 3407955, 65537, 0, 3407956, 131073, 0, 3407957, 196609, 0, 3407958, 262145, 0, 3407959, 327681, 0)
 
-[node name="Ranged Enemy" parent="." instance=ExtResource("12_l3ei1")]
-z_index = 100
-position = Vector2(22, 320)
-
-[node name="Ranged Enemy2" parent="." instance=ExtResource("12_l3ei1")]
-z_index = 100
-position = Vector2(336, 326)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
@@ -336,6 +333,14 @@ visible = false
 
 [node name="CityHunter!" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_1qoqe")
+
+[node name="Ranged Enemy" parent="." instance=ExtResource("12_l3ei1")]
+z_index = 2
+position = Vector2(13, 313)
+
+[node name="Ranged Enemy2" parent="." instance=ExtResource("12_l3ei1")]
+z_index = 3
+position = Vector2(343, 316)
 
 [connection signal="body_entered" from="level3-4" to="level3-4" method="_on_body_entered"]
 [connection signal="hiding_area_entered" from="hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
