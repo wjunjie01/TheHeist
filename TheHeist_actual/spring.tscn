@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://spring.gd" id="1_t76ny"]
 [ext_resource type="Texture2D" uid="uid://b2of76k1ty0kc" path="res://art/spring.png" id="1_uvftc"]
-[ext_resource type="AudioStream" uid="uid://dwhpqn7dstpap" path="res://music/boing-6222.mp3" id="3_q12ml"]
+[ext_resource type="AudioStream" uid="uid://b34rmpv7u7bw0" path="res://music/boing_cropped.mp3" id="3_yphfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go6p6"]
 size = Vector2(16, 10)
@@ -80,4 +80,4 @@ centered = false
 hframes = 4
 
 [node name="Boing" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_q12ml")
+stream = ExtResource("3_yphfx")
