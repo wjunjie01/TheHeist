@@ -7,14 +7,11 @@ func _ready():
 	$"CityHunter!".play()
 	Engine.time_scale = .2
 
-#func _on_timer_timeout():
-#
 	
 func _process(delta):
 	if once and Input.is_action_just_pressed("hide") and can_hide:
 		once = false
 		Engine.time_scale = 1
-
 
 func _on_hidden_area_hiding_area_entered():
 	can_hide = true

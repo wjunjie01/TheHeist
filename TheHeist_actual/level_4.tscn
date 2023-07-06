@@ -97,13 +97,13 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -35.0
-offset_right = 74.0
-offset_bottom = 15.0
+offset_left = -19.0
+offset_top = -30.0
+offset_right = 95.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Walk into the shuriken to pick it up. Aim with mouse cursor and shoot with E."
+text = "Deploy the Shuriken using 'E'!"
 
 [node name="CollisionShape2D" parent="Shuriken_sign" index="2"]
 position = Vector2(7, 30)
