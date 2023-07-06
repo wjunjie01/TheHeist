@@ -67,7 +67,12 @@ func _ready():
 	#Connect signal
 	grapplingHook.S_On_Hook_Reached.connect(On_Hooked)
 	
-	#< This part was commented out because the scene failed to load with it>
+	if get_parent().has_node("Flying_enemies"):
+		var flying_enemies = get_parent().get_node("Flying_enemies")
+		for enemy in flying_enemies.get_children():
+			enemy.player_hit.connect(_on_flying_enemy_player_hit)
+	
+	
 	if get_parent().has_node("Melee_enemies"):
 		var melee_enemies = get_parent().get_node("Melee_enemies")
 		for enemy in melee_enemies.get_children():
@@ -239,6 +244,9 @@ func gameover():
 		current_state = DEAD
 
 func _on_melee_enemy_player_hit():
+	gameover()
+	
+func _on_flying_enemy_player_hit():
 	gameover()
 
 func _on_enemy_detector_body_entered(body):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4kth4ewv16h"]
+[gd_scene load_steps=13 format=3 uid="uid://b4kth4ewv16h"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_sasai"]
 [ext_resource type="Texture2D" uid="uid://c0i5k5a1veb0m" path="res://art/village_art/GothicVania's town/environment/layers/middleground.png" id="2_tvusr"]
+[ext_resource type="PackedScene" uid="uid://b1ya4ab0jsfjo" path="res://flying_enemy.tscn" id="3_dkwyv"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="3_xlube"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="4_leq0f"]
 [ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="5_0lyhh"]
@@ -134,5 +135,23 @@ layer = 2
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource("11_75k2d")]
 visible = false
+
+[node name="Flying_enemies" type="Node" parent="."]
+
+[node name="flying_enemy" parent="Flying_enemies" instance=ExtResource("3_dkwyv")]
+position = Vector2(178, 902)
+scale = Vector2(1.2, 1.2)
+
+[node name="flying_enemy2" parent="Flying_enemies" instance=ExtResource("3_dkwyv")]
+position = Vector2(389, 710)
+scale = Vector2(1.2, 1.2)
+
+[node name="flying_enemy3" parent="Flying_enemies" instance=ExtResource("3_dkwyv")]
+position = Vector2(291, 518)
+scale = Vector2(1.2, 1.2)
+
+[node name="flying_enemy4" parent="Flying_enemies" instance=ExtResource("3_dkwyv")]
+position = Vector2(93, 323)
+scale = Vector2(1.2, 1.2)
 
 [editable path="Shuriken_sign"]
