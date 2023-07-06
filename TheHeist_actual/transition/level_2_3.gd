@@ -11,7 +11,7 @@ func _on_body_entered(body: PhysicsBody2D):
 func _process(delta):
 	if entered == true:
 		#save_file.level += 1
-		SceneTransition.change_scene_clouds("res://level_3.tscn") #+ str(save_file.level) + ".tscn")
+		SceneTransition.change_scene_clouds_fast("res://level_3.tscn") #+ str(save_file.level) + ".tscn")
 		#SaveFile.save_data()
 		entered = false
 		first_time = false
