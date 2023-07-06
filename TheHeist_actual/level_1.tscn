@@ -80,7 +80,8 @@ position = Vector2(184, -12)
 collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("5_s2ac6")]
-position = Vector2(94.0001, 1013)
+position = Vector2(72, 1007)
+metadata/_edit_group_ = true
 
 [node name="zelda" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_at5w3")
@@ -262,7 +263,12 @@ visible = false
 [node name="Melee Enemy" parent="Melee_enemies" instance=ExtResource("16_17t3m")]
 position = Vector2(750, 1015)
 
+[connection signal="cannot_jump" from="." to="Player" method="_on_level_1_cannot_jump"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="cannot_jump" from="Springs/Spring" to="." method="_on_spring_cannot_jump"]
+[connection signal="cannot_jump" from="Springs/Spring2" to="." method="_on_spring_2_cannot_jump"]
+[connection signal="cannot_jump" from="Springs/Spring3" to="." method="_on_spring_3_cannot_jump"]
+[connection signal="cannot_jump" from="Springs/Spring4" to="." method="_on_spring_4_cannot_jump"]
 
 [editable path="Tutorial Signs/Movement_sign"]
 [editable path="Tutorial Signs/Spring_sign"]

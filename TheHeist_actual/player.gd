@@ -16,6 +16,7 @@ const SPEED = 300.0
 var once = true
 var attack_in_progress = false
 var can_hide = false
+var can_jump = true
 
 #Jump velocity = Gravity * time to jumppeak
 @export var TimeToJumpPeak = .2
@@ -96,7 +97,8 @@ func hook(delta):
 func _process(delta):
 	$Rotation.look_at(get_global_mouse_position())
 	position.x = clamp(position.x, 0, screen_size.x)
-	
+
+	if is_on_floor(): can_jump = true
 	match current_state:
 		IDLE:
 			pass
@@ -143,7 +145,7 @@ func _physics_process(delta):
 				animation_tree['parameters/conditions/idle'] = true
 				
 			if is_on_floor() or coyote_timer.time_left > 0.0:
-				if Input.is_action_just_pressed("jump"):
+				if Input.is_action_just_pressed("jump") and can_jump:
 					animation_tree['parameters/conditions/run'] = false
 					animation_tree['parameters/conditions/idle'] = false
 					animation_tree['parameters/conditions/jump'] = true
@@ -247,7 +249,6 @@ func _on_enemy_detector_body_entered(body):
 
 
 func _on_animation_finished(anim_name):
-	print ('a')
 	if current_state != DEAD:
 		if anim_name == "ATTACK":
 			current_state = IDLE
@@ -291,4 +292,6 @@ func _on_hidden_area_hiding_area_entered():
 	$R.visible = true
 	$R/RAnimationPlayer.play("R pressed")
 
+func _on_level_1_cannot_jump():
+	can_jump = false
 

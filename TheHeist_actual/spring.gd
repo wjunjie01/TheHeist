@@ -1,5 +1,6 @@
 extends Area2D
 
+signal cannot_jump
 
 func _physics_process(_delta):
 	var bodies = get_overlapping_bodies()
@@ -8,6 +9,7 @@ func _physics_process(_delta):
 			$AnimationPlayer.play("active")
 			body.velocity.y -= 590
 			$Boing.play()
+			emit_signal('cannot_jump')
 			await $AnimationPlayer.current_animation_length
 		else:
 			$AnimationPlayer.play("idle")
