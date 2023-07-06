@@ -266,23 +266,23 @@ advance_condition = &"run"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gqe80"]
 states/ATTACK/node = SubResource("AnimationNodeAnimation_nrmwn")
-states/ATTACK/position = Vector2(622.5, 42)
+states/ATTACK/position = Vector2(604.5, 44)
 states/DIE/node = SubResource("AnimationNodeAnimation_r41cq")
-states/DIE/position = Vector2(604.345, 148.064)
-states/End/position = Vector2(855, 114.375)
+states/DIE/position = Vector2(528.922, 126.392)
+states/End/position = Vector2(812, 156.719)
 states/HIDE/node = SubResource("AnimationNodeAnimation_12fgm")
 states/HIDE/position = Vector2(558.668, 325.448)
 states/IDLE/node = SubResource("AnimationNodeAnimation_728lr")
 states/IDLE/position = Vector2(67.5, 245.04)
 states/JUMP/node = SubResource("AnimationNodeAnimation_nyb37")
-states/JUMP/position = Vector2(293.923, 244.665)
+states/JUMP/position = Vector2(286.961, 244.102)
 states/RUN/node = SubResource("AnimationNodeAnimation_uppa1")
 states/RUN/position = Vector2(213.5, 29.5315)
 states/Start/position = Vector2(-25.5, 138.75)
 states/UNHIDE/node = SubResource("AnimationNodeAnimation_nhvnj")
-states/UNHIDE/position = Vector2(304, 439.668)
+states/UNHIDE/position = Vector2(325.5, 350.168)
 transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_lxgjb"), "IDLE", "ATTACK", SubResource("AnimationNodeStateMachineTransition_jj588"), "ATTACK", "IDLE", SubResource("AnimationNodeStateMachineTransition_2pwxi"), "IDLE", "RUN", SubResource("AnimationNodeStateMachineTransition_4w5qc"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_httln"), "RUN", "ATTACK", SubResource("AnimationNodeStateMachineTransition_d7wfi"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_gq5qf"), "JUMP", "IDLE", SubResource("AnimationNodeStateMachineTransition_blage"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_ivu76"), "JUMP", "RUN", SubResource("AnimationNodeStateMachineTransition_2w63k"), "UNHIDE", "IDLE", SubResource("AnimationNodeStateMachineTransition_6tyw8"), "IDLE", "DIE", SubResource("AnimationNodeStateMachineTransition_feo7v"), "JUMP", "DIE", SubResource("AnimationNodeStateMachineTransition_lg018"), "RUN", "DIE", SubResource("AnimationNodeStateMachineTransition_t3y0g"), "ATTACK", "DIE", SubResource("AnimationNodeStateMachineTransition_x6ymw"), "DIE", "End", SubResource("AnimationNodeStateMachineTransition_xmuet"), "IDLE", "HIDE", SubResource("AnimationNodeStateMachineTransition_kdc13"), "HIDE", "UNHIDE", SubResource("AnimationNodeStateMachineTransition_vv6u5"), "RUN", "HIDE", SubResource("AnimationNodeStateMachineTransition_wx0as"), "ATTACK", "RUN", SubResource("AnimationNodeStateMachineTransition_86ept")]
-graph_offset = Vector2(30.41, 51.465)
+graph_offset = Vector2(4.7551, 166.341)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4b6ao"]
 

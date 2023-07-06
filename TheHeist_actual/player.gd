@@ -213,7 +213,7 @@ func _physics_process(delta):
 		
 		DEAD:
 			animation_tree['parameters/conditions/dead'] = true
-			$CharacterAnimationPlayer.play("DIE")
+			
 			
 		HIDE:
 			velocity.x = 0
@@ -227,6 +227,8 @@ func ray_free_obstacles() -> bool:
 		targetHookNode = ray.get_collider()
 		return true
 	return false
+
+signal game_over
 	
 func gameover():
 	if once == true:
@@ -235,8 +237,6 @@ func gameover():
 		Engine.time_scale = 1
 		$"Mario death".play()
 		current_state = DEAD
-
-signal game_over
 
 func _on_melee_enemy_player_hit():
 	gameover()

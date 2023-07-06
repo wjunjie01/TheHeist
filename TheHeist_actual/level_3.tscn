@@ -235,9 +235,6 @@ metadata/_edit_group_ = true
 [node name="MovingPlatform" parent="." instance=ExtResource("5_no8co")]
 position = Vector2(1467, 295)
 
-[node name="AnimatableBody2D" parent="MovingPlatform" index="0"]
-position = Vector2(-14, -16.6667)
-
 [node name="CollisionShape2D" parent="MovingPlatform/AnimatableBody2D" index="0"]
 position = Vector2(22.5, 0)
 
