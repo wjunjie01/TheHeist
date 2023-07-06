@@ -25,10 +25,10 @@ script = ExtResource("1_ybaiy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -755.0
-offset_top = -399.0
-offset_right = 3149.0
-offset_bottom = 1615.0
+offset_left = -749.0
+offset_top = -391.0
+offset_right = 3155.0
+offset_bottom = 1623.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_nrw21")
@@ -76,7 +76,7 @@ layer_3/tile_data = PackedInt32Array(4325494, 1376256, 9, 4391030, 1376256, 10, 
 position = Vector2(960, 522)
 
 [node name="level1-2" parent="." instance=ExtResource("11_4cqi0")]
-position = Vector2(184, -12)
+position = Vector2(191, -31)
 collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("5_s2ac6")]
