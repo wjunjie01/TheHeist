@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1ya4ab0jsfjo"]
+[gd_scene load_steps=7 format=3 uid="uid://b1ya4ab0jsfjo"]
 
 [ext_resource type="Texture2D" uid="uid://c0ftbg1oy61nk" path="res://art/enemy/Flying bat.png" id="1_0s0xi"]
+[ext_resource type="Script" path="res://flying_enemy.gd" id="1_n8sr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hut02"]
 size = Vector2(44, 23)
@@ -44,6 +45,7 @@ _data = {
 }
 
 [node name="flying_enemy" type="CharacterBody2D"]
+script = ExtResource("1_n8sr8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -59,3 +61,7 @@ hframes = 7
 libraries = {
 "": SubResource("AnimationLibrary_xh31l")
 }
+
+[node name="CheckLeft" type="RayCast2D" parent="."]
+
+[node name="CheckRight" type="RayCast2D" parent="."]
