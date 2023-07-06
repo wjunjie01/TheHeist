@@ -155,6 +155,7 @@ func _physics_process(delta):
 					animation_tree['parameters/conditions/attack'] = true
 					enemy_detector.monitoring = true
 					attack_in_progress = true
+					$Attack.play()
 					$AttackTimer.start()
 					current_state = ATTACK
 					
