@@ -154,12 +154,14 @@ graph_offset = Vector2(40, 0)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_nbw2w"]
 
 [node name="Ranged Enemy" type="CharacterBody2D" groups=["enemy"]]
+z_index = 100
 position = Vector2(-9, 21)
 scale = Vector2(0.8, 0.8)
 collision_layer = 8
 script = ExtResource("1_w6l07")
 
 [node name="SpriteSheet" type="Sprite2D" parent="."]
+z_index = 100
 position = Vector2(8.57143, -20)
 scale = Vector2(2, 2)
 texture = ExtResource("2_sovj0")
