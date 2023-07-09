@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://nbefklrsj21a" path="res://music/cartoon-jump-6462.mp3" id="4_0acjv"]
 [ext_resource type="PackedScene" uid="uid://cc6skydycxx64" path="res://Grappling_Hook.tscn" id="4_84rtv"]
 [ext_resource type="AudioStream" uid="uid://cmcdwmkghirk4" path="res://music/mario-death_0RYR409X.mp3" id="6_51j1h"]
-[ext_resource type="Texture2D" uid="uid://bqugema3vtpoj" path="res://art/R-Key.png" id="6_evtva"]
+[ext_resource type="Texture2D" uid="uid://bqugema3vtpoj" path="res://art/main_char/R-Key.png" id="6_evtva"]
 [ext_resource type="AudioStream" uid="uid://pm35ny4our1o" path="res://music/slash-21834.mp3" id="7_qsnt4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwrt6"]

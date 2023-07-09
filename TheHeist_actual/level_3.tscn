@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="12_l3ei1"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="13_74bc2"]
 [ext_resource type="AudioStream" uid="uid://b4cs43v3su7od" path="res://music/City Hunter OST- Sad Run.mp3" id="14_1qoqe"]
-[ext_resource type="Texture2D" uid="uid://d0ec5xgttfjmo" path="res://art/caution-do-not-cross-without-fall-protection-sign-on-white-background-free-vector.jpg" id="21_e45pa"]
+[ext_resource type="Texture2D" uid="uid://d0ec5xgttfjmo" path="res://art/misc/caution-do-not-cross-without-fall-protection-sign-on-white-background-free-vector.jpg" id="21_e45pa"]
 
 [sub_resource type="Animation" id="Animation_s1818"]
 resource_name = "move_lop"

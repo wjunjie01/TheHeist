@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b22lrxtkd2ah0"]
 
 [ext_resource type="Script" path="res://spring.gd" id="1_t76ny"]
-[ext_resource type="Texture2D" uid="uid://b2of76k1ty0kc" path="res://art/spring.png" id="1_uvftc"]
+[ext_resource type="Texture2D" uid="uid://b2of76k1ty0kc" path="res://art/village_art/spring.png" id="1_uvftc"]
 [ext_resource type="AudioStream" uid="uid://b34rmpv7u7bw0" path="res://music/boing_cropped.mp3" id="3_yphfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go6p6"]

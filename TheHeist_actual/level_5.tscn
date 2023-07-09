@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw43ylybhlkr5"]
+[gd_scene load_steps=5 format=3 uid="uid://cw43ylybhlkr5"]
 
 [ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://level_5.tres" id="1_bdh1x"]
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="2_acdw0"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="3_qhp4a"]
+[ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="4_11o6y"]
 
 [node name="level_5" type="Node2D"]
 
@@ -34,3 +35,6 @@ texture = ExtResource("3_qhp4a")
 tile_set = ExtResource("1_bdh1x")
 format = 2
 layer_0/tile_data = PackedInt32Array(4194304, 65536, 0, 4259840, 65536, 1, 4194305, 131072, 0, 4259841, 131072, 1, 4194306, 196608, 0, 4259842, 196608, 1, 4194307, 262144, 0, 4259843, 262144, 1, 4194308, 65536, 0, 4259844, 65536, 1, 4194309, 131072, 0, 4259845, 131072, 1, 4194310, 196608, 0, 4259846, 196608, 1, 4194311, 262144, 0, 4259847, 262144, 1)
+
+[node name="Player" parent="." instance=ExtResource("4_11o6y")]
+position = Vector2(49, 522)
