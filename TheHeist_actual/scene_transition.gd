@@ -18,3 +18,9 @@ func change_scene_clouds_fast(new_scene: String): #cloud fast
 	$AnimationPlayer.play("clouds_out")
 	await get_tree().create_timer(0.20).timeout
 	get_tree().change_scene_to_file(new_scene)
+	
+func change_cave_background(new_scene: String):
+	$AnimationPlayer.play("stage2_slide")
+	await $AnimationPlayer.animation_finished
+	get_tree().change_scene_to_file(new_scene)
+	$AnimationPlayer.play_backwards("stage2_slide")

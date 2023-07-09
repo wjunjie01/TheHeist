@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca52pe86q37n8"]
+[gd_scene load_steps=11 format=3 uid="uid://ca52pe86q37n8"]
 
 [ext_resource type="Script" path="res://scene_transition.gd" id="1_gplpj"]
 [ext_resource type="Texture2D" uid="uid://cnms4vxeks2au" path="res://art/updated_background/transition_screen.png" id="2_q8a35"]
 [ext_resource type="Texture2D" uid="uid://coh8xy7w1kgbe" path="res://art/updated_background/theheistloading.jpg" id="2_vth4h"]
+[ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="4_16moj"]
 
 [sub_resource type="Animation" id="Animation_vscqx"]
 resource_name = "RESET"
@@ -68,12 +69,29 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_hhu48"]
+resource_name = "stage2_slide"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cave_background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1920, 0), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_87m75"]
 _data = {
 "RESET": SubResource("Animation_vscqx"),
 "clouds in": SubResource("Animation_o4o1f"),
 "clouds_out": SubResource("Animation_1wrfc"),
-"dissolve": SubResource("Animation_oo7li")
+"dissolve": SubResource("Animation_oo7li"),
+"stage2_slide": SubResource("Animation_hhu48")
 }
 
 [node name="scene_transition" type="CanvasLayer"]
@@ -81,9 +99,9 @@ script = ExtResource("1_gplpj")
 
 [node name="clouds" type="TextureRect" parent="."]
 offset_left = -11.0
-offset_top = -1300.0
+offset_top = -117.0
 offset_right = 629.0
-offset_bottom = -860.0
+offset_bottom = 323.0
 scale = Vector2(3, 3)
 mouse_filter = 2
 texture = ExtResource("2_q8a35")
@@ -107,3 +125,15 @@ texture = ExtResource("2_vth4h")
 libraries = {
 "": SubResource("AnimationLibrary_87m75")
 }
+
+[node name="cave_background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2082.0
+offset_top = 43.0
+offset_right = 2082.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_16moj")
