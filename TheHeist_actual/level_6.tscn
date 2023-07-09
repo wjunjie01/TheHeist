@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce2jjqm732v1y"]
+
+[ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_b1k2n"]
+[ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_qvqjf"]
+
+[sub_resource type="TileSet" id="TileSet_disge"]
+
+[node name="level_6" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -181.0
+offset_top = -108.0
+offset_right = 2162.0
+offset_bottom = 1210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_b1k2n")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -181.0
+offset_top = -128.0
+offset_right = 2172.0
+offset_bottom = 1239.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qvqjf")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_disge")
+format = 2
