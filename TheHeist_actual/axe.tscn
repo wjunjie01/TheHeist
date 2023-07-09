@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_d6g3i"]
 resource_name = "swing_axe"
-length = 2.4
+length = 3.6
 loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
@@ -33,7 +33,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.4, 1.6, 1.8, 2.2, 2.6, 3, 3.2, 3.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -45,7 +45,7 @@ tracks/1/path = NodePath("CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.4, 1.6, 1.8, 2.2, 2.6, 3, 3.2, 3.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-40, -20), Vector2(-40, -20), Vector2(-40, -20), Vector2(-29.4414, 1.91118), Vector2(0, 18), Vector2(33, 0), Vector2(40, -20), Vector2(40, -20), Vector2(40, -20), Vector2(33, 0), Vector2(0, 18), Vector2(-29.4414, 1.91118)]
@@ -58,6 +58,7 @@ _data = {
 }
 
 [node name="axe" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_k7668")
 
 [node name="Area2D" type="Area2D" parent="."]
