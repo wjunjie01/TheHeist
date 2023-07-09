@@ -136,7 +136,7 @@ func _physics_process(delta):
 				enemy_detector.scale.x *= -1
 			
 			if direction: 
-				velocity.x = direction * SPEED 
+				velocity.x = direction * SPEED
 				if direction < 0: $Spritesheet.flip_h = true
 				else: $Spritesheet.flip_h = false
 				if animation_tree['parameters/conditions/jump'] == true:

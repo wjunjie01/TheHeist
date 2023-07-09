@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciqvfc1rtk5er"]
+
+[ext_resource type="Script" path="res://Drone.gd" id="1_cnp8b"]
+[ext_resource type="Texture2D" uid="uid://byux48ubdrxq6" path="res://art/enemy/drones.png" id="2_6mtmt"]
+
+[sub_resource type="Animation" id="Animation_mgeav"]
+resource_name = "Scan_walk"
+length = 1.2
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DroneSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_6p80a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DroneSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_d1nv0"]
+resource_name = "Scan_idle"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DroneSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4vlp"]
+_data = {
+"RESET": SubResource("Animation_6p80a"),
+"Scan_idle": SubResource("Animation_d1nv0"),
+"Scan_walk": SubResource("Animation_mgeav")
+}
+
+[node name="Drone" type="Node2D"]
+position = Vector2(899, 210)
+script = ExtResource("1_cnp8b")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(2.5, 2.5)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector"]
+position = Vector2(-38.56, -34.88)
+scale = Vector2(0.445433, 0.584827)
+polygon = PackedVector2Array(10, 200, 87.4655, 75.3727, 165, 200)
+one_way_collision_margin = 0.0
+
+[node name="DroneSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_6mtmt")
+offset = Vector2(0.200024, 2.80001)
+hframes = 8
+vframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a4vlp")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_idle_timer_timeout"]
