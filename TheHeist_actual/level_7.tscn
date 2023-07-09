@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce2jjqm732v1y"]
+[gd_scene load_steps=4 format=3 uid="uid://51g2w56cy6hi"]
 
-[ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_b1k2n"]
-[ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_qvqjf"]
-[ext_resource type="Texture2D" uid="uid://cj8ltv2jtpgwd" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Base Tileset/PNG/Tileset Base.png" id="3_w7d80"]
+[ext_resource type="Texture2D" uid="uid://cj8ltv2jtpgwd" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Base Tileset/PNG/Tileset Base.png" id="1_7ih3q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7idqn"]
-texture = ExtResource("3_w7d80")
+texture = ExtResource("1_7ih3q")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1169,35 +1167,11 @@ texture = ExtResource("3_w7d80")
 30:35/0 = 0
 35:35/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_disge"]
+[sub_resource type="TileSet" id="TileSet_rvtee"]
 sources/0 = SubResource("TileSetAtlasSource_7idqn")
 
-[node name="level_6" type="Node2D"]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -181.0
-offset_top = -108.0
-offset_right = 2162.0
-offset_bottom = 1210.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_b1k2n")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -181.0
-offset_top = -128.0
-offset_right = 2172.0
-offset_bottom = 1239.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_qvqjf")
+[node name="level_7" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_disge")
+tile_set = SubResource("TileSet_rvtee")
 format = 2
