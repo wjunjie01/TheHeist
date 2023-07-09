@@ -98,10 +98,10 @@ _data = {
 script = ExtResource("1_gplpj")
 
 [node name="clouds" type="TextureRect" parent="."]
-offset_left = -11.0
-offset_top = -117.0
-offset_right = 629.0
-offset_bottom = 323.0
+offset_left = 2074.0
+offset_top = -37.0
+offset_right = 2714.0
+offset_bottom = 403.0
 scale = Vector2(3, 3)
 mouse_filter = 2
 texture = ExtResource("2_q8a35")
