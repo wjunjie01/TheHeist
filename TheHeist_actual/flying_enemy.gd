@@ -11,7 +11,7 @@ signal player_hit
 func move():
 	var found_wall = is_on_wall()
 	#If colliding 
-	var found_obstacle = (CheckLeft.is_colliding() and CheckRight.is_colliding())
+	var found_obstacle = (CheckLeft.is_colliding() or CheckRight.is_colliding())
 	#Change direction
 	if found_wall or found_obstacle:
 		direction *= -1
