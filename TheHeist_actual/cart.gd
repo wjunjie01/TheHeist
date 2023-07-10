@@ -14,7 +14,7 @@ signal player_hit
 func move():
 	#When cart collides with wall
 	var found_wall = is_on_wall()
-	#var found_obstacle = CheckLeft.is_colliding() or CheckRight.is_colliding()
+	var found_obstacle = CheckLeft.is_colliding() or CheckRight.is_colliding()
 	if found_wall:
 		direction.x *= -1
 		velocity.x = 0
@@ -22,8 +22,8 @@ func move():
 		if not is_stopped:
 			is_stopped = true
 			await get_tree().create_timer(2.0).timeout
+			is_stopped = false
 		$AnimationPlayer.play("cart_move")
-		is_stopped = false
 		
 	velocity.x = direction.x * SPEED
 	$Sprite2D.flip_h = direction.x < 0
