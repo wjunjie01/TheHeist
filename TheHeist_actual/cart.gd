@@ -21,7 +21,7 @@ func move():
 		$AnimationPlayer.stop()
 		if not is_stopped:
 			is_stopped = true
-			await get_tree().create_timer(2.0).timeout
+			await get_tree().create_timer(1.0).timeout
 			is_stopped = false
 		$AnimationPlayer.play("cart_move")
 		
@@ -30,7 +30,8 @@ func move():
 	
 
 func _physics_process(delta):
-	move()
+	if not is_stopped: move()
+	else: velocity.x = 0
 	velocity += gravity * delta
 	move_and_slide()
 	
