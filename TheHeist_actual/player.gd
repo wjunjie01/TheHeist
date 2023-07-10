@@ -72,7 +72,6 @@ func _ready():
 		for enemy in flying_enemies.get_children():
 			enemy.player_hit.connect(_on_flying_enemy_player_hit)
 	
-	
 	if get_parent().has_node("Melee_enemies"):
 		var melee_enemies = get_parent().get_node("Melee_enemies")
 		for enemy in melee_enemies.get_children():

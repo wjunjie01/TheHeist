@@ -24,7 +24,6 @@ func _physics_process(delta):
 			
 		stationary:
 			$AnimationPlayer.play("Scan_idle")
-			$PlayerDetector/CollisionPolygon2D.disabled = true
 			$Timer.wait_time = 1.0
 			
 			
@@ -32,6 +31,8 @@ func _physics_process(delta):
 signal player_detected
 
 func _on_area_2d_body_entered(body):
+	set_deferred("$PlayerDetector/CollisionPolygon2D.disabled", "true")
+	$PlayerDetector/Polygon2D.visible = false
 	current_state = stationary
 	emit_signal('player_detected')
 
@@ -47,7 +48,8 @@ func _on_idle_timer_timeout():
 		current_state = scan_idle
 	elif current_state == stationary:
 		$PlayerDetector/CollisionPolygon2D.disabled = false
-		current_state = scan_idle
+		$PlayerDetector/Polygon2D.visible = true
+		current_state = scan_walk
 	
 
 
