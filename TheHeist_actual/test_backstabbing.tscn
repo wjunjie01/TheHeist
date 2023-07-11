@@ -52,10 +52,12 @@ layer = 2
 visible = false
 
 [node name="Label" type="Label" parent="."]
-offset_left = 224.0
-offset_top = 765.0
-offset_right = 1059.0
-offset_bottom = 881.0
+offset_left = 12.0
+offset_top = 684.0
+offset_right = 1139.0
+offset_bottom = 916.0
 theme_override_font_sizes/font_size = 40
-text = "Press ESC to exit. Left Click to backstab.
+text = "Press ESC to exit. 
+This is to test player's attacks on enemies
+Left Click to backstab.
 You can only attack enemies from the back."

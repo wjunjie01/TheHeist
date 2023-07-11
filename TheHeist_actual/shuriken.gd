@@ -14,9 +14,10 @@ func _on_body_entered(body):
 	if !fired and body.is_in_group("player"):
 		body.has_shuriken = true
 		body.has_trap = false
-		queue_free()
 	
 	elif fired and body.is_in_group("enemy"):
 		body.is_dead = true
-		queue_free()
+	
+	elif fired and body.is_in_group("drones"):
+		body.is_destroyed = true
 	queue_free()
