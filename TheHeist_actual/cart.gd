@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 
+var map_bounds = Rect2(Vector2(-200,-200), Vector2(2120,1280))
+
 var direction = Vector2.RIGHT
 var is_stopped = false
 var gravity = Vector2(0,400)
@@ -35,7 +37,11 @@ func _physics_process(delta):
 	velocity += gravity * delta
 	move_and_slide()
 	
-func _on_area_2d_body_entered(body: PhysicsBody2D):
+	#deletes the cart if it falls out of the map
+	if !map_bounds.has_point(position):
+		queue_free()
+
+func _on_area_2d_body_entered(body):
 	if body.name == "Player":
-		emit_signal("player_hit")
-	
+		print('hit')
+		body.gameover()
