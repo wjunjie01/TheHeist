@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr2yt51mc17q"]
+
+[ext_resource type="Script" path="res://cart_spawner.gd" id="1_3ulc7"]
+
+[node name="CartSpawner" type="Marker2D"]
+position = Vector2(171, 180)
+script = ExtResource("1_3ulc7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

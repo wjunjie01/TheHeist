@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://51g2w56cy6hi"]
+[gd_scene load_steps=6 format=3 uid="uid://51g2w56cy6hi"]
 
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_m7e6g"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_fx6xt"]
 [ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://level_5.tres" id="3_oq6e1"]
+[ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="4_4wo6g"]
+[ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="5_jm1qq"]
 
 [node name="level_7" type="Node2D"]
 
@@ -58,3 +60,12 @@ layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 9
 layer_3/tile_data = PackedInt32Array()
+
+[node name="HUD" parent="." instance=ExtResource("4_4wo6g")]
+visible = false
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource("5_jm1qq")]
+visible = false
