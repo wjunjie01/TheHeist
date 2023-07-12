@@ -120,7 +120,7 @@ func _process(delta):
 		ATTACK:
 			pass
 		DEAD:
-			$CollisionShape2D.disabled = true
+			pass
 		HIDE:
 			$R.visible = true
 			$R/RAnimationPlayer.play("R pressed")
@@ -128,7 +128,7 @@ func _process(delta):
 func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
-	
+		
 	if Input.is_action_just_pressed("Hook") and current_state != HIDE and ray_free_obstacles():
 		current_state = HOOKING
 		grapplingHook.Activate(targetHookNode.global_position)
@@ -222,7 +222,12 @@ func _physics_process(delta):
 		
 		DEAD:
 			animation_tree['parameters/conditions/dead'] = true
-			
+			move_and_slide()
+			if not is_on_floor() and $CollisionShape2D.disabled == false:
+				position.y += 10
+			else:
+				$CollisionShape2D.disabled = true
+				velocity.x = 0
 			
 		HIDE:
 			velocity.x = 0
@@ -297,7 +302,6 @@ func _on_hidden_area_hiding_area_exited():
 	can_hide = false
 	$R.visible = false
 	$R/RAnimationPlayer.stop()
-
 
 func _on_hidden_area_hiding_area_entered():
 	can_hide = true
