@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf55k"]
 radius = 24.0
-height = 90.6666
+height = 77.3333
 
 [sub_resource type="Animation" id="Animation_20w5u"]
 resource_name = "Destroyed"
@@ -82,35 +82,33 @@ _data = {
 }
 
 [node name="Drone" type="CharacterBody2D" groups=["drones"]]
-z_index = 1
-position = Vector2(899, 210)
+z_index = 5
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_cnp8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.00012, 18.6667)
+position = Vector2(0, 24)
 shape = SubResource("CapsuleShape2D_pf55k")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
-position = Vector2(0, -5.96046e-08)
+position = Vector2(-3.8147e-05, -20)
 scale = Vector2(2.5, 2.5)
 collision_layer = 8
 collision_mask = 2
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector"]
+position = Vector2(-36.8, -24)
+scale = Vector2(0.445433, 0.584827)
+polygon = PackedVector2Array(9.5787, 200.629, 84.1729, 74.2328, 164.394, 200.082)
+one_way_collision_margin = 0.0
+
 [node name="Polygon2D" type="Polygon2D" parent="PlayerDetector"]
-position = Vector2(-95.9232, -0.170052)
+position = Vector2(-94.4, 10.6667)
 scale = Vector2(1.17424, 1.0942)
 color = Color(0.909804, 0, 0, 0.45098)
 polygon = PackedVector2Array(80.5333, 7.46667, 52.621, 75.2177, 111.212, 75.2177)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector"]
-position = Vector2(-38.56, -34.88)
-scale = Vector2(0.445433, 0.584827)
-polygon = PackedVector2Array(10, 200, 84.1729, 74.2328, 164.394, 200.082)
-one_way_collision_margin = 0.0
-
 [node name="DroneSprite" type="Sprite2D" parent="."]
-position = Vector2(-2.66675, -1.33331)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_6mtmt")
 offset = Vector2(0.200024, 2.80001)
@@ -128,12 +126,12 @@ wait_time = 0.5
 autostart = true
 
 [node name="LedgeCheckRight" type="RayCast2D" parent="."]
-position = Vector2(86.6667, 205.333)
-target_position = Vector2(0, 3)
+position = Vector2(90.6667, 212)
+target_position = Vector2(0, 5)
 
 [node name="LedgeCheckLeft" type="RayCast2D" parent="."]
-position = Vector2(-85.3334, 205.333)
-target_position = Vector2(0, 3)
+position = Vector2(-81.3333, 212)
+target_position = Vector2(0, 5)
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

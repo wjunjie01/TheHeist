@@ -70,17 +70,17 @@ func _ready():
 	if get_parent().has_node("Flying_enemies"):
 		var flying_enemies = get_parent().get_node("Flying_enemies")
 		for enemy in flying_enemies.get_children():
-			enemy.player_hit.connect(_on_flying_enemy_player_hit)
+			enemy.player_hit.connect(_on_player_contact)
 	
 	if get_parent().has_node("Melee_enemies"):
 		var melee_enemies = get_parent().get_node("Melee_enemies")
 		for enemy in melee_enemies.get_children():
-			enemy.player_hit.connect(_on_melee_enemy_player_hit)
+			enemy.player_hit.connect(_on_player_contact)
 	
 	if get_parent().has_node("Swinging_axes"):
 		var axes = get_parent().get_node("Swinging_axes")
 		for axe in axes.get_children():
-			axe.player_hit.connect(_on_flying_enemy_player_hit) #essentially the same
+			axe.player_hit.connect(_on_player_contact) #essentially the same
 	
 func On_Hooked():
 	grapplingHook.m_HookStay = true
@@ -251,11 +251,8 @@ func gameover():
 		Engine.time_scale = 1
 		$"Mario death".play()
 		current_state = DEAD
-
-func _on_melee_enemy_player_hit():
-	gameover()
 	
-func _on_flying_enemy_player_hit():
+func _on_player_contact():
 	gameover()
 
 func _on_enemy_detector_body_entered(body):
@@ -298,15 +295,11 @@ func _on_hiding_area_entered():
 	$R.visible = true
 	$R/RAnimationPlayer.play("R pressed")
 
-func _on_hidden_area_hiding_area_exited():
+func _on_hiding_area_exited():
 	can_hide = false
 	$R.visible = false
 	$R/RAnimationPlayer.stop()
 
-func _on_hidden_area_hiding_area_entered():
-	can_hide = true
-	$R.visible = true
-	$R/RAnimationPlayer.play("R pressed")
 
 func _on_level_1_cannot_jump():
 	can_jump = false

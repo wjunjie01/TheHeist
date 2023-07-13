@@ -38,9 +38,6 @@ layer_3/tile_data = PackedInt32Array(3735580, 1310720, 8, 3801116, 1310720, 9, 3
 [node name="Player" parent="." instance=ExtResource("2_tx75s")]
 position = Vector2(570, 885)
 
-[node name="MeleeEnemy" parent="." instance=ExtResource("3_vj4wb")]
-position = Vector2(396, 1049)
-
 [node name="RangedEnemy" parent="." instance=ExtResource("4_jp4aa")]
 position = Vector2(810, 1069)
 
@@ -62,4 +59,7 @@ theme_override_font_sizes/font_size = 40
 text = "Press ESC to exit.
 This is to test enemies attacks on the player."
 
-[connection signal="player_hit" from="MeleeEnemy" to="Player" method="_on_melee_enemy_player_hit"]
+[node name="Melee_enemies" type="Node" parent="."]
+
+[node name="MeleeEnemy" parent="Melee_enemies" instance=ExtResource("3_vj4wb")]
+position = Vector2(396, 1049)
