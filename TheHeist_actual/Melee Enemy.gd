@@ -51,10 +51,10 @@ func _physics_process(_delta):
 		
 	move_and_slide()
 
-func _on_PlayerDetector_body_entered(body):
+func _on_PlayerDetector_body_entered(_body):
 	velocity = Vector2.ZERO
 	Animation_tree["parameters/conditions/walk"] = false
 	Animation_tree["parameters/conditions/attack"] = true
 
-func _on_AttackDetector_body_entered(body):
+func _on_AttackDetector_body_entered(_body):
 	emit_signal('player_hit')

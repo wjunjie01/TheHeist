@@ -4,7 +4,7 @@ var velocity = Vector2.ZERO
 var speed = 20
 var fired = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	position += velocity.normalized() * speed
 	if velocity != Vector2.ZERO:
 		$Sprite2D.rotation += 30
