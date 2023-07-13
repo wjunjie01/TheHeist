@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsktqpvmrsuet"]
 
 [ext_resource type="Script" path="res://bear_trap.gd" id="1_mxjy1"]
-[ext_resource type="Texture2D" uid="uid://dh4jho2uhihb5" path="res://art/Bear_Trap.png" id="2_56lhq"]
+[ext_resource type="Texture2D" uid="uid://dh4jho2uhihb5" path="res://art/misc/Bear_Trap.png" id="2_56lhq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4rrx"]
 size = Vector2(3, 10.5)

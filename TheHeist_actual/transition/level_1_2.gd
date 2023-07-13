@@ -4,11 +4,11 @@ var entered = false
 var first_time = true
 @onready var save_file = SaveFile.user_data
 
-func _on_body_entered(body: PhysicsBody2D):
+func _on_body_entered(_body):
 	if first_time: 
 		entered = true
 
-func _process(delta):
+func _process(_delta):
 	if entered == true:
 #		SceneTransition.change_scene_clouds("res://level_2.tscn")
 		save_file.level += 1
