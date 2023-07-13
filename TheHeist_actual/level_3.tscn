@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d3ku6dndhp4hg"]
+[gd_scene load_steps=29 format=3 uid="uid://d3ku6dndhp4hg"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
 [ext_resource type="Script" path="res://level_3.gd" id="1_pxyvu"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="12_l3ei1"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="13_74bc2"]
 [ext_resource type="AudioStream" uid="uid://b4cs43v3su7od" path="res://music/City Hunter OST- Sad Run.mp3" id="14_1qoqe"]
+[ext_resource type="Texture2D" uid="uid://bwtu3b5g6ydnr" path="res://art/village_art/GothicVania's town/environment/layers/tileset.png" id="14_fcbh4"]
 [ext_resource type="Texture2D" uid="uid://d0ec5xgttfjmo" path="res://art/misc/caution-do-not-cross-without-fall-protection-sign-on-white-background-free-vector.jpg" id="21_e45pa"]
 
 [sub_resource type="Animation" id="Animation_s1818"]
@@ -207,6 +208,12 @@ position = Vector2(1068, 762)
 [node name="hidden_area" parent="." instance=ExtResource("9_uplvu")]
 z_index = 4
 position = Vector2(212, 327)
+
+[node name="Sprite2D" type="Sprite2D" parent="hidden_area"]
+position = Vector2(2, -28)
+texture = ExtResource("14_fcbh4")
+region_enabled = true
+region_rect = Rect2(208, 16, 32, 64)
 
 [node name="hidden_area2" parent="." instance=ExtResource("9_uplvu")]
 position = Vector2(1236, 793)

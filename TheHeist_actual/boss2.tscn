@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cocshdu25a1vb"]
+
+[ext_resource type="Script" path="res://boss2.gd" id="1_envwm"]
+[ext_resource type="Texture2D" uid="uid://bj881t7li3jf6" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Decorations/PNGs/Palm 0.png" id="2_86or0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_87ity"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_envwm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_86or0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_87ity")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
