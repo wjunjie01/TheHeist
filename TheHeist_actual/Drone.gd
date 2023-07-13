@@ -41,7 +41,7 @@ func _physics_process(delta):
 
 signal player_detected
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	set_deferred("$PlayerDetector/CollisionPolygon2D.disabled", "true")
 	$PlayerDetector/Polygon2D.visible = false
 	current_state = stationary

@@ -173,6 +173,12 @@ z_index = 6
 position = Vector2(1048, 769)
 collision_mask = 2
 
+[node name="Ranged Enemy" parent="." instance=ExtResource("12_l3ei1")]
+position = Vector2(13, 313)
+
+[node name="Ranged Enemy2" parent="." instance=ExtResource("12_l3ei1")]
+position = Vector2(343, 316)
+
 [node name="Ranged Enemy3" parent="." instance=ExtResource("12_l3ei1")]
 position = Vector2(1616, 817)
 
@@ -197,12 +203,12 @@ position = Vector2(432, 449)
 [node name="Spike5" parent="." instance=ExtResource("2_qklws")]
 position = Vector2(488, 450)
 
-[node name="Melee_enemies" type="Node" parent="."]
+[node name="on_hit" type="Node" parent="."]
 
-[node name="Melee Enemy" parent="Melee_enemies" instance=ExtResource("3_khpet")]
+[node name="Melee Enemy" parent="on_hit" instance=ExtResource("3_khpet")]
 position = Vector2(1206, 429)
 
-[node name="Melee Enemy2" parent="Melee_enemies" instance=ExtResource("3_khpet")]
+[node name="Melee Enemy2" parent="on_hit" instance=ExtResource("3_khpet")]
 position = Vector2(1068, 762)
 
 [node name="hidden_area" parent="." instance=ExtResource("9_uplvu")]
@@ -317,12 +323,6 @@ visible = false
 
 [node name="CityHunter!" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_1qoqe")
-
-[node name="Ranged Enemy" parent="." instance=ExtResource("12_l3ei1")]
-position = Vector2(13, 313)
-
-[node name="Ranged Enemy2" parent="." instance=ExtResource("12_l3ei1")]
-position = Vector2(343, 316)
 
 [node name="Caution-do-not-cross-without-fall-protection-sign-on-white-background-free-vector" type="Sprite2D" parent="."]
 position = Vector2(1809, 83)

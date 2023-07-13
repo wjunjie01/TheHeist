@@ -133,6 +133,9 @@ position = Vector2(484, 201)
 [node name="Shuriken2" parent="." instance=ExtResource("7_d20cv")]
 position = Vector2(818, 516)
 
+[node name="Shuriken3" parent="." instance=ExtResource("7_d20cv")]
+position = Vector2(1288, 963)
+
 [node name="Shuriken_sign" parent="." instance=ExtResource("8_tg2cn")]
 position = Vector2(444, 159)
 
@@ -155,18 +158,30 @@ text = "Deploy the Shuriken using 'E'!"
 [node name="CollisionShape2D" parent="Shuriken_sign" index="2"]
 position = Vector2(7, 30)
 
-[node name="Melee Enemy" parent="." instance=ExtResource("9_7su2y")]
-position = Vector2(1394, 1012)
+[node name="on_hit" type="Node" parent="."]
 
-[node name="Melee_enemies" type="Node" parent="."]
-
-[node name="Melee Enemy" parent="Melee_enemies" instance=ExtResource("9_7su2y")]
+[node name="Melee Enemy" parent="on_hit" instance=ExtResource("9_7su2y")]
 z_index = 5
 position = Vector2(990, 394)
 
-[node name="Melee Enemy3" parent="Melee_enemies" instance=ExtResource("9_7su2y")]
+[node name="Melee Enemy3" parent="on_hit" instance=ExtResource("9_7su2y")]
 z_index = 5
 position = Vector2(982, 747)
+
+[node name="Melee Enemy2" parent="on_hit" instance=ExtResource("9_7su2y")]
+position = Vector2(1394, 1012)
+
+[node name="flying_enemy" parent="on_hit" instance=ExtResource("3_dkwyv")]
+position = Vector2(178, 902)
+
+[node name="flying_enemy2" parent="on_hit" instance=ExtResource("3_dkwyv")]
+position = Vector2(389, 710)
+
+[node name="flying_enemy3" parent="on_hit" instance=ExtResource("3_dkwyv")]
+position = Vector2(291, 518)
+
+[node name="flying_enemy4" parent="on_hit" instance=ExtResource("3_dkwyv")]
+position = Vector2(92, 273)
 
 [node name="HUD" parent="." instance=ExtResource("10_wvgq5")]
 visible = false
@@ -176,20 +191,6 @@ layer = 2
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource("11_75k2d")]
 visible = false
-
-[node name="Flying_enemies" type="Node" parent="."]
-
-[node name="flying_enemy" parent="Flying_enemies" instance=ExtResource("3_dkwyv")]
-position = Vector2(178, 902)
-
-[node name="flying_enemy2" parent="Flying_enemies" instance=ExtResource("3_dkwyv")]
-position = Vector2(389, 710)
-
-[node name="flying_enemy3" parent="Flying_enemies" instance=ExtResource("3_dkwyv")]
-position = Vector2(291, 518)
-
-[node name="flying_enemy4" parent="Flying_enemies" instance=ExtResource("3_dkwyv")]
-position = Vector2(92, 273)
 
 [node name="Ranged Enemy" parent="." instance=ExtResource("6_xoa0n")]
 z_index = 5
@@ -219,9 +220,6 @@ autoplay = "move_up"
 libraries = {
 "": SubResource("AnimationLibrary_nng78")
 }
-
-[node name="Shuriken3" parent="." instance=ExtResource("7_d20cv")]
-position = Vector2(1288, 963)
 
 [editable path="Bat sign"]
 [editable path="Shuriken_sign"]

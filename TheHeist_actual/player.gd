@@ -67,20 +67,11 @@ func _ready():
 	#Connect signal
 	grapplingHook.S_On_Hook_Reached.connect(On_Hooked)
 	
-	if get_parent().has_node("Flying_enemies"):
-		var flying_enemies = get_parent().get_node("Flying_enemies")
-		for enemy in flying_enemies.get_children():
-			enemy.player_hit.connect(_on_player_contact)
-	
-	if get_parent().has_node("Melee_enemies"):
-		var melee_enemies = get_parent().get_node("Melee_enemies")
-		for enemy in melee_enemies.get_children():
-			enemy.player_hit.connect(_on_player_contact)
-	
-	if get_parent().has_node("Swinging_axes"):
-		var axes = get_parent().get_node("Swinging_axes")
-		for axe in axes.get_children():
-			axe.player_hit.connect(_on_player_contact) #essentially the same
+
+	if get_parent().has_node("on_hit"):
+		var units = get_parent().get_node("on_hit")
+		for unit in units.get_children():
+			unit.player_hit.connect(_on_player_contact)
 	
 func On_Hooked():
 	grapplingHook.m_HookStay = true
@@ -107,20 +98,21 @@ func _process(delta):
 	$Rotation.look_at(get_global_mouse_position())
 	position.x = clamp(position.x, 0, screen_size.x)
 
+	if has_shuriken:
+		$Shuriken.visible = true
+		$BearTrap.visible = false
+	elif has_trap:
+		$Shuriken.visible = false
+		$BearTrap.visible = true
+	else:
+		$Shuriken.visible = false
+		$BearTrap.visible = false
 	if is_on_floor(): can_jump = true
 	match current_state:
-		IDLE:
-			pass
-		HOOKING:
-			pass
 		HOOKED:
 			hook(delta)
 #			position = hook_point
 			grapplingHook.m_HookNode.global_position = grapplingHook.m_TargetPos
-		ATTACK:
-			pass
-		DEAD:
-			pass
 		HIDE:
 			$R.visible = true
 			$R/RAnimationPlayer.play("R pressed")
@@ -183,6 +175,7 @@ func _physics_process(delta):
 						trap.position = $Trap_location.global_position
 						has_trap = false
 						trap.laid = true
+						
 					elif has_shuriken:
 						var shuriken = shuriken_scene.instantiate()
 						shuriken.fired = true
@@ -252,14 +245,15 @@ func gameover():
 		$"Mario death".play()
 		current_state = DEAD
 	
+
 func _on_player_contact():
 	gameover()
+
 
 func _on_enemy_detector_body_entered(body):
 	if body.is_in_group("enemy"):
 		if (body.direction.x > 0 and not $Spritesheet.flip_h) or (body.direction.x < 0 and $Spritesheet.flip_h):
 			body.is_dead = true
-
 
 
 func _on_animation_finished(anim_name):
@@ -284,9 +278,6 @@ func _on_animation_finished(anim_name):
 		emit_signal("game_over")
 		
 		
-
-
-	
 func _on_attack_timer_timeout():
 	attack_in_progress = false
 
