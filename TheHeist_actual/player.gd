@@ -67,20 +67,11 @@ func _ready():
 	#Connect signal
 	grapplingHook.S_On_Hook_Reached.connect(On_Hooked)
 	
-	if get_parent().has_node("Flying_enemies"):
-		var flying_enemies = get_parent().get_node("Flying_enemies")
-		for enemy in flying_enemies.get_children():
-			enemy.player_hit.connect(_on_player_contact)
-	
-	if get_parent().has_node("Melee_enemies"):
-		var melee_enemies = get_parent().get_node("Melee_enemies")
-		for enemy in melee_enemies.get_children():
-			enemy.player_hit.connect(_on_player_contact)
-	
-	if get_parent().has_node("Swinging_axes"):
-		var axes = get_parent().get_node("Swinging_axes")
-		for axe in axes.get_children():
-			axe.player_hit.connect(_on_player_contact) #essentially the same
+
+	if get_parent().has_node("on_hit"):
+		var units = get_parent().get_node("on_hit")
+		for unit in units.get_children():
+			unit.player_hit.connect(_on_player_contact)
 	
 func On_Hooked():
 	grapplingHook.m_HookStay = true

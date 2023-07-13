@@ -131,9 +131,9 @@ visible = false
 [node name="Ghibli" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_lw1s4")
 
-[node name="Melee_enemies" type="Node" parent="."]
+[node name="on_hit" type="Node" parent="."]
 
-[node name="Melee Enemy" parent="Melee_enemies" instance=ExtResource("14_1pune")]
+[node name="Melee Enemy" parent="on_hit" instance=ExtResource("14_1pune")]
 position = Vector2(994, 296)
 
 [connection signal="body_entered" from="level2-3" to="level2-3" method="_on_body_entered"]
