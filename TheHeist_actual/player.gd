@@ -218,10 +218,10 @@ func _physics_process(delta):
 			animation_tree['parameters/conditions/dead'] = true
 			move_and_slide()
 			if not is_on_floor() and $CollisionShape2D.disabled == false:
+				velocity = Vector2.ZERO
 				position.y += 10
 			else:
 				$CollisionShape2D.disabled = true
-				velocity.x = 0
 			
 		HIDE:
 			velocity.x = 0
@@ -261,8 +261,6 @@ func _on_enemy_detector_area_entered(area):
 		area.scale.x *= -1
 		area.velocity.x *= -1
 		area.deflected = true
-
-
 
 
 func _on_animation_finished(anim_name):

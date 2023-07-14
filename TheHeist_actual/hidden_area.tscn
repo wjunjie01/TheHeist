@@ -14,6 +14,8 @@ collision_mask = 2
 script = ExtResource("1_oiv3o")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(2.85714, -0.55696)
+scale = Vector2(1.14286, 0.911392)
 color = Color(0.807843, 0.372549, 1, 1)
 polygon = PackedVector2Array(-20, -74, 22, -74, 22, 5, -19, 5)
 
@@ -27,8 +29,8 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_bb0kd")
 
 [node name="Underground" type="Sprite2D" parent="."]
-position = Vector2(1, -31.5)
-scale = Vector2(0.875, 1.54688)
+position = Vector2(4.5, -31.5)
+scale = Vector2(0.984375, 1.54688)
 texture = ExtResource("3_uxqdq")
 region_enabled = true
 region_rect = Rect2(768, 128, 64, 64)

@@ -146,9 +146,10 @@ position = Vector2(1283, 904)
 
 [node name="hidden_area" parent="." instance=ExtResource("12_52hjk")]
 position = Vector2(1507, 924)
+scale = Vector2(1.01925, 0.965529)
 
 [node name="hidden_area2" parent="." instance=ExtResource("12_52hjk")]
-position = Vector2(452, 924)
+position = Vector2(444, 925)
 
 [node name="Enemy Spawner3" parent="." instance=ExtResource("10_b7mmd")]
 position = Vector2(724, 906)
