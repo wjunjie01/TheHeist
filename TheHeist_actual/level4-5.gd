@@ -16,3 +16,4 @@ func _process(delta):
 		SaveFile.save_data()
 		entered = false
 		first_time = false
+		print('hi')

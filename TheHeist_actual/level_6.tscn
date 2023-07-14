@@ -122,8 +122,14 @@ position = Vector2(1841, 27)
 [node name="CartSpawner5" parent="." instance=ExtResource("3_v7tai")]
 position = Vector2(969, 212)
 
+[node name="Timer" parent="CartSpawner5" index="0"]
+wait_time = 10.0
+
 [node name="CartSpawner6" parent="." instance=ExtResource("3_v7tai")]
 position = Vector2(875, 212)
+
+[node name="Timer" parent="CartSpawner6" index="0"]
+wait_time = 10.0
 
 [node name="CartSpawner7" parent="." instance=ExtResource("3_v7tai")]
 position = Vector2(7, 1041)
@@ -220,6 +226,8 @@ stream = ExtResource("16_3elkb")
 [connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hiding_area_exited"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 
+[editable path="CartSpawner5"]
+[editable path="CartSpawner6"]
 [editable path="Tutorial Signs2"]
 [editable path="MovingPlatform"]
 [editable path="Tutorial Signs3"]

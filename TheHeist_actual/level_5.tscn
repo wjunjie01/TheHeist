@@ -47,6 +47,8 @@ texture = ExtResource("3_qhp4a")
 
 [node name="level5-6" parent="." instance=ExtResource("3_7n5hv")]
 position = Vector2(180, 902)
+collision_layer = 0
+collision_mask = 2
 
 [node name="Spring" parent="." instance=ExtResource("3_lplwr")]
 position = Vector2(619, 415)
@@ -83,7 +85,7 @@ layer_3/z_index = 9
 layer_3/tile_data = PackedInt32Array(1572883, 655361, 6, 1638419, 655361, 7, 1572884, 720897, 6, 1638420, 720897, 7)
 
 [node name="Player" parent="." instance=ExtResource("4_11o6y")]
-position = Vector2(62.0001, 60)
+position = Vector2(266, 807)
 
 [node name="Swinging_axes" type="Node" parent="."]
 
@@ -157,6 +159,7 @@ position = Vector2(724, 906)
 [node name="Dua Lipa" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_u3f5a")
 
+[connection signal="body_entered" from="level5-6" to="level5-6" method="_on_body_entered"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hiding_area_exited"]

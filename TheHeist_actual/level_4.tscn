@@ -79,7 +79,7 @@ offset_bottom = 0.0
 text = "These ANGRY bats do not count as enemies but do not get in the way of them! "
 
 [node name="Player" parent="." instance=ExtResource("3_xlube")]
-position = Vector2(302, 1011)
+position = Vector2(128, 1000)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_leq0f")
@@ -227,11 +227,14 @@ libraries = {
 
 [node name="level4-5" parent="." instance=ExtResource("14_npg06")]
 position = Vector2(1894, 222)
+collision_layer = 0
+collision_mask = 2
 
 [node name="Tanjiro" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_6cvbb")
 
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="body_entered" from="level4-5" to="level4-5" method="_on_body_entered"]
 
 [editable path="Bat sign"]
 [editable path="Shuriken_sign"]
