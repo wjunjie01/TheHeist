@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx32hh8f4otr3"]
+[gd_scene load_steps=5 format=3 uid="uid://dx32hh8f4otr3"]
 
 [ext_resource type="Script" path="res://hidden_area.gd" id="1_oiv3o"]
+[ext_resource type="Texture2D" uid="uid://dr5xyja85b41h" path="res://art/village_art/GothicVania's town/environment/layers/sliced-tileset/window.png" id="2_xlw5x"]
+[ext_resource type="Texture2D" uid="uid://cj8ltv2jtpgwd" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Base Tileset/PNG/Tileset Base.png" id="3_uxqdq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bb0kd"]
 size = Vector2(38.375, 7.68755)
@@ -11,13 +13,25 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_oiv3o")
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.807843, 0.372549, 1, 1)
+polygon = PackedVector2Array(-20, -74, 22, -74, 22, 5, -19, 5)
+
+[node name="Village" type="Sprite2D" parent="."]
+position = Vector2(1, -33.5)
+scale = Vector2(1, 1.04688)
+texture = ExtResource("2_xlw5x")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_bb0kd")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(1, 0.368627, 0.180392, 1)
-polygon = PackedVector2Array(-19, -60, 20, -61, 20, 4, -18, 4)
+[node name="Underground" type="Sprite2D" parent="."]
+position = Vector2(1, -31.5)
+scale = Vector2(0.875, 1.54688)
+texture = ExtResource("3_uxqdq")
+region_enabled = true
+region_rect = Rect2(768, 128, 64, 64)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

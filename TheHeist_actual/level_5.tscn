@@ -116,6 +116,7 @@ position = Vector2(447, 777)
 position = Vector2(115, 445)
 
 [node name="Text" parent="Tutorial Signs" index="1"]
+visible = false
 offset_left = -25.0
 offset_top = -65.0
 offset_right = 96.0
@@ -126,10 +127,11 @@ text = "Those flying things are drones. Try getting detecting ;D"
 position = Vector2(944, 238)
 
 [node name="Text" parent="Axe_sign" index="1"]
-offset_left = -39.0
-offset_top = -69.0
-offset_right = 88.0
-offset_bottom = -20.0
+visible = false
+offset_left = -37.0
+offset_top = -28.0
+offset_right = 90.0
+offset_bottom = 21.0
 text = "Be careful not to get your head chopped off!"
 
 [node name="Enemy Spawner2" parent="." instance=ExtResource("10_b7mmd")]

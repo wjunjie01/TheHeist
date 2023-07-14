@@ -22,3 +22,4 @@ func _on_hidden_area_hiding_area_exited():
 func _on_player_game_over():
 	$"CityHunter!".stop()
 	Engine.time_scale = 1
+

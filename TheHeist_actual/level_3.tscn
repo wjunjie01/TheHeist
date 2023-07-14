@@ -222,7 +222,7 @@ region_enabled = true
 region_rect = Rect2(208, 16, 32, 64)
 
 [node name="hidden_area2" parent="." instance=ExtResource("9_uplvu")]
-position = Vector2(1236, 793)
+position = Vector2(1587, 825)
 metadata/_edit_group_ = true
 
 [node name="MovingPlatform" parent="." instance=ExtResource("5_no8co")]
@@ -331,13 +331,13 @@ texture = ExtResource("21_e45pa")
 
 [connection signal="body_entered" from="level3-4" to="level3-4" method="_on_body_entered"]
 [connection signal="hiding_area_entered" from="hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
-[connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_entered"]
+[connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hidden_area" to="." method="_on_hidden_area_hiding_area_exited"]
-[connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hidden_area_hiding_area_exited"]
+[connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hiding_area_exited"]
 [connection signal="hiding_area_entered" from="hidden_area2" to="." method="_on_hidden_area_hiding_area_entered"]
-[connection signal="hiding_area_entered" from="hidden_area2" to="Player" method="_on_hidden_area_hiding_area_entered"]
+[connection signal="hiding_area_entered" from="hidden_area2" to="Player" method="_on_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hidden_area2" to="." method="_on_hidden_area_hiding_area_exited"]
-[connection signal="hiding_area_exited" from="hidden_area2" to="Player" method="_on_hidden_area_hiding_area_exited"]
+[connection signal="hiding_area_exited" from="hidden_area2" to="Player" method="_on_hiding_area_exited"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

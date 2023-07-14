@@ -48,6 +48,7 @@ size = Vector2(37, 31)
 size = Vector2(41, 31)
 
 [node name="Cart" type="CharacterBody2D"]
+z_index = 100
 position = Vector2(310, 276)
 collision_layer = 16
 collision_mask = 34
