@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmjn2or640lij"
+path="res://.godot/imported/onlymp3.to - kamado_tanjiro_no_uta_demon_slayer_ost_piano_-1x6n44EcJI8-192k-1689311301 (mp3cut.net).mp3-63f60cfcb05fc92b03caf3ec4a103683.mp3str"
+
+[deps]
+
+source_file="res://music/onlymp3.to - kamado_tanjiro_no_uta_demon_slayer_ost_piano_-1x6n44EcJI8-192k-1689311301 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/onlymp3.to - kamado_tanjiro_no_uta_demon_slayer_ost_piano_-1x6n44EcJI8-192k-1689311301 (mp3cut.net).mp3-63f60cfcb05fc92b03caf3ec4a103683.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

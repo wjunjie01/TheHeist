@@ -222,7 +222,7 @@ region_enabled = true
 region_rect = Rect2(208, 16, 32, 64)
 
 [node name="hidden_area2" parent="." instance=ExtResource("9_uplvu")]
-position = Vector2(1587, 825)
+position = Vector2(1289, 790)
 metadata/_edit_group_ = true
 
 [node name="MovingPlatform" parent="." instance=ExtResource("5_no8co")]
