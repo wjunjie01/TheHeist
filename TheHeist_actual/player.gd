@@ -98,6 +98,7 @@ func _process(delta):
 	$Rotation.look_at(get_global_mouse_position())
 	position.x = clamp(position.x, 0, screen_size.x)
 
+	#Items indicator on player
 	if has_shuriken:
 		$Shuriken.visible = true
 		$BearTrap.visible = false
@@ -107,6 +108,7 @@ func _process(delta):
 	else:
 		$Shuriken.visible = false
 		$BearTrap.visible = false
+		
 	if is_on_floor(): can_jump = true
 	match current_state:
 		HOOKED:
@@ -156,7 +158,6 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed("attack"):
 					animation_tree['parameters/conditions/idle'] = false
 					animation_tree['parameters/conditions/attack'] = true
-					enemy_detector.monitoring = true
 					attack_in_progress = true
 					$Attack.play()
 					$AttackTimer.start()
@@ -255,6 +256,14 @@ func _on_enemy_detector_body_entered(body):
 		if (body.direction.x > 0 and not $Spritesheet.flip_h) or (body.direction.x < 0 and $Spritesheet.flip_h):
 			body.is_dead = true
 
+func _on_enemy_detector_area_entered(area):
+	if area.is_in_group("bullet"):
+		area.scale.x *= -1
+		area.velocity.x *= -1
+		area.deflected = true
+
+
+
 
 func _on_animation_finished(anim_name):
 	if current_state != DEAD:
@@ -262,7 +271,6 @@ func _on_animation_finished(anim_name):
 			current_state = IDLE
 			animation_tree['parameters/conditions/attack'] = false
 			animation_tree['parameters/conditions/idle'] = true
-			enemy_detector.monitoring = false
 			
 		elif anim_name == "UNHIDE":
 			current_state = IDLE

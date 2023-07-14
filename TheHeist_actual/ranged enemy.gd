@@ -24,7 +24,7 @@ func _physics_process(_delta):
 	if is_dead:
 		dead()
 	
-	elif PlayerDetector.is_colliding() and can_shoot and PlayerDetector.get_collider().is_in_group("player"):
+	elif can_shoot and PlayerDetector.is_colliding() and PlayerDetector.get_collider().is_in_group("player"):
 			Animation_tree["parameters/conditions/walk"] = false
 			Animation_tree["parameters/conditions/shoot"] = true
 		
@@ -70,15 +70,12 @@ func move():
 
 func shoot():
 	var bullet = bullet_scene.instantiate()
-	add_child(bullet)
+	get_parent().add_child(bullet)
 	$Laser.play()
-	bullet.direction = direction
-	if direction.x == -1:
-		bullet.get_node("BulletArt").flip_h = true
-	else:
-		bullet.get_node("BulletArt").flip_h = false
-	bullet.position = curr_muzzle.position
+	bullet.velocity = direction
+	bullet.global_position = curr_muzzle.global_position
 	can_shoot = false
+	$Timer.start()
 	
 
 func _on_timer_timeout():
