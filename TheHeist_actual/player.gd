@@ -222,6 +222,7 @@ func _physics_process(delta):
 				position.y += 10
 			else:
 				$CollisionShape2D.disabled = true
+				velocity = Vector2.ZERO
 			
 		HIDE:
 			velocity.x = 0

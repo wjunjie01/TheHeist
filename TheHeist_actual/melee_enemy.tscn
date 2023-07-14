@@ -150,10 +150,10 @@ graph_offset = Vector2(65, 37)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_b85x7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pc0xt"]
-size = Vector2(97.1428, 87.8571)
+size = Vector2(83.3928, 87.8571)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdqlx"]
-size = Vector2(97.3214, 47.1429)
+size = Vector2(84.8214, 47.1429)
 
 [node name="Melee Enemy" type="CharacterBody2D" groups=["enemy"]]
 z_index = 100
@@ -206,7 +206,8 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(19.8214, 8.57142)
+position = Vector2(26.6964, 8.57142)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pc0xt")
 debug_color = Color(0.0941176, 0.564706, 0.862745, 0.419608)
 
@@ -217,7 +218,8 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
-position = Vector2(19.9107, -13.5714)
+position = Vector2(26.1607, -13.5714)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wdqlx")
 debug_color = Color(0.984314, 0, 0.337255, 0.419608)
 

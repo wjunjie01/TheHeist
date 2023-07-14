@@ -184,9 +184,10 @@ position = Vector2(-104, 28)
 
 [node name="Text" parent="Tutorial Signs/Spike_sign" index="1"]
 visible = false
-offset_left = -166.0
-offset_right = -26.0
-offset_bottom = 1.0
+offset_left = -160.0
+offset_top = -39.0
+offset_right = -20.0
+offset_bottom = -22.0
 text = "AH! Beware of the spikes!"
 
 [node name="CollisionShape2D" parent="Tutorial Signs/Spike_sign" index="2"]
@@ -197,11 +198,12 @@ position = Vector2(1324, 424)
 
 [node name="Text" parent="Tutorial Signs/Ranged_enemy_sign" index="1"]
 visible = false
-offset_left = -29.0
-offset_top = -48.0
-offset_right = 109.0
-offset_bottom = -4.0
-text = "Be careful not to be noticed by the shooter!"
+offset_left = -38.0
+offset_top = -84.0
+offset_right = 100.0
+offset_bottom = -14.0
+text = "Be careful not to be noticed by the shooter!
+You can time your attack and deflect the bullet back at him!"
 
 [node name="Spikes" type="Node" parent="."]
 
@@ -255,6 +257,7 @@ position = Vector2(1842, 694)
 scale = Vector2(1.2, 1.2)
 
 [node name="HUD" parent="." instance=ExtResource("4_0qkdo")]
+visible = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 2

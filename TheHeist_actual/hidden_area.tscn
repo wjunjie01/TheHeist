@@ -13,27 +13,38 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_oiv3o")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(2.85714, -0.55696)
-scale = Vector2(1.14286, 0.911392)
-color = Color(0.807843, 0.372549, 1, 1)
-polygon = PackedVector2Array(-20, -74, 22, -74, 22, 5, -19, 5)
-
-[node name="Village" type="Sprite2D" parent="."]
-position = Vector2(1, -33.5)
-scale = Vector2(1, 1.04688)
-texture = ExtResource("2_xlw5x")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_bb0kd")
 
-[node name="Underground" type="Sprite2D" parent="."]
-position = Vector2(4.5, -31.5)
-scale = Vector2(0.984375, 1.54688)
+[node name="Village" type="Node2D" parent="."]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="Village"]
+position = Vector2(-3.95174, -1.26449)
+scale = Vector2(0.721492, 0.863424)
+color = Color(0.807843, 0.372549, 1, 1)
+polygon = PackedVector2Array(-20.8571, -77.2917, 44.2856, -77.2917, 44.2856, 6.09722, -20.8571, 6.09722)
+
+[node name="Village" type="Sprite2D" parent="Village"]
+position = Vector2(4.625, -32)
+scale = Vector2(1.35156, 1.08594)
+texture = ExtResource("2_xlw5x")
+
+[node name="Underground" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Underground"]
+position = Vector2(-1, 0)
+scale = Vector2(1.12018, 1.04333)
+color = Color(0.807843, 0.372549, 1, 1)
+polygon = PackedVector2Array(-16.5058, 2.97392, -16.5058, -45.6001, -12.622, -56.5045, -6.79649, -63.4437, -1.94185, -66.4176, 10.6802, -66.4176, 16.5058, -63.4437, 22.3313, -56.5045, 26.215, -46.5915, 27.1859, 2.97392)
+
+[node name="Underground" type="Sprite2D" parent="Underground"]
+position = Vector2(4, -32)
+scale = Vector2(0.86833, 1.12884)
 texture = ExtResource("3_uxqdq")
 region_enabled = true
-region_rect = Rect2(768, 128, 64, 64)
+region_rect = Rect2(709.147, 129.308, 53.0086, 62.8572)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

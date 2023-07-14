@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_emj03"]
 
 [node name="Shuriken" type="Area2D"]
-collision_mask = 11
+collision_mask = 3
 script = ExtResource("1_dyk06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
