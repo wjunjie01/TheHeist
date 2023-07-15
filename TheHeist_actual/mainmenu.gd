@@ -52,3 +52,7 @@ func _on_items_test_button_pressed():
 
 func _on_enemy_attack_test_button_pressed():
 	get_tree().change_scene_to_file("res://enemy_testing.tscn")
+
+
+func _on_level_selector_pressed():
+	get_tree().change_scene_to_file("res://level_selector.tscn")

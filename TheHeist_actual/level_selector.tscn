@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://j1v3emb3v1yo"]
+
+[ext_resource type="Script" path="res://level_selector.gd" id="1_3ecfi"]
+[ext_resource type="Texture2D" uid="uid://dvoi2qcxij683" path="res://art/ActualLevelselector.png" id="1_jlk73"]
+[ext_resource type="FontFile" uid="uid://bgaydilhgyvqq" path="res://art/font/mago3.ttf" id="2_fufg3"]
+
+[node name="level_selector" type="Node2D"]
+script = ExtResource("1_3ecfi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 488.0
+offset_bottom = 2082.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_jlk73")
+
+[node name="Level1" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 193.75
+offset_top = 606.25
+offset_right = 457.75
+offset_bottom = 773.25
+theme_override_fonts/font = ExtResource("2_fufg3")
+theme_override_font_sizes/font_size = 70
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 637.5
+offset_top = 607.5
+offset_right = 901.5
+offset_bottom = 774.5
+theme_override_fonts/font = ExtResource("2_fufg3")
+theme_override_font_sizes/font_size = 70
+text = "Level 2
+"
+
+[node name="Level3" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 1102.5
+offset_top = 596.25
+offset_right = 1366.5
+offset_bottom = 763.25
+theme_override_fonts/font = ExtResource("2_fufg3")
+theme_override_font_sizes/font_size = 70
+text = "Level 3
+"
+
+[node name="Level4" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 1608.75
+offset_top = 591.25
+offset_right = 1872.75
+offset_bottom = 758.25
+theme_override_fonts/font = ExtResource("2_fufg3")
+theme_override_font_sizes/font_size = 70
+text = "Level 4
+"
+
+[node name="Level5" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 901.25
+offset_right = 464.0
+offset_bottom = 1068.25
+theme_override_fonts/font = ExtResource("2_fufg3")
+theme_override_font_sizes/font_size = 70
+text = "Level 5
+"
+
+[node name="Level6" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 642.5
+offset_top = 893.75
+offset_right = 906.5
+offset_bottom = 1060.75
+theme_override_fonts/font = ExtResource("2_fufg3")
+theme_override_font_sizes/font_size = 70
+text = "Level 6
+"
+
+[node name="Main Menu" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 1299.0
+offset_top = 906.0
+offset_right = 1845.0
+offset_bottom = 1146.0
+theme_override_fonts/font = ExtResource("2_fufg3")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/TextureRect/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Level6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Main Menu" to="." method="_on_main_menu_pressed"]

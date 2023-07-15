@@ -88,7 +88,7 @@ layer_3/z_index = 9
 layer_3/tile_data = PackedInt32Array(1572883, 655361, 6, 1638419, 655361, 7, 1572884, 720897, 6, 1638420, 720897, 7)
 
 [node name="Player" parent="." instance=ExtResource("4_11o6y")]
-position = Vector2(1725, 806)
+position = Vector2(85, 72)
 
 [node name="on_hit" type="Node" parent="."]
 
