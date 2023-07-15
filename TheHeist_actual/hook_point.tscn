@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmoxf2bfckmib"]
 
 [ext_resource type="Script" path="res://hook_point.gd" id="1_dgcwk"]
-[ext_resource type="Texture2D" uid="uid://vb3n2m63jt7a" path="res://art/crosshair007.png" id="2_swfle"]
+[ext_resource type="Texture2D" uid="uid://vb3n2m63jt7a" path="res://art/misc/crosshair007.png" id="2_swfle"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3efv"]
-size = Vector2(44.5, 24.5)
+size = Vector2(44.5, 48.5)
 
 [node name="hook_point" type="Area2D" groups=["hook_point"]]
 position = Vector2(377, 247)
@@ -14,7 +14,7 @@ cursor = ExtResource("2_swfle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1000
-position = Vector2(-0.25, -0.25)
+position = Vector2(-0.25, 11.75)
 shape = SubResource("RectangleShape2D_r3efv")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

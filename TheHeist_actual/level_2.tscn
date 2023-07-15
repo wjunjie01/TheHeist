@@ -61,7 +61,7 @@ position = Vector2(763, 121)
 metadata/_edit_group_ = true
 
 [node name="hook_point" parent="lamp" instance=ExtResource("5_gen8u")]
-position = Vector2(-3, 7)
+position = Vector2(0, -4)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 1)

@@ -208,12 +208,6 @@ libraries = {
 position = Vector2(1473, 1052)
 scale = Vector2(1.01119, 0.779228)
 
-[node name="Village" parent="hidden_area" index="1"]
-visible = true
-
-[node name="Underground" parent="hidden_area" index="2"]
-visible = false
-
 [node name="level4-5" parent="." instance=ExtResource("14_npg06")]
 position = Vector2(1894, 222)
 collision_layer = 0
