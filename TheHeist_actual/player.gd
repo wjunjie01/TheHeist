@@ -120,25 +120,22 @@ func _process(delta):
 			$R/RAnimationPlayer.play("R pressed")
 
 func _physics_process(delta):
-	print(ray.enabled)
 	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
-		
-	if Input.is_action_just_pressed("Hook") and current_state != HIDE and ray_free_obstacles():
-		current_state = HOOKING
-		grapplingHook.Activate(targetHookNode.global_position)
-		ray.enabled = false
-		print('a')
-	
+
 	if current_state == DEAD:
 		animation_tree['parameters/conditions/dead'] = true
 		move_and_slide()
 		if not is_on_floor() and $CollisionShape2D.disabled == false:
-			velocity = Vector2.ZERO
-			position.y += 10
+			velocity.y += gravity * delta
 		else:
 			$CollisionShape2D.disabled = true
 			velocity = Vector2.ZERO
+	
+	elif Input.is_action_just_pressed("Hook") and current_state != HIDE and ray_free_obstacles():
+		current_state = HOOKING
+		grapplingHook.Activate(targetHookNode.global_position)
+		ray.enabled = false
 		
 	else:
 		match current_state:
@@ -215,7 +212,7 @@ func _physics_process(delta):
 				direction = Input.get_axis("move_left", "move_right")
 				#$AnimatedSprite2D.stop() #STOPS The animation temporary, add the hanging from hook_point animation next time
 				#If A or D is pressed, disengage
-				if direction != 0:
+				if direction:
 					current_state = IDLE
 				velocity.y = 0
 				ray.enabled = true
@@ -302,8 +299,3 @@ func _on_hiding_area_exited():
 	can_hide = false
 	$R.visible = false
 	$R/RAnimationPlayer.stop()
-
-
-func _on_level_1_cannot_jump():
-	can_jump = false
-

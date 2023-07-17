@@ -8,7 +8,7 @@
 size = Vector2(38.375, 7.68755)
 
 [node name="hidden_area" type="Area2D"]
-z_index = 50
+z_index = 5
 position = Vector2(43, 70)
 collision_layer = 0
 collision_mask = 2
@@ -38,7 +38,7 @@ texture = ExtResource("2_xlw5x")
 position = Vector2(-1, 0)
 scale = Vector2(1.12018, 1.04333)
 color = Color(0.807843, 0.372549, 1, 1)
-polygon = PackedVector2Array(-16.5058, 2.97392, -16.5058, -45.6001, -12.622, -56.5045, -6.79649, -63.4437, -1.94185, -66.4176, 10.6802, -66.4176, 16.5058, -63.4437, 22.3313, -56.5045, 26.215, -46.5915, 27.1859, 2.97392)
+polygon = PackedVector2Array(-16.5058, 2.97392, -16.5058, -45.6001, -12.622, -56.5045, -6.79649, -63.4437, -1.94185, -66.4176, 10.6802, -66.4176, 16.5058, -63.4437, 22.3313, -56.5045, 26.215, -46.5915, 25.8887, 2.8754)
 
 [node name="Underground" type="Sprite2D" parent="Underground"]
 position = Vector2(4, -32)

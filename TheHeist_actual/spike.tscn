@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://spike.gd" id="1_a51ei"]
 
 [node name="Spike" type="Area2D"]
-collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_a51ei")
 

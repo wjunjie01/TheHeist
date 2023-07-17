@@ -1,16 +1,10 @@
 extends Area2D
 
-signal cannot_jump
-
-func _physics_process(_delta):
-	var bodies = get_overlapping_bodies()
-	for body in bodies:
-		if body.name == "Player":
-			$AnimationPlayer.play("active")
-			body.velocity.y -= 590
-			$Boing.play()
-			emit_signal('cannot_jump')
-			await $AnimationPlayer.current_animation_length
-		else:
-			$AnimationPlayer.play("idle")
-
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		$AnimationPlayer.play("active")
+		body.velocity.y -= 1750
+		$Boing.play()
+		await $AnimationPlayer.current_animation_length
+	else:
+		$AnimationPlayer.play("idle")

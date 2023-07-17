@@ -14,8 +14,6 @@ var can_shoot = true
 var bullet_scene = preload("res://bullet.tscn")
 var is_dead = false
 
-
-
 func _ready():
 	Animation_tree.active = true
 	curr_muzzle = MuzzleRight
@@ -36,7 +34,6 @@ func _physics_process(_delta):
 func start_of_shoot():
 	velocity = Vector2.ZERO
 	
-	
 func end_of_shoot():
 	shoot()
 	velocity.x = direction.x * SPEED
@@ -45,7 +42,6 @@ func end_of_shoot():
 	
 func dead():
 	velocity = Vector2.ZERO
-	Animation_tree["parameters/conditions/walk"] = false
 	Animation_tree["parameters/conditions/death"] = true
 
 func move():

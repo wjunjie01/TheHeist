@@ -17,7 +17,6 @@ func _on_body_entered(body):
 	if !fired and body.is_in_group("player"):
 		body.has_shuriken = true
 		body.has_trap = false
-		
 	
 	elif fired and body.is_in_group("enemy"):
 		body.is_dead = true

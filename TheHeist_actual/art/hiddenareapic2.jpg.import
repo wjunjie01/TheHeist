@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d223j2y5b8u8u"
-path="res://.godot/imported/hiddenareapic2.png-a3cebdd0d04a185ec825399155338d99.ctex"
+uid="uid://dql30ihvydap8"
+path="res://.godot/imported/hiddenareapic2.jpg-24655311358f7c4957163f5e42e23e84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/hiddenareapic2.png"
-dest_files=["res://.godot/imported/hiddenareapic2.png-a3cebdd0d04a185ec825399155338d99.ctex"]
+source_file="res://art/hiddenareapic2.jpg"
+dest_files=["res://.godot/imported/hiddenareapic2.jpg-24655311358f7c4957163f5e42e23e84.ctex"]
 
 [params]
 

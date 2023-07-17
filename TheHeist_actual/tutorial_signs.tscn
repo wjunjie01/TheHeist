@@ -8,27 +8,31 @@
 size = Vector2(35, 43)
 
 [node name="Tutorial Signs" type="Area2D"]
+z_index = 5
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_ughui")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(26, 27)
+position = Vector2(2, 46)
 texture = ExtResource("2_ifq1m")
 region_enabled = true
 region_rect = Rect2(480, 16, 32, 48)
 
 [node name="Text" type="RichTextLabel" parent="."]
-offset_left = -17.0
-offset_top = -16.0
-offset_right = 72.0
-offset_bottom = -1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.5
+offset_right = 44.5
+offset_bottom = 15.0
+grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("3_lj4j2")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 24
 text = "Insert text here"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(25.5, 28.5)
+position = Vector2(1.5, 47.5)
 shape = SubResource("RectangleShape2D_0clhi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

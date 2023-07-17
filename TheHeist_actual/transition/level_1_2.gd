@@ -7,6 +7,7 @@ var first_time = true
 func _on_body_entered(_body):
 	if first_time: 
 		entered = true
+		_body.visible = false
 
 func _process(_delta):
 	if entered == true:

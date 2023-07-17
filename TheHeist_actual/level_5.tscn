@@ -125,36 +125,35 @@ position = Vector2(1367, 778)
 position = Vector2(575, 778)
 
 [node name="Shuriken sign" parent="." instance=ExtResource("11_2m200")]
-position = Vector2(1810, 856)
+position = Vector2(1818, 848)
 scale = Vector2(1, 0.985075)
 
 [node name="Text" parent="Shuriken sign" index="1"]
-offset_left = -11.0
-offset_top = -45.0
-offset_right = 86.0
+offset_left = -75.0
+offset_top = -68.0
+offset_right = 78.0
 offset_bottom = 5.0
 text = "Use this shuriken to shoot down the drone!"
 
 [node name="Drone sign" parent="." instance=ExtResource("11_2m200")]
-position = Vector2(115, 445)
+position = Vector2(115, 425)
 
 [node name="Text" parent="Drone sign" index="1"]
 visible = false
-offset_left = -25.0
-offset_top = -65.0
-offset_right = 96.0
-offset_bottom = -15.0
+offset_left = -78.0
+offset_top = -63.0
+offset_right = 123.0
+offset_bottom = 8.0
 text = "Those flying things are drones. Try getting detecting ;D"
 
 [node name="Axe sign" parent="." instance=ExtResource("11_2m200")]
-position = Vector2(944, 238)
+position = Vector2(956, 218)
 
 [node name="Text" parent="Axe sign" index="1"]
-visible = false
-offset_left = -37.0
-offset_top = -28.0
-offset_right = 90.0
-offset_bottom = 21.0
+offset_left = -54.0
+offset_top = -51.0
+offset_right = 92.0
+offset_bottom = 7.0
 text = "Be careful not to get your head chopped off!"
 
 [node name="Enemy Spawner2" parent="." instance=ExtResource("10_b7mmd")]
@@ -190,7 +189,7 @@ position = Vector2(444, 925)
 scale = Vector2(1.2342, 1.03674)
 
 [node name="Shuriken" parent="." instance=ExtResource("18_chog5")]
-position = Vector2(1798, 902)
+position = Vector2(1780, 915)
 
 [connection signal="body_entered" from="level5-6" to="level5-6" method="_on_body_entered"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
