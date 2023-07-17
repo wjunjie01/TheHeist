@@ -363,8 +363,6 @@ target_position = Vector2(550, 0)
 collision_mask = 5
 collide_with_areas = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Rotation/Projectile_indicator"]
-
 [node name="Shuriken_spawn" type="Marker2D" parent="Rotation"]
 position = Vector2(41.4286, 0)
 

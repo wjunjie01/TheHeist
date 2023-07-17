@@ -18,6 +18,7 @@ var attack_in_progress = false
 var can_hide = false
 var can_jump = true
 
+
 #Jump velocity = Gravity * time to jumppeak
 @export var TimeToJumpPeak = .2
 @export var JumpHeight: int = 120 #in pixels
@@ -113,122 +114,126 @@ func _process(delta):
 	match current_state:
 		HOOKED:
 			hook(delta)
-#			position = hook_point
 			grapplingHook.m_HookNode.global_position = grapplingHook.m_TargetPos
 		HIDE:
 			$R.visible = true
 			$R/RAnimationPlayer.play("R pressed")
 
 func _physics_process(delta):
+	print(ray.enabled)
 	if !map_bounds.has_point(position): #method provided by Rect2 class
 		gameover()
 		
 	if Input.is_action_just_pressed("Hook") and current_state != HIDE and ray_free_obstacles():
 		current_state = HOOKING
 		grapplingHook.Activate(targetHookNode.global_position)
+		ray.enabled = false
+		print('a')
+	
+	if current_state == DEAD:
+		animation_tree['parameters/conditions/dead'] = true
+		move_and_slide()
+		if not is_on_floor() and $CollisionShape2D.disabled == false:
+			velocity = Vector2.ZERO
+			position.y += 10
+		else:
+			$CollisionShape2D.disabled = true
+			velocity = Vector2.ZERO
 		
-	match current_state:
-		IDLE:
-			direction = Input.get_axis("move_left", "move_right")
-			if (direction < 0 and enemy_detector.scale.x > 0) or (direction > 0 and enemy_detector.scale.x < 0):
-				enemy_detector.scale.x *= -1
-			
-			if direction: 
-				velocity.x = direction * SPEED
-				if direction < 0: $Spritesheet.flip_h = true
-				else: $Spritesheet.flip_h = false
-				if animation_tree['parameters/conditions/jump'] == true:
-					pass
-				else:
-					animation_tree['parameters/conditions/run'] = true
-					animation_tree['parameters/conditions/idle'] = false	
-			else: 
-				velocity.x = 0
-				animation_tree['parameters/conditions/run'] = false
-				animation_tree['parameters/conditions/idle'] = true
+	else:
+		match current_state:
+			IDLE:
+				direction = Input.get_axis("move_left", "move_right")
+				if (direction < 0 and enemy_detector.scale.x > 0) or (direction > 0 and enemy_detector.scale.x < 0):
+					enemy_detector.scale.x *= -1
 				
-			if is_on_floor() or coyote_timer.time_left > 0.0:
-				if Input.is_action_just_pressed("jump") and can_jump:
+				if direction: 
+					velocity.x = direction * SPEED
+					if direction < 0: $Spritesheet.flip_h = true
+					else: $Spritesheet.flip_h = false
+					if animation_tree['parameters/conditions/jump'] == true:
+						pass
+					else:
+						animation_tree['parameters/conditions/run'] = true
+						animation_tree['parameters/conditions/idle'] = false	
+				else: 
+					velocity.x = 0
 					animation_tree['parameters/conditions/run'] = false
-					animation_tree['parameters/conditions/idle'] = false
-					animation_tree['parameters/conditions/jump'] = true
-					$Jump.play()
-					velocity.y = -JUMPSPEED #JUMP_VELOCITY 
+					animation_tree['parameters/conditions/idle'] = true
 					
-				if Input.is_action_just_pressed("attack"):
-					animation_tree['parameters/conditions/idle'] = false
-					animation_tree['parameters/conditions/attack'] = true
-					attack_in_progress = true
-					$Attack.play()
-					$AttackTimer.start()
-					current_state = ATTACK
-					
-				elif can_hide and Input.is_action_just_pressed("hide"):
-					current_state = HIDE
-					player_collision.disabled = true
-					animation_tree['parameters/conditions/idle'] = false
-					animation_tree['parameters/conditions/hide'] = true
-				
-				elif Input.is_action_just_pressed("utilise"):
-					if has_trap:
-						var trap = trap_scene.instantiate()
-						get_parent().add_child(trap)
-						trap.position = $Trap_location.global_position
-						has_trap = false
-						trap.laid = true
+				if is_on_floor() or coyote_timer.time_left > 0.0:
+					if Input.is_action_just_pressed("jump") and can_jump:
+						animation_tree['parameters/conditions/run'] = false
+						animation_tree['parameters/conditions/idle'] = false
+						animation_tree['parameters/conditions/jump'] = true
+						$Jump.play()
+						velocity.y = -JUMPSPEED #JUMP_VELOCITY 
 						
-					elif has_shuriken:
-						var shuriken = shuriken_scene.instantiate()
-						shuriken.fired = true
-						shuriken.set_collision_mask_value(2, false)
-						get_parent().add_child(shuriken)
-						shuriken.position = $Rotation/Shuriken_spawn.global_position
-						shuriken.velocity = get_global_mouse_position() - shuriken.position
-						has_shuriken = false
-			if not is_on_floor(): # When floating down
-				velocity.y += gravity * delta
-				pass
-			#check if the character is on floor before moving
-			var was_on_floor = is_on_floor()
-			move_and_slide()
-			#were on the floor before and now it is not on the floor, either going down
-			#so that it doesnt double jump
-			var just_left_floor = was_on_floor and not is_on_floor() and velocity.y >= 0
-			if just_left_floor:
-				coyote_timer.start()
-				
-		STUCK_ON_HOOK:
-			direction = Input.get_axis("move_left", "move_right")
-			#$AnimatedSprite2D.stop() #STOPS The animation temporary, add the hanging from hook_point animation next time
-			#If A or D is pressed, disengage
-			if direction != 0:
-				current_state = IDLE
-			velocity.y = 0
-				
-		ATTACK:
-			if attack_in_progress:
-				pass
-		
-			else:
-				animation_tree['parameters/conditions/attack'] = false
-				animation_tree['parameters/conditions/idle'] = true
-				current_state = IDLE
-		
-		DEAD:
-			animation_tree['parameters/conditions/dead'] = true
-			move_and_slide()
-			if not is_on_floor() and $CollisionShape2D.disabled == false:
-				velocity = Vector2.ZERO
-				position.y += 10
-			else:
-				$CollisionShape2D.disabled = true
-				velocity = Vector2.ZERO
+					if Input.is_action_just_pressed("attack"):
+						animation_tree['parameters/conditions/idle'] = false
+						animation_tree['parameters/conditions/attack'] = true
+						attack_in_progress = true
+						$Attack.play()
+						$AttackTimer.start()
+						current_state = ATTACK
+						
+					elif can_hide and Input.is_action_just_pressed("hide"):
+						current_state = HIDE
+						player_collision.disabled = true
+						animation_tree['parameters/conditions/idle'] = false
+						animation_tree['parameters/conditions/hide'] = true
+					
+					elif Input.is_action_just_pressed("utilise"):
+						if has_trap:
+							var trap = trap_scene.instantiate()
+							get_parent().add_child(trap)
+							trap.position = $Trap_location.global_position
+							has_trap = false
+							trap.laid = true
+							
+						elif has_shuriken:
+							var shuriken = shuriken_scene.instantiate()
+							shuriken.fired = true
+							shuriken.set_collision_mask_value(2, false)
+							get_parent().add_child(shuriken)
+							shuriken.position = $Rotation/Shuriken_spawn.global_position
+							shuriken.velocity = get_global_mouse_position() - shuriken.position
+							has_shuriken = false
+				if not is_on_floor(): # When floating down
+					velocity.y += gravity * delta
+					pass
+				#check if the character is on floor before moving
+				var was_on_floor = is_on_floor()
+				move_and_slide()
+				#were on the floor before and now it is not on the floor, either going down
+				#so that it doesnt double jump
+				var just_left_floor = was_on_floor and not is_on_floor() and velocity.y >= 0
+				if just_left_floor:
+					coyote_timer.start()
+					
+			STUCK_ON_HOOK:
+				direction = Input.get_axis("move_left", "move_right")
+				#$AnimatedSprite2D.stop() #STOPS The animation temporary, add the hanging from hook_point animation next time
+				#If A or D is pressed, disengage
+				if direction != 0:
+					current_state = IDLE
+				velocity.y = 0
+				ray.enabled = true
+					
+			ATTACK:
+				if attack_in_progress:
+					pass
 			
-		HIDE:
-			velocity.x = 0
-			if Input.is_action_just_pressed('hide'):
-				animation_tree['parameters/conditions/hide'] = false
-				animation_tree['parameters/conditions/unhide'] = true
+				else:
+					animation_tree['parameters/conditions/attack'] = false
+					animation_tree['parameters/conditions/idle'] = true
+					current_state = IDLE
+				
+			HIDE:
+				velocity.x = 0
+				if Input.is_action_just_pressed('hide'):
+					animation_tree['parameters/conditions/hide'] = false
+					animation_tree['parameters/conditions/unhide'] = true
 
 func ray_free_obstacles() -> bool:
 	var colliding_with_hook = ray.is_colliding() and ray.get_collider() is Area2D
