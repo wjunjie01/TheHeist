@@ -6,5 +6,3 @@ func _on_body_entered(body):
 		body.velocity.y -= 1750
 		$Boing.play()
 		await $AnimationPlayer.current_animation_length
-	else:
-		$AnimationPlayer.play("idle")

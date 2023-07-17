@@ -32,7 +32,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_d6g3i"]
 resource_name = "swing_axe"
-length = 2.8
+length = 2.0
 loop_mode = 2
 step = 0.2
 tracks/0/type = "value"
@@ -67,7 +67,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd4ub"]
-size = Vector2(31, 43.1446)
+size = Vector2(38.0001, 29.6985)
 
 [node name="axe" type="Node2D"]
 scale = Vector2(2, 2)
@@ -92,7 +92,8 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-46.6691, 0.707106)
+position = Vector2(-46.3155, 0.499871)
+rotation = 1.57079
 shape = SubResource("RectangleShape2D_dd4ub")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -19,6 +19,9 @@ func _ready():
 	curr_muzzle = MuzzleRight
 	
 func _physics_process(_delta):
+	if not is_on_floor():
+		velocity.y += 10
+	
 	if is_dead:
 		dead()
 	

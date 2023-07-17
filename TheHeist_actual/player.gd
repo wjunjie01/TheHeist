@@ -74,6 +74,13 @@ func _ready():
 		for unit in units.get_children():
 			unit.player_hit.connect(_on_player_contact)
 	
+	if get_parent().has_node("hiding_areas"):
+		var areas = get_parent().get_node("hiding_areas")
+		for area in areas.get_children():
+			area.hiding_area_entered.connect(_on_hiding_area_entered)
+			area.hiding_area_exited.connect(_on_hiding_area_exited)
+			
+
 func On_Hooked():
 	grapplingHook.m_HookStay = true
 	current_state = HOOKED

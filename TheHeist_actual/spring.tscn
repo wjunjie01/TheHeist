@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b22lrxtkd2ah0"]
+[gd_scene load_steps=8 format=3 uid="uid://b22lrxtkd2ah0"]
 
 [ext_resource type="Script" path="res://spring.gd" id="1_t76ny"]
 [ext_resource type="Texture2D" uid="uid://b2of76k1ty0kc" path="res://art/village_art/spring.png" id="1_uvftc"]
@@ -38,31 +38,15 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 0]
 }
 
-[sub_resource type="Animation" id="Animation_2ldrx"]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wckt1"]
 _data = {
 "RESET": SubResource("Animation_s1jfa"),
-"active": SubResource("Animation_ttf3h"),
-"idle": SubResource("Animation_2ldrx")
+"active": SubResource("Animation_ttf3h")
 }
 
 [node name="Spring" type="Area2D"]
 z_index = 5
+collision_mask = 3
 script = ExtResource("1_t76ny")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

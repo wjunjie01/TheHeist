@@ -3,11 +3,11 @@ extends CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$ExclamationMark.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-enum { scan_idle, scan_walk, stationary, destroyed }
+enum { scan_idle, scan_walk, stationary }
 var current_state = scan_idle
 var rng = RandomNumberGenerator.new()
 var direction = Vector2.RIGHT
@@ -63,5 +63,7 @@ func _on_idle_timer_timeout():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "Destroyed":
-		queue_free()
+	$AnimationPlayer.stop()
+
+
+

@@ -158,7 +158,6 @@ z_index = 100
 position = Vector2(-9, 21)
 scale = Vector2(0.8, 0.8)
 collision_layer = 8
-collision_mask = 9
 script = ExtResource("1_w6l07")
 
 [node name="SpriteSheet" type="Sprite2D" parent="."]
@@ -206,7 +205,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_5l76y")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_nbw2w")
 parameters/conditions/death = false
 parameters/conditions/shoot = false

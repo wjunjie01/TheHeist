@@ -14,7 +14,3 @@ func _on_body_entered(body):
 		queue_free()
 		body.has_trap = true  
 		body.has_shuriken = false
-
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "Trap":
-		queue_free()

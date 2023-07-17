@@ -19,6 +19,7 @@ func dead():
 	velocity = Vector2.ZERO
 	Animation_tree["parameters/conditions/walk"] = false
 	Animation_tree["parameters/conditions/death"] = true
+	$CollisionShape2D.disabled = true
 
 func move():
 	var found_wall = is_on_wall()
@@ -43,6 +44,9 @@ func end_of_hit():
 	Animation_tree["parameters/conditions/walk"] = true
 
 func _physics_process(_delta):
+	if not is_on_floor():
+		velocity.y += 10
+		
 	if is_dead:
 		dead()
 	

@@ -7,15 +7,21 @@
 size = Vector2(44.5, 48.5)
 
 [node name="hook_point" type="Area2D" groups=["hook_point"]]
+z_index = 5
 position = Vector2(377, 247)
 collision_mask = 2
 script = ExtResource("1_dgcwk")
 cursor = ExtResource("2_swfle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 1000
 position = Vector2(-0.25, 11.75)
 shape = SubResource("RectangleShape2D_r3efv")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.247059, 0.764706, 0.643137, 0.631373)
+polygon = PackedVector2Array(-23, -13, 22, -13, 22, 36, -23, 36)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
