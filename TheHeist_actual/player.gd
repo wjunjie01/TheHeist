@@ -1,11 +1,7 @@
 class_name Player_Class
 extends CharacterBody2D
 
-
 const SPEED = 300.0
-#const CHAIN_PULL = 80
-#signal grapple_hook
-#var spring = -1050
 
 @onready var animation_tree : AnimationTree = $CharacterAnimationTree
 @onready var player_collision = $CollisionShape2D
@@ -17,7 +13,6 @@ var once = true
 var attack_in_progress = false
 var can_hide = false
 var can_jump = true
-
 
 #Jump velocity = Gravity * time to jumppeak
 @export var TimeToJumpPeak = .2

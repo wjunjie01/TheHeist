@@ -74,5 +74,7 @@ This is to test the drone's detection and spawning function.
 Walk into the drone's detection area to spawn more ranged 
 enemies."
 
-[node name="hidden_area" parent="." instance=ExtResource("7_ts2ns")]
+[node name="hiding_areas" type="Node" parent="."]
+
+[node name="hidden_area" parent="hiding_areas" instance=ExtResource("7_ts2ns")]
 position = Vector2(959, 523)
