@@ -94,7 +94,7 @@ _data = {
 process_mode = 1
 script = ExtResource("1_pxyvu")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -106,147 +106,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_fd8ag")
 
-[node name="Shuriken" parent="." instance=ExtResource("3_2jorg")]
-position = Vector2(985, 433)
-metadata/_edit_group_ = true
-
-[node name="Shuriken_sign" parent="." instance=ExtResource("4_eeef4")]
-position = Vector2(930, 399)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" parent="Shuriken_sign" index="0"]
-position = Vector2(7, 28)
-
-[node name="Text" parent="Shuriken_sign" index="1"]
-visible = false
-anchors_preset = 15
-anchor_left = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -116.0
-offset_right = 138.0
-offset_bottom = -36.0
-grow_vertical = 2
-text = "Walk into the shuriken to pick it up!
-Aim with mouse and shoot with E!"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" parent="Shuriken_sign" index="2"]
-position = Vector2(7, 30)
-
-[node name="level3-4" parent="." instance=ExtResource("3_uvhyw")]
-position = Vector2(37, 966)
-collision_mask = 2
-script = ExtResource("6_rfmc1")
-
-[node name="MovingPlatform3" parent="." instance=ExtResource("5_no8co")]
-position = Vector2(474, 859)
-
-[node name="AnimationPlayer" parent="MovingPlatform3/AnimatableBody2D" index="2"]
-autoplay = "move_lop"
-libraries = {
-"": SubResource("AnimationLibrary_jtqlh")
-}
-
-[node name="MovingPlatform2" parent="." instance=ExtResource("5_no8co")]
-position = Vector2(656, 856)
-
-[node name="AnimatableBody2D" parent="MovingPlatform2" index="0"]
-position = Vector2(-14, -58.3115)
-
-[node name="AnimationPlayer" parent="MovingPlatform2/AnimatableBody2D" index="2"]
-autoplay = "move_loop"
-libraries = {
-"": SubResource("AnimationLibrary_jpy6d")
-}
-
-[node name="MovingPlatform4" parent="." instance=ExtResource("5_no8co")]
-position = Vector2(292, 859)
-
-[node name="AnimationPlayer" parent="MovingPlatform4/AnimatableBody2D" index="2"]
-autoplay = "move_loop"
-libraries = {
-"": SubResource("AnimationLibrary_jpy6d")
-}
-
-[node name="Spring" parent="." instance=ExtResource("3_u368i")]
-z_index = 6
-position = Vector2(1048, 769)
-collision_mask = 2
-
-[node name="Ranged Enemy" parent="." instance=ExtResource("12_l3ei1")]
-position = Vector2(13, 313)
-
-[node name="Ranged Enemy2" parent="." instance=ExtResource("12_l3ei1")]
-position = Vector2(343, 316)
-
-[node name="Ranged Enemy3" parent="." instance=ExtResource("12_l3ei1")]
-position = Vector2(1616, 817)
-
-[node name="Ranged Enemy4" parent="." instance=ExtResource("12_l3ei1")]
-position = Vector2(1457, 815)
-
-[node name="Ranged Enemy5" parent="." instance=ExtResource("12_l3ei1")]
-position = Vector2(1282, 779)
-
-[node name="hook_point2" parent="." instance=ExtResource("3_obrex")]
-position = Vector2(1892, 609)
-
-[node name="hook_point3" parent="." instance=ExtResource("3_obrex")]
-position = Vector2(1709, 720)
-
-[node name="Spike" parent="." instance=ExtResource("2_qklws")]
-position = Vector2(368, 450)
-
-[node name="Spike4" parent="." instance=ExtResource("2_qklws")]
-position = Vector2(432, 449)
-
-[node name="Spike5" parent="." instance=ExtResource("2_qklws")]
-position = Vector2(488, 450)
-
-[node name="on_hit" type="Node" parent="."]
-
-[node name="Melee Enemy" parent="on_hit" instance=ExtResource("3_khpet")]
-position = Vector2(1206, 429)
-
-[node name="Melee Enemy2" parent="on_hit" instance=ExtResource("3_khpet")]
-position = Vector2(1068, 762)
-
-[node name="hidden_area" parent="." instance=ExtResource("9_uplvu")]
-z_index = 4
-position = Vector2(212, 334)
-scale = Vector2(0.930492, 1.00999)
-
-[node name="Village" parent="hidden_area" index="1"]
-visible = true
-scale = Vector2(1.05945, 0.827891)
-
-[node name="Underground" parent="hidden_area" index="2"]
-visible = false
-
-[node name="hidden_area2" parent="." instance=ExtResource("9_uplvu")]
-position = Vector2(1247, 791)
-metadata/_edit_group_ = true
-
-[node name="MovingPlatform" parent="." instance=ExtResource("5_no8co")]
-position = Vector2(1454, 299)
-
-[node name="CollisionShape2D" parent="MovingPlatform/AnimatableBody2D" index="0"]
-position = Vector2(22.5, 0)
-
-[node name="Sprite2D" parent="MovingPlatform/AnimatableBody2D" index="1"]
-position = Vector2(22.5001, 0)
-scale = Vector2(3.27083, 1)
-
-[node name="AnimationPlayer" parent="MovingPlatform/AnimatableBody2D" index="2"]
-autoplay = "move_up"
-libraries = {
-"": SubResource("AnimationLibrary_nng78")
-}
-
-[node name="hook_point" parent="." instance=ExtResource("3_obrex")]
-position = Vector2(1609, 303)
+[node name="Caution-do-not-cross-without-fall-protection-sign-on-white-background-free-vector" type="TextureRect" parent="."]
+offset_left = 1748.0
+offset_top = 66.0
+offset_right = 3668.0
+offset_bottom = 1304.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("21_e45pa")
 
 [node name="Archery" type="RichTextLabel" parent="."]
 z_index = 3
@@ -258,28 +124,13 @@ theme_override_fonts/normal_font = ExtResource("6_ejo4k")
 text = "Bo Lui's Range
 "
 
-[node name="Spike2" parent="." instance=ExtResource("2_qklws")]
-position = Vector2(1521, 465)
-
-[node name="Spike3" parent="." instance=ExtResource("2_qklws")]
-position = Vector2(1586, 465)
-
-[node name="lamp" parent="." instance=ExtResource("2_q3hda")]
-position = Vector2(574, 331)
-
-[node name="hook_point" parent="lamp" instance=ExtResource("3_obrex")]
-position = Vector2(2, 6)
-
-[node name="lamp2" parent="." instance=ExtResource("2_q3hda")]
-z_index = 5
-position = Vector2(1518, 748)
-metadata/_edit_group_ = true
-
-[node name="hook_point" parent="lamp2" instance=ExtResource("3_obrex")]
-position = Vector2(3, 6)
+[node name="level3-4" parent="." instance=ExtResource("3_uvhyw")]
+position = Vector2(37, 966)
+collision_mask = 2
+script = ExtResource("6_rfmc1")
 
 [node name="Player" parent="." instance=ExtResource("3_30af2")]
-position = Vector2(214, 219)
+position = Vector2(212, 217)
 metadata/_edit_group_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -323,15 +174,162 @@ visible = false
 [node name="CityHunter!" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_1qoqe")
 
-[node name="Caution-do-not-cross-without-fall-protection-sign-on-white-background-free-vector" type="Sprite2D" parent="."]
-position = Vector2(1809, 83)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("21_e45pa")
+[node name="Interactables" type="Node" parent="."]
 
-[node name="Hidden area sign" parent="." instance=ExtResource("4_eeef4")]
+[node name="MovingPlatform3" parent="Interactables" instance=ExtResource("5_no8co")]
+position = Vector2(474, 859)
+
+[node name="AnimationPlayer" parent="Interactables/MovingPlatform3/AnimatableBody2D" index="2"]
+autoplay = "move_lop"
+libraries = {
+"": SubResource("AnimationLibrary_jtqlh")
+}
+
+[node name="MovingPlatform2" parent="Interactables" instance=ExtResource("5_no8co")]
+position = Vector2(656, 856)
+
+[node name="AnimatableBody2D" parent="Interactables/MovingPlatform2" index="0"]
+position = Vector2(-14, -58.3115)
+
+[node name="AnimationPlayer" parent="Interactables/MovingPlatform2/AnimatableBody2D" index="2"]
+autoplay = "move_loop"
+libraries = {
+"": SubResource("AnimationLibrary_jpy6d")
+}
+
+[node name="MovingPlatform4" parent="Interactables" instance=ExtResource("5_no8co")]
+position = Vector2(292, 859)
+
+[node name="AnimationPlayer" parent="Interactables/MovingPlatform4/AnimatableBody2D" index="2"]
+autoplay = "move_loop"
+libraries = {
+"": SubResource("AnimationLibrary_jpy6d")
+}
+
+[node name="Spring" parent="Interactables" instance=ExtResource("3_u368i")]
+z_index = 6
+position = Vector2(1048, 769)
+collision_mask = 2
+
+[node name="hook_point2" parent="Interactables" instance=ExtResource("3_obrex")]
+position = Vector2(1892, 609)
+
+[node name="hook_point3" parent="Interactables" instance=ExtResource("3_obrex")]
+position = Vector2(1709, 720)
+
+[node name="Spike" parent="Interactables" instance=ExtResource("2_qklws")]
+position = Vector2(368, 450)
+
+[node name="Spike4" parent="Interactables" instance=ExtResource("2_qklws")]
+position = Vector2(432, 449)
+
+[node name="Spike5" parent="Interactables" instance=ExtResource("2_qklws")]
+position = Vector2(488, 450)
+
+[node name="MovingPlatform" parent="Interactables" instance=ExtResource("5_no8co")]
+position = Vector2(1454, 299)
+
+[node name="CollisionShape2D" parent="Interactables/MovingPlatform/AnimatableBody2D" index="0"]
+position = Vector2(22.5, 0)
+
+[node name="Sprite2D" parent="Interactables/MovingPlatform/AnimatableBody2D" index="1"]
+position = Vector2(22.5001, 0)
+scale = Vector2(3.27083, 1)
+
+[node name="AnimationPlayer" parent="Interactables/MovingPlatform/AnimatableBody2D" index="2"]
+autoplay = "move_up"
+libraries = {
+"": SubResource("AnimationLibrary_nng78")
+}
+
+[node name="hook_point" parent="Interactables" instance=ExtResource("3_obrex")]
+position = Vector2(1609, 303)
+
+[node name="Spike2" parent="Interactables" instance=ExtResource("2_qklws")]
+position = Vector2(1521, 465)
+
+[node name="Spike3" parent="Interactables" instance=ExtResource("2_qklws")]
+position = Vector2(1586, 465)
+
+[node name="lamp" parent="Interactables" instance=ExtResource("2_q3hda")]
+position = Vector2(574, 331)
+
+[node name="hook_point" parent="Interactables/lamp" instance=ExtResource("3_obrex")]
+position = Vector2(2, 6)
+
+[node name="lamp2" parent="Interactables" instance=ExtResource("2_q3hda")]
+z_index = 5
+position = Vector2(1518, 748)
+metadata/_edit_group_ = true
+
+[node name="hook_point" parent="Interactables/lamp2" instance=ExtResource("3_obrex")]
+position = Vector2(3, 6)
+
+[node name="Shuriken2" parent="Interactables" instance=ExtResource("3_2jorg")]
+position = Vector2(1711, 702)
+
+[node name="Shuriken3" parent="Interactables" instance=ExtResource("3_2jorg")]
+z_index = 2
+position = Vector2(1517, 726)
+
+[node name="Shuriken" parent="Interactables" instance=ExtResource("3_2jorg")]
+position = Vector2(985, 433)
+metadata/_edit_group_ = true
+
+[node name="Shuriken_sign" parent="Interactables" instance=ExtResource("4_eeef4")]
+position = Vector2(930, 399)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Interactables/Shuriken_sign" index="0"]
+position = Vector2(7, 28)
+
+[node name="Text" parent="Interactables/Shuriken_sign" index="1"]
+visible = false
+anchors_preset = 15
+anchor_left = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -116.0
+offset_right = 138.0
+offset_bottom = -36.0
+grow_vertical = 2
+text = "Walk into the shuriken to pick it up!
+Aim with mouse and shoot with E!"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Interactables/Shuriken_sign" index="2"]
+position = Vector2(7, 30)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Melee Enemy" parent="Enemies" instance=ExtResource("3_khpet")]
+position = Vector2(1206, 429)
+
+[node name="Melee Enemy2" parent="Enemies" instance=ExtResource("3_khpet")]
+position = Vector2(1068, 762)
+
+[node name="Ranged Enemy" parent="Enemies" instance=ExtResource("12_l3ei1")]
+position = Vector2(13, 313)
+
+[node name="Ranged Enemy2" parent="Enemies" instance=ExtResource("12_l3ei1")]
+position = Vector2(343, 316)
+
+[node name="Ranged Enemy3" parent="Enemies" instance=ExtResource("12_l3ei1")]
+position = Vector2(1616, 817)
+
+[node name="Ranged Enemy4" parent="Enemies" instance=ExtResource("12_l3ei1")]
+position = Vector2(1457, 815)
+
+[node name="Ranged Enemy5" parent="Enemies" instance=ExtResource("12_l3ei1")]
+position = Vector2(1282, 779)
+
+[node name="Tutorial signs" type="Node" parent="."]
+
+[node name="Hidden area sign" parent="Tutorial signs" instance=ExtResource("4_eeef4")]
 position = Vector2(310, 268)
 
-[node name="Text" parent="Hidden area sign" index="1"]
+[node name="Text" parent="Tutorial signs/Hidden area sign" index="1"]
 visible = false
 offset_left = -20.0
 offset_top = -182.0
@@ -341,7 +339,7 @@ text = "Keep an eye out for hidden areas outlined in pink. They allow you to go 
 
 Press R to activate stealth mode"
 
-[node name="TextureRect" type="TextureRect" parent="Hidden area sign/Text" index="1"]
+[node name="TextureRect" type="TextureRect" parent="Tutorial signs/Hidden area sign/Text" index="1"]
 layout_mode = 0
 offset_left = 164.0
 offset_top = 100.0
@@ -350,7 +348,7 @@ offset_bottom = 336.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("22_4wrg7")
 
-[node name="TextureRect2" type="TextureRect" parent="Hidden area sign/Text" index="2"]
+[node name="TextureRect2" type="TextureRect" parent="Tutorial signs/Hidden area sign/Text" index="2"]
 layout_mode = 0
 offset_left = 54.0
 offset_top = 98.0
@@ -359,29 +357,38 @@ offset_bottom = 841.0
 scale = Vector2(0.108194, 0.0980834)
 texture = ExtResource("23_ng84x")
 
-[node name="Shuriken2" parent="." instance=ExtResource("3_2jorg")]
-position = Vector2(1711, 702)
+[node name="hiding_areas" type="Node" parent="."]
 
-[node name="Shuriken3" parent="." instance=ExtResource("3_2jorg")]
-z_index = 2
-position = Vector2(1517, 726)
+[node name="hidden_area" parent="hiding_areas" instance=ExtResource("9_uplvu")]
+z_index = 4
+position = Vector2(212, 334)
+scale = Vector2(0.930492, 1.00999)
+
+[node name="Village" parent="hiding_areas/hidden_area" index="1"]
+scale = Vector2(1.05945, 0.827891)
+
+[node name="Underground" parent="hiding_areas/hidden_area" index="2"]
+visible = false
+
+[node name="hidden_area2" parent="hiding_areas" instance=ExtResource("9_uplvu")]
+z_index = 10
+position = Vector2(1247, 791)
+metadata/_edit_group_ = true
 
 [connection signal="body_entered" from="level3-4" to="level3-4" method="_on_body_entered"]
-[connection signal="hiding_area_entered" from="hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
-[connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hidden_area" to="." method="_on_hidden_area_hiding_area_exited"]
-[connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hiding_area_exited"]
-[connection signal="hiding_area_entered" from="hidden_area2" to="." method="_on_hidden_area_hiding_area_entered"]
-[connection signal="hiding_area_entered" from="hidden_area2" to="Player" method="_on_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hidden_area2" to="." method="_on_hidden_area_hiding_area_exited"]
-[connection signal="hiding_area_exited" from="hidden_area2" to="Player" method="_on_hiding_area_exited"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="hiding_area_entered" from="hiding_areas/hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
+[connection signal="hiding_area_exited" from="hiding_areas/hidden_area" to="." method="_on_hidden_area_hiding_area_exited"]
+[connection signal="hiding_area_entered" from="hiding_areas/hidden_area2" to="." method="_on_hidden_area_hiding_area_entered"]
+[connection signal="hiding_area_entered" from="hiding_areas/hidden_area2" to="Player" method="_on_hiding_area_entered"]
+[connection signal="hiding_area_exited" from="hiding_areas/hidden_area2" to="." method="_on_hidden_area_hiding_area_exited"]
+[connection signal="hiding_area_exited" from="hiding_areas/hidden_area2" to="Player" method="_on_hiding_area_exited"]
 
-[editable path="Shuriken_sign"]
-[editable path="MovingPlatform3"]
-[editable path="MovingPlatform2"]
-[editable path="MovingPlatform4"]
-[editable path="hidden_area"]
-[editable path="hidden_area2"]
-[editable path="MovingPlatform"]
-[editable path="Hidden area sign"]
+[editable path="Interactables/MovingPlatform3"]
+[editable path="Interactables/MovingPlatform2"]
+[editable path="Interactables/MovingPlatform4"]
+[editable path="Interactables/MovingPlatform"]
+[editable path="Interactables/Shuriken_sign"]
+[editable path="Tutorial signs/Hidden area sign"]
+[editable path="hiding_areas/hidden_area"]
+[editable path="hiding_areas/hidden_area2"]

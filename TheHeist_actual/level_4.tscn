@@ -43,7 +43,7 @@ _data = {
 [node name="level_4" type="Node2D"]
 script = ExtResource("1_p7yxs")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -55,7 +55,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_sasai")
 
-[node name="TextureRect3" type="TextureRect" parent="."]
+[node name="Background2" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -66,17 +66,6 @@ offset_bottom = 1096.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_tvusr")
-
-[node name="Bat sign" parent="." instance=ExtResource("8_tg2cn")]
-position = Vector2(230, 986)
-
-[node name="Text" parent="Bat sign" index="1"]
-visible = false
-offset_left = -49.0
-offset_top = -66.0
-offset_right = 151.0
-offset_bottom = 16.0
-text = "These ANGRY bats do not count as enemies but do not get in the way of them! "
 
 [node name="Player" parent="." instance=ExtResource("3_xlube")]
 position = Vector2(223, 965)
@@ -101,66 +90,6 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(2228272, 393218, 6, 2293808, 393218, 7, 2162737, 458754, 5, 2228273, 458754, 6, 2293809, 458754, 7, 2359345, 458754, 8, 2424881, 458754, 9, 2162738, 524290, 5, 2228274, 524290, 6, 2293810, 524290, 7, 2359346, 524290, 8, 2424882, 524290, 9, 2162739, 589826, 5, 2228275, 589826, 6, 2293811, 589826, 7, 2359347, 589826, 8, 2424883, 589826, 9, 2162740, 655362, 5, 2228276, 655362, 6, 2293812, 655362, 7, 2359348, 655362, 8, 2424884, 655362, 9, 2162741, 720898, 5, 2228277, 720898, 6, 2293813, 720898, 7, 2359349, 720898, 8, 2424885, 720898, 9, 2228278, 786434, 6, 2293814, 786434, 7, 2359350, 786434, 8, 2424886, 786434, 9, 2293847, 65538, 2, 2359383, 65538, 3, 2424919, 65538, 4, 2162776, 131074, 0, 2228312, 131074, 1, 2293848, 131074, 2, 2359384, 131074, 3, 2424920, 131074, 4, 2162777, 196610, 0, 2228313, 196610, 1, 2293849, 196610, 2, 2359385, 196610, 3, 2424921, 196610, 4, 2162778, 262146, 0, 2228314, 262146, 1, 2293850, 262146, 2, 2359386, 262146, 3, 2424922, 262146, 4, 2293851, 327682, 2, 2359387, 327682, 3, 2424923, 327682, 4, 1638471, 655362, 2, 1704007, 655362, 3, 1638472, 720898, 2, 1704008, 720898, 3, 1638473, 786434, 2, 1704009, 786434, 3, 3014728, 65538, 6, 3080264, 65538, 7, 3145800, 65538, 8, 3014729, 131074, 6, 3080265, 131074, 7, 3145801, 131074, 8, 3014730, 196610, 6, 3080266, 196610, 7, 3145802, 196610, 8, 3866699, 917506, 3, 3932235, 917506, 4, 3997771, 917506, 5, 4063307, 917506, 6, 4128843, 917506, 7, 4194379, 917506, 8, 4259915, 917506, 9, 3866700, 983042, 3, 3932236, 983042, 4, 3997772, 983042, 5, 4063308, 983042, 6, 4128844, 983042, 7, 4194380, 983042, 8, 4259916, 983042, 9, 3866701, 1048578, 3, 3932237, 1048578, 4, 3866707, 851970, 3, 3866708, 917506, 3, 3932244, 917506, 4, 3997780, 917506, 5, 4063316, 917506, 6, 4128852, 917506, 7, 4194388, 917506, 8, 4259924, 917506, 9, 3866709, 983042, 3, 3932245, 983042, 4, 3997781, 983042, 5, 4063317, 983042, 6, 4128853, 983042, 7, 4194389, 983042, 8, 4259925, 983042, 9, 3932246, 1048578, 4, 3932270, 1048578, 4, 4063309, 393218, 6, 4128845, 393218, 7, 3866710, 1048578, 3, 3866731, 851970, 3, 3866732, 917506, 3, 3866733, 983042, 3, 3866734, 1048578, 3, 3932269, 983042, 4, 3932268, 917506, 4, 3997804, 917506, 5, 3997805, 983042, 5, 4063341, 983042, 6, 4063340, 917506, 6, 4194412, 917506, 8, 4194413, 983042, 8, 4259949, 983042, 9, 4259948, 917506, 9, 4128876, 917506, 7, 4128877, 983042, 7, 3997755, 458754, 5, 4063291, 458754, 6, 4128827, 458754, 7, 4194363, 458754, 8, 4259899, 458754, 9, 3997756, 524290, 5, 4063292, 524290, 6, 4128828, 524290, 7, 4194364, 524290, 8, 4259900, 524290, 9, 3997757, 589826, 5, 4063293, 589826, 6, 4128829, 589826, 7, 4194365, 589826, 8, 4259901, 589826, 9, 3997758, 655362, 5, 4063294, 655362, 6, 4128830, 655362, 7, 4194366, 655362, 8, 4259902, 655362, 9, 3997759, 720898, 5, 4063295, 720898, 6, 4128831, 720898, 7, 4194367, 720898, 8, 4259903, 720898, 9, 4063296, 786434, 6, 4128832, 786434, 7, 4194368, 786434, 8, 4259904, 786434, 9)
 
-[node name="Hook_points" type="Node" parent="."]
-
-[node name="hook_point" parent="Hook_points" instance=ExtResource("5_0lyhh")]
-position = Vector2(71.0001, 827)
-
-[node name="hook_point2" parent="Hook_points" instance=ExtResource("5_0lyhh")]
-position = Vector2(410, 619)
-
-[node name="hook_point3" parent="Hook_points" instance=ExtResource("5_0lyhh")]
-position = Vector2(70, 395)
-
-[node name="hook_point4" parent="Hook_points" instance=ExtResource("5_0lyhh")]
-position = Vector2(427, 225)
-
-[node name="hook_point5" parent="Hook_points" instance=ExtResource("5_0lyhh")]
-position = Vector2(1834, 858)
-
-[node name="hook_point6" parent="Hook_points" instance=ExtResource("5_0lyhh")]
-position = Vector2(1835, 621)
-
-[node name="hook_point7" parent="Hook_points" instance=ExtResource("5_0lyhh")]
-position = Vector2(1835, 396)
-
-[node name="Shuriken" parent="." instance=ExtResource("7_d20cv")]
-position = Vector2(484, 201)
-
-[node name="Shuriken2" parent="." instance=ExtResource("7_d20cv")]
-position = Vector2(818, 516)
-
-[node name="Shuriken3" parent="." instance=ExtResource("7_d20cv")]
-position = Vector2(990, 965)
-
-[node name="on_hit" type="Node" parent="."]
-
-[node name="Melee Enemy" parent="on_hit" instance=ExtResource("9_7su2y")]
-z_index = 5
-position = Vector2(990, 394)
-
-[node name="Melee Enemy2" parent="on_hit" instance=ExtResource("9_7su2y")]
-position = Vector2(1394, 1012)
-
-[node name="Melee Enemy3" parent="on_hit" instance=ExtResource("9_7su2y")]
-z_index = 5
-position = Vector2(982, 742)
-
-[node name="Melee Enemy4" parent="on_hit" instance=ExtResource("9_7su2y")]
-position = Vector2(1138, 1013)
-
-[node name="flying_enemy" parent="on_hit" instance=ExtResource("3_dkwyv")]
-position = Vector2(178, 902)
-
-[node name="flying_enemy2" parent="on_hit" instance=ExtResource("3_dkwyv")]
-position = Vector2(389, 710)
-
-[node name="flying_enemy3" parent="on_hit" instance=ExtResource("3_dkwyv")]
-position = Vector2(291, 518)
-
-[node name="flying_enemy4" parent="on_hit" instance=ExtResource("3_dkwyv")]
-position = Vector2(92, 273)
-
 [node name="HUD" parent="." instance=ExtResource("10_wvgq5")]
 visible = false
 
@@ -168,45 +97,6 @@ visible = false
 layer = 2
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource("11_75k2d")]
-visible = false
-
-[node name="Ranged Enemy" parent="." instance=ExtResource("6_xoa0n")]
-z_index = 5
-position = Vector2(822, 266)
-
-[node name="Ranged Enemy2" parent="." instance=ExtResource("6_xoa0n")]
-position = Vector2(931, 584)
-
-[node name="Ranged Enemy3" parent="." instance=ExtResource("6_xoa0n")]
-position = Vector2(1268, 587)
-
-[node name="Ranged Enemy4" parent="." instance=ExtResource("6_xoa0n")]
-position = Vector2(1766, 1033)
-
-[node name="MovingPlatform" parent="." instance=ExtResource("13_wjvvg")]
-position = Vector2(1692, 321)
-
-[node name="CollisionShape2D" parent="MovingPlatform/AnimatableBody2D" index="0"]
-position = Vector2(22.5, 0)
-
-[node name="Sprite2D" parent="MovingPlatform/AnimatableBody2D" index="1"]
-position = Vector2(22.5001, 0)
-scale = Vector2(3.27083, 1)
-
-[node name="AnimationPlayer" parent="MovingPlatform/AnimatableBody2D" index="2"]
-autoplay = "move_up"
-libraries = {
-"": SubResource("AnimationLibrary_nng78")
-}
-
-[node name="hidden_area" parent="." instance=ExtResource("15_awpyl")]
-position = Vector2(1473, 1052)
-scale = Vector2(1.01119, 0.779228)
-
-[node name="Village" parent="hidden_area" index="1"]
-visible = true
-
-[node name="Underground" parent="hidden_area" index="2"]
 visible = false
 
 [node name="level4-5" parent="." instance=ExtResource("14_npg06")]
@@ -217,11 +107,125 @@ collision_mask = 2
 [node name="Tanjiro" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_6cvbb")
 
-[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
-[connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hiding_area_exited"]
-[connection signal="body_entered" from="level4-5" to="level4-5" method="_on_body_entered"]
+[node name="Interactables" type="Node" parent="."]
 
-[editable path="Bat sign"]
-[editable path="MovingPlatform"]
-[editable path="hidden_area"]
+[node name="Shuriken" parent="Interactables" instance=ExtResource("7_d20cv")]
+position = Vector2(484, 201)
+
+[node name="Shuriken2" parent="Interactables" instance=ExtResource("7_d20cv")]
+position = Vector2(818, 516)
+
+[node name="Shuriken3" parent="Interactables" instance=ExtResource("7_d20cv")]
+position = Vector2(990, 965)
+
+[node name="MovingPlatform" parent="Interactables" instance=ExtResource("13_wjvvg")]
+position = Vector2(1692, 321)
+
+[node name="CollisionShape2D" parent="Interactables/MovingPlatform/AnimatableBody2D" index="0"]
+position = Vector2(22.5, 0)
+
+[node name="Sprite2D" parent="Interactables/MovingPlatform/AnimatableBody2D" index="1"]
+position = Vector2(22.5001, 0)
+scale = Vector2(3.27083, 1)
+
+[node name="AnimationPlayer" parent="Interactables/MovingPlatform/AnimatableBody2D" index="2"]
+autoplay = "move_up"
+libraries = {
+"": SubResource("AnimationLibrary_nng78")
+}
+
+[node name="hook_point" parent="Interactables" instance=ExtResource("5_0lyhh")]
+position = Vector2(71.0001, 827)
+
+[node name="hook_point2" parent="Interactables" instance=ExtResource("5_0lyhh")]
+position = Vector2(410, 619)
+
+[node name="hook_point3" parent="Interactables" instance=ExtResource("5_0lyhh")]
+position = Vector2(70, 395)
+
+[node name="hook_point4" parent="Interactables" instance=ExtResource("5_0lyhh")]
+position = Vector2(427, 225)
+
+[node name="hook_point5" parent="Interactables" instance=ExtResource("5_0lyhh")]
+position = Vector2(1834, 858)
+
+[node name="hook_point6" parent="Interactables" instance=ExtResource("5_0lyhh")]
+position = Vector2(1835, 621)
+
+[node name="hook_point7" parent="Interactables" instance=ExtResource("5_0lyhh")]
+position = Vector2(1835, 396)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Melee Enemy" parent="Enemies" instance=ExtResource("9_7su2y")]
+z_index = 5
+position = Vector2(990, 394)
+
+[node name="Melee Enemy2" parent="Enemies" instance=ExtResource("9_7su2y")]
+position = Vector2(1394, 1012)
+
+[node name="Melee Enemy3" parent="Enemies" instance=ExtResource("9_7su2y")]
+z_index = 5
+position = Vector2(982, 742)
+
+[node name="Melee Enemy4" parent="Enemies" instance=ExtResource("9_7su2y")]
+position = Vector2(1138, 1013)
+
+[node name="flying_enemy" parent="Enemies" instance=ExtResource("3_dkwyv")]
+position = Vector2(178, 902)
+
+[node name="flying_enemy2" parent="Enemies" instance=ExtResource("3_dkwyv")]
+position = Vector2(389, 710)
+
+[node name="flying_enemy3" parent="Enemies" instance=ExtResource("3_dkwyv")]
+position = Vector2(291, 518)
+
+[node name="flying_enemy4" parent="Enemies" instance=ExtResource("3_dkwyv")]
+position = Vector2(92, 273)
+
+[node name="Ranged Enemy" parent="Enemies" instance=ExtResource("6_xoa0n")]
+z_index = 5
+position = Vector2(822, 266)
+
+[node name="Ranged Enemy2" parent="Enemies" instance=ExtResource("6_xoa0n")]
+position = Vector2(931, 584)
+
+[node name="Ranged Enemy3" parent="Enemies" instance=ExtResource("6_xoa0n")]
+position = Vector2(1268, 587)
+
+[node name="Ranged Enemy4" parent="Enemies" instance=ExtResource("6_xoa0n")]
+position = Vector2(1766, 1033)
+
+[node name="Tutorial signs" type="Node" parent="."]
+
+[node name="Bat sign" parent="Tutorial signs" instance=ExtResource("8_tg2cn")]
+position = Vector2(230, 986)
+
+[node name="Text" parent="Tutorial signs/Bat sign" index="1"]
+visible = false
+offset_left = -49.0
+offset_top = -66.0
+offset_right = 151.0
+offset_bottom = 16.0
+text = "These ANGRY bats do not count as enemies but do not get in the way of them! "
+
+[node name="hiding_areas" type="Node" parent="."]
+
+[node name="hidden_area" parent="hiding_areas" instance=ExtResource("15_awpyl")]
+position = Vector2(1473, 1052)
+scale = Vector2(1.01119, 0.779228)
+
+[node name="Village" parent="hiding_areas/hidden_area" index="1"]
+visible = true
+
+[node name="Underground" parent="hiding_areas/hidden_area" index="2"]
+visible = false
+
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="body_entered" from="level4-5" to="level4-5" method="_on_body_entered"]
+[connection signal="hiding_area_entered" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_entered"]
+[connection signal="hiding_area_exited" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_exited"]
+
+[editable path="Interactables/MovingPlatform"]
+[editable path="Tutorial signs/Bat sign"]
+[editable path="hiding_areas/hidden_area"]

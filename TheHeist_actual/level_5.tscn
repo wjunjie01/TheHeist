@@ -23,7 +23,7 @@
 position = Vector2(1, 10)
 script = ExtResource("1_aki1v")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_acdw0")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="Background2" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.678431)
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,11 +51,6 @@ texture = ExtResource("3_qhp4a")
 [node name="level5-6" parent="." instance=ExtResource("3_7n5hv")]
 position = Vector2(180, 902)
 collision_layer = 0
-collision_mask = 2
-
-[node name="Spring" parent="." instance=ExtResource("3_lplwr")]
-position = Vector2(619, 415)
-collision_layer = 2
 collision_mask = 2
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -92,15 +87,6 @@ position = Vector2(85, 72)
 
 [node name="on_hit" type="Node" parent="."]
 
-[node name="axe" parent="on_hit" instance=ExtResource("5_susxd")]
-position = Vector2(1350, 185)
-
-[node name="axe2" parent="on_hit" instance=ExtResource("5_susxd")]
-position = Vector2(1095, 154)
-
-[node name="axe3" parent="on_hit" instance=ExtResource("5_susxd")]
-position = Vector2(1595, 184)
-
 [node name="HUD" parent="." instance=ExtResource("7_3ajv8")]
 visible = false
 
@@ -113,6 +99,12 @@ visible = false
 [node name="Enemy Spawner" parent="." instance=ExtResource("10_b7mmd")]
 position = Vector2(815, 253)
 
+[node name="Enemy Spawner2" parent="." instance=ExtResource("10_b7mmd")]
+position = Vector2(1283, 904)
+
+[node name="Enemy Spawner3" parent="." instance=ExtResource("10_b7mmd")]
+position = Vector2(724, 906)
+
 [node name="drones" type="Node" parent="."]
 
 [node name="Drone" parent="drones" instance=ExtResource("9_l4pbc")]
@@ -124,21 +116,61 @@ position = Vector2(1367, 778)
 [node name="Drone3" parent="drones" instance=ExtResource("9_l4pbc")]
 position = Vector2(575, 778)
 
-[node name="Shuriken sign" parent="." instance=ExtResource("11_2m200")]
-position = Vector2(1818, 848)
+[node name="hiding_areas" type="Node" parent="."]
+
+[node name="hidden_area" parent="hiding_areas" instance=ExtResource("12_52hjk")]
+position = Vector2(1503, 934)
+scale = Vector2(1.2001, 1.022)
+
+[node name="hidden_area2" parent="hiding_areas" instance=ExtResource("12_52hjk")]
+position = Vector2(445, 935)
+scale = Vector2(1.2342, 1.03674)
+
+[node name="Interactables" type="Node" parent="."]
+
+[node name="Spike" parent="Interactables" instance=ExtResource("16_xqmsn")]
+position = Vector2(1522, 442)
+
+[node name="Spike2" parent="Interactables" instance=ExtResource("16_xqmsn")]
+position = Vector2(1586, 442)
+
+[node name="Spike3" parent="Interactables" instance=ExtResource("16_xqmsn")]
+position = Vector2(1618, 442)
+
+[node name="Shuriken" parent="Interactables" instance=ExtResource("18_chog5")]
+position = Vector2(1781, 925)
+
+[node name="axe" parent="Interactables" instance=ExtResource("5_susxd")]
+position = Vector2(1350, 185)
+
+[node name="axe2" parent="Interactables" instance=ExtResource("5_susxd")]
+position = Vector2(1095, 154)
+
+[node name="axe3" parent="Interactables" instance=ExtResource("5_susxd")]
+position = Vector2(1595, 184)
+
+[node name="Spring" parent="Interactables" instance=ExtResource("3_lplwr")]
+position = Vector2(620, 425)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Tutorial signs" type="Node" parent="."]
+
+[node name="Shuriken sign" parent="Tutorial signs" instance=ExtResource("11_2m200")]
+position = Vector2(1819, 858)
 scale = Vector2(1, 0.985075)
 
-[node name="Text" parent="Shuriken sign" index="1"]
+[node name="Text" parent="Tutorial signs/Shuriken sign" index="1"]
 offset_left = -75.0
 offset_top = -68.0
 offset_right = 78.0
 offset_bottom = 5.0
 text = "Use this shuriken to shoot down the drone!"
 
-[node name="Drone sign" parent="." instance=ExtResource("11_2m200")]
-position = Vector2(115, 425)
+[node name="Drone sign" parent="Tutorial signs" instance=ExtResource("11_2m200")]
+position = Vector2(116, 435)
 
-[node name="Text" parent="Drone sign" index="1"]
+[node name="Text" parent="Tutorial signs/Drone sign" index="1"]
 visible = false
 offset_left = -78.0
 offset_top = -63.0
@@ -146,33 +178,18 @@ offset_right = 123.0
 offset_bottom = 8.0
 text = "Those flying things are drones. Try getting detecting ;D"
 
-[node name="Axe sign" parent="." instance=ExtResource("11_2m200")]
-position = Vector2(956, 218)
+[node name="Axe sign" parent="Tutorial signs" instance=ExtResource("11_2m200")]
+position = Vector2(957, 228)
 
-[node name="Text" parent="Axe sign" index="1"]
+[node name="Text" parent="Tutorial signs/Axe sign" index="1"]
 offset_left = -54.0
 offset_top = -51.0
 offset_right = 92.0
 offset_bottom = 7.0
 text = "Be careful not to get your head chopped off!"
 
-[node name="Enemy Spawner2" parent="." instance=ExtResource("10_b7mmd")]
-position = Vector2(1283, 904)
-
-[node name="Enemy Spawner3" parent="." instance=ExtResource("10_b7mmd")]
-position = Vector2(724, 906)
-
 [node name="Dua Lipa" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_u3f5a")
-
-[node name="Spike" parent="." instance=ExtResource("16_xqmsn")]
-position = Vector2(1521, 432)
-
-[node name="Spike2" parent="." instance=ExtResource("16_xqmsn")]
-position = Vector2(1585, 432)
-
-[node name="Spike3" parent="." instance=ExtResource("16_xqmsn")]
-position = Vector2(1617, 432)
 
 [node name="MineshaftWarningSign" type="Sprite2D" parent="."]
 z_index = 5
@@ -180,26 +197,15 @@ position = Vector2(182.125, 820.625)
 scale = Vector2(0.285833, 0.23014)
 texture = ExtResource("16_g2kf2")
 
-[node name="hidden_area" parent="." instance=ExtResource("12_52hjk")]
-position = Vector2(1502, 924)
-scale = Vector2(1.2001, 1.022)
-
-[node name="hidden_area2" parent="." instance=ExtResource("12_52hjk")]
-position = Vector2(444, 925)
-scale = Vector2(1.2342, 1.03674)
-
-[node name="Shuriken" parent="." instance=ExtResource("18_chog5")]
-position = Vector2(1780, 915)
-
 [connection signal="body_entered" from="level5-6" to="level5-6" method="_on_body_entered"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
-[connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hiding_area_exited"]
-[connection signal="hiding_area_entered" from="hidden_area2" to="Player" method="_on_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hidden_area2" to="Player" method="_on_hiding_area_exited"]
+[connection signal="hiding_area_entered" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_entered"]
+[connection signal="hiding_area_exited" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_exited"]
+[connection signal="hiding_area_entered" from="hiding_areas/hidden_area2" to="Player" method="_on_hiding_area_entered"]
+[connection signal="hiding_area_exited" from="hiding_areas/hidden_area2" to="Player" method="_on_hiding_area_exited"]
 
-[editable path="Shuriken sign"]
-[editable path="Drone sign"]
-[editable path="Axe sign"]
-[editable path="hidden_area"]
-[editable path="hidden_area2"]
+[editable path="hiding_areas/hidden_area"]
+[editable path="hiding_areas/hidden_area2"]
+[editable path="Tutorial signs/Shuriken sign"]
+[editable path="Tutorial signs/Drone sign"]
+[editable path="Tutorial signs/Axe sign"]

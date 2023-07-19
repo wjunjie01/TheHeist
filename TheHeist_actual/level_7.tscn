@@ -44,6 +44,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_fx6xt")
 
+[node name="Player" parent="." instance=ExtResource("7_6kv2y")]
+position = Vector2(312, 718)
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(2, -224)
 tile_set = ExtResource("3_oq6e1")
@@ -82,22 +85,19 @@ layer = 2
 [node name="PauseMenu" parent="GUI" instance=ExtResource("5_jm1qq")]
 visible = false
 
-[node name="on_hit" type="Node" parent="."]
+[node name="Enemies" type="Node" parent="."]
 
-[node name="axe" parent="on_hit" instance=ExtResource("6_vmcic")]
-position = Vector2(332, 849)
-
-[node name="axe2" parent="on_hit" instance=ExtResource("6_vmcic")]
-position = Vector2(677, 849)
-
-[node name="axe3" parent="on_hit" instance=ExtResource("6_vmcic")]
-position = Vector2(1006, 849)
-
-[node name="Melee Enemy" parent="on_hit" instance=ExtResource("7_13a8x")]
+[node name="Melee Enemy" parent="Enemies" instance=ExtResource("7_13a8x")]
 position = Vector2(620, 749)
 
-[node name="Melee Enemy2" parent="on_hit" instance=ExtResource("7_13a8x")]
+[node name="Melee Enemy2" parent="Enemies" instance=ExtResource("7_13a8x")]
 position = Vector2(935, 752)
+
+[node name="Ranged Enemy" parent="Enemies" instance=ExtResource("9_5x4xp")]
+position = Vector2(1533, 841)
+
+[node name="Ranged Enemy2" parent="Enemies" instance=ExtResource("9_5x4xp")]
+position = Vector2(1648, 841)
 
 [node name="hiding_areas" type="Node" parent="."]
 
@@ -109,38 +109,40 @@ position = Vector2(1343, 859)
 [node name="Drone" parent="drones" instance=ExtResource("13_71srt")]
 position = Vector2(439, 448)
 
-[node name="lamp" parent="." instance=ExtResource("8_fkkj7")]
-position = Vector2(1082, 710)
-
-[node name="hook_point" parent="lamp" instance=ExtResource("9_m5va7")]
-position = Vector2(-2, 7)
-
-[node name="lamp2" parent="." instance=ExtResource("8_fkkj7")]
-position = Vector2(756, 519)
-
-[node name="hook_point" parent="lamp2" instance=ExtResource("9_m5va7")]
-position = Vector2(-2, 7)
-
-[node name="Player" parent="." instance=ExtResource("7_6kv2y")]
-position = Vector2(312, 718)
-
-[node name="Spring" parent="." instance=ExtResource("8_erro0")]
-position = Vector2(1465, 1024)
-
-[node name="Ranged Enemy" parent="." instance=ExtResource("9_5x4xp")]
-position = Vector2(1533, 841)
-
-[node name="Ranged Enemy2" parent="." instance=ExtResource("9_5x4xp")]
-position = Vector2(1648, 841)
-
-[node name="Spring2" parent="." instance=ExtResource("8_erro0")]
-position = Vector2(252, 767)
-
 [node name="Enemy Spawner" parent="." instance=ExtResource("14_kox4n")]
 position = Vector2(849, 582)
 
-[node name="Shuriken" parent="." instance=ExtResource("15_gtaik")]
+[node name="Interactables" type="Node" parent="."]
+
+[node name="Shuriken" parent="Interactables" instance=ExtResource("15_gtaik")]
 position = Vector2(1265, 850)
 
-[node name="Shuriken2" parent="." instance=ExtResource("15_gtaik")]
+[node name="Shuriken2" parent="Interactables" instance=ExtResource("15_gtaik")]
 position = Vector2(309, 785)
+
+[node name="Spring2" parent="Interactables" instance=ExtResource("8_erro0")]
+position = Vector2(252, 767)
+
+[node name="Spring" parent="Interactables" instance=ExtResource("8_erro0")]
+position = Vector2(1465, 1024)
+
+[node name="lamp" parent="Interactables" instance=ExtResource("8_fkkj7")]
+position = Vector2(1082, 710)
+
+[node name="hook_point" parent="Interactables/lamp" instance=ExtResource("9_m5va7")]
+position = Vector2(-2, 7)
+
+[node name="lamp2" parent="Interactables" instance=ExtResource("8_fkkj7")]
+position = Vector2(756, 519)
+
+[node name="hook_point" parent="Interactables/lamp2" instance=ExtResource("9_m5va7")]
+position = Vector2(-2, 7)
+
+[node name="axe" parent="Interactables" instance=ExtResource("6_vmcic")]
+position = Vector2(332, 849)
+
+[node name="axe2" parent="Interactables" instance=ExtResource("6_vmcic")]
+position = Vector2(677, 849)
+
+[node name="axe3" parent="Interactables" instance=ExtResource("6_vmcic")]
+position = Vector2(1006, 849)

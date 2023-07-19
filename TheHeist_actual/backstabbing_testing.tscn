@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7funkobx658b"]
+[gd_scene load_steps=7 format=3 uid="uid://c7funkobx658b"]
 
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="2_8opea"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="3_053rf"]
 [ext_resource type="PackedScene" uid="uid://cc3kenl5bjuc" path="res://melee_enemy.tscn" id="4_jmqd2"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="5_2cqly"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="6_dhd22"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_no2hg"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_algjn"]
 
@@ -42,16 +40,10 @@ layer_3/tile_data = PackedInt32Array(4259848, 1310720, 8, 4325384, 1310720, 9, 4
 position = Vector2(222, 1001)
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("4_jmqd2")]
-position = Vector2(547, 1016)
-
-[node name="AnimationTree" parent="MeleeEnemy" index="5"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_no2hg")
-
-[node name="PlayerDetector" parent="MeleeEnemy" index="6"]
-monitoring = false
+position = Vector2(551, 988)
 
 [node name="RangedEnemy" parent="." instance=ExtResource("5_2cqly")]
-position = Vector2(830, 1035)
+position = Vector2(833, 1013)
 
 [node name="PlayerDetector" parent="RangedEnemy" index="4"]
 enabled = false
@@ -76,5 +68,4 @@ This is to test player's attacks on enemies
 Left Click to backstab.
 You can only attack enemies from the back."
 
-[editable path="MeleeEnemy"]
 [editable path="RangedEnemy"]

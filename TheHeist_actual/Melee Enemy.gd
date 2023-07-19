@@ -60,5 +60,5 @@ func _on_PlayerDetector_body_entered(_body):
 	Animation_tree["parameters/conditions/walk"] = false
 	Animation_tree["parameters/conditions/attack"] = true
 
-func _on_AttackDetector_body_entered(_body):
-	emit_signal('player_hit')
+func _on_AttackDetector_body_entered(body):
+	body.gameover()

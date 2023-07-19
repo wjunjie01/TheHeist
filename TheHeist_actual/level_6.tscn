@@ -95,35 +95,8 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 9
 layer_3/tile_data = PackedInt32Array(3276807, 393217, 6, 3342343, 393217, 7, 3276808, 458753, 6, 3342344, 458753, 7, 5111817, 262144, 2, 5177353, 262144, 4, 5111818, 262144, 5, 5177354, 327680, 4, 5308423, 196608, 4, 5373959, 196608, 5, 5308424, 262144, 4, 5373960, 262144, 5, 5373961, 327680, 5, 5308425, 327680, 3, 5242889, 262144, 5, 5242888, 262144, 3, 5308421, 131072, 4, 5373957, 131072, 5, 5308422, 196608, 4, 5373958, 196608, 5, 5308419, 0, 4, 5373955, 0, 5, 5308420, 65536, 4, 5373956, 65536, 5, 4980748, 131072, 4, 5046284, 131072, 5, 4980747, 131072, 4, 5046283, 327680, 4, 5046282, 262144, 4, 5111819, 327680, 5, 5242890, 327680, 5, 5242887, 131072, 3, 5242883, 0, 3, 5242884, 65536, 3, 5242885, 131072, 3, 5242886, 196608, 3)
 
-[node name="Spike" parent="." instance=ExtResource("3_mrimr")]
-position = Vector2(238, 1007)
-
-[node name="Spike2" parent="." instance=ExtResource("3_mrimr")]
-position = Vector2(342, 1007)
-
-[node name="Spike4" parent="." instance=ExtResource("3_mrimr")]
-position = Vector2(295, 1007)
-
-[node name="Spike3" parent="." instance=ExtResource("3_mrimr")]
-position = Vector2(406, 1007)
-
-[node name="CartSpawner" parent="." instance=ExtResource("3_v7tai")]
-position = Vector2(38, 71)
-
-[node name="CartSpawner2" parent="." instance=ExtResource("3_v7tai")]
-position = Vector2(82, 421)
-
-[node name="CartSpawner3" parent="." instance=ExtResource("3_v7tai")]
-position = Vector2(1871, 466)
-
-[node name="CartSpawner4" parent="." instance=ExtResource("3_v7tai")]
-position = Vector2(1841, 27)
-
-[node name="CartSpawner5" parent="." instance=ExtResource("3_v7tai")]
-position = Vector2(969, 212)
-
-[node name="Timer" parent="CartSpawner5" index="0"]
-wait_time = 10.0
+[node name="CartSpawner7" parent="." instance=ExtResource("3_v7tai")]
+position = Vector2(7, 1041)
 
 [node name="CartSpawner6" parent="." instance=ExtResource("3_v7tai")]
 position = Vector2(875, 212)
@@ -131,84 +104,26 @@ position = Vector2(875, 212)
 [node name="Timer" parent="CartSpawner6" index="0"]
 wait_time = 10.0
 
-[node name="CartSpawner7" parent="." instance=ExtResource("3_v7tai")]
-position = Vector2(7, 1041)
+[node name="CartSpawner5" parent="." instance=ExtResource("3_v7tai")]
+position = Vector2(969, 212)
 
-[node name="Tutorial Signs2" parent="." instance=ExtResource("7_fxmw4")]
-position = Vector2(1632, 346)
+[node name="Timer" parent="CartSpawner5" index="0"]
+wait_time = 10.0
 
-[node name="Text" parent="Tutorial Signs2" index="1"]
-visible = false
-offset_left = -51.0
-offset_top = -16.0
-offset_right = 68.0
-offset_bottom = 8.0
-text = "Almost there...
-"
+[node name="CartSpawner4" parent="." instance=ExtResource("3_v7tai")]
+position = Vector2(1841, 27)
 
-[node name="MovingPlatform" parent="." instance=ExtResource("3_gfnl3")]
-position = Vector2(1497, 772)
+[node name="CartSpawner3" parent="." instance=ExtResource("3_v7tai")]
+position = Vector2(1871, 466)
 
-[node name="AnimationPlayer" parent="MovingPlatform/AnimatableBody2D" index="2"]
-autoplay = "move_up"
-libraries = {
-"": SubResource("AnimationLibrary_bp7jf")
-}
+[node name="CartSpawner2" parent="." instance=ExtResource("3_v7tai")]
+position = Vector2(82, 421)
 
-[node name="hidden_area" parent="." instance=ExtResource("3_pfkng")]
-position = Vector2(1143, 956)
-
-[node name="lamp" parent="." instance=ExtResource("3_1kxml")]
-position = Vector2(499, 791)
-
-[node name="hook_point" parent="lamp" instance=ExtResource("4_80nvq")]
-position = Vector2(-1, 1)
-
-[node name="lamp2" parent="." instance=ExtResource("3_1kxml")]
-position = Vector2(764, 323)
-metadata/_edit_group_ = true
-
-[node name="hook_point" parent="lamp2" instance=ExtResource("4_80nvq")]
-position = Vector2(-1, 1)
-
-[node name="lamp3" parent="." instance=ExtResource("3_1kxml")]
-position = Vector2(454, 167)
-metadata/_edit_group_ = true
-
-[node name="hook_point" parent="lamp3" instance=ExtResource("4_80nvq")]
-position = Vector2(-1, 1)
-
-[node name="lamp4" parent="." instance=ExtResource("3_1kxml")]
-position = Vector2(676, 22)
-metadata/_edit_group_ = true
-
-[node name="hook_point" parent="lamp4" instance=ExtResource("4_80nvq")]
-position = Vector2(-1, 1)
-
-[node name="Tutorial Signs3" parent="." instance=ExtResource("7_fxmw4")]
-position = Vector2(1189, 345)
-
-[node name="Text" parent="Tutorial Signs3" index="1"]
-visible = false
-offset_left = -47.0
-offset_top = -20.0
-offset_right = 69.0
-offset_bottom = 25.0
-text = "You're on the right 'track'... "
+[node name="CartSpawner" parent="." instance=ExtResource("3_v7tai")]
+position = Vector2(38, 71)
 
 [node name="Player" parent="." instance=ExtResource("5_vyasv")]
 position = Vector2(53, 868)
-
-[node name="Tutorial Signs" parent="." instance=ExtResource("7_fxmw4")]
-position = Vector2(167, 906)
-
-[node name="Text" parent="Tutorial Signs" index="1"]
-visible = false
-offset_left = -60.0
-offset_top = -52.0
-offset_right = 100.0
-offset_bottom = 11.0
-text = "Can you get to the top? Beware of the falling carts!"
 
 [node name="HUD" parent="." instance=ExtResource("12_acp33")]
 visible = false
@@ -222,14 +137,103 @@ visible = false
 [node name="Queen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_3elkb")
 
+[node name="Interactables" type="Node" parent="."]
+
+[node name="lamp" parent="Interactables" instance=ExtResource("3_1kxml")]
+position = Vector2(499, 791)
+
+[node name="hook_point" parent="Interactables/lamp" instance=ExtResource("4_80nvq")]
+position = Vector2(-1, 1)
+
+[node name="lamp2" parent="Interactables" instance=ExtResource("3_1kxml")]
+position = Vector2(764, 323)
+metadata/_edit_group_ = true
+
+[node name="hook_point" parent="Interactables/lamp2" instance=ExtResource("4_80nvq")]
+position = Vector2(-1, 1)
+
+[node name="lamp3" parent="Interactables" instance=ExtResource("3_1kxml")]
+position = Vector2(454, 167)
+metadata/_edit_group_ = true
+
+[node name="hook_point" parent="Interactables/lamp3" instance=ExtResource("4_80nvq")]
+position = Vector2(-1, 1)
+
+[node name="lamp4" parent="Interactables" instance=ExtResource("3_1kxml")]
+position = Vector2(676, 22)
+metadata/_edit_group_ = true
+
+[node name="hook_point" parent="Interactables/lamp4" instance=ExtResource("4_80nvq")]
+position = Vector2(-1, 1)
+
+[node name="MovingPlatform" parent="Interactables" instance=ExtResource("3_gfnl3")]
+position = Vector2(1497, 772)
+
+[node name="AnimationPlayer" parent="Interactables/MovingPlatform/AnimatableBody2D" index="2"]
+autoplay = "move_up"
+libraries = {
+"": SubResource("AnimationLibrary_bp7jf")
+}
+
+[node name="Spike" parent="Interactables" instance=ExtResource("3_mrimr")]
+position = Vector2(238, 1007)
+
+[node name="Spike2" parent="Interactables" instance=ExtResource("3_mrimr")]
+position = Vector2(342, 1007)
+
+[node name="Spike3" parent="Interactables" instance=ExtResource("3_mrimr")]
+position = Vector2(406, 1007)
+
+[node name="Spike4" parent="Interactables" instance=ExtResource("3_mrimr")]
+position = Vector2(295, 1007)
+
+[node name="Tutorial signs" type="Node" parent="."]
+
+[node name="Tutorial Signs" parent="Tutorial signs" instance=ExtResource("7_fxmw4")]
+position = Vector2(167, 906)
+
+[node name="Text" parent="Tutorial signs/Tutorial Signs" index="1"]
+visible = false
+offset_left = -60.0
+offset_top = -52.0
+offset_right = 100.0
+offset_bottom = 11.0
+text = "Can you get to the top? Beware of the falling carts!"
+
+[node name="Tutorial Signs2" parent="Tutorial signs" instance=ExtResource("7_fxmw4")]
+position = Vector2(1632, 346)
+
+[node name="Text" parent="Tutorial signs/Tutorial Signs2" index="1"]
+visible = false
+offset_left = -51.0
+offset_top = -16.0
+offset_right = 68.0
+offset_bottom = 8.0
+text = "Almost there...
+"
+
+[node name="Tutorial Signs3" parent="Tutorial signs" instance=ExtResource("7_fxmw4")]
+position = Vector2(1189, 345)
+
+[node name="Text" parent="Tutorial signs/Tutorial Signs3" index="1"]
+visible = false
+offset_left = -47.0
+offset_top = -20.0
+offset_right = 69.0
+offset_bottom = 25.0
+text = "You're on the right 'track'... "
+
+[node name="hiding_areas" type="Node" parent="."]
+
+[node name="hidden_area" parent="hiding_areas" instance=ExtResource("3_pfkng")]
+position = Vector2(1143, 956)
+
 [connection signal="body_entered" from="level6-7" to="level6-7" method="_on_body_entered"]
-[connection signal="hiding_area_entered" from="hidden_area" to="Player" method="_on_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hidden_area" to="Player" method="_on_hiding_area_exited"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 
-[editable path="CartSpawner5"]
 [editable path="CartSpawner6"]
-[editable path="Tutorial Signs2"]
-[editable path="MovingPlatform"]
-[editable path="Tutorial Signs3"]
-[editable path="Tutorial Signs"]
+[editable path="CartSpawner5"]
+[editable path="Interactables/MovingPlatform"]
+[editable path="Tutorial signs/Tutorial Signs"]
+[editable path="Tutorial signs/Tutorial Signs2"]
+[editable path="Tutorial signs/Tutorial Signs3"]

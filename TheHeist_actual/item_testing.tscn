@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c87jh6hhp1k51"]
+[gd_scene load_steps=12 format=3 uid="uid://c87jh6hhp1k51"]
 
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="1_142n8"]
 [ext_resource type="PackedScene" uid="uid://csi0rdmglrwx7" path="res://shuriken.tscn" id="1_s1t1d"]
@@ -8,9 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bsktqpvmrsuet" path="res://bear_trap.tscn" id="5_edm52"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="8_77xx4"]
 [ext_resource type="PackedScene" uid="uid://ciqvfc1rtk5er" path="res://drone.tscn" id="9_1csx0"]
-[ext_resource type="PackedScene" uid="uid://b22lrxtkd2ah0" path="res://spring.tscn" id="9_bgdx0"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_82hr2"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_yydxg"]
 
@@ -2042,7 +2039,7 @@ sources/0 = SubResource("TileSetAtlasSource_c8nbo")
 [node name="item_testing" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_142n8")]
-position = Vector2(834, 444)
+position = Vector2(566, 446)
 
 [node name="Shuriken" parent="." instance=ExtResource("1_s1t1d")]
 position = Vector2(1076, 468)
@@ -2055,12 +2052,6 @@ position = Vector2(907, 466)
 
 [node name="Melee Enemy" parent="." instance=ExtResource("2_nqidt")]
 position = Vector2(504, 560)
-
-[node name="AnimationTree" parent="Melee Enemy" index="5"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_82hr2")
-
-[node name="PlayerDetector" parent="Melee Enemy" index="6"]
-monitoring = false
 
 [node name="Ranged Enemy" parent="." instance=ExtResource("3_ndi2w")]
 position = Vector2(913, 575)
@@ -2084,10 +2075,10 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
 [node name="Bear_trap" parent="." instance=ExtResource("5_edm52")]
-position = Vector2(694, 471)
+position = Vector2(313, 467)
 
 [node name="Bear_trap2" parent="." instance=ExtResource("5_edm52")]
-position = Vector2(611, 470)
+position = Vector2(417, 468)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 2
@@ -2110,11 +2101,4 @@ Take note: You can only possess one item at a time!"
 [node name="Drone" parent="." instance=ExtResource("9_1csx0")]
 position = Vector2(1406, 432)
 
-[node name="Spring" parent="." instance=ExtResource("9_bgdx0")]
-position = Vector2(304, 450)
-
-[node name="Spring2" parent="." instance=ExtResource("9_bgdx0")]
-position = Vector2(394, 449)
-
-[editable path="Melee Enemy"]
 [editable path="Ranged Enemy"]

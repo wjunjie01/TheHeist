@@ -22,6 +22,5 @@ func _physics_process(delta):
 	move()
 	move_and_slide()
 
-func _on_area_2d_body_entered(body: PhysicsBody2D):
-	if body.name == "Player":
-		emit_signal('player_hit')
+func _on_area_2d_body_entered(body):
+	body.gameover()

@@ -63,12 +63,6 @@ func _ready():
 	#Connect signal
 	grapplingHook.S_On_Hook_Reached.connect(On_Hooked)
 	
-
-	if get_parent().has_node("on_hit"):
-		var units = get_parent().get_node("on_hit")
-		for unit in units.get_children():
-			unit.player_hit.connect(_on_player_contact)
-	
 	if get_parent().has_node("hiding_areas"):
 		var areas = get_parent().get_node("hiding_areas")
 		for area in areas.get_children():
