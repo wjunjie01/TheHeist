@@ -26,5 +26,11 @@ func _on_level_6_pressed():
 	get_tree().change_scene_to_file("res://level_6.tscn")
 
 
+func _on_level_7_pressed():
+	get_tree().change_scene_to_file("res://level_7.tscn")
+
+
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://mainmenu.tscn")
+
+

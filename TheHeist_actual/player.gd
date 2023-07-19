@@ -97,14 +97,14 @@ func _process(delta):
 
 	#Items indicator on player
 	if has_shuriken:
-		$Shuriken.visible = true
-		$BearTrap.visible = false
+		$Shuriken.show()
+		$BearTrap.hide()
 	elif has_trap:
-		$Shuriken.visible = false
-		$BearTrap.visible = true
+		$Shuriken.hide()
+		$BearTrap.show()
 	else:
-		$Shuriken.visible = false
-		$BearTrap.visible = false
+		$Shuriken.hide()
+		$BearTrap.hide()
 		
 	if is_on_floor(): can_jump = true
 	match current_state:

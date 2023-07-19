@@ -9,6 +9,7 @@ func _ready():
 		$Village.hide()
 	else:
 		var number = scene_name.split('_')
+		print(number[1])
 		if int(number[1]) > 4:
 			$Village.hide()
 		else:

@@ -67,7 +67,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd4ub"]
-size = Vector2(38.0001, 29.6985)
+size = Vector2(38.0001, 24.5338)
 
 [node name="axe" type="Node2D"]
 scale = Vector2(2, 2)
@@ -92,7 +92,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-46.3155, 0.499871)
+position = Vector2(-43.7331, 0.499855)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_dd4ub")
 

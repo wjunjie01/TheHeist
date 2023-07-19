@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl2p5cmsj7s8v"]
+
+[ext_resource type="Script" path="res://test_scene_selector.gd" id="1_86y4b"]
+[ext_resource type="Texture2D" uid="uid://dvoi2qcxij683" path="res://art/ActualLevelselector.png" id="2_ja1sy"]
+[ext_resource type="FontFile" uid="uid://bgaydilhgyvqq" path="res://art/font/mago3.ttf" id="3_bt6r1"]
+
+[node name="level_selector" type="Node2D"]
+script = ExtResource("1_86y4b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 488.0
+offset_bottom = 2082.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ja1sy")
+
+[node name="AttackTesting" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 2
+offset_left = 194.0
+offset_top = 606.0
+offset_right = 638.0
+offset_bottom = 776.0
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Attack Testing"
+
+[node name="EnemyAttackTesting" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 2
+offset_left = 706.0
+offset_top = 606.0
+offset_right = 1330.0
+offset_bottom = 781.0
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Enemies' Attack Testing"
+
+[node name="ItemTesting" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 2
+offset_left = 1422.5
+offset_top = 606.25
+offset_right = 1872.5
+offset_bottom = 786.25
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Item Testing"
+
+[node name="DronesTesting" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 2
+offset_left = 200.0
+offset_top = 854.0
+offset_right = 621.0
+offset_bottom = 1011.0
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Drones Testing"
+
+[node name="EnvironmentTesting" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 2
+offset_left = 703.0
+offset_top = 845.0
+offset_right = 1327.0
+offset_bottom = 1014.0
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Environment Testing"
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 2
+offset_left = 1576.0
+offset_top = 943.0
+offset_right = 2090.0
+offset_bottom = 1170.0
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/TextureRect/AttackTesting" to="." method="_on_attack_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/EnemyAttackTesting" to="." method="_on_enemy_attack_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/ItemTesting" to="." method="_on_item_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/DronesTesting" to="." method="_on_drones_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/EnvironmentTesting" to="." method="_on_environment_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/MainMenu" to="." method="_on_main_menu_pressed"]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkl50i53lng7e"]
 
-[ext_resource type="Script" path="res://level6-7.gd" id="1_i6715"]
+[ext_resource type="Script" path="res://level7-8.gd" id="1_xdl5b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3nc1"]
 size = Vector2(29, 48)
 
-[node name="level6-7" type="Area2D"]
+[node name="level7-8" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_i6715")
+script = ExtResource("1_xdl5b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 50

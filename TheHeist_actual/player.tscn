@@ -362,6 +362,10 @@ target_position = Vector2(550, 0)
 collision_mask = 5
 collide_with_areas = true
 
+[node name="Polygon2D" type="Polygon2D" parent="Rotation/Projectile_indicator"]
+position = Vector2(40, 0)
+polygon = PackedVector2Array(0, -1.42857, 227.143, 0, 187.854, 0.0867577, 0, 1.42857)
+
 [node name="Shuriken_spawn" type="Marker2D" parent="Rotation"]
 position = Vector2(41.4286, 0)
 
