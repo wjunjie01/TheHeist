@@ -28,25 +28,26 @@ func _ready():
 func _physics_process(delta):
 	if player.current_state == 5:
 		$Shoot_cooldown.stop()
-	position.x = clamp(position.x, 500, 1500)
-	position.y = clamp(position.y, 200, 300)
+		
 	move_and_slide()
 	if is_destroyed:
 		move_and_slide()
 		if not is_on_floor():
 			position.y += 15
 		return
-		
-	position += direction * SPEED * delta
-	$DroneSpritesheet.flip_h = direction.x < 0
-	
-	var left_dist = abs(MuzzleLeft.global_position - player.global_position)
-	var right_dist = abs(MuzzleRight.global_position - player.global_position)
-	
-	if left_dist < right_dist:
-		current_muzzle = MuzzleLeft
 	else:
-		current_muzzle = MuzzleRight
+		position.x = clamp(position.x, 500, 1500)
+		position.y = clamp(position.y, 200, 300)
+		position += direction * SPEED * delta
+		$DroneSpritesheet.flip_h = direction.x < 0
+	
+		var left_dist = abs(MuzzleLeft.global_position - player.global_position)
+		var right_dist = abs(MuzzleRight.global_position - player.global_position)
+		
+		if left_dist < right_dist:
+			current_muzzle = MuzzleLeft
+		else:
+			current_muzzle = MuzzleRight
 		
 		
 func _on_move_cooldown_timeout():

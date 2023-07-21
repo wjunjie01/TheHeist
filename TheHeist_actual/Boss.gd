@@ -32,6 +32,9 @@ var current_state = MOVE_WITH_DRONE:
 	set(value):
 		current_state = value
 		if value == DEATH:
+			$IdleTimer.stop()
+			$AttackTimer.stop()
+			$TrackTimer.stop()
 			animationPlayer.stop()
 			animationPlayer.play("Death")
 			
@@ -65,13 +68,19 @@ func _ready():
 	animationPlayer.play("Idle")
 	
 func take_damage():
-	animationPlayer.play("Hurt")
-	health -= 1
-	if health == 0:
-		if current_phase < 2:
+	if current_phase == 1:
+		animationPlayer.play("Hurt")
+		health -= 1
+		if health == 0:
 			current_phase += 1
 			health = 3
-		else:
+			
+	elif current_phase == 2 and current_state == COLLIDED:
+		print('takedmg')
+		animationPlayer.play("Hurt")
+		health -= 1
+		if health == 0:
+			current_phase += 1
 			current_state = DEATH
 
 func _physics_process(delta):
@@ -90,7 +99,6 @@ func _physics_process(delta):
 			
 		if current_state == DEATH or current_state == COLLIDED:
 			return
-			
 		if player.current_state == 6 and current_state != DASH_ATTACK: #if player is hiding
 			current_state = WALK
 
@@ -146,11 +154,17 @@ func _on_idle_timer_timeout():
 		
 func _on_track_timer_timeout():
 	current_state = DASH_ATTACK
-
 	
 func _on_attack_timer_timeout():
+	if current_state == COLLIDED:
+		return
 	if current_state != WALK:
 		current_state = IDLE
 
 func _on_attack_detector_body_entered(body):
 	body.gameover()
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Death":
+		queue_free()

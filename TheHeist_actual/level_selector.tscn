@@ -98,12 +98,22 @@ theme_override_font_sizes/font_size = 70
 text = "Level 7
 "
 
+[node name="Level8" type="Button" parent="CanvasLayer/TextureRect"]
+offset_left = 1607.5
+offset_top = 897.5
+offset_right = 1871.5
+offset_bottom = 1064.5
+theme_override_fonts/font = ExtResource("2_fufg3")
+theme_override_font_sizes/font_size = 70
+text = "Level 8
+"
+
 [node name="Main Menu" type="Button" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 1550.0
-offset_top = 930.0
-offset_right = 2096.0
-offset_bottom = 1170.0
+offset_left = 1768.75
+offset_top = 1076.25
+offset_right = 2314.75
+offset_bottom = 1316.25
 theme_override_fonts/font = ExtResource("2_fufg3")
 theme_override_font_sizes/font_size = 100
 text = "Main Menu"
@@ -115,4 +125,5 @@ text = "Main Menu"
 [connection signal="pressed" from="CanvasLayer/TextureRect/Level5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureRect/Level6" to="." method="_on_level_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureRect/Level7" to="." method="_on_level_7_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/Level8" to="." method="_on_level_8_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureRect/Main Menu" to="." method="_on_main_menu_pressed"]
