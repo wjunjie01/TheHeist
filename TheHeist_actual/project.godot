@@ -82,6 +82,7 @@ Hook={
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="Cart"
 2d_physics/layer_6="Cart Rails"
+2d_physics/layer_7="boss_drone"
 
 [physics]
 

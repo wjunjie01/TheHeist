@@ -239,7 +239,6 @@ signal game_over
 	
 func gameover():
 	if once == true:
-		print('game over')
 		once = false
 		Engine.time_scale = 1
 		$"Mario death".play()
@@ -254,7 +253,10 @@ func _on_enemy_detector_body_entered(body):
 	if body.is_in_group("enemy"):
 		if (body.direction.x > 0 and not $Spritesheet.flip_h) or (body.direction.x < 0 and $Spritesheet.flip_h):
 			body.is_dead = true
-
+	elif body.is_in_group("boss"):
+		if (body.direction.x > 0 and not $Spritesheet.flip_h) or (body.direction.x < 0 and $Spritesheet.flip_h):
+			body.take_damage()
+			
 func _on_enemy_detector_area_entered(area):
 	if area.is_in_group("bullet"):
 		area.scale.x *= -1

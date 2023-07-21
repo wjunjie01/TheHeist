@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bapt865ix6sf0"]
+[gd_scene load_steps=54 format=3 uid="uid://bapt865ix6sf0"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_c02i6"]
 [ext_resource type="Texture2D" uid="uid://b2ekqhfs77wvi" path="res://art/main_char/AnimationSheet_Character.png" id="2_dt3rb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cc6skydycxx64" path="res://Grappling_Hook.tscn" id="4_84rtv"]
 [ext_resource type="AudioStream" uid="uid://cmcdwmkghirk4" path="res://music/mario-death_0RYR409X.mp3" id="6_51j1h"]
 [ext_resource type="Texture2D" uid="uid://bqugema3vtpoj" path="res://art/main_char/R-Key.png" id="6_evtva"]
+[ext_resource type="Script" path="res://PlayerCamera.gd" id="7_eq1g5"]
 [ext_resource type="AudioStream" uid="uid://pm35ny4our1o" path="res://music/slash-21834.mp3" id="7_qsnt4"]
 [ext_resource type="Texture2D" uid="uid://csqr4vd618yrm" path="res://art/misc/04.png" id="8_dgbmu"]
 [ext_resource type="Texture2D" uid="uid://dh4jho2uhihb5" path="res://art/misc/Bear_Trap.png" id="9_cip6x"]
@@ -425,7 +426,7 @@ libraries = {
 "": SubResource("AnimationLibrary_gcbdw")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="PlayerCamera" type="Camera2D" parent="."]
 zoom = Vector2(1.6, 1.6)
 limit_left = -20
 limit_top = -20
@@ -433,6 +434,7 @@ limit_right = 1940
 limit_bottom = 1100
 limit_smoothed = true
 position_smoothing_enabled = true
+script = ExtResource("7_eq1g5")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15

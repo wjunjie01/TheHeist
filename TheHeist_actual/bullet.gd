@@ -2,18 +2,15 @@ extends Area2D
 
 var SPEED = 300
 var velocity = Vector2.ZERO
-var deflected = false
+var deflected = false:
+	set(value):
+		deflected = value
+		if value:
+			set_collision_mask_value(2, false)
+			set_collision_mask_value(4, true)
+			rotation_degrees *= -1
 
 func _physics_process(delta):
-	if deflected:
-		set_collision_mask_value(2, false)
-		set_collision_mask_value(4, true)
-		
-	if (velocity.x < 0 and scale.x > 0) or (velocity.x > 0 and scale.x < 0):
-		scale.x *= -1
-		
-
-
 	position += SPEED * delta * velocity.normalized()
 	
 func _on_Bullet_body_entered(body):

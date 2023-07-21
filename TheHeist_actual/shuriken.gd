@@ -7,6 +7,7 @@ var fired = false
 func _physics_process(_delta):
 	if fired:
 		set_collision_mask_value(4, true)
+		set_collision_mask_value(7, true)
 		set_collision_mask_value(2, false)
 	position += velocity.normalized() * speed
 	if velocity != Vector2.ZERO:
@@ -23,4 +24,7 @@ func _on_body_entered(body):
 	
 	elif fired and body.is_in_group("drones"):
 		body.is_destroyed = true
+	
+	elif fired and body.is_in_group("boss"):
+		body.take_damage()
 	queue_free()
