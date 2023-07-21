@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100
+const SPEED = 200
 
 var direction = Vector2.ZERO
 var rng = RandomNumberGenerator.new()

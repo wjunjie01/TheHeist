@@ -7,7 +7,8 @@
 
 [node name="Shuriken" type="Area2D"]
 z_index = 5
-collision_mask = 3
+collision_layer = 128
+collision_mask = 2
 script = ExtResource("1_dyk06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

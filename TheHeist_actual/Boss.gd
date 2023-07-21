@@ -94,8 +94,13 @@ func _physics_process(delta):
 		
 	elif current_phase == 2:
 		if first_time and is_on_floor():
+			playerCamera.apply_shake()
 			current_state = IDLE
 			first_time = false
+			var sibling_nodes = get_parent().get_children()
+			for child in sibling_nodes:
+				if child.is_in_group("enemy"):
+					child.is_dead = true
 			
 		if current_state == DEATH or current_state == COLLIDED:
 			return
