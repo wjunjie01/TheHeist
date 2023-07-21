@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_45ul6"]
 radius = 7.0
-height = 34.8
+height = 31.7333
 
 [sub_resource type="Animation" id="Animation_5tfi6"]
 resource_name = "Death"
@@ -168,12 +168,15 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="StunnedTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="AttackDetector" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
-position = Vector2(-0.750052, 8.8)
+position = Vector2(-0.333333, 8)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_xj237")
 
@@ -181,4 +184,5 @@ shape = SubResource("RectangleShape2D_xj237")
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="TrackTimer" to="." method="_on_track_timer_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="StunnedTimer" to="." method="_on_stunned_timer_timeout"]
 [connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]

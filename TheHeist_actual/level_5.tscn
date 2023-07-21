@@ -83,7 +83,7 @@ layer_3/z_index = 9
 layer_3/tile_data = PackedInt32Array(1572883, 655361, 6, 1638419, 655361, 7, 1572884, 720897, 6, 1638420, 720897, 7)
 
 [node name="Player" parent="." instance=ExtResource("4_11o6y")]
-position = Vector2(85, 72)
+position = Vector2(349, 843)
 
 [node name="on_hit" type="Node" parent="."]
 
@@ -161,6 +161,7 @@ position = Vector2(1819, 858)
 scale = Vector2(1, 0.985075)
 
 [node name="Text" parent="Tutorial signs/Shuriken sign" index="1"]
+visible = false
 offset_left = -75.0
 offset_top = -68.0
 offset_right = 78.0
@@ -182,6 +183,7 @@ text = "Those flying things are drones. Try getting detecting ;D"
 position = Vector2(957, 228)
 
 [node name="Text" parent="Tutorial signs/Axe sign" index="1"]
+visible = false
 offset_left = -54.0
 offset_top = -51.0
 offset_right = 92.0

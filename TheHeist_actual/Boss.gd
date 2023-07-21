@@ -26,7 +26,7 @@ var current_phase = 1:
 				drone.is_destroyed = true
 			
 	
-enum { MOVE_WITH_DRONE, DASH_ATTACK, COLLIDED, IDLE, TRACK, WALK, DEATH }
+enum { MOVE_WITH_DRONE, DASH_ATTACK, STUNNED, IDLE, TRACK, WALK, DEATH }
 
 var current_state = MOVE_WITH_DRONE:
 	set(value):
@@ -45,21 +45,22 @@ var current_state = MOVE_WITH_DRONE:
 			animationPlayer.play("Idle")
 			
 		elif value == TRACK:
+			$TrackTimer.wait_time = 2
 			$TrackTimer.start()
 			
 		elif value == DASH_ATTACK:
+			$AttackTimer.wait_time = 2
 			$AttackTimer.start()
 			dash_attack()
 			$AttackDetector.monitoring = true
 			animationPlayer.play("Run_attack")
 		
-		elif value == COLLIDED:
+		elif value == STUNNED:
 			playerCamera.apply_shake()
 			velocity = Vector2.ZERO
 			$AttackDetector.monitoring = false
 			animationPlayer.play("Hurt")
-			$IdleTimer.wait_time = 3
-			$IdleTimer.start()
+			$StunnedTimer.start()
 		
 		elif value == WALK:
 			animationPlayer.play("Run")
@@ -75,8 +76,7 @@ func take_damage():
 			current_phase += 1
 			health = 3
 			
-	elif current_phase == 2 and current_state == COLLIDED:
-		print('takedmg')
+	elif current_phase == 2 and current_state == STUNNED:
 		animationPlayer.play("Hurt")
 		health -= 1
 		if health == 0:
@@ -102,7 +102,7 @@ func _physics_process(delta):
 				if child.is_in_group("enemy"):
 					child.is_dead = true
 			
-		if current_state == DEATH or current_state == COLLIDED:
+		if current_state == DEATH or current_state == STUNNED:
 			return
 		if player.current_state == 6 and current_state != DASH_ATTACK: #if player is hiding
 			current_state = WALK
@@ -115,7 +115,7 @@ func _physics_process(delta):
 				velocity = direction * SPEED
 				
 				if player.current_state != 6:
-					current_state = TRACK
+					current_state = IDLE
 				
 			IDLE:
 				velocity = Vector2.ZERO
@@ -125,7 +125,7 @@ func _physics_process(delta):
 					
 			DASH_ATTACK:
 				if is_on_wall():
-					current_state = COLLIDED
+					current_state = STUNNED
 
 func track():
 	var player_pos = player.global_position
@@ -161,10 +161,12 @@ func _on_track_timer_timeout():
 	current_state = DASH_ATTACK
 	
 func _on_attack_timer_timeout():
-	if current_state == COLLIDED:
+	if current_state == STUNNED:
 		return
-	if current_state != WALK:
-		current_state = IDLE
+	current_state = IDLE
+		
+func _on_stunned_timer_timeout():
+	current_state = IDLE
 
 func _on_attack_detector_body_entered(body):
 	body.gameover()
@@ -173,3 +175,6 @@ func _on_attack_detector_body_entered(body):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Death":
 		queue_free()
+
+
+

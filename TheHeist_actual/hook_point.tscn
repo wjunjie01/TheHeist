@@ -20,7 +20,7 @@ position = Vector2(-0.25, 11.75)
 shape = SubResource("RectangleShape2D_r3efv")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.247059, 0.764706, 0.643137, 0.631373)
+color = Color(0.247059, 0.764706, 0.643137, 0.486275)
 polygon = PackedVector2Array(-23, -13, 22, -13, 22, 36, -23, 36)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

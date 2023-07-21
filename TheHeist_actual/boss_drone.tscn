@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://boss_drone.gd" id="1_p36ml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unl6x"]
-size = Vector2(80, 44)
+size = Vector2(80, 39)
 
 [sub_resource type="Animation" id="Animation_lvnaf"]
 resource_name = "Destroyed"
@@ -87,7 +87,7 @@ collision_mask = 65
 script = ExtResource("1_p36ml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_unl6x")
 
 [node name="DroneSpritesheet" type="Sprite2D" parent="."]
