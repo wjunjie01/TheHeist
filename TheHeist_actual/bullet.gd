@@ -23,4 +23,7 @@ func _on_Bullet_body_entered(body):
 		
 	if body.is_in_group("enemy"):
 		body.is_dead = true
+	
+	if body.is_in_group("boss"):
+		body.take_damage()
 	queue_free()

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 1
+var health = 2
 var direction = Vector2.RIGHT
 const SPEED = 200
 const DASH_SPEED = 500
@@ -93,7 +93,7 @@ func _physics_process(delta):
 		sprite.flip_h = boss_drone.direction.x < 0
 		
 	elif current_phase == 2:
-		if first_time and is_on_floor():
+		if first_time and position.y > 900 and is_on_floor():
 			playerCamera.apply_shake()
 			current_state = IDLE
 			first_time = false
