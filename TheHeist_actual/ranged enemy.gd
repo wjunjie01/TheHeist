@@ -73,8 +73,6 @@ func shoot():
 	$Laser.play()
 	bullet.velocity = direction
 	bullet.global_position = curr_muzzle.global_position
-	if curr_muzzle == MuzzleLeft:
-		bullet.scale.x *= -1
 	can_shoot = false
 	$Timer.start()
 	

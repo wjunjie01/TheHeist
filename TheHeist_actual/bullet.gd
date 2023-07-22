@@ -8,9 +8,13 @@ var deflected = false:
 		if value:
 			set_collision_mask_value(2, false)
 			set_collision_mask_value(4, true)
-			rotation_degrees *= -1
+			scale.x *= -1
+			velocity *= -1
+			look_at(position - velocity)
 
 func _physics_process(delta):
+	if !deflected:
+		look_at(position + velocity)
 	position += SPEED * delta * velocity.normalized()
 	
 func _on_Bullet_body_entered(body):

@@ -9,6 +9,7 @@ height = 32.0
 
 [node name="Bullet" type="Area2D" groups=["bullet"]]
 z_index = 15
+scale = Vector2(1, -1)
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_6t04k")

@@ -65,7 +65,6 @@ func _on_shoot_cooldown_timeout():
 		bullet.position = current_muzzle.global_position
 		var bullet_dir = (player_pos - current_muzzle.global_position).normalized()
 		bullet.velocity = bullet_dir
-		bullet.look_at(bullet.position + bullet_dir)
 	
 
 func _on_animation_player_animation_finished(anim_name):
