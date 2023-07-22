@@ -153,7 +153,6 @@ metadata/_edit_group_ = true
 position = Vector2(0, -4)
 
 [node name="lamp2" parent="Interactables" instance=ExtResource("4_2jjte")]
-z_index = 5
 position = Vector2(1200, 774)
 metadata/_edit_group_ = true
 
@@ -161,7 +160,6 @@ metadata/_edit_group_ = true
 position = Vector2(0, -4)
 
 [node name="lamp3" parent="Interactables" instance=ExtResource("4_2jjte")]
-z_index = 5
 position = Vector2(1531, 789)
 metadata/_edit_group_ = true
 

@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://gyglpthra1wb"]
+
+[ext_resource type="Script" path="res://end_game.gd" id="1_1xtmo"]
+[ext_resource type="Texture2D" uid="uid://cn55j4ognbg0" path="res://art/END game.png" id="1_i27j7"]
+[ext_resource type="FontFile" uid="uid://drnvvspa4o8o3" path="res://art/font/mago1.ttf" id="2_3wtfh"]
+[ext_resource type="AudioStream" uid="uid://dhqiv8s5s225f" path="res://music/MARVEL STUDIOS INTRO.mp3" id="4_ospay"]
+[ext_resource type="FontFile" uid="uid://bgaydilhgyvqq" path="res://art/font/mago3.ttf" id="5_sl4ja"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqek8"]
+bg_color = Color(0.611765, 0.505882, 0.984314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5go0"]
+bg_color = Color(0.321569, 0.00784314, 0.639216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ahkf"]
+bg_color = Color(0.866667, 0.407843, 0.423529, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_4i7db"]
+Button/styles/hover = SubResource("StyleBoxFlat_uqek8")
+Button/styles/normal = SubResource("StyleBoxFlat_w5go0")
+Button/styles/pressed = SubResource("StyleBoxFlat_3ahkf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvocu"]
+modulate_color = Color(0, 0.137255, 0.137255, 1)
+
+[sub_resource type="Theme" id="Theme_apapn"]
+Button/styles/disabled = SubResource("StyleBoxTexture_fvocu")
+
+[node name="end_game" type="Node2D"]
+script = ExtResource("1_1xtmo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -13.0
+offset_top = -32.0
+offset_right = 1937.0
+offset_bottom = 1122.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1098.0
+offset_top = -18.0
+offset_right = 2685.0
+offset_bottom = 2227.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_i27j7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 36.0
+offset_top = 366.0
+offset_right = 1109.0
+offset_bottom = 810.0
+theme_override_fonts/normal_font = ExtResource("2_3wtfh")
+theme_override_font_sizes/normal_font_size = 128
+text = "We had a BLAST creating The Heist and we hope you enjoyed playing it."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 38.0
+offset_top = 26.0
+offset_right = 1046.0
+offset_bottom = 357.0
+theme_override_fonts/normal_font = ExtResource("2_3wtfh")
+theme_override_font_sizes/normal_font_size = 128
+text = "CONGRATULATIONS for completing the 1st installation of our game!"
+
+[node name="Avengers" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ospay")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_4i7db")
+
+[node name="Button" type="Button" parent="Control"]
+offset_left = 294.0
+offset_top = 828.0
+offset_right = 731.0
+offset_bottom = 985.0
+theme = SubResource("Theme_apapn")
+theme_override_fonts/font = ExtResource("5_sl4ja")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
