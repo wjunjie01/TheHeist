@@ -3602,7 +3602,7 @@ grow_vertical = 2
 texture = ExtResource("3_6uhov")
 
 [node name="Player" parent="." instance=ExtResource("3_vm7t4")]
-position = Vector2(737, 347)
+position = Vector2(742, 372)
 
 [node name="HUD" parent="." instance=ExtResource("4_y4i7p")]
 visible = false

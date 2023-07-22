@@ -259,8 +259,6 @@ func _on_enemy_detector_body_entered(body):
 			
 func _on_enemy_detector_area_entered(area):
 	if area.is_in_group("bullet"):
-		area.scale.x *= -1
-		area.velocity.x *= -1
 		area.deflected = true
 
 
