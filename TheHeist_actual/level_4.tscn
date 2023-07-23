@@ -189,7 +189,7 @@ position = Vector2(389, 710)
 position = Vector2(291, 518)
 
 [node name="flying_enemy4" parent="Enemies" instance=ExtResource("3_dkwyv")]
-position = Vector2(92, 273)
+position = Vector2(82, 266)
 
 [node name="Ranged Enemy" parent="Enemies" instance=ExtResource("6_xoa0n")]
 z_index = 5

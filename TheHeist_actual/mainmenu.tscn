@@ -123,10 +123,10 @@ stream = ExtResource("11_vlrhh")
 
 [node name="no_data" type="Label" parent="."]
 visible = false
-offset_left = 1220.0
-offset_top = 779.0
-offset_right = 1795.0
-offset_bottom = 846.0
+offset_left = 124.0
+offset_top = 758.0
+offset_right = 699.0
+offset_bottom = 825.0
 theme_override_fonts/font = ExtResource("12_cylhe")
 theme_override_font_sizes/font_size = 80
 text = "No game data found :("
