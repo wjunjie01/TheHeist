@@ -12,7 +12,7 @@ var first_time = true
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Spritesheet
 
-var current_phase = 1:
+@export var current_phase = 1:
 	set(value):
 		current_phase = value
 		if value == 2:
@@ -28,7 +28,7 @@ var current_phase = 1:
 	
 enum { MOVE_WITH_DRONE, DASH_ATTACK, STUNNED, IDLE, TRACK, WALK, DEATH }
 
-var current_state = MOVE_WITH_DRONE:
+@export var current_state = MOVE_WITH_DRONE:
 	set(value):
 		current_state = value
 		if value == DEATH:
@@ -64,6 +64,7 @@ var current_state = MOVE_WITH_DRONE:
 		
 		elif value == WALK:
 			animationPlayer.play("Run")
+
 
 func _ready():
 	animationPlayer.play("Idle")
@@ -166,7 +167,7 @@ func _on_attack_timer_timeout():
 	current_state = IDLE
 		
 func _on_stunned_timer_timeout():
-	current_state = IDLE
+	current_state = TRACK
 
 func _on_attack_detector_body_entered(body):
 	body.gameover()
@@ -174,7 +175,9 @@ func _on_attack_detector_body_entered(body):
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Death":
-		queue_free()
+		hide()
+		await get_tree().create_timer(2.0).timeout
+		get_tree().change_scene_to_file("res://end_game.tscn")
 
 
 

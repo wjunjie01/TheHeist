@@ -169,6 +169,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="StunnedTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [node name="AttackDetector" type="Area2D" parent="."]

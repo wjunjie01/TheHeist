@@ -48,6 +48,7 @@ _data = {
 }
 
 [node name="flying_enemy" type="CharacterBody2D"]
+z_index = 8
 position = Vector2(240, 134)
 scale = Vector2(1.2, 1.2)
 collision_layer = 8

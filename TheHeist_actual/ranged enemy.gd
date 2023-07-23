@@ -69,10 +69,10 @@ func move():
 
 func shoot():
 	var bullet = bullet_scene.instantiate()
+	bullet.direction = direction
+	bullet.global_position = curr_muzzle.global_position
 	get_parent().add_child(bullet)
 	$Laser.play()
-	bullet.velocity = direction
-	bullet.global_position = curr_muzzle.global_position
 	can_shoot = false
 	$Timer.start()
 	
