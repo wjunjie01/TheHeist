@@ -90,6 +90,7 @@ offset_bottom = 40.0
 theme = SubResource("Theme_4i7db")
 
 [node name="Button" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 294.0
 offset_top = 828.0
 offset_right = 731.0

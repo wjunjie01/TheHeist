@@ -295,7 +295,7 @@ scale = Vector2(0.672331, 0.691053)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Melee Enemy" parent="Enemies" instance=ExtResource("16_17t3m")]
-position = Vector2(774, 991)
+position = Vector2(751, 1023)
 
 [node name="Ranged Enemy" parent="Enemies" instance=ExtResource("15_acgjn")]
 position = Vector2(1169, 441)
