@@ -20,15 +20,16 @@ var is_destroyed = false:
 			$AnimationPlayer.play("Destroyed")
 			$CollisionShape2D.position.y += 40
 
+@export var x_min = 500
+@export var x_max = 1500
+@export var y_min = 200
+@export var y_max = 300
 
 func _ready():
 	current_muzzle = MuzzleLeft
 	$AnimationPlayer.play("Walk")
 	
 func _physics_process(delta):
-	if player.current_state == 5:
-		$Shoot_cooldown.stop()
-		
 	move_and_slide()
 	if is_destroyed:
 		move_and_slide()
@@ -36,8 +37,8 @@ func _physics_process(delta):
 			position.y += 15
 		return
 	else:
-		position.x = clamp(position.x, 500, 1500)
-		position.y = clamp(position.y, 200, 300)
+		position.x = clamp(position.x, x_min, x_max)
+		position.y = clamp(position.y, y_min, y_max)
 		position += direction * SPEED * delta
 		$DroneSpritesheet.flip_h = direction.x < 0
 	
@@ -59,6 +60,7 @@ func _on_move_cooldown_timeout():
 		3: direction = Vector2.RIGHT
 
 func _on_shoot_cooldown_timeout():
+	if player.current_state != 6:
 		var bullet = bullet_scene.instantiate()
 		var player_pos = player.global_position
 		bullet.position = current_muzzle.global_position

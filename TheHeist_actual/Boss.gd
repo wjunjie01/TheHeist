@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var health = 2
+
+
 var direction = Vector2.RIGHT
 const SPEED = 200
 const DASH_SPEED = 500
@@ -20,11 +21,14 @@ var already_hit = false
 			boss_drone.is_destroyed = true
 			
 			var lamps = get_parent().get_node("lamps")
-			for lamp in lamps.get_children():
-				lamp.queue_free()
+			if lamps:
+				for lamp in lamps.get_children():
+					lamp.queue_free()
+			
 			var drones = get_parent().get_node("drones")
-			for drone in drones.get_children():
-				drone.is_destroyed = true
+			if drones:
+				for drone in drones.get_children():
+					drone.is_destroyed = true
 			
 	
 enum { MOVE_WITH_DRONE, DASH_ATTACK, STUNNED, IDLE, TRACK, WALK, DEATH }
@@ -67,6 +71,8 @@ enum { MOVE_WITH_DRONE, DASH_ATTACK, STUNNED, IDLE, TRACK, WALK, DEATH }
 		elif value == WALK:
 			animationPlayer.play("Run")
 
+@export var health = 2
+@export var phase2_health = 3
 
 func _ready():
 	animationPlayer.play("Idle")
@@ -77,7 +83,7 @@ func take_damage():
 		health -= 1
 		if health == 0:
 			current_phase += 1
-			health = 3
+			health = phase2_health
 			
 	elif current_phase == 2 and current_state == STUNNED and !already_hit:
 		health -= 1
@@ -85,13 +91,14 @@ func take_damage():
 		
 		already_hit = true
 		await get_tree().create_timer(1).timeout
-		current_state = TRACK
 		
 		if health == 0:
-			current_phase += 1
 			current_state = DEATH
-
+		else:
+			current_state = TRACK
 func _physics_process(delta):
+	print("health is", health)
+	print("phase is", current_phase)
 	move_and_slide()
 	
 	if not is_on_floor():
@@ -171,7 +178,8 @@ func _on_attack_timer_timeout():
 	current_state = IDLE
 		
 func _on_stunned_timer_timeout():
-	current_state = TRACK
+	if current_state != DEATH:
+		current_state = TRACK
 
 func _on_attack_detector_body_entered(body):
 	body.gameover()
