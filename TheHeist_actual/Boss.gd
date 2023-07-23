@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-
-
 var direction = Vector2.RIGHT
 const SPEED = 200
 const DASH_SPEED = 500
@@ -96,9 +94,8 @@ func take_damage():
 			current_state = DEATH
 		else:
 			current_state = TRACK
+			
 func _physics_process(delta):
-	print("health is", health)
-	print("phase is", current_phase)
 	move_and_slide()
 	
 	if not is_on_floor():

@@ -19,6 +19,10 @@ func _on_drones_testing_pressed():
 func _on_environment_testing_pressed():
 	get_tree().change_scene_to_file("res://environment_testing.tscn")
 
-
+func _on_boss_testing_pressed():
+	get_tree().change_scene_to_file("res://boss_testing.tscn")
+	
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://mainmenu.tscn")
+
+
