@@ -5,6 +5,7 @@ var direction = Vector2.RIGHT
 const SPEED = 200
 const DASH_SPEED = 500
 var first_time = true
+var already_hit = false
 
 @onready var player = get_parent().get_node("Player")
 @onready var playerCamera = player.get_node("PlayerCamera")
@@ -45,6 +46,7 @@ enum { MOVE_WITH_DRONE, DASH_ATTACK, STUNNED, IDLE, TRACK, WALK, DEATH }
 			animationPlayer.play("Idle")
 			
 		elif value == TRACK:
+			already_hit = false
 			$TrackTimer.wait_time = 2
 			$TrackTimer.start()
 			
@@ -77,9 +79,14 @@ func take_damage():
 			current_phase += 1
 			health = 3
 			
-	elif current_phase == 2 and current_state == STUNNED:
-		animationPlayer.play("Hurt")
+	elif current_phase == 2 and current_state == STUNNED and !already_hit:
 		health -= 1
+		animationPlayer.play("Hurt")
+		
+		already_hit = true
+		await get_tree().create_timer(1).timeout
+		current_state = TRACK
+		
 		if health == 0:
 			current_phase += 1
 			current_state = DEATH
@@ -102,6 +109,10 @@ func _physics_process(delta):
 			for child in sibling_nodes:
 				if child.is_in_group("enemy"):
 					child.is_dead = true
+					
+		elif first_time and position.y < 900 and is_on_floor():
+			current_state = WALK
+			
 			
 		if current_state == DEATH or current_state == STUNNED:
 			return
@@ -137,7 +148,7 @@ func track():
 		direction = Vector2.RIGHT
 		sprite.flip_h = false
 		
-	if abs(player_pos.x - global_position.x) < 50:
+	if abs(player_pos.x - global_position.x) < 200:
 		velocity = Vector2.ZERO
 		animationPlayer.play("Idle")
 	else:
@@ -145,14 +156,7 @@ func track():
 		animationPlayer.play("Run")
 
 func dash_attack():
-	var player_pos = player.global_position
-	var dash_dir = Vector2.RIGHT
-	sprite.flip_h = false
-	if player_pos.x < global_position.x:
-		dash_dir = Vector2.LEFT
-		sprite.flip_h = true
-
-	velocity = dash_dir * DASH_SPEED
+	velocity = direction * DASH_SPEED
 
 func _on_idle_timer_timeout():
 	if current_state != WALK:
@@ -178,6 +182,5 @@ func _on_animation_player_animation_finished(anim_name):
 		hide()
 		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://end_game.tscn")
-
 
 

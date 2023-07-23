@@ -695,19 +695,6 @@ position = Vector2(488, 450)
 [node name="hook_point" parent="Interactables" instance=ExtResource("3_obrex")]
 position = Vector2(1609, 303)
 
-[node name="lamp" parent="Interactables" instance=ExtResource("2_q3hda")]
-position = Vector2(574, 331)
-
-[node name="hook_point" parent="Interactables/lamp" instance=ExtResource("3_obrex")]
-position = Vector2(2, 6)
-
-[node name="lamp2" parent="Interactables" instance=ExtResource("2_q3hda")]
-position = Vector2(1518, 748)
-metadata/_edit_group_ = true
-
-[node name="hook_point" parent="Interactables/lamp2" instance=ExtResource("3_obrex")]
-position = Vector2(3, 6)
-
 [node name="Shuriken2" parent="Interactables" instance=ExtResource("3_2jorg")]
 position = Vector2(1711, 702)
 
@@ -815,6 +802,12 @@ offset_bottom = 247.0
 theme_override_fonts/normal_font = ExtResource("6_ejo4k")
 theme_override_font_sizes/normal_font_size = 64
 text = "Press 'R' to hide!"
+
+[node name="lamp" parent="." instance=ExtResource("2_q3hda")]
+position = Vector2(574, 330)
+
+[node name="lamp2" parent="." instance=ExtResource("2_q3hda")]
+position = Vector2(1519, 748)
 
 [connection signal="body_entered" from="level3-4" to="level3-4" method="_on_body_entered"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]

@@ -9,7 +9,7 @@ enum HOOKTYPE {
 @export var hookType : HOOKTYPE = HOOKTYPE.STICKY
 @export var heightOffset : float = 40
 
-@export var cursor : Resource = load("res://art/crosshair007.png")
+@export var cursor : Resource = load("res://art/misc/crosshair007.png")
 @export var old_cursor_shape : Resource = null
 var currCursor : Resource = null
 
