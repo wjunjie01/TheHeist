@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf3mid7gqcvkm"]
+[gd_scene load_steps=15 format=3 uid="uid://csjji1qm1vys3"]
 
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_b3562"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_iwpuo"]
 [ext_resource type="PackedScene" path="res://scenes/characters/player/player.tscn" id="3_5t2mx"]
-[ext_resource type="PackedScene" uid="uid://bl05u52lfv5qo" path="res://game_over.tscn" id="4_q1eoa"]
+[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="4_q1eoa"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="5_ayyf0"]
 [ext_resource type="Texture2D" uid="uid://cj8ltv2jtpgwd" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Base Tileset/PNG/Tileset Base.png" id="6_351h4"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="8_anawx"]

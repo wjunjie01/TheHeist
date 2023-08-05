@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=3]
+[gd_scene load_steps=17 format=3 uid="uid://2ea18itbnby7"]
 
-[ext_resource type="Script" path="res://scenes/levels/level_6.gd" id="1_0g7qx"]
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_b1k2n"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_qvqjf"]
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="3_1kxml"]
@@ -9,9 +8,9 @@
 [ext_resource type="PackedScene" path="res://scenes/interactables/spike/spike.tscn" id="3_mrimr"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="3_pfkng"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/cart/cart_spawner.tscn" id="3_v7tai"]
-[ext_resource type="PackedScene" path="res://scenes/characters/player/player.tscn" id="5_vyasv"]
+[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="5_hwxmn"]
+[ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="5_vyasv"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="7_fxmw4"]
-[ext_resource type="PackedScene" uid="uid://bl05u52lfv5qo" path="res://game_over.tscn" id="12_acp33"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="13_sh5rn"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/level transition/level_transition.tscn" id="15_apruf"]
 [ext_resource type="AudioStream" uid="uid://m2tg4id7ofdq" path="res://music/Another One Bites The Dust - Instrumental (mp3cut.net).mp3" id="16_3elkb"]
@@ -39,7 +38,6 @@ _data = {
 }
 
 [node name="level_6" type="Node2D"]
-script = ExtResource("1_0g7qx")
 metadata/_edit_horizontal_guides_ = [556.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -91,6 +89,18 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 9
 layer_3/tile_data = PackedInt32Array(3276807, 393217, 6, 3342343, 393217, 7, 3276808, 458753, 6, 3342344, 458753, 7, 5111817, 262144, 2, 5177353, 262144, 4, 5111818, 262144, 5, 5177354, 327680, 4, 5308423, 196608, 4, 5373959, 196608, 5, 5308424, 262144, 4, 5373960, 262144, 5, 5373961, 327680, 5, 5308425, 327680, 3, 5242889, 262144, 5, 5242888, 262144, 3, 5308421, 131072, 4, 5373957, 131072, 5, 5308422, 196608, 4, 5373958, 196608, 5, 5308419, 0, 4, 5373955, 0, 5, 5308420, 65536, 4, 5373956, 65536, 5, 4980748, 131072, 4, 5046284, 131072, 5, 4980747, 131072, 4, 5046283, 327680, 4, 5046282, 262144, 4, 5111819, 327680, 5, 5242890, 327680, 5, 5242887, 131072, 3, 5242883, 0, 3, 5242884, 65536, 3, 5242885, 131072, 3, 5242886, 196608, 3)
 
+[node name="Player" parent="." instance=ExtResource("5_vyasv")]
+position = Vector2(15.0001, 881)
+
+[node name="HUD" parent="." instance=ExtResource("5_hwxmn")]
+visible = false
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource("13_sh5rn")]
+visible = false
+
 [node name="CartSpawner7" parent="." instance=ExtResource("3_v7tai")]
 position = Vector2(7, 1041)
 
@@ -118,20 +128,9 @@ position = Vector2(82, 421)
 [node name="CartSpawner" parent="." instance=ExtResource("3_v7tai")]
 position = Vector2(38, 71)
 
-[node name="Player" parent="." instance=ExtResource("5_vyasv")]
-position = Vector2(752, 56)
-
-[node name="HUD" parent="." instance=ExtResource("12_acp33")]
-visible = false
-
-[node name="GUI" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="PauseMenu" parent="GUI" instance=ExtResource("13_sh5rn")]
-visible = false
-
 [node name="Queen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_3elkb")
+autoplay = true
 
 [node name="Interactables" type="Node" parent="."]
 

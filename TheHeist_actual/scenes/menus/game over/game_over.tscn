@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl05u52lfv5qo"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://game_over.gd" id="1_8xie5"]
+[ext_resource type="Script" path="res://scenes/menus/game over/game_over.gd" id="1_8xie5"]
 [ext_resource type="FontFile" uid="uid://drnvvspa4o8o3" path="res://art/font/mago1.ttf" id="2_43nyp"]
 [ext_resource type="Texture2D" uid="uid://bw0frsq15suny" path="res://art/font/defeat-ml.png" id="3_vylci"]
 [ext_resource type="Texture2D" uid="uid://dm0njpfrmrvu2" path="res://art/font/sad face.png" id="4_rtggw"]

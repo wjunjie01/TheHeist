@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://scenes/characters/enemy/ranged enemy/ranged enemy.tscn" id="4_jp4aa"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/flying enemy/flying_enemy.tscn" id="5_6sqd1"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="5_xa3be"]
-[ext_resource type="PackedScene" uid="uid://bl05u52lfv5qo" path="res://game_over.tscn" id="6_jhoe8"]
+[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="6_jhoe8"]
 
 [node name="enemy_testing" type="Node2D"]
 

@@ -1,12 +1,12 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=19 format=3 uid="uid://2fpckhijdfga"]
 
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_m7e6g"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_fx6xt"]
 [ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://scenes/levels/level_5.tres" id="3_oq6e1"]
-[ext_resource type="PackedScene" uid="uid://bl05u52lfv5qo" path="res://game_over.tscn" id="4_4wo6g"]
+[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="4_4wo6g"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="5_jm1qq"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/axe/axe.tscn" id="6_vmcic"]
-[ext_resource type="PackedScene" path="res://scenes/characters/player/player.tscn" id="7_6kv2y"]
+[ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="7_6kv2y"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="7_13a8x"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/spring/spring.tscn" id="8_erro0"]
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="8_fkkj7"]
@@ -47,7 +47,7 @@ grow_vertical = 2
 texture = ExtResource("2_fx6xt")
 
 [node name="Player" parent="." instance=ExtResource("7_6kv2y")]
-position = Vector2(1884, 824)
+position = Vector2(84, 983)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(2, -224)

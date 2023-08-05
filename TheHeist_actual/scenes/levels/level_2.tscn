@@ -1,13 +1,13 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=20 format=3 uid="uid://iib3o4iyjnd7"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_2.gd" id="1_0yehs"]
-[ext_resource type="PackedScene" path="res://scenes/characters/player/player.tscn" id="1_nfnio"]
+[ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="1_nfnio"]
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="2_6cknp"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://scenes/levels/level_1.tres" id="2_w43c6"]
 [ext_resource type="Texture2D" uid="uid://c0i5k5a1veb0m" path="res://art/village_art/GothicVania's town/environment/layers/middleground.png" id="3_k3iwo"]
 [ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="3_k6efj"]
-[ext_resource type="PackedScene" uid="uid://bl05u52lfv5qo" path="res://game_over.tscn" id="3_k66rt"]
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="4_2jjte"]
+[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="6_68uog"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/spike/spike.tscn" id="6_yti6h"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/spring/spring.tscn" id="10_tfngq"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="11_mnlec"]
@@ -93,9 +93,9 @@ layer_3/z_index = -1
 layer_3/tile_data = PackedInt32Array(3932195, 4128774, 2, 917603, 1966086, 21, 983139, 1966086, 22, 852068, 2031622, 20, 917604, 2031622, 21, 983140, 2031622, 22, 1048676, 2031622, 23, 1114212, 2031622, 24, 1179748, 2031622, 25, 1114215, 2097158, 14, 1179751, 2097158, 15, 1114216, 2162694, 14, 1179752, 2162694, 15)
 
 [node name="Player" parent="." instance=ExtResource("1_nfnio")]
-position = Vector2(1714, 653.332)
+position = Vector2(64, 95.0482)
 
-[node name="HUD" parent="." instance=ExtResource("3_k66rt")]
+[node name="HUD" parent="." instance=ExtResource("6_68uog")]
 visible = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
@@ -106,6 +106,7 @@ visible = false
 
 [node name="Ghibli" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_lw1s4")
+autoplay = true
 
 [node name="Enemies" type="Node" parent="."]
 

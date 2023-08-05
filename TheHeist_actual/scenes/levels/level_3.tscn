@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3]
+[gd_scene load_steps=31 format=3 uid="uid://uexk1lcuo525"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
 [ext_resource type="Script" path="res://scenes/levels/level_3.gd" id="1_pxyvu"]
@@ -6,15 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="2_q3hda"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/spike/spike.tscn" id="2_qklws"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/shuriken/shuriken.tscn" id="3_2jorg"]
-[ext_resource type="PackedScene" path="res://scenes/characters/player/player.tscn" id="3_30af2"]
+[ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="3_30af2"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="3_khpet"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hook point/hook_point.tscn" id="3_obrex"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="4_eeef4"]
-[ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="5_no8co"]
+[ext_resource type="PackedScene" uid="uid://dlp3umgqrlxii" path="res://scenes/interactables/moving platform/moving_platform.tscn" id="5_no8co"]
 [ext_resource type="FontFile" uid="uid://drnvvspa4o8o3" path="res://art/font/mago1.ttf" id="6_ejo4k"]
 [ext_resource type="Texture2D" uid="uid://cxl1ckborvv36" path="res://art/village_art/Free/Terrain/Terrain (16x16).png" id="8_ftsjx"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="9_uplvu"]
-[ext_resource type="PackedScene" uid="uid://bl05u52lfv5qo" path="res://game_over.tscn" id="11_hvui4"]
+[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="11_hvui4"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://scenes/characters/enemy/ranged enemy/ranged enemy.tscn" id="12_l3ei1"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="13_74bc2"]
 [ext_resource type="AudioStream" uid="uid://b4cs43v3su7od" path="res://music/City Hunter OST- Sad Run.mp3" id="14_1qoqe"]
@@ -567,7 +567,7 @@ text = "Bo Lui's Range
 "
 
 [node name="Player" parent="." instance=ExtResource("3_30af2")]
-position = Vector2(81, 927)
+position = Vector2(214, 175)
 metadata/_edit_group_ = true
 
 [node name="HookCollider" type="TileMap" parent="."]
@@ -616,6 +616,7 @@ visible = false
 
 [node name="CityHunter!" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_1qoqe")
+autoplay = true
 
 [node name="Interactables" type="Node" parent="."]
 

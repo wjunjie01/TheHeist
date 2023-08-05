@@ -114,6 +114,11 @@ func _process(delta):
 		HIDE:
 			$R.visible = true
 			$R/RAnimationPlayer.play("R pressed")
+			
+		STUCK_ON_HOOK:
+			animation_tree['parameters/conditions/run'] = false
+			animation_tree['parameters/conditions/idle'] = true
+
 
 func _physics_process(delta):
 	if !map_bounds.has_point(position): #method provided by Rect2 class

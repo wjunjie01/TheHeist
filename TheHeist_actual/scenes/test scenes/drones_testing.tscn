@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://kfyxn06hlhl7"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://scenes/levels/level_1.tres" id="1_k7dcc"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/drone.tscn" id="2_14oiu"]
 [ext_resource type="PackedScene" path="res://scenes/characters/player/player.tscn" id="3_y1q2r"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/enemy_spawner.tscn" id="4_yaeqe"]
-[ext_resource type="PackedScene" uid="uid://bl05u52lfv5qo" path="res://game_over.tscn" id="5_0kbb2"]
+[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="5_0kbb2"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="7_ts2ns"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="7_x5fmd"]
 

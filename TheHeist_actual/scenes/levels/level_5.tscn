@@ -1,13 +1,13 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=19 format=3 uid="uid://c8hmtgnymwxe6"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_5.gd" id="1_aki1v"]
 [ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://scenes/levels/level_5.tres" id="1_bdh1x"]
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="2_acdw0"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/spring/spring.tscn" id="3_lplwr"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="3_qhp4a"]
-[ext_resource type="PackedScene" path="res://scenes/characters/player/player.tscn" id="4_11o6y"]
+[ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="4_11o6y"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/axe/axe.tscn" id="5_susxd"]
-[ext_resource type="PackedScene" uid="uid://bl05u52lfv5qo" path="res://game_over.tscn" id="7_3ajv8"]
+[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="6_1kxvv"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="8_wxbh6"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/drone.tscn" id="9_l4pbc"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/enemy_spawner.tscn" id="10_b7mmd"]
@@ -78,11 +78,9 @@ layer_3/z_index = 9
 layer_3/tile_data = PackedInt32Array(1572883, 655361, 6, 1638419, 655361, 7, 1572884, 720897, 6, 1638420, 720897, 7)
 
 [node name="Player" parent="." instance=ExtResource("4_11o6y")]
-position = Vector2(272, 873)
+position = Vector2(108, 118)
 
-[node name="on_hit" type="Node" parent="."]
-
-[node name="HUD" parent="." instance=ExtResource("7_3ajv8")]
+[node name="HUD" parent="." instance=ExtResource("6_1kxvv")]
 visible = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
@@ -172,7 +170,7 @@ offset_left = -78.0
 offset_top = -63.0
 offset_right = 123.0
 offset_bottom = 8.0
-text = "Those flying things are drones. Try getting detecting ;D"
+text = "Those flying things are drones. Try getting detected ;D"
 
 [node name="Axe sign" parent="Tutorial signs" instance=ExtResource("11_2m200")]
 position = Vector2(957, 228)
@@ -187,6 +185,7 @@ text = "Be careful not to get your head chopped off!"
 
 [node name="Dua Lipa" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_u3f5a")
+autoplay = true
 
 [node name="MineshaftWarningSign" type="Sprite2D" parent="."]
 z_index = 5

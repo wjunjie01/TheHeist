@@ -1,9 +1,9 @@
-[gd_scene load_steps=54 format=3]
+[gd_scene load_steps=54 format=3 uid="uid://b0xkmo35cxk3k"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_c02i6"]
 [ext_resource type="Texture2D" uid="uid://b2ekqhfs77wvi" path="res://art/main_char/AnimationSheet_Character.png" id="2_dt3rb"]
 [ext_resource type="AudioStream" uid="uid://nbefklrsj21a" path="res://music/cartoon-jump-6462.mp3" id="4_0acjv"]
-[ext_resource type="PackedScene" uid="uid://cc6skydycxx64" path="res://Grappling_Hook.tscn" id="4_84rtv"]
+[ext_resource type="PackedScene" path="res://scenes/characters/player/Grappling_Hook.tscn" id="4_84rtv"]
 [ext_resource type="AudioStream" uid="uid://cmcdwmkghirk4" path="res://music/mario-death_0RYR409X.mp3" id="6_51j1h"]
 [ext_resource type="Texture2D" uid="uid://bqugema3vtpoj" path="res://art/main_char/R-Key.png" id="6_evtva"]
 [ext_resource type="Script" path="res://scenes/characters/player/PlayerCamera.gd" id="7_eq1g5"]
@@ -296,7 +296,7 @@ states/Start/position = Vector2(-25.5, 138.75)
 states/UNHIDE/node = SubResource("AnimationNodeAnimation_nhvnj")
 states/UNHIDE/position = Vector2(325.5, 350.168)
 transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_lxgjb"), "IDLE", "ATTACK", SubResource("AnimationNodeStateMachineTransition_jj588"), "ATTACK", "IDLE", SubResource("AnimationNodeStateMachineTransition_2pwxi"), "IDLE", "RUN", SubResource("AnimationNodeStateMachineTransition_4w5qc"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_httln"), "RUN", "ATTACK", SubResource("AnimationNodeStateMachineTransition_d7wfi"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_gq5qf"), "JUMP", "IDLE", SubResource("AnimationNodeStateMachineTransition_blage"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_ivu76"), "JUMP", "RUN", SubResource("AnimationNodeStateMachineTransition_2w63k"), "UNHIDE", "IDLE", SubResource("AnimationNodeStateMachineTransition_6tyw8"), "IDLE", "DIE", SubResource("AnimationNodeStateMachineTransition_feo7v"), "JUMP", "DIE", SubResource("AnimationNodeStateMachineTransition_lg018"), "RUN", "DIE", SubResource("AnimationNodeStateMachineTransition_t3y0g"), "ATTACK", "DIE", SubResource("AnimationNodeStateMachineTransition_x6ymw"), "DIE", "End", SubResource("AnimationNodeStateMachineTransition_xmuet"), "IDLE", "HIDE", SubResource("AnimationNodeStateMachineTransition_kdc13"), "HIDE", "UNHIDE", SubResource("AnimationNodeStateMachineTransition_vv6u5"), "RUN", "HIDE", SubResource("AnimationNodeStateMachineTransition_wx0as"), "ATTACK", "RUN", SubResource("AnimationNodeStateMachineTransition_86ept")]
-graph_offset = Vector2(4.7551, 166.341)
+graph_offset = Vector2(-102.245, 11.341)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4b6ao"]
 

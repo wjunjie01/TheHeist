@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var direction = Vector2.RIGHT
 const SPEED = 200
-const DASH_SPEED = 500
+const DASH_SPEED = 600
 var first_time = true
 var already_hit = false
 
@@ -186,6 +186,6 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Death":
 		hide()
 		await get_tree().create_timer(2.0).timeout
-		get_tree().change_scene_to_file("res://end_game.tscn")
+		get_tree().change_scene_to_file("res://scenes/menus/end game/end_game.tscn")
 
 

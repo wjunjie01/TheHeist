@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://gyglpthra1wb"]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="Script" path="res://end_game.gd" id="1_1xtmo"]
+[ext_resource type="Script" path="res://scenes/menus/end game/end_game.gd" id="1_1xtmo"]
 [ext_resource type="Texture2D" uid="uid://cn55j4ognbg0" path="res://art/END game.png" id="1_i27j7"]
 [ext_resource type="FontFile" uid="uid://drnvvspa4o8o3" path="res://art/font/mago1.ttf" id="2_3wtfh"]
 [ext_resource type="AudioStream" uid="uid://dhqiv8s5s225f" path="res://music/MARVEL STUDIOS INTRO.mp3" id="4_ospay"]

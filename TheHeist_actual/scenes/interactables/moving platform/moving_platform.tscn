@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlp3umgqrlxii"]
+
+[ext_resource type="Texture2D" uid="uid://cxl1ckborvv36" path="res://art/village_art/Free/Terrain/Terrain (16x16).png" id="1_lbbaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nedi"]
+size = Vector2(157, 16)
+
+[node name="MovingPlatform" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(-14, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(13.5, 0)
+shape = SubResource("RectangleShape2D_3nedi")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(13.75, 0)
+scale = Vector2(3.30208, 1)
+texture = ExtResource("1_lbbaf")
+region_enabled = true
+region_rect = Rect2(192, 64, 48, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D"]
