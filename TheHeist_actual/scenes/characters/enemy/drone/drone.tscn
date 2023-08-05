@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scenes/characters/enemy/drone/Drone.gd" id="1_cnp8b"]
+[ext_resource type="Texture2D" uid="uid://byux48ubdrxq6" path="res://art/enemy/drones.png" id="2_6mtmt"]
+[ext_resource type="Texture2D" uid="uid://b6eqs08f3fidk" path="res://art/exclamation mark.png" id="3_ft6op"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf55k"]
+radius = 24.0
+height = 77.3333
+
+[sub_resource type="Animation" id="Animation_20w5u"]
+resource_name = "Destroyed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DroneSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21]
+}
+
+[sub_resource type="Animation" id="Animation_fxgd5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DroneSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_d1nv0"]
+resource_name = "Scan_idle"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DroneSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_mgeav"]
+resource_name = "Scan_walk"
+length = 1.2
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DroneSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4vlp"]
+_data = {
+"Destroyed": SubResource("Animation_20w5u"),
+"RESET": SubResource("Animation_fxgd5"),
+"Scan_idle": SubResource("Animation_d1nv0"),
+"Scan_walk": SubResource("Animation_mgeav")
+}
+
+[node name="Drone" type="CharacterBody2D" groups=["drones"]]
+z_index = 5
+position = Vector2(131, 40)
+scale = Vector2(0.75, 0.75)
+collision_layer = 8
+script = ExtResource("1_cnp8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24)
+shape = SubResource("CapsuleShape2D_pf55k")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(-3.8147e-05, -20)
+scale = Vector2(2.5, 2.5)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector"]
+position = Vector2(-36.8, -24)
+scale = Vector2(0.445433, 0.584827)
+polygon = PackedVector2Array(9.5787, 200.629, 84.1729, 74.2328, 164.394, 200.082)
+one_way_collision_margin = 0.0
+
+[node name="Polygon2D" type="Polygon2D" parent="PlayerDetector"]
+position = Vector2(-94.4, 10.6667)
+scale = Vector2(1.17424, 1.0942)
+color = Color(0.909804, 0, 0, 0.45098)
+polygon = PackedVector2Array(80.5333, 7.46667, 52.621, 75.2177, 111.212, 75.2177)
+
+[node name="DroneSprite" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_6mtmt")
+offset = Vector2(0.200024, 2.80001)
+hframes = 8
+vframes = 3
+frame = 17
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a4vlp")
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="LedgeCheckRight" type="RayCast2D" parent="."]
+position = Vector2(90.6667, 212)
+target_position = Vector2(0, 5)
+
+[node name="LedgeCheckLeft" type="RayCast2D" parent="."]
+position = Vector2(-81.3333, 212)
+target_position = Vector2(0, 5)
+
+[node name="ExclamationMark" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -58.6667)
+scale = Vector2(0.0525362, 0.0340909)
+texture = ExtResource("3_ft6op")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_idle_timer_timeout"]

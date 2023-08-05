@@ -5,4 +5,4 @@ func _ready():
 
 
 func _on_button_pressed():
-	SceneTransition.change_scene("res://mainmenu.tscn")
+	SceneTransition.change_scene("res://scenes/menus/main menu/main_menu.tscn")

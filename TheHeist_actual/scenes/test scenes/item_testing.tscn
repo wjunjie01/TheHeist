@@ -1,14 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://c87jh6hhp1k51"]
+[gd_scene load_steps=14 format=3]
 
-[ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="1_142n8"]
-[ext_resource type="PackedScene" uid="uid://csi0rdmglrwx7" path="res://shuriken.tscn" id="1_s1t1d"]
-[ext_resource type="PackedScene" uid="uid://cc3kenl5bjuc" path="res://melee_enemy.tscn" id="2_nqidt"]
-[ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="3_ndi2w"]
+[ext_resource type="PackedScene" path="res://scenes/characters/player/player.tscn" id="1_142n8"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/shuriken/shuriken.tscn" id="1_s1t1d"]
+[ext_resource type="PackedScene" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="2_nqidt"]
+[ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://scenes/characters/enemy/ranged enemy/ranged enemy.tscn" id="3_ndi2w"]
 [ext_resource type="Texture2D" uid="uid://cyfxyq7tmv01u" path="res://art/village_art/PixelArtPerformer/TX Tileset Ground.png" id="4_423ly"]
-[ext_resource type="PackedScene" uid="uid://bsktqpvmrsuet" path="res://bear_trap.tscn" id="5_edm52"]
-[ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="8_77xx4"]
-[ext_resource type="PackedScene" uid="uid://ciqvfc1rtk5er" path="res://drone.tscn" id="9_1csx0"]
-[ext_resource type="PackedScene" uid="uid://cnc1yeseg6atn" path="res://shuriken_spawner.tscn" id="9_3yayh"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/bear trap/bear_trap.tscn" id="5_edm52"]
+[ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="8_77xx4"]
+[ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/drone.tscn" id="9_1csx0"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/shuriken/shuriken_spawner.tscn" id="9_3yayh"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_3pvxh"]
 

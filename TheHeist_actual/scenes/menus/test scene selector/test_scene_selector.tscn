@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://10q0bgk7ktwp"]
+
+[ext_resource type="Script" path="res://scenes/menus/test scene selector/test_scene_selector.gd" id="1_86y4b"]
+[ext_resource type="Texture2D" uid="uid://dvoi2qcxij683" path="res://art/ActualLevelselector.png" id="2_ja1sy"]
+[ext_resource type="FontFile" uid="uid://bgaydilhgyvqq" path="res://art/font/mago3.ttf" id="3_bt6r1"]
+
+[node name="level_selector" type="Node2D"]
+script = ExtResource("1_86y4b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 488.0
+offset_bottom = 2082.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ja1sy")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -37.0
+offset_right = 12.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="AttackTesting" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Attack Testing"
+
+[node name="EnemyAttackTesting" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Enemies' Attack Testing"
+
+[node name="ItemTesting" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Item Testing"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 70
+alignment = 1
+
+[node name="DronesTesting" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Drones Testing"
+
+[node name="EnvironmentTesting" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Environment Testing"
+
+[node name="BossTesting" type="Button" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 70
+text = "Boss Testing"
+
+[node name="MainMenu" type="Button" parent="CanvasLayer"]
+offset_left = 1481.0
+offset_top = 824.0
+offset_right = 1871.0
+offset_bottom = 912.0
+theme_override_fonts/font = ExtResource("3_bt6r1")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/AttackTesting" to="." method="_on_attack_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/EnemyAttackTesting" to="." method="_on_enemy_attack_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer/ItemTesting" to="." method="_on_item_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer2/DronesTesting" to="." method="_on_drones_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer2/EnvironmentTesting" to="." method="_on_environment_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HBoxContainer2/BossTesting" to="." method="_on_boss_testing_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_pressed"]

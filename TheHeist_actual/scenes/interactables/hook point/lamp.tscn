@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://i5rix2xxmcx4"]
+
+[ext_resource type="Texture2D" uid="uid://cj8vfmsmp0fyo" path="res://art/village_art/PixelArtPerformer/TX Village Props.png" id="1_j25xl"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/hook point/hook_point.tscn" id="2_qqenh"]
+
+[node name="lamp" type="Node2D"]
+z_index = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(70, 65)
+texture = ExtResource("1_j25xl")
+offset = Vector2(-90, -24)
+region_enabled = true
+region_rect = Rect2(928, 32, 32, 96)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(70, 65)
+texture = ExtResource("1_j25xl")
+offset = Vector2(-68, -59)
+region_enabled = true
+region_rect = Rect2(976, 32, 32, 32)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(70, 65)
+texture = ExtResource("1_j25xl")
+offset = Vector2(-57, -43)
+region_enabled = true
+region_rect = Rect2(960, 0, 32, 32)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(70, 65)
+texture = ExtResource("1_j25xl")
+offset = Vector2(-59, -61)
+region_enabled = true
+region_rect = Rect2(288, 768, 16, 16)
+
+[node name="hook_point" parent="." instance=ExtResource("2_qqenh")]
+position = Vector2(0, 6)

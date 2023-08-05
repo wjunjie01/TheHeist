@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scenes/interactables/cart/cart.gd" id="1_8h6tk"]
+[ext_resource type="Texture2D" uid="uid://bxm1qalw5ucvi" path="res://art/underground_art_cart/ezgif.com-gif-maker (1).png" id="1_ejvgn"]
+
+[sub_resource type="Animation" id="Animation_lik6t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_drl5o"]
+resource_name = "cart_move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f8oop"]
+_data = {
+"RESET": SubResource("Animation_lik6t"),
+"cart_move": SubResource("Animation_drl5o")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u7oo"]
+size = Vector2(37, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8p3l"]
+size = Vector2(41, 31)
+
+[node name="Cart" type="CharacterBody2D"]
+z_index = 100
+position = Vector2(310, 276)
+collision_layer = 16
+collision_mask = 34
+script = ExtResource("1_8h6tk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f8oop")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ejvgn")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 8.5)
+shape = SubResource("RectangleShape2D_3u7oo")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(-0.5, 8.5)
+shape = SubResource("RectangleShape2D_p8p3l")
+
+[node name="CheckLeft" type="RayCast2D" parent="."]
+position = Vector2(-20, 5)
+target_position = Vector2(0, 9)
+
+[node name="CheckRight" type="RayCast2D" parent="."]
+position = Vector2(19, 5)
+target_position = Vector2(0, 9)
+collision_mask = 16
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
