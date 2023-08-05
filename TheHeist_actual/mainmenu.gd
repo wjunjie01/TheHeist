@@ -19,12 +19,11 @@ func _ready():
 func _process(delta):
 	parallax.scroll_offset += direction * speed * delta
 
-func _on_texture_button_pressed():
+func _on_newgame_button_pressed():
 	print('New game pressed')
 	$OKAY.play()
 	save_file.level = 1
-#	SceneTransition.change_scene("res://level_1.tscn")
-	SceneTransition.change_scene("res://level_"  + str(save_file.level) + ".tscn")
+	SceneTransition.change_scene("res://scenes/levels/level_"  + str(save_file.level) + ".tscn")
 	SaveFile.save_data()
 
 func _on_texture_button_2_pressed():
@@ -32,27 +31,11 @@ func _on_texture_button_2_pressed():
 	if save_file.level == 0:
 			$no_data.show()
 	else:
-		SceneTransition.change_scene("res://level_" + str(save_file.level) + ".tscn")
+		SceneTransition.change_scene("res://scenes/levels/level_" + str(save_file.level) + ".tscn")
 
 func _on_texture_button_3_pressed():
 	print('Exit pressed')
 	get_tree().quit()
-
-func _on_environment_test_button_pressed():
-	get_tree().change_scene_to_file("res://playground.tscn")
-
-
-func _on_attack_test_button_pressed():
-	get_tree().change_scene_to_file("res://test_backstabbing.tscn")
-
-
-func _on_items_test_button_pressed():
-	get_tree().change_scene_to_file("res://item_testing.tscn")
-
-
-func _on_enemy_attack_test_button_pressed():
-	get_tree().change_scene_to_file("res://enemy_testing.tscn")
-
 
 func _on_level_selector_pressed():
 	get_tree().change_scene_to_file("res://level_selector.tscn")

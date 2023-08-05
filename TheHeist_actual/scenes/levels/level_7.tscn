@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://51g2w56cy6hi"]
+[gd_scene load_steps=19 format=3 uid="uid://fq10robcpa5e"]
 
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_m7e6g"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_fx6xt"]
-[ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://level_5.tres" id="3_oq6e1"]
+[ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://scenes/levels/level_5.tres" id="3_oq6e1"]
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="4_4wo6g"]
-[ext_resource type="PackedScene" uid="uid://bkl50i53lng7e" path="res://transition/level_6_7.tscn" id="4_fthmk"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="5_jm1qq"]
 [ext_resource type="PackedScene" uid="uid://bcg324whik3nt" path="res://axe.tscn" id="6_vmcic"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="7_6kv2y"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ciqvfc1rtk5er" path="res://drone.tscn" id="13_71srt"]
 [ext_resource type="PackedScene" uid="uid://dhwnhi8jhcmt5" path="res://enemy_spawner.tscn" id="14_kox4n"]
 [ext_resource type="PackedScene" uid="uid://csi0rdmglrwx7" path="res://shuriken.tscn" id="15_gtaik"]
+[ext_resource type="PackedScene" uid="uid://bs4qinckxodas" path="res://level_transition.tscn" id="18_3agef"]
 [ext_resource type="PackedScene" uid="uid://b1ya4ab0jsfjo" path="res://flying_enemy.tscn" id="18_6g7ji"]
 
 [node name="level_7" type="Node2D"]
@@ -47,11 +47,7 @@ grow_vertical = 2
 texture = ExtResource("2_fx6xt")
 
 [node name="Player" parent="." instance=ExtResource("7_6kv2y")]
-position = Vector2(131, 979)
-
-[node name="level7-8" parent="." instance=ExtResource("4_fthmk")]
-position = Vector2(1813, 989)
-scale = Vector2(-3.99956, -0.514043)
+position = Vector2(1884, 824)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(2, -224)
@@ -162,4 +158,6 @@ position = Vector2(1709, 832)
 [node name="flying_enemy" parent="." instance=ExtResource("18_6g7ji")]
 position = Vector2(1216, 825)
 
-[connection signal="body_entered" from="level7-8" to="level7-8" method="_on_body_entered"]
+[node name="level_transition" parent="." instance=ExtResource("18_3agef")]
+position = Vector2(1812, 990)
+scale = Vector2(2.67999, 2.07917)

@@ -17,7 +17,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SceneTransition="*res://transition/scene_transition.tscn"
+SceneTransition="*res://scene_transition.tscn"
 SaveFile="*res://save_file.gd"
 
 [display]

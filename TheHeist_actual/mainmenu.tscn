@@ -159,7 +159,7 @@ offset_bottom = 608.0
 theme_override_font_sizes/font_size = 20
 text = "Select Test Scenes"
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton" to="." method="_on_newgame_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
 [connection signal="pressed" from="LevelSelector" to="." method="_on_level_selector_pressed"]

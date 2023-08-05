@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3axxhsg13hd0"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="1_si8uv"]
+[ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://scenes/levels/level_1.tres" id="1_si8uv"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="2_tx75s"]
 [ext_resource type="PackedScene" uid="uid://cc3kenl5bjuc" path="res://melee_enemy.tscn" id="3_vj4wb"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="4_jp4aa"]

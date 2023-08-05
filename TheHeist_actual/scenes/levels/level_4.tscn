@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4kth4ewv16h"]
+[gd_scene load_steps=20 format=3 uid="uid://dp4gtgjcasy7d"]
 
-[ext_resource type="Script" path="res://level_4.gd" id="1_p7yxs"]
+[ext_resource type="Script" path="res://scenes/levels/level_4.gd" id="1_p7yxs"]
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_sasai"]
 [ext_resource type="Texture2D" uid="uid://c0i5k5a1veb0m" path="res://art/village_art/GothicVania's town/environment/layers/middleground.png" id="2_tvusr"]
 [ext_resource type="PackedScene" uid="uid://b1ya4ab0jsfjo" path="res://flying_enemy.tscn" id="3_dkwyv"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="3_xlube"]
-[ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="4_leq0f"]
+[ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://scenes/levels/level_1.tres" id="4_leq0f"]
 [ext_resource type="PackedScene" uid="uid://dmoxf2bfckmib" path="res://hook_point.tscn" id="5_0lyhh"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://ranged enemy.tscn" id="6_xoa0n"]
 [ext_resource type="PackedScene" uid="uid://csi0rdmglrwx7" path="res://shuriken.tscn" id="7_d20cv"]
@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="10_wvgq5"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="11_75k2d"]
 [ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="13_wjvvg"]
-[ext_resource type="PackedScene" uid="uid://dqsjdq0y0twh4" path="res://transition/level_4_5.tscn" id="14_npg06"]
 [ext_resource type="AudioStream" uid="uid://dmjn2or640lij" path="res://music/onlymp3.to - kamado_tanjiro_no_uta_demon_slayer_ost_piano_-1x6n44EcJI8-192k-1689311301 (mp3cut.net).mp3" id="15_6cvbb"]
 [ext_resource type="PackedScene" uid="uid://dx32hh8f4otr3" path="res://hidden_area.tscn" id="15_awpyl"]
+[ext_resource type="PackedScene" uid="uid://bs4qinckxodas" path="res://level_transition.tscn" id="17_vdlbk"]
 
 [sub_resource type="Animation" id="Animation_kxode"]
 resource_name = "move_up"
@@ -68,7 +68,7 @@ grow_vertical = 2
 texture = ExtResource("2_tvusr")
 
 [node name="Player" parent="." instance=ExtResource("3_xlube")]
-position = Vector2(223, 965)
+position = Vector2(1711, 221)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_leq0f")
@@ -106,11 +106,6 @@ layer = 2
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource("11_75k2d")]
 visible = false
-
-[node name="level4-5" parent="." instance=ExtResource("14_npg06")]
-position = Vector2(1894, 222)
-collision_layer = 0
-collision_mask = 2
 
 [node name="Tanjiro" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_6cvbb")
@@ -226,8 +221,10 @@ scale = Vector2(1.01119, 0.779228)
 [node name="Underground" parent="hiding_areas/hidden_area" index="2"]
 visible = false
 
+[node name="level_transition" parent="." instance=ExtResource("17_vdlbk")]
+position = Vector2(1913, 217)
+
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
-[connection signal="body_entered" from="level4-5" to="level4-5" method="_on_body_entered"]
 [connection signal="hiding_area_entered" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_exited"]
 

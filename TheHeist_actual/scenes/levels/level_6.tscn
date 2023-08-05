@@ -1,12 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ce2jjqm732v1y"]
+[gd_scene load_steps=18 format=3 uid="uid://xg44k2e8ttp3"]
 
-[ext_resource type="Script" path="res://level_6.gd" id="1_0g7qx"]
+[ext_resource type="Script" path="res://scenes/levels/level_6.gd" id="1_0g7qx"]
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_b1k2n"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_qvqjf"]
 [ext_resource type="PackedScene" uid="uid://dusld0glrsveu" path="res://lamp.tscn" id="3_1kxml"]
-[ext_resource type="PackedScene" uid="uid://bkl50i53lng7e" path="res://transition/level_6_7.tscn" id="3_8yt5r"]
 [ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="3_gfnl3"]
-[ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://level_5.tres" id="3_lwq3k"]
+[ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://scenes/levels/level_5.tres" id="3_lwq3k"]
 [ext_resource type="PackedScene" uid="uid://hdulm07rjik3" path="res://spike.tscn" id="3_mrimr"]
 [ext_resource type="PackedScene" uid="uid://dx32hh8f4otr3" path="res://hidden_area.tscn" id="3_pfkng"]
 [ext_resource type="PackedScene" uid="uid://cr2yt51mc17q" path="res://cart_spawner.tscn" id="3_v7tai"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ed4gitc7qhig" path="res://tutorial_signs.tscn" id="7_fxmw4"]
 [ext_resource type="PackedScene" uid="uid://bebgmhxb0goe3" path="res://hud.tscn" id="12_acp33"]
 [ext_resource type="PackedScene" uid="uid://duynpl5qisvjw" path="res://pause_menu.tscn" id="13_sh5rn"]
+[ext_resource type="PackedScene" uid="uid://bs4qinckxodas" path="res://level_transition.tscn" id="15_apruf"]
 [ext_resource type="AudioStream" uid="uid://m2tg4id7ofdq" path="res://music/Another One Bites The Dust - Instrumental (mp3cut.net).mp3" id="16_3elkb"]
 
 [sub_resource type="Animation" id="Animation_fvhjy"]
@@ -61,9 +61,6 @@ offset_top = -28.0
 offset_right = 1961.0
 offset_bottom = 1096.0
 texture = ExtResource("2_qvqjf")
-
-[node name="level6-7" parent="." instance=ExtResource("3_8yt5r")]
-position = Vector2(834, 87)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(2, -224)
@@ -122,7 +119,7 @@ position = Vector2(82, 421)
 position = Vector2(38, 71)
 
 [node name="Player" parent="." instance=ExtResource("5_vyasv")]
-position = Vector2(53, 868)
+position = Vector2(752, 56)
 
 [node name="HUD" parent="." instance=ExtResource("12_acp33")]
 visible = false
@@ -212,7 +209,9 @@ text = "You're on the right 'track'... "
 [node name="hidden_area" parent="hiding_areas" instance=ExtResource("3_pfkng")]
 position = Vector2(1143, 956)
 
-[connection signal="body_entered" from="level6-7" to="level6-7" method="_on_body_entered"]
+[node name="level_transition" parent="." instance=ExtResource("15_apruf")]
+position = Vector2(833, 95)
+
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 
 [editable path="CartSpawner6"]

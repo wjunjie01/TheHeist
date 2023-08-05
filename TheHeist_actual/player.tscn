@@ -373,7 +373,7 @@ position = Vector2(41.4286, 0)
 [node name="Grappling_Hook" parent="." instance=ExtResource("4_84rtv")]
 
 [node name="Trap_location" type="Marker2D" parent="."]
-position = Vector2(0, 35.7143)
+position = Vector2(0, 48.5714)
 
 [node name="EnemyDetector" type="Area2D" parent="."]
 collision_layer = 2

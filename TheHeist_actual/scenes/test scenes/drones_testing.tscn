@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://buu8ywwnutaes"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://level_1.tres" id="1_k7dcc"]
+[ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://scenes/levels/level_1.tres" id="1_k7dcc"]
 [ext_resource type="PackedScene" uid="uid://ciqvfc1rtk5er" path="res://drone.tscn" id="2_14oiu"]
 [ext_resource type="PackedScene" uid="uid://bapt865ix6sf0" path="res://player.tscn" id="3_y1q2r"]
 [ext_resource type="PackedScene" uid="uid://dhwnhi8jhcmt5" path="res://enemy_spawner.tscn" id="4_yaeqe"]
