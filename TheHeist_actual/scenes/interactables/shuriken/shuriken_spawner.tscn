@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://c2yfhjd3l602h"]
 
 [ext_resource type="Script" path="res://scenes/interactables/shuriken/Shuriken_Spawner.gd" id="1_hvlh1"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/shuriken/shuriken.tscn" id="2_aavha"]
@@ -17,6 +17,7 @@ shape = SubResource("RectangleShape2D_l55bk")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="Shuriken" parent="." instance=ExtResource("2_aavha")]
 

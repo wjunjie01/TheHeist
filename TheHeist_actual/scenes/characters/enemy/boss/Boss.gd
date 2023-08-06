@@ -11,11 +11,13 @@ var already_hit = false
 @onready var boss_drone = get_parent().get_node("boss_drone")
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Spritesheet
+@onready var heart_container = $"Heart Container"
 
 @export var current_phase = 1:
 	set(value):
 		current_phase = value
 		if value == 2:
+			heart_container.show()
 			boss_drone.is_destroyed = true
 			
 			var lamps = get_parent().get_node("lamps")
@@ -27,6 +29,10 @@ var already_hit = false
 			if drones:
 				for drone in drones.get_children():
 					drone.is_destroyed = true
+					
+			create_hearts()
+			heart_container.show()
+			
 			
 	
 enum { MOVE_WITH_DRONE, DASH_ATTACK, STUNNED, IDLE, TRACK, WALK, DEATH }
@@ -71,10 +77,24 @@ enum { MOVE_WITH_DRONE, DASH_ATTACK, STUNNED, IDLE, TRACK, WALK, DEATH }
 
 @export var health = 2
 @export var phase2_health = 3
+var full_heart_texture
 
 func _ready():
 	animationPlayer.play("Idle")
-	
+	full_heart_texture = preload("res://art/Heart.png")
+
+func create_hearts():
+	print('a')
+	for i in range(phase2_health):
+		print(i)
+		var heart = Sprite2D.new()
+		heart.texture = full_heart_texture
+		heart.scale = Vector2(0.5, 0.5)
+		heart.position.x = heart_container.position.x + i * 8
+		heart.name = "Heart" + str(i + 1)
+		heart_container.add_child(heart)
+		
+		
 func take_damage():
 	if current_phase == 1:
 		animationPlayer.play("Hurt")
@@ -84,6 +104,7 @@ func take_damage():
 			health = phase2_health
 			
 	elif current_phase == 2 and current_state == STUNNED and !already_hit:
+		heart_container.get_node("Heart" + str(health)).queue_free()
 		health -= 1
 		animationPlayer.play("Hurt")
 		
@@ -95,7 +116,7 @@ func take_damage():
 		else:
 			current_state = TRACK
 			
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_and_slide()
 	
 	if not is_on_floor():

@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="8_xraw7"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/enemy_spawner.tscn" id="9_ju7r5"]
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="10_5bvko"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/boss/boss_drone.tscn" id="11_8vpdd"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/boss/boss.tscn" id="12_lsnlt"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/shuriken/shuriken_spawner.tscn" id="13_k4sa4"]
+[ext_resource type="PackedScene" uid="uid://gusygo864s6w" path="res://scenes/characters/enemy/boss/boss_drone.tscn" id="11_8vpdd"]
+[ext_resource type="PackedScene" uid="uid://b64w7bmys232u" path="res://scenes/characters/enemy/boss/boss.tscn" id="12_lsnlt"]
+[ext_resource type="PackedScene" uid="uid://c2yfhjd3l602h" path="res://scenes/interactables/shuriken/shuriken_spawner.tscn" id="13_k4sa4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wsks3"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -3602,7 +3602,7 @@ grow_vertical = 2
 texture = ExtResource("3_6uhov")
 
 [node name="Player" parent="." instance=ExtResource("3_vm7t4")]
-position = Vector2(972, 673)
+position = Vector2(717, 342)
 
 [node name="HUD" parent="." instance=ExtResource("4_y4i7p")]
 visible = false
