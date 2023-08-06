@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlp3umgqrlxii"]
+[gd_scene load_steps=4 format=3 uid="uid://8phn0cqfff0q"]
 
 [ext_resource type="Texture2D" uid="uid://cxl1ckborvv36" path="res://art/village_art/Free/Terrain/Terrain (16x16).png" id="1_lbbaf"]
+[ext_resource type="Script" path="res://scenes/interactables/moving platform/moving_platform.gd" id="1_m1rl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nedi"]
 size = Vector2(157, 16)
 
 [node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_m1rl0")
 metadata/_edit_group_ = true
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]

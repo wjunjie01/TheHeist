@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://uexk1lcuo525"]
+[gd_scene load_steps=25 format=3 uid="uid://uexk1lcuo525"]
 
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_fd8ag"]
 [ext_resource type="Script" path="res://scenes/levels/level_3.gd" id="1_pxyvu"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="3_khpet"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hook point/hook_point.tscn" id="3_obrex"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="4_eeef4"]
-[ext_resource type="PackedScene" uid="uid://dlp3umgqrlxii" path="res://scenes/interactables/moving platform/moving_platform.tscn" id="5_no8co"]
+[ext_resource type="PackedScene" uid="uid://8phn0cqfff0q" path="res://scenes/interactables/moving platform/moving_platform.tscn" id="5_no8co"]
 [ext_resource type="FontFile" uid="uid://drnvvspa4o8o3" path="res://art/font/mago1.ttf" id="6_ejo4k"]
 [ext_resource type="Texture2D" uid="uid://cxl1ckborvv36" path="res://art/village_art/Free/Terrain/Terrain (16x16).png" id="8_ftsjx"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="9_uplvu"]
@@ -466,72 +466,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_ahafa")
 
-[sub_resource type="Animation" id="Animation_kxode"]
-resource_name = "move_up"
-length = 3.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-14, 0), Vector2(-14, -100), Vector2(-14, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nng78"]
-_data = {
-"move_up": SubResource("Animation_kxode")
-}
-
-[sub_resource type="Animation" id="Animation_s1818"]
-resource_name = "move_lop"
-length = 3.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6, 2.4, 3.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-14, 0), Vector2(-14, 0), Vector2(-14, 100), Vector2(-14, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtqlh"]
-_data = {
-"move_lop": SubResource("Animation_s1818")
-}
-
-[sub_resource type="Animation" id="Animation_mtc4s"]
-resource_name = "move_loop"
-length = 3.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6, 2.4, 3.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-14, 0), Vector2(-14, 0), Vector2(-14, -100), Vector2(-14, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jpy6d"]
-_data = {
-"move_loop": SubResource("Animation_mtc4s")
-}
-
 [node name="level_3" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_pxyvu")
@@ -547,6 +481,7 @@ offset_bottom = 1737.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_fd8ag")
+metadata/_edit_use_anchors_ = true
 
 [node name="Caution-do-not-cross-without-fall-protection-sign-on-white-background-free-vector" type="TextureRect" parent="."]
 offset_left = 1748.0
@@ -555,6 +490,7 @@ offset_right = 3668.0
 offset_bottom = 1304.0
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("21_e45pa")
+metadata/_edit_use_anchors_ = true
 
 [node name="Archery" type="RichTextLabel" parent="."]
 z_index = 3
@@ -565,9 +501,10 @@ offset_bottom = 387.0
 theme_override_fonts/normal_font = ExtResource("6_ejo4k")
 text = "Bo Lui's Range
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_30af2")]
-position = Vector2(214, 175)
+position = Vector2(213, 200)
 metadata/_edit_group_ = true
 
 [node name="HookCollider" type="TileMap" parent="."]
@@ -620,66 +557,14 @@ autoplay = true
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="MovingPlatform" parent="Interactables" instance=ExtResource("5_no8co")]
-position = Vector2(1454, 299)
-
-[node name="CollisionShape2D" parent="Interactables/MovingPlatform/AnimatableBody2D" index="0"]
-position = Vector2(22.5, 0)
-
-[node name="Sprite2D" parent="Interactables/MovingPlatform/AnimatableBody2D" index="1"]
-position = Vector2(22.5001, 0)
-scale = Vector2(3.27083, 1)
-
-[node name="AnimationPlayer" parent="Interactables/MovingPlatform/AnimatableBody2D" index="2"]
-autoplay = "move_up"
-libraries = {
-"": SubResource("AnimationLibrary_nng78")
-}
-
-[node name="MovingPlatform3" parent="Interactables" instance=ExtResource("5_no8co")]
-position = Vector2(474, 859)
-
-[node name="AnimationPlayer" parent="Interactables/MovingPlatform3/AnimatableBody2D" index="2"]
-autoplay = "move_lop"
-libraries = {
-"": SubResource("AnimationLibrary_jtqlh")
-}
-
-[node name="MovingPlatform2" parent="Interactables" instance=ExtResource("5_no8co")]
-position = Vector2(656, 856)
-
-[node name="AnimatableBody2D" parent="Interactables/MovingPlatform2" index="0"]
-position = Vector2(-14, -58.3115)
-
-[node name="AnimationPlayer" parent="Interactables/MovingPlatform2/AnimatableBody2D" index="2"]
-autoplay = "move_loop"
-libraries = {
-"": SubResource("AnimationLibrary_jpy6d")
-}
-
-[node name="MovingPlatform4" parent="Interactables" instance=ExtResource("5_no8co")]
-position = Vector2(292, 859)
-
-[node name="AnimationPlayer" parent="Interactables/MovingPlatform4/AnimatableBody2D" index="2"]
-autoplay = "move_loop"
-libraries = {
-"": SubResource("AnimationLibrary_jpy6d")
-}
+[node name="Spike" parent="Interactables" instance=ExtResource("2_qklws")]
+position = Vector2(368, 450)
 
 [node name="Spike2" parent="Interactables" instance=ExtResource("2_qklws")]
 position = Vector2(1521, 465)
 
 [node name="Spike3" parent="Interactables" instance=ExtResource("2_qklws")]
 position = Vector2(1586, 465)
-
-[node name="hook_point2" parent="Interactables" instance=ExtResource("3_obrex")]
-position = Vector2(1892, 609)
-
-[node name="hook_point3" parent="Interactables" instance=ExtResource("3_obrex")]
-position = Vector2(1709, 720)
-
-[node name="Spike" parent="Interactables" instance=ExtResource("2_qklws")]
-position = Vector2(368, 450)
 
 [node name="Spike4" parent="Interactables" instance=ExtResource("2_qklws")]
 position = Vector2(432, 449)
@@ -690,12 +575,18 @@ position = Vector2(488, 450)
 [node name="hook_point" parent="Interactables" instance=ExtResource("3_obrex")]
 position = Vector2(1609, 303)
 
-[node name="Shuriken2" parent="Interactables" instance=ExtResource("3_2jorg")]
-position = Vector2(1711, 702)
+[node name="hook_point2" parent="Interactables" instance=ExtResource("3_obrex")]
+position = Vector2(1892, 609)
+
+[node name="hook_point3" parent="Interactables" instance=ExtResource("3_obrex")]
+position = Vector2(1709, 720)
 
 [node name="Shuriken" parent="Interactables" instance=ExtResource("3_2jorg")]
 position = Vector2(985, 433)
 metadata/_edit_group_ = true
+
+[node name="Shuriken2" parent="Interactables" instance=ExtResource("3_2jorg")]
+position = Vector2(1711, 702)
 
 [node name="Shuriken_sign" parent="Interactables" instance=ExtResource("4_eeef4")]
 position = Vector2(930, 399)
@@ -721,6 +612,27 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" parent="Interactables/Shuriken_sign" index="2"]
 position = Vector2(7, 30)
+
+[node name="MovingPlatform" parent="Interactables" instance=ExtResource("5_no8co")]
+position = Vector2(1481, 314)
+offset = Vector2(0, -200)
+duration = 1.0
+
+[node name="MovingPlatform2" parent="Interactables" instance=ExtResource("5_no8co")]
+position = Vector2(643, 912)
+offset = Vector2(0, -200)
+duration = 2.0
+
+[node name="MovingPlatform3" parent="Interactables" instance=ExtResource("5_no8co")]
+position = Vector2(485, 912)
+offset = Vector2(-200, 0)
+duration = 2.0
+
+[node name="lamp" parent="Interactables" instance=ExtResource("2_q3hda")]
+position = Vector2(574, 330)
+
+[node name="lamp2" parent="Interactables" instance=ExtResource("2_q3hda")]
+position = Vector2(1519, 748)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -797,12 +709,7 @@ offset_bottom = 247.0
 theme_override_fonts/normal_font = ExtResource("6_ejo4k")
 theme_override_font_sizes/normal_font_size = 64
 text = "Press 'R' to hide!"
-
-[node name="lamp" parent="." instance=ExtResource("2_q3hda")]
-position = Vector2(574, 330)
-
-[node name="lamp2" parent="." instance=ExtResource("2_q3hda")]
-position = Vector2(1519, 748)
+metadata/_edit_use_anchors_ = true
 
 [node name="level_transition" parent="." instance=ExtResource("22_jcxis")]
 position = Vector2(49, 970)
@@ -815,9 +722,5 @@ position = Vector2(49, 970)
 [connection signal="hiding_area_exited" from="hiding_areas/hidden_area2" to="." method="_on_hidden_area_hiding_area_exited"]
 [connection signal="hiding_area_exited" from="hiding_areas/hidden_area2" to="Player" method="_on_hiding_area_exited"]
 
-[editable path="Interactables/MovingPlatform"]
-[editable path="Interactables/MovingPlatform3"]
-[editable path="Interactables/MovingPlatform2"]
-[editable path="Interactables/MovingPlatform4"]
 [editable path="Interactables/Shuriken_sign"]
 [editable path="Tutorial signs/Hidden area sign"]

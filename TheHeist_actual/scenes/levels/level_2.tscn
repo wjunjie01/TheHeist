@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://iib3o4iyjnd7"]
+[gd_scene load_steps=18 format=3 uid="uid://dkktlkcx5b7wc"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_2.gd" id="1_0yehs"]
 [ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="1_nfnio"]
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="2_6cknp"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://scenes/levels/level_1.tres" id="2_w43c6"]
 [ext_resource type="Texture2D" uid="uid://c0i5k5a1veb0m" path="res://art/village_art/GothicVania's town/environment/layers/middleground.png" id="3_k3iwo"]
-[ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="3_k6efj"]
+[ext_resource type="PackedScene" uid="uid://8phn0cqfff0q" path="res://scenes/interactables/moving platform/moving_platform.tscn" id="3_k6efj"]
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="4_2jjte"]
 [ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="6_68uog"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/spike/spike.tscn" id="6_yti6h"]
@@ -17,28 +17,6 @@
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="16_io1hm"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/level transition/level_transition.tscn" id="17_353yg"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://scenes/characters/enemy/ranged enemy/ranged enemy.tscn" id="18_henhm"]
-
-[sub_resource type="Animation" id="Animation_fpbi4"]
-resource_name = "moveloop"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(400, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bek6w"]
-_data = {
-"moveloop": SubResource("Animation_fpbi4")
-}
 
 [node name="level_2" type="Node2D"]
 process_mode = 1
@@ -145,18 +123,6 @@ position = Vector2(1567, 850)
 [node name="lamp" parent="Interactables" instance=ExtResource("4_2jjte")]
 position = Vector2(764, 122)
 
-[node name="MovingPlatform" parent="Interactables" instance=ExtResource("3_k6efj")]
-position = Vector2(193, 318)
-
-[node name="AnimatableBody2D" parent="Interactables/MovingPlatform" index="0"]
-position = Vector2(6.788, 0)
-
-[node name="AnimationPlayer" parent="Interactables/MovingPlatform/AnimatableBody2D" index="2"]
-autoplay = "moveloop"
-libraries = {
-"": SubResource("AnimationLibrary_bek6w")
-}
-
 [node name="Spike" parent="Interactables" instance=ExtResource("6_yti6h")]
 position = Vector2(800, 337)
 
@@ -201,8 +167,11 @@ position = Vector2(1532, 787)
 [node name="Node2D" parent="." instance=ExtResource("17_353yg")]
 position = Vector2(1817, 978.497)
 
+[node name="MovingPlatform" parent="." instance=ExtResource("3_k6efj")]
+position = Vector2(197, 318.162)
+offset = Vector2(320, 0)
+
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 
-[editable path="Interactables/MovingPlatform"]
 [editable path="Tutorial signs/Tutorial Signs"]
 [editable path="Tutorial signs/Tutorial Signs2"]

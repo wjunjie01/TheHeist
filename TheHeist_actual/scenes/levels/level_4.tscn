@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c7tafmst2hr7e"]
+[gd_scene load_steps=18 format=3 uid="uid://clqvf40r8ahmr"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_4.gd" id="1_p7yxs"]
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_sasai"]
@@ -13,32 +13,10 @@
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="8_tg2cn"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="9_7su2y"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="11_75k2d"]
-[ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="13_wjvvg"]
+[ext_resource type="PackedScene" uid="uid://8phn0cqfff0q" path="res://scenes/interactables/moving platform/moving_platform.tscn" id="13_wjvvg"]
 [ext_resource type="AudioStream" uid="uid://dmjn2or640lij" path="res://music/onlymp3.to - kamado_tanjiro_no_uta_demon_slayer_ost_piano_-1x6n44EcJI8-192k-1689311301 (mp3cut.net).mp3" id="15_6cvbb"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="15_awpyl"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/level transition/level_transition.tscn" id="17_vdlbk"]
-
-[sub_resource type="Animation" id="Animation_kxode"]
-resource_name = "move_up"
-length = 3.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-14, 0), Vector2(-14, -100), Vector2(-14, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nng78"]
-_data = {
-"move_up": SubResource("Animation_kxode")
-}
 
 [node name="level_4" type="Node2D"]
 script = ExtResource("1_p7yxs")
@@ -68,7 +46,7 @@ grow_vertical = 2
 texture = ExtResource("2_tvusr")
 
 [node name="Player" parent="." instance=ExtResource("3_xlube")]
-position = Vector2(234, 982)
+position = Vector2(233, 967)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_leq0f")
@@ -122,22 +100,6 @@ position = Vector2(818, 516)
 [node name="Shuriken3" parent="Interactables" instance=ExtResource("7_d20cv")]
 position = Vector2(990, 965)
 
-[node name="MovingPlatform" parent="Interactables" instance=ExtResource("13_wjvvg")]
-position = Vector2(1692, 321)
-
-[node name="CollisionShape2D" parent="Interactables/MovingPlatform/AnimatableBody2D" index="0"]
-position = Vector2(22.5, 0)
-
-[node name="Sprite2D" parent="Interactables/MovingPlatform/AnimatableBody2D" index="1"]
-position = Vector2(22.5001, 0)
-scale = Vector2(3.27083, 1)
-
-[node name="AnimationPlayer" parent="Interactables/MovingPlatform/AnimatableBody2D" index="2"]
-autoplay = "move_up"
-libraries = {
-"": SubResource("AnimationLibrary_nng78")
-}
-
 [node name="hook_point" parent="Interactables" instance=ExtResource("5_0lyhh")]
 position = Vector2(71.0001, 827)
 
@@ -158,6 +120,11 @@ position = Vector2(1835, 621)
 
 [node name="hook_point7" parent="Interactables" instance=ExtResource("5_0lyhh")]
 position = Vector2(1835, 396)
+
+[node name="MovingPlatform" parent="Interactables" instance=ExtResource("13_wjvvg")]
+position = Vector2(1697, 395)
+offset = Vector2(0, -150)
+duration = 1.0
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -229,6 +196,5 @@ position = Vector2(1913, 217)
 [connection signal="hiding_area_entered" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_exited"]
 
-[editable path="Interactables/MovingPlatform"]
 [editable path="Tutorial signs/Bat sign"]
 [editable path="hiding_areas/hidden_area"]

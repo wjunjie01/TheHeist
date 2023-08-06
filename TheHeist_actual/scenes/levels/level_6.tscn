@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://2ea18itbnby7"]
+[gd_scene load_steps=15 format=3 uid="uid://ctskpt3u7yb65"]
 
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_b1k2n"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_qvqjf"]
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="3_1kxml"]
-[ext_resource type="PackedScene" uid="uid://cbsy1c3rck5gl" path="res://moving_platform.tscn" id="3_gfnl3"]
+[ext_resource type="PackedScene" uid="uid://8phn0cqfff0q" path="res://scenes/interactables/moving platform/moving_platform.tscn" id="3_gfnl3"]
 [ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://scenes/levels/level_5.tres" id="3_lwq3k"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/spike/spike.tscn" id="3_mrimr"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="3_pfkng"]
@@ -14,28 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="13_sh5rn"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/level transition/level_transition.tscn" id="15_apruf"]
 [ext_resource type="AudioStream" uid="uid://m2tg4id7ofdq" path="res://music/Another One Bites The Dust - Instrumental (mp3cut.net).mp3" id="16_3elkb"]
-
-[sub_resource type="Animation" id="Animation_fvhjy"]
-resource_name = "move_up"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 2.3, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-14, 0), Vector2(-14, -250), Vector2(-14, -250), Vector2(-14, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bp7jf"]
-_data = {
-"move_up": SubResource("Animation_fvhjy")
-}
 
 [node name="level_6" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [556.0]
@@ -90,7 +68,7 @@ layer_3/z_index = 9
 layer_3/tile_data = PackedInt32Array(3276807, 393217, 6, 3342343, 393217, 7, 3276808, 458753, 6, 3342344, 458753, 7, 5111817, 262144, 2, 5177353, 262144, 4, 5111818, 262144, 5, 5177354, 327680, 4, 5308423, 196608, 4, 5373959, 196608, 5, 5308424, 262144, 4, 5373960, 262144, 5, 5373961, 327680, 5, 5308425, 327680, 3, 5242889, 262144, 5, 5242888, 262144, 3, 5308421, 131072, 4, 5373957, 131072, 5, 5308422, 196608, 4, 5373958, 196608, 5, 5308419, 0, 4, 5373955, 0, 5, 5308420, 65536, 4, 5373956, 65536, 5, 4980748, 131072, 4, 5046284, 131072, 5, 4980747, 131072, 4, 5046283, 327680, 4, 5046282, 262144, 4, 5111819, 327680, 5, 5242890, 327680, 5, 5242887, 131072, 3, 5242883, 0, 3, 5242884, 65536, 3, 5242885, 131072, 3, 5242886, 196608, 3)
 
 [node name="Player" parent="." instance=ExtResource("5_vyasv")]
-position = Vector2(15.0001, 881)
+position = Vector2(19, 870)
 
 [node name="HUD" parent="." instance=ExtResource("5_hwxmn")]
 visible = false
@@ -146,15 +124,6 @@ position = Vector2(454, 167)
 [node name="lamp4" parent="Interactables" instance=ExtResource("3_1kxml")]
 position = Vector2(676, 22)
 
-[node name="MovingPlatform" parent="Interactables" instance=ExtResource("3_gfnl3")]
-position = Vector2(1497, 772)
-
-[node name="AnimationPlayer" parent="Interactables/MovingPlatform/AnimatableBody2D" index="2"]
-autoplay = "move_up"
-libraries = {
-"": SubResource("AnimationLibrary_bp7jf")
-}
-
 [node name="Spike" parent="Interactables" instance=ExtResource("3_mrimr")]
 position = Vector2(238, 1007)
 
@@ -166,6 +135,9 @@ position = Vector2(406, 1007)
 
 [node name="Spike4" parent="Interactables" instance=ExtResource("3_mrimr")]
 position = Vector2(295, 1007)
+
+[node name="MovingPlatform" parent="Interactables" instance=ExtResource("3_gfnl3")]
+position = Vector2(1478, 818)
 
 [node name="Tutorial signs" type="Node" parent="."]
 
@@ -215,7 +187,6 @@ position = Vector2(833, 95)
 
 [editable path="CartSpawner6"]
 [editable path="CartSpawner5"]
-[editable path="Interactables/MovingPlatform"]
 [editable path="Tutorial signs/Tutorial Signs"]
 [editable path="Tutorial signs/Tutorial Signs2"]
 [editable path="Tutorial signs/Tutorial Signs3"]
