@@ -2121,8 +2121,4 @@ theme_override_font_sizes/font_size = 40
 text = "Hook point here
 v"
 
-[connection signal="hiding_area_entered" from="hiding_areas/hidden_area" to="Player" method="_on_hidden_area_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hiding_areas/hidden_area" to="Player" method="_on_hidden_area_hiding_area_exited"]
-[connection signal="hiding_area_entered" from="hiding_areas/hidden_area2" to="Player" method="_on_hidden_area_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hiding_areas/hidden_area2" to="Player" method="_on_hidden_area_hiding_area_exited"]
 [connection signal="player_hit" from="on_hit/Melee Enemy" to="Player" method="_on_melee_enemy_player_hit"]

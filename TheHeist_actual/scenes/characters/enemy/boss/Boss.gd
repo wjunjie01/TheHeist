@@ -84,9 +84,7 @@ func _ready():
 	full_heart_texture = preload("res://art/Heart.png")
 
 func create_hearts():
-	print('a')
 	for i in range(phase2_health):
-		print(i)
 		var heart = Sprite2D.new()
 		heart.texture = full_heart_texture
 		heart.scale = Vector2(0.5, 0.5)
