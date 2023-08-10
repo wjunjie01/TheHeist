@@ -66,6 +66,7 @@ func _on_shoot_cooldown_timeout():
 		bullet.position = current_muzzle.global_position
 		bullet.direction = (player_pos - current_muzzle.global_position).normalized()
 		get_parent().add_child(bullet)
+		$Laser.play()
 	
 
 func _on_animation_player_animation_finished(anim_name):

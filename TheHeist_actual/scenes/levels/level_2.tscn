@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkktlkcx5b7wc"]
+[gd_scene load_steps=17 format=3 uid="uid://dkktlkcx5b7wc"]
 
-[ext_resource type="Script" path="res://scenes/levels/level_2.gd" id="1_0yehs"]
 [ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="1_nfnio"]
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="2_6cknp"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://scenes/levels/level_1.tres" id="2_w43c6"]
@@ -13,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="11_mnlec"]
 [ext_resource type="AudioStream" uid="uid://bnaikn8setx5f" path="res://music/Joe Hisaishi - Merry-Go-Round of Life (from Howls Moving Castle) (mp3cut.net).mp3" id="13_lw1s4"]
 [ext_resource type="PackedScene" uid="uid://c6gn87bj0s7iq" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="14_1pune"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/bear trap/bear_trap.tscn" id="14_v0qgo"]
+[ext_resource type="PackedScene" uid="uid://40g8k2b1mo13" path="res://scenes/interactables/bear trap/bear_trap.tscn" id="14_v0qgo"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="16_io1hm"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/level transition/level_transition.tscn" id="17_353yg"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://scenes/characters/enemy/ranged enemy/ranged enemy.tscn" id="18_henhm"]
@@ -21,7 +20,6 @@
 [node name="level_2" type="Node2D"]
 process_mode = 1
 scale = Vector2(1, 0.999492)
-script = ExtResource("1_0yehs")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -171,8 +169,6 @@ position = Vector2(1817, 978.497)
 [node name="MovingPlatform" parent="." instance=ExtResource("3_k6efj")]
 position = Vector2(197, 318.162)
 offset = Vector2(320, 0)
-
-[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 
 [editable path="Tutorial signs/Tutorial Signs"]
 [editable path="Tutorial signs/Tutorial Signs2"]

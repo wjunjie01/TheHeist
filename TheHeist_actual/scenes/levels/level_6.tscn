@@ -184,8 +184,6 @@ position = Vector2(1143, 956)
 [node name="level_transition" parent="." instance=ExtResource("15_apruf")]
 position = Vector2(833, 95)
 
-[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
-
 [editable path="CartSpawner6"]
 [editable path="CartSpawner5"]
 [editable path="Tutorial signs/Tutorial Signs"]

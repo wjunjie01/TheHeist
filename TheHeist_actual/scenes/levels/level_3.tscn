@@ -617,7 +617,7 @@ position = Vector2(7, 30)
 [node name="MovingPlatform" parent="Interactables" instance=ExtResource("5_no8co")]
 position = Vector2(1481, 314)
 offset = Vector2(0, -200)
-duration = 1.0
+duration = 1.5
 
 [node name="MovingPlatform2" parent="Interactables" instance=ExtResource("5_no8co")]
 position = Vector2(660, 1000)
@@ -715,13 +715,10 @@ metadata/_edit_use_anchors_ = true
 [node name="level_transition" parent="." instance=ExtResource("22_jcxis")]
 position = Vector2(49, 970)
 
-[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="hiding_area_entered" from="hiding_areas/hidden_area" to="." method="_on_hidden_area_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hiding_areas/hidden_area" to="." method="_on_hidden_area_hiding_area_exited"]
 [connection signal="hiding_area_entered" from="hiding_areas/hidden_area2" to="." method="_on_hidden_area_hiding_area_entered"]
-[connection signal="hiding_area_entered" from="hiding_areas/hidden_area2" to="Player" method="_on_hiding_area_entered"]
 [connection signal="hiding_area_exited" from="hiding_areas/hidden_area2" to="." method="_on_hidden_area_hiding_area_exited"]
-[connection signal="hiding_area_exited" from="hiding_areas/hidden_area2" to="Player" method="_on_hiding_area_exited"]
 
 [editable path="Interactables/Shuriken_sign"]
 [editable path="Tutorial signs/Hidden area sign"]

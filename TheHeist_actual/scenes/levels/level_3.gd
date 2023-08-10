@@ -7,7 +7,7 @@ func _ready():
 	Engine.time_scale = .2
 
 	
-func _process(delta):
+func _process(_delta):
 	if once and Input.is_action_just_pressed("hide") and can_hide:
 		once = false
 		Engine.time_scale = 1

@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8hmtgnymwxe6"]
+[gd_scene load_steps=18 format=3 uid="uid://c8hmtgnymwxe6"]
 
-[ext_resource type="Script" path="res://scenes/levels/level_5.gd" id="1_aki1v"]
 [ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://scenes/levels/level_5.tres" id="1_bdh1x"]
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="2_acdw0"]
 [ext_resource type="PackedScene" uid="uid://clvteib2tlvnk" path="res://scenes/interactables/spring/spring.tscn" id="3_lplwr"]
@@ -21,7 +20,6 @@
 
 [node name="level_5" type="Node2D"]
 position = Vector2(1, 10)
-script = ExtResource("1_aki1v")
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -198,10 +196,6 @@ texture = ExtResource("16_g2kf2")
 position = Vector2(178, 903)
 
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
-[connection signal="hiding_area_entered" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hiding_areas/hidden_area" to="Player" method="_on_hiding_area_exited"]
-[connection signal="hiding_area_entered" from="hiding_areas/hidden_area2" to="Player" method="_on_hiding_area_entered"]
-[connection signal="hiding_area_exited" from="hiding_areas/hidden_area2" to="Player" method="_on_hiding_area_exited"]
 
 [editable path="hiding_areas/hidden_area"]
 [editable path="hiding_areas/hidden_area2"]

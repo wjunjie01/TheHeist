@@ -161,5 +161,5 @@ scale = Vector2(2.67999, 2.07917)
 
 [node name="Mario theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_7rc2f")
-volume_db = -20.0
+volume_db = -30.0
 autoplay = true

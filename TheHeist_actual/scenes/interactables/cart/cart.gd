@@ -16,7 +16,6 @@ signal player_hit
 func move():
 	#When cart collides with wall
 	var found_wall = is_on_wall()
-	var found_obstacle = CheckLeft.is_colliding() or CheckRight.is_colliding()
 	if found_wall:
 		direction.x *= -1
 		velocity.x = 0

@@ -308,8 +308,6 @@ position = Vector2(1169, 441)
 position = Vector2(202, -33)
 scale = Vector2(4.16, 0.76)
 
-[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
-
 [editable path="Tutorial Signs/Movement_sign"]
 [editable path="Tutorial Signs/Spring_sign"]
 [editable path="Tutorial Signs/Attack_sign"]

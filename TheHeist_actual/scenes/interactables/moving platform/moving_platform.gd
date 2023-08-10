@@ -11,3 +11,4 @@ func start_tween():
 	tween.set_loops().set_parallel(false)
 	tween.tween_property($AnimatableBody2D, "position", offset, duration / 2)
 	tween.tween_property($AnimatableBody2D, "position", Vector2.ZERO, duration / 2)
+	await get_tree().create_timer(0.1).timeout

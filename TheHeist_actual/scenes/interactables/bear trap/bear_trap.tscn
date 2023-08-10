@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://40g8k2b1mo13"]
 
 [ext_resource type="Script" path="res://scenes/interactables/bear trap/bear_trap.gd" id="1_mxjy1"]
 [ext_resource type="Texture2D" uid="uid://dh4jho2uhihb5" path="res://art/misc/Bear_Trap.png" id="2_56lhq"]
@@ -96,4 +96,3 @@ libraries = {
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -66,6 +66,6 @@ hframes = 4
 
 [node name="Boing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_yphfx")
-volume_db = -10.0
+volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

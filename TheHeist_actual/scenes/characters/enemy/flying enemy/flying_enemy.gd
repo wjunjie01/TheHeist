@@ -18,7 +18,7 @@ func move():
 	velocity.x = direction.x * SPEED
 	$SpriteSheet.flip_h = direction.x > 0 #flip h if moving right
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move()
 	move_and_slide()
 

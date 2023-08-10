@@ -17,6 +17,6 @@ func _ready():
 func _on_body_entered(_body):
 	emit_signal('hiding_area_entered')
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	emit_signal('hiding_area_exited')
 

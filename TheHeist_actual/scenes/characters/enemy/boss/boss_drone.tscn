@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://gusygo864s6w"]
+[gd_scene load_steps=10 format=3 uid="uid://gusygo864s6w"]
 
 [ext_resource type="Texture2D" uid="uid://cexjoigq7ci6x" path="res://art/enemy/boss/drone_spritesheet.png" id="1_domco"]
 [ext_resource type="Script" path="res://scenes/characters/enemy/boss/boss_drone.gd" id="1_p36ml"]
+[ext_resource type="AudioStream" uid="uid://bxj5ph5sucejr" path="res://music/blaster-2-81267.mp3" id="3_knli2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unl6x"]
 size = Vector2(80, 39)
@@ -115,6 +116,11 @@ autostart = true
 [node name="Move_cooldown" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Laser" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_knli2")
+volume_db = -30.0
+pitch_scale = 1.47
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]

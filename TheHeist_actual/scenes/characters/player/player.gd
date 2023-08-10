@@ -249,11 +249,6 @@ func gameover():
 		current_state = DEAD
 	
 
-func _on_player_contact():
-	
-	gameover()
-
-
 func _on_enemy_detector_body_entered(body):
 	if body.is_in_group("enemy"):
 		if (body.direction.x > 0 and not $Spritesheet.flip_h) or (body.direction.x < 0 and $Spritesheet.flip_h):

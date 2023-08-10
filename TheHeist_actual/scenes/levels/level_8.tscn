@@ -3719,7 +3719,7 @@ position = Vector2(1192, 434)
 
 [node name="Batman" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_mtjl3")
-volume_db = -20.0
+volume_db = -30.0
 autoplay = true
 
 [editable path="lamps/lamp3"]

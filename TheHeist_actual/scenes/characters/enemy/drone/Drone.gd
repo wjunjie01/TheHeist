@@ -60,7 +60,8 @@ func _on_player_detector_body_entered(_body):
 	if !just_detected:
 		$Alarm.play()
 		$ExclamationMark.visible = true
-		$PlayerDetector.monitoring = false
+		$PlayerDetector.set_deferred("monitoring", false)
+#		$PlayerDetector.monitoring = false
 		current_state = STATIONARY
 		emit_signal('player_detected')
 		still_inside = true
