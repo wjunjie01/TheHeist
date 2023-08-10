@@ -42,5 +42,5 @@ func _physics_process(delta):
 		queue_free()
 
 func _on_area_2d_body_entered(body):
-	if body.name == "Player":
-		body.gameover()
+	$cart_hit.play()
+	body.gameover()

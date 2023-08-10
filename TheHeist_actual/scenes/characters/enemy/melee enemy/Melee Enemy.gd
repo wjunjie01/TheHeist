@@ -61,4 +61,5 @@ func _on_PlayerDetector_body_entered(_body):
 	Animation_tree["parameters/conditions/attack"] = true
 
 func _on_AttackDetector_body_entered(body):
+	$on_hit.play()
 	body.gameover()

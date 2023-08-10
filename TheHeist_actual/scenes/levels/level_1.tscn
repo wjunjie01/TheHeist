@@ -9,17 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="5_s2ac6"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hook point/hook_point.tscn" id="6_0lt7a"]
 [ext_resource type="Texture2D" uid="uid://bkncjohpkbyb1" path="res://art/tutorialsignattack1.png" id="11_uthdt"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/spring/spring.tscn" id="12_75umy"]
+[ext_resource type="PackedScene" uid="uid://clvteib2tlvnk" path="res://scenes/interactables/spring/spring.tscn" id="12_75umy"]
 [ext_resource type="Texture2D" uid="uid://b1dtjj3yncyt6" path="res://art/tutorialsignattack2.png" id="12_uw2bc"]
 [ext_resource type="Texture2D" uid="uid://o66ltvuiqhfe" path="res://art/tick2.png" id="13_vc6el"]
 [ext_resource type="Texture2D" uid="uid://c7oa5f5mrjtmd" path="res://art/village_art/lamp.png" id="14_0mr2t"]
 [ext_resource type="Texture2D" uid="uid://bciolp0icqhi4" path="res://art/cross.png" id="14_fhl0b"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/spike/spike.tscn" id="14_oo6f3"]
+[ext_resource type="PackedScene" uid="uid://ctp1n23vwyfda" path="res://scenes/interactables/spike/spike.tscn" id="14_oo6f3"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://scenes/characters/enemy/ranged enemy/ranged enemy.tscn" id="15_acgjn"]
 [ext_resource type="Texture2D" uid="uid://dny4dpf2aisih" path="res://art/skull.png" id="15_pyydr"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="16_17t3m"]
+[ext_resource type="PackedScene" uid="uid://c6gn87bj0s7iq" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="16_17t3m"]
 [ext_resource type="AudioStream" uid="uid://27jy8d3k23ka" path="res://music/zelda cut.mp3" id="18_at5w3"]
-[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="20_l4kh6"]
+[ext_resource type="PackedScene" uid="uid://otcgq8ccj8gi" path="res://scenes/menus/game over/game_over.tscn" id="20_l4kh6"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/level transition/level_transition.tscn" id="22_u63yh"]
 
 [node name="level_1" type="Node2D"]
@@ -92,7 +92,7 @@ visible = false
 
 [node name="zelda" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_at5w3")
-volume_db = -8.702
+volume_db = -20.0
 autoplay = true
 
 [node name="Tutorial Signs" type="Node" parent="."]

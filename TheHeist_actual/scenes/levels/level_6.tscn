@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="3_1kxml"]
 [ext_resource type="PackedScene" uid="uid://8phn0cqfff0q" path="res://scenes/interactables/moving platform/moving_platform.tscn" id="3_gfnl3"]
 [ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://scenes/levels/level_5.tres" id="3_lwq3k"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/spike/spike.tscn" id="3_mrimr"]
+[ext_resource type="PackedScene" uid="uid://ctp1n23vwyfda" path="res://scenes/interactables/spike/spike.tscn" id="3_mrimr"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="3_pfkng"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/cart/cart_spawner.tscn" id="3_v7tai"]
-[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="5_hwxmn"]
+[ext_resource type="PackedScene" uid="uid://otcgq8ccj8gi" path="res://scenes/menus/game over/game_over.tscn" id="5_hwxmn"]
 [ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="5_vyasv"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="7_fxmw4"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="13_sh5rn"]
@@ -108,6 +108,7 @@ position = Vector2(38, 71)
 
 [node name="Queen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_3elkb")
+volume_db = -20.0
 autoplay = true
 
 [node name="Interactables" type="Node" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://dc5514ud4n2ej"]
 
 [ext_resource type="Texture2D" uid="uid://c0ftbg1oy61nk" path="res://art/enemy/Flying bat.png" id="1_0s0xi"]
 [ext_resource type="Script" path="res://scenes/characters/enemy/flying enemy/flying_enemy.gd" id="1_n8sr8"]
+[ext_resource type="AudioStream" uid="uid://npondm0frr1u" path="res://music/chew-21768.mp3" id="3_ljma4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdpih"]
 size = Vector2(44, 23.3333)
@@ -86,5 +87,8 @@ collide_with_bodies = false
 [node name="CheckRight" type="RayCast2D" parent="."]
 position = Vector2(22, -12)
 target_position = Vector2(0, 23)
+
+[node name="bite" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ljma4")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

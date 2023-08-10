@@ -1,7 +1,9 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=22 format=3 uid="uid://c6gn87bj0s7iq"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemy/melee enemy/Melee Enemy.gd" id="1_803oj"]
 [ext_resource type="Texture2D" uid="uid://dia2w3ypvgftc" path="res://art/enemy/Free City Enemies Pixel Art/1/Sprite Sheet Melee.png" id="2_w4f04"]
+[ext_resource type="AudioStream" uid="uid://pm35ny4our1o" path="res://music/slash-21834.mp3" id="3_t4igx"]
+[ext_resource type="AudioStream" uid="uid://di3ww6ymb0osp" path="res://music/punch-140236.mp3" id="4_8s26g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mcsd8"]
 radius = 28.75
@@ -37,6 +39,20 @@ tracks/1/keys = {
 }, {
 "args": [],
 "method": &"end_of_hit"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
 }]
 }
 
@@ -215,6 +231,14 @@ monitorable = false
 position = Vector2(26.1607, -13.5714)
 shape = SubResource("RectangleShape2D_wdqlx")
 debug_color = Color(0.984314, 0, 0.337255, 0.419608)
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t4igx")
+volume_db = -10.0
+
+[node name="on_hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8s26g")
+volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

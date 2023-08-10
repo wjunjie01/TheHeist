@@ -58,6 +58,7 @@ signal player_detected
 
 func _on_player_detector_body_entered(_body):
 	if !just_detected:
+		$Alarm.play()
 		$ExclamationMark.visible = true
 		$PlayerDetector.monitoring = false
 		current_state = STATIONARY
@@ -79,6 +80,7 @@ func _on_idle_timer_timeout():
 		current_state = SCAN_IDLE
 	elif current_state == STATIONARY:
 		if !still_inside:
+			$Alarm.stop()
 			$ExclamationMark.visible = false
 			$Timer.wait_time =  rng.randf_range(1.0, 3.0)
 			$PlayerDetector.monitoring = true

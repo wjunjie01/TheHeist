@@ -1,10 +1,9 @@
-[gd_scene load_steps=54 format=3 uid="uid://b0xkmo35cxk3k"]
+[gd_scene load_steps=53 format=3 uid="uid://b0xkmo35cxk3k"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_c02i6"]
 [ext_resource type="Texture2D" uid="uid://b2ekqhfs77wvi" path="res://art/main_char/AnimationSheet_Character.png" id="2_dt3rb"]
 [ext_resource type="AudioStream" uid="uid://nbefklrsj21a" path="res://music/cartoon-jump-6462.mp3" id="4_0acjv"]
 [ext_resource type="PackedScene" path="res://scenes/characters/player/Grappling_Hook.tscn" id="4_84rtv"]
-[ext_resource type="AudioStream" uid="uid://cmcdwmkghirk4" path="res://music/mario-death_0RYR409X.mp3" id="6_51j1h"]
 [ext_resource type="Texture2D" uid="uid://bqugema3vtpoj" path="res://art/main_char/R-Key.png" id="6_evtva"]
 [ext_resource type="Script" path="res://scenes/characters/player/PlayerCamera.gd" id="7_eq1g5"]
 [ext_resource type="AudioStream" uid="uid://pm35ny4our1o" path="res://music/slash-21834.mp3" id="7_qsnt4"]
@@ -387,8 +386,12 @@ shape = SubResource("RectangleShape2D_l40kv")
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0acjv")
-volume_db = -8.4
+volume_db = -20.0
 mix_target = 1
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_qsnt4")
+volume_db = -10.0
 
 [node name="CharacterAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -410,9 +413,6 @@ parameters/conditions/unhide = false
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.4
-
-[node name="Mario death" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_51j1h")
 
 [node name="R" type="Sprite2D" parent="."]
 position = Vector2(50, -52.8571)
@@ -439,9 +439,6 @@ script = ExtResource("7_eq1g5")
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
-
-[node name="Attack" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_qsnt4")
 
 [node name="Shuriken" type="Sprite2D" parent="."]
 visible = false

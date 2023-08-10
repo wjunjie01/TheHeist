@@ -3,21 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="1_m7e6g"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="2_fx6xt"]
 [ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://scenes/levels/level_5.tres" id="3_oq6e1"]
-[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="4_4wo6g"]
+[ext_resource type="PackedScene" uid="uid://otcgq8ccj8gi" path="res://scenes/menus/game over/game_over.tscn" id="4_4wo6g"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="5_jm1qq"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/axe/axe.tscn" id="6_vmcic"]
+[ext_resource type="PackedScene" uid="uid://b1yyuee5navc1" path="res://scenes/interactables/axe/axe.tscn" id="6_vmcic"]
 [ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="7_6kv2y"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="7_13a8x"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/spring/spring.tscn" id="8_erro0"]
+[ext_resource type="PackedScene" uid="uid://c6gn87bj0s7iq" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="7_13a8x"]
+[ext_resource type="PackedScene" uid="uid://clvteib2tlvnk" path="res://scenes/interactables/spring/spring.tscn" id="8_erro0"]
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="8_fkkj7"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://scenes/characters/enemy/ranged enemy/ranged enemy.tscn" id="9_5x4xp"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/hook point/hook_point.tscn" id="9_m5va7"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="10_ok60i"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/drone.tscn" id="13_71srt"]
+[ext_resource type="PackedScene" uid="uid://ca0r3v2wluxsn" path="res://scenes/characters/enemy/drone/drone.tscn" id="13_71srt"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/enemy_spawner.tscn" id="14_kox4n"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/shuriken/shuriken.tscn" id="15_gtaik"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/level transition/level_transition.tscn" id="18_3agef"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/flying enemy/flying_enemy.tscn" id="18_6g7ji"]
+[ext_resource type="PackedScene" uid="uid://dc5514ud4n2ej" path="res://scenes/characters/enemy/flying enemy/flying_enemy.tscn" id="18_6g7ji"]
+[ext_resource type="AudioStream" uid="uid://blcwwp1whg104" path="res://music/Super Mario Bros. Theme Song.mp3" id="19_7rc2f"]
 
 [node name="level_7" type="Node2D"]
 
@@ -125,17 +125,20 @@ position = Vector2(1265, 850)
 [node name="Shuriken2" parent="Interactables" instance=ExtResource("15_gtaik")]
 position = Vector2(309, 785)
 
-[node name="Spring2" parent="Interactables" instance=ExtResource("8_erro0")]
-position = Vector2(252, 767)
+[node name="Shuriken3" parent="Interactables" instance=ExtResource("15_gtaik")]
+position = Vector2(1301, 548)
 
 [node name="Spring" parent="Interactables" instance=ExtResource("8_erro0")]
 position = Vector2(1465, 1024)
 
-[node name="lamp" parent="Interactables" instance=ExtResource("8_fkkj7")]
-position = Vector2(1082, 710)
+[node name="Spring2" parent="Interactables" instance=ExtResource("8_erro0")]
+position = Vector2(252, 767)
 
-[node name="hook_point" parent="Interactables/lamp" instance=ExtResource("9_m5va7")]
-position = Vector2(-2, 7)
+[node name="Spring3" parent="Interactables" instance=ExtResource("8_erro0")]
+position = Vector2(1709, 832)
+
+[node name="lamp1" parent="Interactables" instance=ExtResource("8_fkkj7")]
+position = Vector2(1075, 708)
 
 [node name="lamp2" parent="Interactables" instance=ExtResource("8_fkkj7")]
 position = Vector2(761, 471)
@@ -149,15 +152,14 @@ position = Vector2(639, 849)
 [node name="axe3" parent="Interactables" instance=ExtResource("6_vmcic")]
 position = Vector2(988, 849)
 
-[node name="Shuriken3" parent="Interactables" instance=ExtResource("15_gtaik")]
-position = Vector2(1301, 548)
-
-[node name="Spring3" parent="Interactables" instance=ExtResource("8_erro0")]
-position = Vector2(1709, 832)
-
 [node name="flying_enemy" parent="." instance=ExtResource("18_6g7ji")]
 position = Vector2(1216, 825)
 
 [node name="level_transition" parent="." instance=ExtResource("18_3agef")]
 position = Vector2(1812, 990)
 scale = Vector2(2.67999, 2.07917)
+
+[node name="Mario theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_7rc2f")
+volume_db = -20.0
+autoplay = true

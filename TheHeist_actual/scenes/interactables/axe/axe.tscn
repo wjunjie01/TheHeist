@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://b1yyuee5navc1"]
 
 [ext_resource type="Texture2D" uid="uid://ctae4twnqysah" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Traps/PNGs/Swinging axe.png" id="1_bmg7t"]
 [ext_resource type="Script" path="res://scenes/interactables/axe/axe.gd" id="1_k7668"]
+[ext_resource type="AudioStream" uid="uid://ct66xdyaevqse" path="res://music/hit-swing-sword-small-2-95566.mp3" id="3_sj2js"]
 
 [sub_resource type="Animation" id="Animation_40vl1"]
 length = 0.001
@@ -95,5 +96,8 @@ collision_mask = 2
 position = Vector2(-43.7331, 0.499855)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_dd4ub")
+
+[node name="axe_slash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sj2js")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

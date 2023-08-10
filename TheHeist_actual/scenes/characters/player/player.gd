@@ -246,11 +246,11 @@ func gameover():
 	if once == true:
 		once = false
 		Engine.time_scale = 1
-		$"Mario death".play()
 		current_state = DEAD
 	
 
 func _on_player_contact():
+	
 	gameover()
 
 

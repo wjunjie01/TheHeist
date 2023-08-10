@@ -1,18 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://qkrijoyk8427"]
+[gd_scene load_steps=19 format=3 uid="uid://qkrijoyk8427"]
 
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="2_llmcr"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="3_6uhov"]
 [ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="3_vm7t4"]
-[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="4_y4i7p"]
+[ext_resource type="PackedScene" uid="uid://otcgq8ccj8gi" path="res://scenes/menus/game over/game_over.tscn" id="4_y4i7p"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="5_0h8w0"]
 [ext_resource type="Texture2D" uid="uid://cj8ltv2jtpgwd" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Base Tileset/PNG/Tileset Base.png" id="7_0h1rl"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/drone.tscn" id="7_h07mi"]
+[ext_resource type="PackedScene" uid="uid://ca0r3v2wluxsn" path="res://scenes/characters/enemy/drone/drone.tscn" id="7_h07mi"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="8_xraw7"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/enemy_spawner.tscn" id="9_ju7r5"]
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="10_5bvko"]
 [ext_resource type="PackedScene" uid="uid://gusygo864s6w" path="res://scenes/characters/enemy/boss/boss_drone.tscn" id="11_8vpdd"]
 [ext_resource type="PackedScene" uid="uid://b64w7bmys232u" path="res://scenes/characters/enemy/boss/boss.tscn" id="12_lsnlt"]
 [ext_resource type="PackedScene" uid="uid://c2yfhjd3l602h" path="res://scenes/interactables/shuriken/shuriken_spawner.tscn" id="13_k4sa4"]
+[ext_resource type="AudioStream" uid="uid://cfycnnq7ix6bt" path="res://music/Batman Arkham City - One by One - Best Music.mp3" id="14_mtjl3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wsks3"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -3602,7 +3603,7 @@ grow_vertical = 2
 texture = ExtResource("3_6uhov")
 
 [node name="Player" parent="." instance=ExtResource("3_vm7t4")]
-position = Vector2(717, 342)
+position = Vector2(996, 775)
 
 [node name="HUD" parent="." instance=ExtResource("4_y4i7p")]
 visible = false
@@ -3715,6 +3716,11 @@ position = Vector2(737, 431)
 
 [node name="Shuriken_Spawner2" parent="." instance=ExtResource("13_k4sa4")]
 position = Vector2(1192, 434)
+
+[node name="Batman" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_mtjl3")
+volume_db = -20.0
+autoplay = true
 
 [editable path="lamps/lamp3"]
 [editable path="lamps/lamp4"]

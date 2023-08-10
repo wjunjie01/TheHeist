@@ -212,7 +212,7 @@ parameters/conditions/walk = true
 
 [node name="Laser" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_wttic")
-volume_db = -2.0
+volume_db = -20.0
 pitch_scale = 1.47
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

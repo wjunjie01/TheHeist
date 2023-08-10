@@ -23,4 +23,5 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
+	$bite.play()
 	body.gameover()

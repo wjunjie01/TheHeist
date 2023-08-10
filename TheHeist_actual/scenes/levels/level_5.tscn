@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://scenes/levels/level_5.gd" id="1_aki1v"]
 [ext_resource type="TileSet" uid="uid://dx5g56xc3olmk" path="res://scenes/levels/level_5.tres" id="1_bdh1x"]
 [ext_resource type="Texture2D" uid="uid://du8s7ou7fhpkr" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 5.png" id="2_acdw0"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/spring/spring.tscn" id="3_lplwr"]
+[ext_resource type="PackedScene" uid="uid://clvteib2tlvnk" path="res://scenes/interactables/spring/spring.tscn" id="3_lplwr"]
 [ext_resource type="Texture2D" uid="uid://cebtx7padmd4p" path="res://art/underground_art/Foozle_2DT0007_Cave_and_Desert_Tileset_Pixel_Art/Backgrounds/Underground/PNGs/Desert Background Underground Layer 1.png" id="3_qhp4a"]
 [ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="4_11o6y"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/axe/axe.tscn" id="5_susxd"]
-[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="6_1kxvv"]
+[ext_resource type="PackedScene" uid="uid://b1yyuee5navc1" path="res://scenes/interactables/axe/axe.tscn" id="5_susxd"]
+[ext_resource type="PackedScene" uid="uid://otcgq8ccj8gi" path="res://scenes/menus/game over/game_over.tscn" id="6_1kxvv"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="8_wxbh6"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/drone.tscn" id="9_l4pbc"]
+[ext_resource type="PackedScene" uid="uid://ca0r3v2wluxsn" path="res://scenes/characters/enemy/drone/drone.tscn" id="9_l4pbc"]
 [ext_resource type="PackedScene" path="res://scenes/characters/enemy/drone/enemy_spawner.tscn" id="10_b7mmd"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="11_2m200"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hidden area/hidden_area.tscn" id="12_52hjk"]
 [ext_resource type="AudioStream" uid="uid://1oxfqgnorrko" path="res://music/onlymp3.to - dua_lipa_don_t_start_now_official_instrumental_-ZKlWxGnw9qU-192k-1689309759 (mp3cut.net).mp3" id="14_u3f5a"]
 [ext_resource type="Texture2D" uid="uid://cx4a24ulj04gn" path="res://art/misc/Mineshaft warning sign.jpg" id="16_g2kf2"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/spike/spike.tscn" id="16_xqmsn"]
+[ext_resource type="PackedScene" uid="uid://ctp1n23vwyfda" path="res://scenes/interactables/spike/spike.tscn" id="16_xqmsn"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/shuriken/shuriken.tscn" id="18_chog5"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/level transition/level_transition.tscn" id="18_mcois"]
 
@@ -185,6 +185,7 @@ text = "Be careful not to get your head chopped off!"
 
 [node name="Dua Lipa" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_u3f5a")
+volume_db = -20.0
 autoplay = true
 
 [node name="MineshaftWarningSign" type="Sprite2D" parent="."]

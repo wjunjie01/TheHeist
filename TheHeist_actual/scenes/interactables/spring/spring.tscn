@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://clvteib2tlvnk"]
 
 [ext_resource type="Script" path="res://scenes/interactables/spring/spring.gd" id="1_t76ny"]
 [ext_resource type="Texture2D" uid="uid://b2of76k1ty0kc" path="res://art/village_art/spring.png" id="1_uvftc"]
@@ -66,5 +66,6 @@ hframes = 4
 
 [node name="Boing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_yphfx")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

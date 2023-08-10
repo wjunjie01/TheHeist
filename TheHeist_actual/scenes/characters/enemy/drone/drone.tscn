@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://ca0r3v2wluxsn"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemy/drone/Drone.gd" id="1_cnp8b"]
 [ext_resource type="Texture2D" uid="uid://byux48ubdrxq6" path="res://art/enemy/drones.png" id="2_6mtmt"]
 [ext_resource type="Texture2D" uid="uid://b6eqs08f3fidk" path="res://art/exclamation mark.png" id="3_ft6op"]
+[ext_resource type="AudioStream" uid="uid://b4cakh866ri4l" path="res://music/retro-warning-157795.mp3" id="4_d4qbq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf55k"]
 radius = 24.0
@@ -83,7 +84,7 @@ _data = {
 }
 
 [node name="Drone" type="CharacterBody2D" groups=["drones"]]
-z_index = 5
+z_index = 10
 position = Vector2(131, 40)
 scale = Vector2(0.75, 0.75)
 collision_layer = 8
@@ -140,6 +141,10 @@ visible = false
 position = Vector2(0, -58.6667)
 scale = Vector2(0.0525362, 0.0340909)
 texture = ExtResource("3_ft6op")
+
+[node name="Alarm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_d4qbq")
+volume_db = -20.0
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

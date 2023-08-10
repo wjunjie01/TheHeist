@@ -7,12 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://c0i5k5a1veb0m" path="res://art/village_art/GothicVania's town/environment/layers/middleground.png" id="3_k3iwo"]
 [ext_resource type="PackedScene" uid="uid://8phn0cqfff0q" path="res://scenes/interactables/moving platform/moving_platform.tscn" id="3_k6efj"]
 [ext_resource type="PackedScene" uid="uid://i5rix2xxmcx4" path="res://scenes/interactables/hook point/lamp.tscn" id="4_2jjte"]
-[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="6_68uog"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/spike/spike.tscn" id="6_yti6h"]
-[ext_resource type="PackedScene" path="res://scenes/interactables/spring/spring.tscn" id="10_tfngq"]
+[ext_resource type="PackedScene" uid="uid://otcgq8ccj8gi" path="res://scenes/menus/game over/game_over.tscn" id="6_68uog"]
+[ext_resource type="PackedScene" uid="uid://ctp1n23vwyfda" path="res://scenes/interactables/spike/spike.tscn" id="6_yti6h"]
+[ext_resource type="PackedScene" uid="uid://clvteib2tlvnk" path="res://scenes/interactables/spring/spring.tscn" id="10_tfngq"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="11_mnlec"]
 [ext_resource type="AudioStream" uid="uid://bnaikn8setx5f" path="res://music/Joe Hisaishi - Merry-Go-Round of Life (from Howls Moving Castle) (mp3cut.net).mp3" id="13_lw1s4"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="14_1pune"]
+[ext_resource type="PackedScene" uid="uid://c6gn87bj0s7iq" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="14_1pune"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/bear trap/bear_trap.tscn" id="14_v0qgo"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="16_io1hm"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/level transition/level_transition.tscn" id="17_353yg"]
@@ -84,6 +84,7 @@ visible = false
 
 [node name="Ghibli" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_lw1s4")
+volume_db = -10.0
 autoplay = true
 
 [node name="Enemies" type="Node" parent="."]

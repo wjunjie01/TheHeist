@@ -8,6 +8,7 @@ func _ready():
 
 func _on_player_game_over():
 	show()
+	$"Mario death".play()
 
 
 func _on_button_pressed():

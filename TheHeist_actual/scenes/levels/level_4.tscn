@@ -3,15 +3,15 @@
 [ext_resource type="Script" path="res://scenes/levels/level_4.gd" id="1_p7yxs"]
 [ext_resource type="Texture2D" uid="uid://cjoilww3qt73d" path="res://art/village_art/GothicVania's town/environment/layers/background.png" id="1_sasai"]
 [ext_resource type="Texture2D" uid="uid://c0i5k5a1veb0m" path="res://art/village_art/GothicVania's town/environment/layers/middleground.png" id="2_tvusr"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/flying enemy/flying_enemy.tscn" id="3_dkwyv"]
+[ext_resource type="PackedScene" uid="uid://dc5514ud4n2ej" path="res://scenes/characters/enemy/flying enemy/flying_enemy.tscn" id="3_dkwyv"]
 [ext_resource type="PackedScene" uid="uid://b0xkmo35cxk3k" path="res://scenes/characters/player/player.tscn" id="3_xlube"]
 [ext_resource type="TileSet" uid="uid://7qksdehe4hwa" path="res://scenes/levels/level_1.tres" id="4_leq0f"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/hook point/hook_point.tscn" id="5_0lyhh"]
-[ext_resource type="PackedScene" path="res://scenes/menus/game over/game_over.tscn" id="6_je8k7"]
+[ext_resource type="PackedScene" uid="uid://otcgq8ccj8gi" path="res://scenes/menus/game over/game_over.tscn" id="6_je8k7"]
 [ext_resource type="PackedScene" uid="uid://cko5lhefjavud" path="res://scenes/characters/enemy/ranged enemy/ranged enemy.tscn" id="6_xoa0n"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/shuriken/shuriken.tscn" id="7_d20cv"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/tutorial signs/tutorial_signs.tscn" id="8_tg2cn"]
-[ext_resource type="PackedScene" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="9_7su2y"]
+[ext_resource type="PackedScene" uid="uid://c6gn87bj0s7iq" path="res://scenes/characters/enemy/melee enemy/melee_enemy.tscn" id="9_7su2y"]
 [ext_resource type="PackedScene" uid="uid://ce1lxu1oj1jyo" path="res://scenes/menus/pause menu/pause_menu.tscn" id="11_75k2d"]
 [ext_resource type="PackedScene" uid="uid://8phn0cqfff0q" path="res://scenes/interactables/moving platform/moving_platform.tscn" id="13_wjvvg"]
 [ext_resource type="AudioStream" uid="uid://dmjn2or640lij" path="res://music/onlymp3.to - kamado_tanjiro_no_uta_demon_slayer_ost_piano_-1x6n44EcJI8-192k-1689311301 (mp3cut.net).mp3" id="15_6cvbb"]
@@ -87,6 +87,7 @@ visible = false
 
 [node name="Tanjiro" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_6cvbb")
+volume_db = -20.0
 autoplay = true
 
 [node name="Interactables" type="Node" parent="."]

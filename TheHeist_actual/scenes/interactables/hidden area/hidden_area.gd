@@ -18,5 +18,5 @@ func _on_body_entered(_body):
 	emit_signal('hiding_area_entered')
 
 func _on_body_exited(body):
-	emit_signal('_hiding_area_exited')
+	emit_signal('hiding_area_exited')
 
